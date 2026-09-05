@@ -2,7 +2,7 @@
 #include "AnimacionesGenerales.h"
 
 void DibujarMenu() {
-    int equiz = 170;
+    int equiz = 150;
     int equiz2 = 0;
     ColorBlanco();
     if (opMenu == 1) { ColorAmarillo(); equiz2 = 10;
@@ -14,31 +14,31 @@ void DibujarMenu() {
     equiz2 = 0;
     if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; 
     }
-    Posicion(equiz - equiz2, 14); cout << "           __   __   __     __        ___  __          "; 
-    Posicion(equiz - equiz2, 15); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
-    Posicion(equiz - equiz2, 16); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
+    Posicion(equiz - equiz2, 13); cout << "           __   __   __     __        ___  __          "; 
+    Posicion(equiz - equiz2, 14); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
+    Posicion(equiz - equiz2, 15); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
     ColorBlanco();
     equiz2 = 0;
     if (opMenu == 3) { ColorAmarillo(); equiz2 = 10;
     }
-    Posicion(equiz - equiz2, 22); cout << "           __   ___  __   __   __                  ___  __           ";
-    Posicion(equiz - equiz2, 23); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
-    Posicion(equiz - equiz2, 24); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
+    Posicion(equiz - equiz2, 20); cout << "           __   ___  __   __   __                  ___  __           ";
+    Posicion(equiz - equiz2, 21); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
+    Posicion(equiz - equiz2, 22); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
     ColorBlanco();
     equiz2 = 0;
     if (opMenu == 4) { ColorAmarillo(); equiz2 = 10;
     }
-    Posicion(equiz - equiz2, 30); cout << "           __   __   ___  __    ___  __   __          ";
-    Posicion(equiz - equiz2, 31); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
-    Posicion(equiz - equiz2, 32); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
+    Posicion(equiz - equiz2, 27); cout << "           __   __   ___  __    ___  __   __          ";
+    Posicion(equiz - equiz2, 28); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
+    Posicion(equiz - equiz2, 29); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
     ColorBlanco();
     equiz2 = 0;
     if (opMenu == 5) {
         ColorAmarillo(); equiz2 = 10;
     }
-    Posicion(equiz - equiz2, 38); cout << "           __               __          ";
-    Posicion(equiz - equiz2, 39); cout << "          /__`  /\\  |    | |__)          ";
-    Posicion(equiz - equiz2, 40); cout << "          .__/ /~~\\ |___ | |  \\          ";
+    Posicion(equiz - equiz2, 34); cout << "           __               __          ";
+    Posicion(equiz - equiz2, 35); cout << "          /__`  /\\  |    | |__)          ";
+    Posicion(equiz - equiz2, 36); cout << "          .__/ /~~\\ |___ | |  \\          ";
     ColorBlanco();
     // __   __   __     __        ___  __  
     ///  \ |__) /  ` | /  \ |\ | |__  /__` 

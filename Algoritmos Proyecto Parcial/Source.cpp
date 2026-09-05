@@ -33,15 +33,17 @@ int main() {
    // SetConsoleScreenBufferSize(wHnd, bufferSize);
     //SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
 
-    Console::SetWindowSize(239,61);
-    Console::SetBufferSize(239, 61);
+    Console::SetWindowSize(213,48);
+    Console::SetBufferSize(213, 48);
+    Console::LargestWindowWidth;
+    Console::LargestWindowHeight;
     Console::CursorVisible = false;
     do //para mantener el menu en pantalla
     {
         enCarga = true;
         DibujarMenu();
         ColorMorado();
-        DibujarWASD(190,50);
+        DibujarWASD(180,39);
         Dibujartitulo();
         if (kbhit())
         {
