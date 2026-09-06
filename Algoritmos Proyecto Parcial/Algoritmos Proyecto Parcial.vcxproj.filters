@@ -13,11 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Animaciones">
-      <UniqueIdentifier>{39dfad78-f505-4d16-9797-5203517313de}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Clases">
       <UniqueIdentifier>{abd77f42-a034-4804-b5e6-19b7c07d64be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Funciones">
+      <UniqueIdentifier>{5a1eb1be-7ff5-4961-b2fd-55c517f5e294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AnimacionesYASCIIArts">
+      <UniqueIdentifier>{39dfad78-f505-4d16-9797-5203517313de}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,13 +33,22 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="AnimacionesGenerales.h">
-      <Filter>Source Files\Animaciones</Filter>
+      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
-    <ClInclude Include="ASCIIArts.h">
-      <Filter>Source Files\Animaciones</Filter>
+    <ClInclude Include="ASCIIArtsMenu.h">
+      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
     <ClInclude Include="Clases.h">
       <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="FuncionesDelMain.h">
+      <Filter>Source Files\Funciones</Filter>
+    </ClInclude>
+    <ClInclude Include="Niveles.h">
+      <Filter>Source Files\Funciones</Filter>
+    </ClInclude>
+    <ClInclude Include="ASCIIArtsNiveles.h">
+      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

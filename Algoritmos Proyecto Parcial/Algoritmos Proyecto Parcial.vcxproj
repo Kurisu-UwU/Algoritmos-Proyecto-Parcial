@@ -115,9 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimacionesGenerales.h" />
-    <ClInclude Include="ASCIIArts.h" />
+    <ClInclude Include="ASCIIArtsMenu.h" />
+    <ClInclude Include="ASCIIArtsNiveles.h" />
     <ClInclude Include="Clases.h" />
+    <ClInclude Include="FuncionesDelMain.h" />
     <ClInclude Include="Librerias.h" />
+    <ClInclude Include="Niveles.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
