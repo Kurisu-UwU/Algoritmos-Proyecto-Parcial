@@ -1,37 +1,7 @@
 #include "ASCIIArts.h"
 
-/*void SetConsoleSize(int width, int height)
-{
-    try
-    {
-        int maxW = Console::LargestWindowWidth;
-        int maxH = Console::LargestWindowHeight;
-        if (width > maxW) width = maxW;
-        if (height > maxH) height = maxH;
-
-        // Asegurar que el buffer sea al menos del tamaño de la ventana
-        Console::SetBufferSize(width, height);
-        Console::SetWindowSize(width, height);
-    }
-    catch (Exception^)
-    {
-        // Fallback nativo si falla (uso de WinAPI)
-        HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
-        COORD bufferSize = { (SHORT)width, (SHORT)height };
-        SetConsoleScreenBufferSize(hOut, bufferSize);
-
-        SMALL_RECT windowSize = { 0, 0, (SHORT)(width - 1), (SHORT)(height - 1) };
-        SetConsoleWindowInfo(hOut, TRUE, &windowSize);
-    }
-}*/
-
 int main() {
-    //SetConsoleSize(200, 100);
-    //HANDLE wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
-    //SMALL_RECT windowSize = { 0, 0, 200, 200 };
-    //COORD bufferSize = { 200, 200 };
-   // SetConsoleScreenBufferSize(wHnd, bufferSize);
-    //SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
+    srand(time(0));
 
     Console::SetWindowSize(213,48);
     Console::SetBufferSize(213, 48);
@@ -58,7 +28,7 @@ int main() {
                 opMenu++;
                 if (opMenu > 5) opMenu = 1;
             }
-            if (tecla == 'z' || tecla == 'Z' || tecla == 13)
+            if (tecla == 'z' || tecla == 'Z')
             {
                 AnimacionBorrar();
                 opFinal = opMenu;  // saber que opción eligió

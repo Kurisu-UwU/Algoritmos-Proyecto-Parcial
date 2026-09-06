@@ -16,6 +16,9 @@
     <Filter Include="Source Files\Animaciones">
       <UniqueIdentifier>{39dfad78-f505-4d16-9797-5203517313de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Clases">
+      <UniqueIdentifier>{abd77f42-a034-4804-b5e6-19b7c07d64be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -31,6 +34,9 @@
     </ClInclude>
     <ClInclude Include="ASCIIArts.h">
       <Filter>Source Files\Animaciones</Filter>
+    </ClInclude>
+    <ClInclude Include="Clases.h">
+      <Filter>Source Files\Clases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
