@@ -1,5 +1,6 @@
 #pragma once
 #include "Clases.h"
+#include "ClasesDeNiveles.h"
 void Nivel1() {
 
 }
