@@ -24,7 +24,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="Clases.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
-    <ClInclude Include="FuncionesDelMain.h">
+    <ClInclude Include="FuncionesDelMenu.h">
       <Filter>Source Files\Funciones</Filter>
     </ClInclude>
     <ClInclude Include="Niveles.h">

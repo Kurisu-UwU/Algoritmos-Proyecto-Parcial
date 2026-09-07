@@ -6,6 +6,7 @@ using namespace System;
 
 int opMenu = 1, opFinal = 0;
 bool enCarga; // condicion para el bucle main
+bool enCarga2 = true; // condicion para el bucle main
 int tiempo = 0;
 
 void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }

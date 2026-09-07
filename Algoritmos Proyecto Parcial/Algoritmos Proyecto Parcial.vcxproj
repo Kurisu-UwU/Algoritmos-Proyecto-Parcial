@@ -111,14 +111,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimacionesGenerales.h" />
     <ClInclude Include="ASCIIArtsMenu.h" />
     <ClInclude Include="ASCIIArtsNiveles.h" />
     <ClInclude Include="Clases.h" />
-    <ClInclude Include="FuncionesDelMain.h" />
+    <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="Niveles.h" />
   </ItemGroup>
