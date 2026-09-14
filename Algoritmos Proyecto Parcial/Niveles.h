@@ -1,5 +1,7 @@
 #pragma once
 #include "Clases.h"
+#include "ClasesDeNiveles.h"
+void Nivel1() {
 
 void Nivel1() {
 	DibujarMilesMoralesGrandeTitulo(10, 10);
