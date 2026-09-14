@@ -9,16 +9,16 @@ void ConsolayOjetos() {
     Console::CursorVisible = false;
 }
 void IniciarSeleccionPersonajes() {
-    DibujarOpcionMiles(10, 10, true);
-    DibujarOpcionMiguel(85, 10, true);
-    DibujarOpcionPunk(160, 10, true);
+    DibujarOpcionesPersonajes();
     opMenu = 1;
     bool opciniciarnivel = true;
     bool opciniciarnivel2 = true;
     do {
+		char tecla = ' ';
         do {
+            DibujarOpcionesPersonajes(); //Seleccionar personajes
             if (kbhit()) {
-                char tecla = getch();
+                tecla = getch();
                 if (tecla == 'a' || tecla == 'A') {
                     opMenu--;
                     if (opMenu < 1) opMenu = 3;
@@ -38,13 +38,17 @@ void IniciarSeleccionPersonajes() {
         switch (opFinal) {
         case 1:
             Nivel1();
+            opciniciarnivel2 = false;
             break;
         case 2:
             Nivel2();
+            opciniciarnivel2 = false;
 			break;
         case 3: 
             Nivel3();
+            opciniciarnivel2 = false;
 			break;
         }
     } while (opciniciarnivel2);
+    AnimacionBorrar();
 }

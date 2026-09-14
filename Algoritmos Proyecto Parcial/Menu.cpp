@@ -3,12 +3,9 @@
 int main() {
     srand(time(0));
     ConsolayOjetos();
-    LasersMenu* laser1;
-    laser1 = new LasersMenu();
-    LasersMenu* laser2;
-    laser2 = new LasersMenu();
-    LasersMenu* laser3;
-    laser3 = new LasersMenu();
+    LasersMenu* laser1; laser1 = new LasersMenu(); // lasers menu
+    LasersMenu* laser2; laser2 = new LasersMenu();
+    LasersMenu* laser3; laser3 = new LasersMenu();
     opMenu = 1;
     do {
         do //para mantener el menu en pantalla
@@ -20,7 +17,7 @@ int main() {
             ColorMorado();
             DibujarWASD(180, 39);
             Dibujartitulo();
-            laser1->Borrar();
+            laser1->Borrar();  // movimiento y declaracion lasers
             laser2->Borrar();
             laser3->Borrar();
             laser1->Mover();
@@ -47,15 +44,14 @@ int main() {
             }
             _sleep(10);
         } while (enCarga);
-        switch (opFinal) {
+        switch (opFinal) { //registrar opcion menu
         case 1:
-            IniciarSeleccionPersonajes();
+			IniciarSeleccionPersonajes(); //Iniciar seleccion de personajes
+            break;
+        case 5: 
+			enCarga2 = false; // Salir del juego
             break;
         }
     } while (enCarga2);
-    delete laser1;
-    delete laser2;
-    delete laser3;
-	_getch();
-	return 0;
+    delete laser1; delete laser2; delete laser3; return 0;
 }

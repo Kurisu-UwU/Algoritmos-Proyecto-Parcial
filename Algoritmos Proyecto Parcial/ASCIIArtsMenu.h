@@ -96,6 +96,7 @@ void DibujarWASD(int x, int y) {
 //||__|||__|||__||
 //|/__\|/__\|/__\|
 void DibujarOpcionMiles(int x, int y, bool color) {
+    if (color == true) ColorAmarillo();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
@@ -125,6 +126,7 @@ void DibujarOpcionMiles(int x, int y, bool color) {
     Posicion(x, y); y++; cout << "=========================================";
 }
 void DibujarOpcionMiguel(int x, int y, bool color) {
+    if (color == true) ColorAmarillo();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
@@ -154,6 +156,7 @@ void DibujarOpcionMiguel(int x, int y, bool color) {
     Posicion(x, y); y++; cout << "=========================================";
 }
 void DibujarOpcionPunk(int x, int y, bool color) {
+    if (color == true) ColorAmarillo();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|   _   _                 _             |";
@@ -185,3 +188,13 @@ void DibujarOpcionPunk(int x, int y, bool color) {
     //(_  |_) o  _| _  __   |_)   __  | 
     // _) |   | (_|(/_ |    |  |_|| | |<             
 }
+
+void DibujarOpcionesPersonajes() {
+    ColorVerde();
+    DibujarOpcionMiles(10, 10, false);
+    DibujarOpcionMiguel(85, 10, false);
+    DibujarOpcionPunk(160, 10, false);
+    if (opMenu == 1) { DibujarOpcionMiles(10, 10, true); }
+    if (opMenu == 2) { DibujarOpcionMiguel(85, 10, true); }
+    if (opMenu == 3) { DibujarOpcionPunk(160, 10, true); }
+}    

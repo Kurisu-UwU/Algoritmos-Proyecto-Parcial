@@ -31,10 +31,10 @@ void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 
-void EscribirTextoAnimado(string mensaje, int x, int y) {
+void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
 	Posicion(x, y); ColorBlanco();
 	for (int i = 0; i < (int)mensaje.length(); i++) {
 		cout << mensaje[i];
-		_sleep(25);
+		_sleep(sleep);
 	}
 }

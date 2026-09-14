@@ -50,5 +50,8 @@
     <ClInclude Include="ASCIIArtsNiveles.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
+    <ClInclude Include="TextoAnimadoDialogosETC.h">
+      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
