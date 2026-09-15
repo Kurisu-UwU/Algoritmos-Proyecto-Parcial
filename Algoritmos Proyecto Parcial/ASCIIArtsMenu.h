@@ -95,8 +95,8 @@ void DibujarWASD(int x, int y) {
 //||a |||s |||d ||
 //||__|||__|||__||
 //|/__\|/__\|/__\|
-void DibujarOpcionMiles(int x, int y, bool color) {
-    if (color == true) ColorAmarillo();
+void DibujarOpcionMiles(int x, int y) {
+    if (opMenu == 1) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
@@ -125,8 +125,8 @@ void DibujarOpcionMiles(int x, int y, bool color) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "=========================================";
 }
-void DibujarOpcionMiguel(int x, int y, bool color) {
-    if (color == true) ColorAmarillo();
+void DibujarOpcionMiguel(int x, int y) {
+    if (opMenu == 2) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
@@ -155,8 +155,8 @@ void DibujarOpcionMiguel(int x, int y, bool color) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "=========================================";
 }
-void DibujarOpcionPunk(int x, int y, bool color) {
-    if (color == true) ColorAmarillo();
+void DibujarOpcionPunk(int x, int y) {
+    if (opMenu == 3) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|   _   _                 _             |";
@@ -215,13 +215,3 @@ void DibujarSpiderman( int x, int y) {
     Posicion(x, y + 22); cout << "                    \\/";
 
 }
-
-void DibujarOpcionesPersonajes() {
-    ColorVerde();
-    DibujarOpcionMiles(10, 10, false);
-    DibujarOpcionMiguel(85, 10, false);
-    DibujarOpcionPunk(160, 10, false);
-    if (opMenu == 1) { DibujarOpcionMiles(10, 10, true); }
-    if (opMenu == 2) { DibujarOpcionMiguel(85, 10, true); }
-    if (opMenu == 3) { DibujarOpcionPunk(160, 10, true); }
-}    

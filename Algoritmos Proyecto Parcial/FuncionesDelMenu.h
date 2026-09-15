@@ -9,14 +9,18 @@ void ConsolayOjetos() {
     Console::CursorVisible = false;
 }
 void IniciarSeleccionPersonajes() {
-    DibujarOpcionesPersonajes();
+    DibujarOpcionMiles(10, 10);
+    DibujarOpcionMiguel(85, 10);
+    DibujarOpcionPunk(160, 10);
     opMenu = 1;
     bool opciniciarnivel = true;
     bool opciniciarnivel2 = true;
     do {
 		char tecla = ' ';
         do {
-            DibujarOpcionesPersonajes(); //Seleccionar personajes
+            DibujarOpcionMiles(10, 10);
+            DibujarOpcionMiguel(85, 10);
+            DibujarOpcionPunk(160, 10);
             if (kbhit()) {
                 tecla = getch();
                 if (tecla == 'a' || tecla == 'A') {
