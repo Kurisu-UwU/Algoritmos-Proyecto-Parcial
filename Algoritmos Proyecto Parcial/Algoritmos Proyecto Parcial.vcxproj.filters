@@ -50,8 +50,26 @@
     <ClInclude Include="TextoAnimadoDialogosETC.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
-    <ClInclude Include="ClasesDeNiveles.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Proyectiles.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Ayudantes.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemigos.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Mejoras.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="LasersMenu.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculos.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Protagonistas.h">
+      <Filter>Source Files\Clases</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

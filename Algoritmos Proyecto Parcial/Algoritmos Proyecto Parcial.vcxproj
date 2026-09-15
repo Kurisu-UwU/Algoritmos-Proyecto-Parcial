@@ -118,7 +118,6 @@
     <ClInclude Include="ASCIIArtsNiveles.h" />
     <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Clases.h" />
-    <ClInclude Include="ClasesDeNiveles.h" />
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="LasersMenu.h" />

@@ -1,48 +1,71 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
-class Protagonistas {
+class Protagonista {
 private:
-	int x, y, dx;
-	bool uwu = true;
-
+	int px, py;
+	float energia, velocidad, ataque, vida, carga;
+	string nombre;
 public:
-	Protagonistas();
-	Protagonistas(int, int, int, bool);
-	~Protagonistas();
-	void Mover();
-	void Borrar();
-	void Dibujar();
+	Protagonista();
+	Protagonista(int, int, float, float, float, float, string);
+	~Protagonista();
 
-	void SetX(int);
-	void SetY(int);
-	void SetDX(int);
-	int GetX();
-	int GetY();
-	int GetFX();
+	void Dibujar();
+	void Borrar();
+	void Mover();
+
+	void SetPX(int);
+	void SetPY(int);
+	void SetEnergia(float);
+	void SetVelocidad(float);
+	void SetAtaque(float);
+	void SetVida(float);
+	void SetCarga(float);
+	void SetNombre(string);
+
+	int GetPX();
+	int GetPY();
+	float GetEnergia();
+	float GetVelocidad();
+	float GetAtaque();
+	float GetVida();
+	float GetCarga();
+	string GetNombre();
 };
-Protagonistas::Protagonistas() { x = 10; y = 10; dx = 1; }
-Protagonistas::Protagonistas(int x1, int y1, int dx1, bool owo) { x = x1; y = y1; dx = dx1; uwu = owo; }
-Protagonistas::~Protagonistas() {}
-void Protagonistas::Borrar() { Posicion(x, y); cout << "     "; }
-void Protagonistas::SetX(int x1) { x = x1; }
-void Protagonistas::SetY(int y1) { y = y1; }
-void Protagonistas::SetDX(int dx1) { dx = dx1; }
-int Protagonistas::GetX() { return x; }
-int Protagonistas::GetY() { return y; }
-int Protagonistas::GetFX() { return dx; }
-void Protagonistas::Dibujar() {
-	ColorRojo();
-	Posicion(x, y); cout << "=====";
+Protagonista::Protagonista() {
+	px = 10; py = 10; energia = 100; velocidad = 1; ataque = 10; vida = 100; carga = 0; nombre = "Sin nombre";
 }
-void Protagonistas::Mover() {
-	if (uwu == true) {
-		int random = rand() % 3;
-		y = (rand() % 46) + 1;
-		dx = (rand() % 3) + 1;
-		if (random == 2) { dx *= -1; x = 210; }
-		else { x = 1; }
-		uwu = false;
-	}
-	if ((dx > 0 && (x + dx > 208 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
-	x += dx;
+Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float vi1, string n1) {
+	px = x1; py = y1; energia = e1; velocidad = v1; ataque = a1; vida = vi1; carga = 0; nombre = n1;
 }
+Protagonista::~Protagonista() {}
+void Protagonista::Dibujar() {
+	ColorVerde();
+	Posicion(px, py); cout << "  O  ";
+	Posicion(px, py + 1); cout << " /|\\ ";
+	Posicion(px, py + 2); cout << " / \\ ";
+}
+void Protagonista::Borrar() {
+	Posicion(px, py); cout << "     ";
+	Posicion(px, py + 1); cout << "     ";
+	Posicion(px, py + 2); cout << "     ";
+}
+void Protagonista::Mover() {}
+
+void Protagonista::SetPX(int x1) { px = x1; }
+void Protagonista::SetPY(int y1) { py = y1; }
+void Protagonista::SetEnergia(float e1) { energia = e1; }
+void Protagonista::SetVelocidad(float v1) { velocidad = v1; }
+void Protagonista::SetAtaque(float a1) { ataque = a1; }
+void Protagonista::SetVida(float vi1) { vida = vi1; }
+void Protagonista::SetCarga(float c1) { carga = c1; }
+void Protagonista::SetNombre(string n1) { nombre = n1; }
+
+int Protagonista::GetPX() { return px; }
+int Protagonista::GetPY() { return py; }
+float Protagonista::GetEnergia() { return energia; }
+float Protagonista::GetVelocidad() { return velocidad; }
+float Protagonista::GetAtaque() { return ataque; }
+float Protagonista::GetVida() { return vida; }
+float Protagonista::GetCarga() { return carga; }
+string Protagonista::GetNombre() { return nombre; }
