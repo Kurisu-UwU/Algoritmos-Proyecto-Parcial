@@ -116,11 +116,18 @@
   <ItemGroup>
     <ClInclude Include="ASCIIArtsMenu.h" />
     <ClInclude Include="ASCIIArtsNiveles.h" />
+    <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Clases.h" />
     <ClInclude Include="ClasesDeNiveles.h" />
+    <ClInclude Include="Enemigos.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
+    <ClInclude Include="LasersMenu.h" />
     <ClInclude Include="Librerias.h" />
+    <ClInclude Include="Mejoras.h" />
     <ClInclude Include="Niveles.h" />
+    <ClInclude Include="Obstaculos.h" />
+    <ClInclude Include="Protagonistas.h" />
+    <ClInclude Include="Proyectiles.h" />
     <ClInclude Include="TextoAnimadoDialogosETC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
