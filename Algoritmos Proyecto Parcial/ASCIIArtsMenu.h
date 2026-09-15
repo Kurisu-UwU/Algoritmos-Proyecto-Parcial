@@ -189,6 +189,33 @@ void DibujarOpcionPunk(int x, int y, bool color) {
     // _) |   | (_|(/_ |    |  |_|| | |<             
 }
 
+void DibujarSpiderman( int x, int y) {
+    Posicion(x, y); cout << "                   ,,,, ";
+    Posicion(x, y + 1); cout << "             ,;) .';;;;',";
+    Posicion(x, y + 2); cout << " ;;,,_,-.-.,;;'_,|I\\;;;/),,_";
+    Posicion(x, y + 3); cout << "  `';;/:|:);{ ;;;|| \\;/ /;;;\\__";
+    Posicion(x, y + 4); cout << "      L;/-';/ \\;;\\',/;\\/;;;.') \\";
+    Posicion(x, y + 5); cout << "      .:`''` - \\;;'.__/;;;/  . _'-._";
+    Posicion(x, y + 6); cout << "    .'/   \\     \\;;;;;;/.'_7:.  '). \\_";
+    Posicion(x, y + 7); cout << "  .''/     | '._ );}{;//.'    '-:  '.,L";
+    Posicion(x, y + 8); cout << ".'. /       \\  ( |;;;/_/         \\._./;\\   _,";
+    Posicion(x, y + 9); cout << " . /        |\\ ( /;;/_/             ';;;\\,;;_,";
+    Posicion(x, y + 10); cout << ". /         )__(/;;/_/                (;;'''''";
+    Posicion(x, y + 11); cout << " /        _;:':;;;;:';-._             );";
+    Posicion(x, y + 12); cout << "/        /   \\  `'`   --.'-._         \\/";
+    Posicion(x, y + 13); cout << "       .'     '.  ,'         '-,";
+    Posicion(x, y + 14); cout << "      /    /   r--,..__       '.\\";
+    Posicion(x, y + 15); cout << "    .'    '  .'        '--._     ]";
+    Posicion(x, y + 16); cout << "    (     :.(;>        _ .' '- ;/";
+    Posicion(x, y + 17); cout << "    |      /:;(    ,_.';(   __.'";
+    Posicion(x, y + 18); cout << "     '- -'' | ; : / (;;;; -'--'";
+    Posicion(x, y + 19); cout << "           |;/      ;;(";
+    Posicion(x, y + 20); cout << "           ''      /;;|";
+    Posicion(x, y + 21); cout << "                   \\;;|";
+    Posicion(x, y + 22); cout << "                    \\/";
+
+}
+
 void DibujarOpcionesPersonajes() {
     ColorVerde();
     DibujarOpcionMiles(10, 10, false);

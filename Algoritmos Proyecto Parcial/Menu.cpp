@@ -17,6 +17,7 @@ int main() {
             ColorMorado();
             DibujarWASD(180, 39);
             Dibujartitulo();
+            DibujarSpiderman(20, 20);
             laser1->Borrar();  // movimiento y declaracion lasers
             laser2->Borrar();
             laser3->Borrar();
