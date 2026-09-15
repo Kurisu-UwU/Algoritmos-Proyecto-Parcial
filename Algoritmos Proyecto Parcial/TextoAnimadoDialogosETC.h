@@ -1,5 +1,5 @@
 #pragma once
-#include "AnimacionesGenerales.h"
+#include "Librerias.h"
 
 //Para dialogos animados en el juego
 

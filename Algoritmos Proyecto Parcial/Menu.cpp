@@ -12,7 +12,7 @@ int main() {
         {
             int random;
             random = rand() % 4;
-            enCarga = true;
+            Condicion2 = true;
             DibujarMenu();
             ColorMorado();
             DibujarWASD(180, 39);
@@ -39,19 +39,19 @@ int main() {
                 if (tecla == 'z' || tecla == 'Z'){
                     AnimacionBorrar();
                     opFinal = opMenu;  // saber que opción eligió
-                    enCarga = false;
+                    Condicion2 = false;
                 }
             }
             _sleep(10);
-        } while (enCarga);
+        } while (Condicion2);
         switch (opFinal) { //registrar opcion menu
         case 1:
 			IniciarSeleccionPersonajes(); //Iniciar seleccion de personajes
             break;
         case 5: 
-			enCarga2 = false; // Salir del juego
+			Condicion1 = false; // Salir del juego
             break;
         }
-    } while (enCarga2);
+    } while (Condicion1);
     delete laser1; delete laser2; delete laser3; return 0;
 }

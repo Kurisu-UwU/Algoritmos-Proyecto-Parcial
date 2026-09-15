@@ -32,9 +32,6 @@
     <ClInclude Include="Librerias.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="AnimacionesGenerales.h">
-      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
-    </ClInclude>
     <ClInclude Include="ASCIIArtsMenu.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
@@ -52,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="TextoAnimadoDialogosETC.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
+    </ClInclude>
+    <ClInclude Include="ClasesDeNiveles.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -114,7 +114,6 @@
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimacionesGenerales.h" />
     <ClInclude Include="ASCIIArtsMenu.h" />
     <ClInclude Include="ASCIIArtsNiveles.h" />
     <ClInclude Include="Clases.h" />

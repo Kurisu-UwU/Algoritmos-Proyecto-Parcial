@@ -5,8 +5,8 @@ using namespace std;
 using namespace System;
 
 int opMenu = 1, opFinal = 0;
-bool enCarga; // condicion para el bucle main
-bool enCarga2 = true; // condicion para el bucle main
+bool Condicion2; // condicion para el bucle main
+bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 
 void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }
@@ -37,4 +37,12 @@ void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
 		cout << mensaje[i];
 		_sleep(sleep);
 	}
+}
+void AnimacionBorrar() {
+	ColorRojo();
+	for (int i = 213; i > 7; i = i - 7) {
+		for (int j = 0; j < 47; j++) { Posicion(i - 6, j); cout << "|       "; }
+		_sleep(1);
+	}
+	Console::Clear();
 }
