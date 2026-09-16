@@ -27,6 +27,7 @@ void Nivel3() {
 	
 	AnimacionBorrar();
 
+	Protagonista* punk = new Protagonista(10,10,100,1,10,100, 2,"Punk",3);
 	Proyectiles* proyectil;
 	Enemigos* enemigo1 = new Enemigos();
 	Enemigos* enemigo2 = new Enemigos();
@@ -40,19 +41,27 @@ void Nivel3() {
 	enemigo2->SetEY(10);
 	enemigo3->SetEY(15);
 	enemigo4->SetEY(20);
+	enemigo1->SetVelocidadTempo(1);
+	enemigo2->SetVelocidadTempo(2);
+	enemigo3->SetVelocidadTempo(3);
+	enemigo4->SetVelocidadTempo(4);
+
 	do {
 		enemigo1->Borrar();
 		enemigo2->Borrar();
 		enemigo3->Borrar();
 		enemigo4->Borrar();
-		enemigo1->Mover();
-		enemigo2->Mover();
-		enemigo3->Mover();
-		enemigo4->Mover();
+		enemigo1->PerseguirProta(punk);
+		enemigo2->PerseguirProta(punk);
+		enemigo3->PerseguirProta(punk);
+		enemigo4->PerseguirProta(punk);
 		enemigo1->Dibujar();
 		enemigo2->Dibujar();
 		enemigo3->Dibujar();
 		enemigo4->Dibujar();
+		punk->Borrar();
+		punk->Mover(true, true, true, true);
+		punk->Dibujar();
 		_sleep(1);
 	} while (1);
 }

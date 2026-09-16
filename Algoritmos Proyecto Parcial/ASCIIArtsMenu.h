@@ -76,25 +76,6 @@ void Dibujartitulo() {
 //      | |                                            
 //      |_|    
 }
-void DibujarWASD(int x, int y) {
-    ColorAzul();
-    Posicion(x, y);  cout << "      ____ ";
-    Posicion(x, y+1);  cout << "     ||w ||";
-    Posicion(x, y+2); cout << "     ||__||";
-    Posicion(x, y+3); cout << "     |/__\\|";
-    Posicion(x, y+4); cout << " ____ ____ ____";
-    Posicion(x, y+5); cout << "||a |||s |||d ||";
-    Posicion(x, y+6); cout << "||__|||__|||__||";
-    Posicion(x, y+7); cout << "|/__\\|/__\\|/__\\|";
-}
-// ____           
-//||w ||          
-//||__||          
-//|/__\|          
-// ____ ____ ____ 
-//||a |||s |||d ||
-//||__|||__|||__||
-//|/__\|/__\|/__\|
 void DibujarOpcionMiles(int x, int y) {
     if (opMenu == 1) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";

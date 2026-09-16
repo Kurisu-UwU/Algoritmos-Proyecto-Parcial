@@ -8,12 +8,12 @@ private:
 	short tipo;  // 1 es miles | 2 es Miguel | 3 es punk
 public:
 	Protagonista();
-	Protagonista(int, int, float, float, float, float, string);
+	Protagonista(int, int, float, float, float, float, float, string, short);
 	~Protagonista();
 
 	void Dibujar();
 	void Borrar();
-	void Mover(bool, bool, bool, bool, char);
+	void Mover(bool, bool, bool, bool);
 
 	void SetPX(int);
 	void SetPY(int);
@@ -34,10 +34,10 @@ public:
 	string GetNombre();
 };
 Protagonista::Protagonista() {
-	px = 10; py = 10; energia = 100; velocidad = 1; ataque = 10; vida = 100; carga = 0; nombre = "Sin nombre";
+	px = 10; py = 10; energia = 100; velocidad = 1; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
 }
-Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float vi1, string n1) {
-	px = x1; py = y1; energia = e1; velocidad = v1; ataque = a1; vida = vi1; carga = 0; nombre = n1;
+Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float vi1, float car, string n1, short tip) {
+	px = x1; py = y1; energia = e1; velocidad = v1; ataque = a1; vida = vi1; carga = car ; nombre = n1; tipo = tip;
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
@@ -50,16 +50,19 @@ void Protagonista::Dibujar() {
 void Protagonista::Borrar() {
 	BorrarSprite(px, py);
 }
-void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha, char tecla2) {
-	if ((tecla2 == 'w' || tecla2 == 'W') && (arriba == true) && (py > 4)) { py--; }
-	if (tecla2 == 'w' || tecla2 == 'W') { ImprimirWASD(); AnimacionWASD(1); }
-	if ((tecla2 == 's' || tecla2 == 'S') && (abajo == true) && (py < 27)) { py++; }
-	if (tecla2 == 's' || tecla2 == 'S') { ImprimirWASD(); AnimacionWASD(3); }
-	if ((tecla2 == 'a' || tecla2 == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
-	if (tecla2 == 'a' || tecla2 == 'A') { ImprimirWASD(); AnimacionWASD(2); }
-	if ((tecla2 == 'd' || tecla2 == 'D') && (derecha == true) && (px < 102)) { px += 2; }
-	if (tecla2 == 'd' || tecla2 == 'D') { ImprimirWASD(); AnimacionWASD(4); }
-	if (tecla2 == 'z' || tecla2 == 'Z') { ImprimirWASD(); AnimacionWASD(5); }
+void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {
+	if (_kbhit()) {
+		tecla = _getch();
+		if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 0)) { py--; }
+		if (tecla == 'w' || tecla == 'W') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 1); }
+		if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 37)) { py++; }
+		if (tecla == 's' || tecla == 'S') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 3); }
+		if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
+		if (tecla == 'a' || tecla == 'A') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 2); }
+		if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 200)) { px += 2; }
+		if (tecla == 'd' || tecla == 'D') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 4); }
+		if (tecla == 'z' || tecla == 'Z') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 5); }
+	}
 }
 
 void Protagonista::SetPX(int x1) { px = x1; }
