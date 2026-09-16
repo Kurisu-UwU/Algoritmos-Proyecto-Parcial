@@ -2,12 +2,10 @@
 #include "ASCIIArtsNiveles.h"
 class Proyectiles {
 private:
-	int x, y, dx;
+	int x, y, dx, dy;
 	bool uwu = true;
-
 public:
 	Proyectiles();
-	Proyectiles(int, int, int, bool);
 	~Proyectiles();
 	void Mover();
 	void Borrar();
@@ -20,8 +18,7 @@ public:
 	int GetY();
 	int GetFX();
 };
-Proyectiles::Proyectiles() { x = 10; y = 10; dx = 1; }
-Proyectiles::Proyectiles(int x1, int y1, int dx1, bool owo) { x = x1; y = y1; dx = dx1; uwu = owo; }
+Proyectiles::Proyectiles() { x = 10; y = 10; dx = dy=  1; }
 Proyectiles::~Proyectiles() {}
 void Proyectiles::Borrar() { Posicion(x, y); cout << "     "; }
 void Proyectiles::SetX(int x1) { x = x1; }

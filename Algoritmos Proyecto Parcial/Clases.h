@@ -1,2 +1,9 @@
 #pragma once
 #include "LasersMenu.h"
+#include "Ayudantes.h"
+#include "Enemigos.h"
+#include "Mejoras.h"
+#include "Obstaculos.h"
+#include "Protagonistas.h"
+#include "Proyectiles.h"
+#include "NivelBatalla.h"

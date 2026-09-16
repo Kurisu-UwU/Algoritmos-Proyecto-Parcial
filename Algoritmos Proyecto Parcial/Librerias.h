@@ -8,6 +8,15 @@ int opMenu = 1, opFinal = 0;
 bool Condicion2; // condicion para el bucle main
 bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
+char tecla = ' ';
+
+void ConsolayOjetos() {
+	Console::SetWindowSize(213, 48);
+	Console::SetBufferSize(213, 48);
+	Console::LargestWindowWidth;
+	Console::LargestWindowHeight;
+	Console::CursorVisible = false;
+}
 
 void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }
 
@@ -45,4 +54,32 @@ void AnimacionBorrar() {
 		_sleep(1);
 	}
 	Console::Clear();
+}
+void ImprimirWASD() {  //visual
+	ColorAzul(); Posicion(115, 26); cout << "W";
+	ColorAzul(); Posicion(113, 27); cout << "A";
+	ColorAzul(); Posicion(115, 28); cout << "S";
+	ColorAzul(); Posicion(117, 27); cout << "D";
+	ColorAzul(); Posicion(113, 29); cout << "Z";
+}
+void AnimacionWASD(int x) {  //visual
+	ColorAmarillo();
+	switch (x) {
+	case 1: Posicion(115, 26); cout << "W"; break;
+	case 2: Posicion(113, 27); cout << "A"; break;
+	case 3: Posicion(115, 28); cout << "S"; break;
+	case 4: Posicion(117, 27); cout << "D"; break;
+	case 5: Posicion(113, 29); cout << "Z"; break;
+	}
+}
+void WASDmover(bool arriba, bool abajo, bool izquierda, bool derecha, char tecla2, int px, int py) {
+	if ((tecla2 == 'w' || tecla2 == 'W') && (arriba == true) && (py > 4)) { py--; }
+	if (tecla2 == 'w' || tecla2 == 'W') { ImprimirWASD(); AnimacionWASD(1); }
+	if ((tecla2 == 's' || tecla2 == 'S') && (abajo == true) && (py < 27)) { py++; }
+	if (tecla2 == 's' || tecla2 == 'S') { ImprimirWASD(); AnimacionWASD(3); }
+	if ((tecla2 == 'a' || tecla2 == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
+	if (tecla2 == 'a' || tecla2 == 'A') { ImprimirWASD(); AnimacionWASD(2); }
+	if ((tecla2 == 'd' || tecla2 == 'D') && (derecha == true) && (px < 102)) { px += 2; }
+	if (tecla2 == 'd' || tecla2 == 'D') { ImprimirWASD(); AnimacionWASD(4); }
+	if (tecla2 == 'z' || tecla2 == 'Z') { ImprimirWASD(); AnimacionWASD(5); }
 }

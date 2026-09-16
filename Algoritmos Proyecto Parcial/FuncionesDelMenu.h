@@ -1,13 +1,6 @@
 #pragma once
 #include "Niveles.h"
 
-void ConsolayOjetos() {
-    Console::SetWindowSize(213, 48);
-    Console::SetBufferSize(213, 48);
-    Console::LargestWindowWidth;
-    Console::LargestWindowHeight;
-    Console::CursorVisible = false;
-}
 void IniciarSeleccionPersonajes() {
     DibujarOpcionMiles(10, 10);
     DibujarOpcionMiguel(85, 10);

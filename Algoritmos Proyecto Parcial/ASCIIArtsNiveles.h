@@ -5,7 +5,7 @@
 void DibujarMiles(int x, int y) {
 	Posicion(x+1, y); y++; cout << "__";
 	Posicion(x, y); y++;  cout << "(\/)";
-	Posicion(x, y); y++;  cout << "°||°";
+	Posicion(x, y); y++;  cout << "o||o";
 	Posicion(x+1, y); y++; cout << "^^";
 }
 void DibujarMiguel(int x, int y) {
@@ -18,13 +18,13 @@ void DibujarPunk(int x, int y) {
 	Posicion(x+1, y); y++; cout << "¡¡";
 	Posicion(x, y); y++;  cout << "(\/)";
 	Posicion(x, y); y++;  cout << "<||>";
-	Posicion(x+1, y); y++; cout << "°°";
+	Posicion(x+1, y); y++; cout << "oo";
 }
 void DibujarEnemigo(int x, int y) {
 	Posicion(x+1, y); y++; cout << "..";
-	Posicion(x, y); y++; cout << "[°°]";
+	Posicion(x, y); y++; cout << "[oo]";
 	Posicion(x, y); y++; cout << "-()-";
-	Posicion(x+1, y); y++; cout << '""';
+	Posicion(x+1, y); y++; cout << "''";
 }
 void DibujarGwen(int x, int y) {
 	Posicion(x+1, y); y++; cout << "__";
@@ -37,6 +37,12 @@ void DibujarAyudante(int x, int y) {
 	Posicion(x, y); y++;     cout << "(^^)";
 	Posicion(x, y); y++;     cout << "\||/";
 	Posicion(x + 1, y); y++; cout << "°°";
+}
+void BorrarSprite(int x, int y) {
+	Posicion(x + 2, y); y++; cout << "  ";
+	Posicion(x, y); y++;     cout << "    ";
+	Posicion(x, y); y++;     cout << "      ";
+	Posicion(x + 1, y); y++; cout << "      ";
 }
 //   __     __     ¡¡
 //  (\/)   (><)   (\/)
