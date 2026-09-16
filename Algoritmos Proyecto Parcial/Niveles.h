@@ -11,16 +11,17 @@ void Nivel1() {
 	} while (a < 2);
 }
 void Nivel2() {
+	bool arriba = true, abajo = true, izquierda = true, derecha = true;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
 	do {
 		a++;
 		TextMiguelIntro(a);
 	} while (a < 2);
+	AnimacionBorrar();
 
 	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1);
-
-	MoverNivel1(Miles);
+	MoverNivel1(Miles, arriba, abajo, izquierda, derecha);
 	delete Miles;
 }
 void Nivel3() {
