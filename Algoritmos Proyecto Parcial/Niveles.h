@@ -1,5 +1,5 @@
 #pragma once
-#include "Clases.h"
+#include "Mapas.h"
 
 void Nivel1() {
 	DibujarMilesMoralesGrandeTitulo(10, 10);
@@ -17,6 +17,11 @@ void Nivel2() {
 		a++;
 		TextMiguelIntro(a);
 	} while (a < 2);
+
+	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1);
+
+	MoverNivel1(Miles);
+	delete Miles;
 }
 void Nivel3() {
 	int a = 0;
