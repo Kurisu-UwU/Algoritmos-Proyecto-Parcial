@@ -5,6 +5,7 @@ private:
 	int px, py;
 	float energia, velocidad, ataque, vida, carga;
 	string nombre;
+	short tipo;  // 1 es miles | 2 es Miguel | 3 es punk
 public:
 	Protagonista();
 	Protagonista(int, int, float, float, float, float, string);
@@ -12,7 +13,7 @@ public:
 
 	void Dibujar();
 	void Borrar();
-	void Mover();
+	void Mover(bool, bool, bool, bool, char);
 
 	void SetPX(int);
 	void SetPY(int);
@@ -40,17 +41,26 @@ Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float v
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
-	ColorVerde();
-	Posicion(px, py); cout << "  O  ";
-	Posicion(px, py + 1); cout << " /|\\ ";
-	Posicion(px, py + 2); cout << " / \\ ";
+	switch (tipo) {
+	case 1: DibujarMiles(px, py); break;
+	case 2: DibujarMiguel(px, py); break;
+	case 3: DibujarPunk(px, py); break;
+	}
 }
 void Protagonista::Borrar() {
-	Posicion(px, py); cout << "     ";
-	Posicion(px, py + 1); cout << "     ";
-	Posicion(px, py + 2); cout << "     ";
+	BorrarSprite(px, py);
 }
-void Protagonista::Mover() {}
+void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha, char tecla2) {
+	if ((tecla2 == 'w' || tecla2 == 'W') && (arriba == true) && (py > 4)) { py--; }
+	if (tecla2 == 'w' || tecla2 == 'W') { ImprimirWASD(); AnimacionWASD(1); }
+	if ((tecla2 == 's' || tecla2 == 'S') && (abajo == true) && (py < 27)) { py++; }
+	if (tecla2 == 's' || tecla2 == 'S') { ImprimirWASD(); AnimacionWASD(3); }
+	if ((tecla2 == 'a' || tecla2 == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
+	if (tecla2 == 'a' || tecla2 == 'A') { ImprimirWASD(); AnimacionWASD(2); }
+	if ((tecla2 == 'd' || tecla2 == 'D') && (derecha == true) && (px < 102)) { px += 2; }
+	if (tecla2 == 'd' || tecla2 == 'D') { ImprimirWASD(); AnimacionWASD(4); }
+	if (tecla2 == 'z' || tecla2 == 'Z') { ImprimirWASD(); AnimacionWASD(5); }
+}
 
 void Protagonista::SetPX(int x1) { px = x1; }
 void Protagonista::SetPY(int y1) { py = y1; }

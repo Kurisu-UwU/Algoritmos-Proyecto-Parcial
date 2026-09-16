@@ -72,14 +72,3 @@ void AnimacionWASD(int x) {  //visual
 	case 5: Posicion(113, 29); cout << "Z"; break;
 	}
 }
-void WASDmover(bool arriba, bool abajo, bool izquierda, bool derecha, char tecla2, int px, int py) {
-	if ((tecla2 == 'w' || tecla2 == 'W') && (arriba == true) && (py > 4)) { py--; }
-	if (tecla2 == 'w' || tecla2 == 'W') { ImprimirWASD(); AnimacionWASD(1); }
-	if ((tecla2 == 's' || tecla2 == 'S') && (abajo == true) && (py < 27)) { py++; }
-	if (tecla2 == 's' || tecla2 == 'S') { ImprimirWASD(); AnimacionWASD(3); }
-	if ((tecla2 == 'a' || tecla2 == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
-	if (tecla2 == 'a' || tecla2 == 'A') { ImprimirWASD(); AnimacionWASD(2); }
-	if ((tecla2 == 'd' || tecla2 == 'D') && (derecha == true) && (px < 102)) { px += 2; }
-	if (tecla2 == 'd' || tecla2 == 'D') { ImprimirWASD(); AnimacionWASD(4); }
-	if (tecla2 == 'z' || tecla2 == 'Z') { ImprimirWASD(); AnimacionWASD(5); }
-}
