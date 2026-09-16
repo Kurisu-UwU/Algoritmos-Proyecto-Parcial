@@ -42,9 +42,6 @@ void MoverNivel1(Protagonista* Miles, bool arriba, bool abajo, bool izquierda, b
         Miles->Mover(arriba, abajo, izquierda, derecha);
         for (int i = 1; i < 29; i++) {
             for (int j = 1; j < 99; j++) {
-                if ((j == Miles->GetPX()) && (i == Miles->GetPY())) {
-                    Miles->Dibujar();
-                }
                 if (((j == Miles->GetPX()) && (i == Miles->GetPY()))&&(matriz[i][j] == 2)) {
                     Nivelcompleto = true;
                 }
@@ -53,6 +50,7 @@ void MoverNivel1(Protagonista* Miles, bool arriba, bool abajo, bool izquierda, b
                 
             }
         }
+        Miles->Dibujar();
         if (matriz[Miles->GetPY()][Miles->GetPX() + 1] == 1) {
             derecha = false;
         }
