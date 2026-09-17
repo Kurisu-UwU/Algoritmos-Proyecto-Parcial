@@ -1,5 +1,6 @@
 #pragma once
 #include "Librerias.h"
+#include "MapasMatriz.h"
 
 //Para dialogos animados en el juego
 
@@ -26,10 +27,10 @@ void TextMiguelIntro(int n) {
 void TextPunkIntro(int n) {
 	switch (n) {
 	case 1:
-		EscribirTextoAnimado("Miles: ¡Hola! Soy Spider Punk", 10, 20, 25);
+		EscribirTextoAnimado("SpiderPunk: Tengo que buscar una forma de derrotar esos enemigos", 10, 20, 25);
 		break;
 	case 2:
-		EscribirTextoAnimado("Vamos a la aventura!", 10, 22, 50);
+		EscribirTextoAnimado("ES HORA DE ROMPER COSAS!", 10, 22, 50);
 		break;
 	}
 }

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Librerias.h"
+#include "MapasMatriz.h"
 
 void DibujarMenu() {
     int equiz = 150;

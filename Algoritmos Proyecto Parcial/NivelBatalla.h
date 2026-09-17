@@ -8,7 +8,7 @@ private:
 	int canEne;
 	Proyectiles** listaPro;
 	int canPro;
-	Mejoras** listaMejora;
+	//Mejoras** listaMejora;
 	int canMejora;
 	Protagonista** listaProta;
 	int canProta;
@@ -31,7 +31,7 @@ NivelBatalla::NivelBatalla() {
 NivelBatalla::~NivelBatalla() {
 	if (listaEne != nullptr) delete[]listaEne;
 	if (listaPro != nullptr) delete[]listaPro;
-	if (listaMejora != nullptr) delete[]listaMejora;
+	//if (listaMejora != nullptr) delete[]listaMejora;
 	if (listaProta != nullptr) delete[]listaProta;
 }
 void NivelBatalla::GenerarProyectil(char n) {

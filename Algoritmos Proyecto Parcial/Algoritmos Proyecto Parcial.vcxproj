@@ -123,6 +123,7 @@
     <ClInclude Include="LasersMenu.h" />
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="Mapas.h" />
+    <ClInclude Include="MapasMatriz.h" />
     <ClInclude Include="Mejoras.h" />
     <ClInclude Include="NivelBatalla.h" />
     <ClInclude Include="Niveles.h" />

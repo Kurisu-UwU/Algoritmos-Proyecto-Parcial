@@ -43,7 +43,7 @@ public:
 	void GenerarProyectil(char);
 	void MostrarProyectil();
 	void PerseguirProta(Protagonista*);
-	void AtacarProtagonista(Protagonista*);
+	void AtacarProtagonista(Protagonista*, int);
 };
 Enemigos::Enemigos() {
 	cantdeproyectiles = 0;
@@ -133,5 +133,8 @@ void Enemigos::PerseguirProta(Protagonista* prota) {  // Implementación de la ló
 	}
 	tempo++;
 }
-void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
+void Enemigos::AtacarProtagonista(Protagonista* prota, int n) { // Implementación de la lógica para atacar al protagonista
+	if (velocidadataque > n) {
+		if (((prota->GetPX()+5 > ex) && (prota->GetPX() + 5 > ex)) &&((prota->GetPY() + 4)))
+	velocidadataque++;
 }

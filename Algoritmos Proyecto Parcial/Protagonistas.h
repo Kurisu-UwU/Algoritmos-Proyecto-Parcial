@@ -57,9 +57,9 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 		if (tecla == 'w' || tecla == 'W') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 1); }
 		if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 37)) { py++; }
 		if (tecla == 's' || tecla == 'S') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 3); }
-		if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 1; }
+		if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
 		if (tecla == 'a' || tecla == 'A') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 2); }
-		if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 200)) { px += 1; }
+		if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 208)) { px += 2; }
 		if (tecla == 'd' || tecla == 'D') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 4); }
 		if (tecla == 'z' || tecla == 'Z') { DibujarWASD(190, 43); AnimacionWASD(190, 43, 5); }
 	}
