@@ -9,16 +9,9 @@ void MoverNivel1(Protagonista* Miles, bool arriba, bool abajo, bool izquierda, b
     while (Nivelcompleto == false) {
         Miles->Borrar();
         Miles->Mover(arriba, abajo, izquierda, derecha);
-    /*  for (int i = 1; i < 29; i++) {
-            for (int j = 1; j < 99; j++) {
-                if (((j == Miles->GetPX()) && (i == Miles->GetPY())) && (Nivel2_2[i][j] == 2)) {
-                    Nivelcompleto = true;
-                }
-            }
-        }
-        */
+
         Miles->Dibujar();
-        if (Nivel2_2[Miles->GetPX()+4][Miles->GetPY()]==2) {
+        if (Nivel2_2[Miles->GetPY()][Miles->GetPX()]==2) {
             Nivelcompleto = true;
 		}
         if (Nivel2_2[Miles->GetPY()][Miles->GetPX() + 1] == 1) {
