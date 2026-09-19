@@ -1,6 +1,5 @@
 #pragma once
 #include "ASCIIArtsMenu.h"
-#include "TextoAnimadoDialogosETC.h"
 
 void DibujarMiles(int x, int y) {
 	Posicion(x+1, y); y++; cout << "__";

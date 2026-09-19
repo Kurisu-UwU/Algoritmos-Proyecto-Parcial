@@ -1,5 +1,6 @@
 #pragma once
 #include "Mapas.h"
+#include "TextoAnimadoDialogosETC.h"
 
 void Nivel1() {
 	DibujarMilesMoralesGrandeTitulo(10, 10);
@@ -34,43 +35,45 @@ void Nivel3() {
 	AnimacionBorrar();
 
 	Protagonista* punk = new Protagonista(10,10,100,1,10,100, 2,"Punk",3);
-	Proyectiles* proyectil;
-	Enemigos* enemigo1 = new Enemigos();
-	Enemigos* enemigo2 = new Enemigos();
-	Enemigos* enemigo3 = new Enemigos();
-	Enemigos* enemigo4 = new Enemigos();
-	enemigo1->SetEX(10);
-	enemigo2->SetEX(20);
-	enemigo3->SetEX(30);
-	enemigo4->SetEX(40);
-	enemigo1->SetEY(5);
-	enemigo2->SetEY(10);
-	enemigo3->SetEY(15);
-	enemigo4->SetEY(20);
-	enemigo1->SetVelocidadTempo(1);
-	enemigo2->SetVelocidadTempo(2);
-	enemigo3->SetVelocidadTempo(3);
-	enemigo4->SetVelocidadTempo(4);
+	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
+	int cantenemigos = 4;
+	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+	for (int i = 0; i < cantenemigos; i++) {
+		enemigo[i] = new Enemigos();
+	}
 
-	do {
-		enemigo1->Borrar();
-		enemigo2->Borrar();
-		enemigo3->Borrar();
-		enemigo4->Borrar();
-		enemigo1->PerseguirProta(punk);
-		enemigo2->PerseguirProta(punk);
-		enemigo3->PerseguirProta(punk);
-		enemigo4->PerseguirProta(punk);
-		enemigo1->Dibujar();
-		enemigo2->Dibujar();
-		enemigo3->Dibujar();
-		enemigo4->Dibujar();
+	enemigo[0]->SetEX(10);  //Atributos de los enemigos
+	enemigo[1]->SetEX(20);
+	enemigo[2]->SetEX(30);
+	enemigo[3]->SetEX(40);
+	enemigo[0]->SetEY(5);
+	enemigo[1]->SetEY(10);
+	enemigo[2]->SetEY(15);
+	enemigo[3]->SetEY(20);
+	enemigo[0]->SetVelocidadTempo(1);
+	enemigo[1]->SetVelocidadTempo(2);
+	enemigo[2]->SetVelocidadTempo(3);
+	enemigo[3]->SetVelocidadTempo(4);
+	
+	do {  //Parte 1
+		for (int i = 0; i < cantenemigos; i++) {
+			enemigo[i]->Borrar();
+			enemigo[i]->PerseguirProta(punk);
+			enemigo[i]->Dibujar();
+		}
 		DibujarPanelDeControl();
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
 		_sleep(1);
-	} while (1);
+		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
+			booleanoGeneralParaNiveles = false;
+		}
+	} while (booleanoGeneralParaNiveles);
+	for (int i = 0; i < cantenemigos; i++) {
+		delete enemigo[i];
+	}
+	delete[]enemigo;
 }
 void NivelPrueba() {
 	int a = 0;

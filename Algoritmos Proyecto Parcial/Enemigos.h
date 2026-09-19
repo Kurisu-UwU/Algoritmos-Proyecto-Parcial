@@ -37,7 +37,7 @@ public:
 	float GetVelocidad();
 	float GetVelocidadTempo();
 	string GetTipo();
-	bool GetVivo();
+	bool GetVivo() { return vivo; }
 	int GetCantDeProyectiles();
 
 	void GenerarProyectil(char);
@@ -46,6 +46,8 @@ public:
 	void AtacarProtagonista(Protagonista*);
 };
 Enemigos::Enemigos() {
+	ex = 0;
+	ey = 0;
 	cantdeproyectiles = 0;
 	listaP = nullptr;
 	velocidad = 1;
@@ -85,7 +87,6 @@ float Enemigos::GetAtaque() { return cantidaddeataque; }
 float Enemigos::GetVida() { return cantidaddevida; }
 float Enemigos::GetVelocidad() { return velocidad; }
 float Enemigos::GetVelocidadTempo() { return velocidadtempo; }
-bool Enemigos::GetVivo() { return vivo; }
 string Enemigos::GetTipo() { return tipo; }
 
 void Enemigos::GenerarProyectil(char tecla) {

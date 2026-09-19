@@ -9,6 +9,7 @@ bool Condicion2; // condicion para el bucle main
 bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 char tecla = ' ';
+bool booleanoGeneralParaNiveles = true;
 
 int Nivel2_2[30][100] = {
  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
