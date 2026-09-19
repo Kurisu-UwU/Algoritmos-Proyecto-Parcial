@@ -6,6 +6,7 @@ int main() {
     LasersMenu* laser1; laser1 = new LasersMenu(); // lasers menu
     LasersMenu* laser2; laser2 = new LasersMenu();
     LasersMenu* laser3; laser3 = new LasersMenu();
+	LasersMenu* laser4; laser4 = new LasersMenu();
     opMenu = 1;
     do {
         do //para mantener el menu en pantalla
@@ -18,15 +19,10 @@ int main() {
             DibujarWASD(180, 39);
             Dibujartitulo();
             DibujarSpiderman(20, 20);
-            laser1->Borrar();  // movimiento y declaracion lasers
-            laser2->Borrar();
-            laser3->Borrar();
             laser1->Mover();
             laser3->Mover();
             laser2->Mover();
-            laser1->Dibujar();
-            laser2->Dibujar();
-            laser3->Dibujar();
+            laser4->Mover();
             if (kbhit()){
                 char tecla = getch();
                 if (tecla == 'w' || tecla == 'W'){
