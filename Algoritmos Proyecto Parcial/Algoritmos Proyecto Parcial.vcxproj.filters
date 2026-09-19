@@ -22,6 +22,9 @@
     <Filter Include="Source Files\AnimacionesYASCIIArts">
       <UniqueIdentifier>{39dfad78-f505-4d16-9797-5203517313de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Mapas">
+      <UniqueIdentifier>{e25d82f7-6f85-40aa-881c-228fcc9d685e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp">
@@ -75,7 +78,7 @@
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
     <ClInclude Include="Mapas.h">
-      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
+      <Filter>Source Files\Mapas</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

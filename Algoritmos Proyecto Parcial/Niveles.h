@@ -65,6 +65,7 @@ void Nivel3() {
 		enemigo2->Dibujar();
 		enemigo3->Dibujar();
 		enemigo4->Dibujar();
+		DibujarPanelDeControl();
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
