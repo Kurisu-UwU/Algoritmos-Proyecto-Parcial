@@ -120,6 +120,7 @@
     <ClInclude Include="Clases.h" />
     <ClInclude Include="Enemigos.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
+    <ClInclude Include="Habilidades.h" />
     <ClInclude Include="LasersMenu.h" />
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="Mapas.h" />

@@ -46,6 +46,7 @@ public:
 	void AtacarProtagonista(Protagonista*);
 };
 Enemigos::Enemigos() {
+	cantidaddevida = 5;
 	ex = 0;
 	ey = 0;
 	cantdeproyectiles = 0;
@@ -90,20 +91,22 @@ float Enemigos::GetVelocidadTempo() { return velocidadtempo; }
 string Enemigos::GetTipo() { return tipo; }
 
 void Enemigos::GenerarProyectil(char tecla) {
-	if (tecla == 'L' || tecla == 'l') {
-		obproye = new Proyectiles();
+	if (cantidaddevida <= 0) {
+		if (tecla == 'L' || tecla == 'l') {
+			obproye = new Proyectiles();
 
-		Proyectiles** proy = new Proyectiles * [cantdeproyectiles + 1]; //crea una nueva pelota
-		for (int i = 0; i < cantdeproyectiles; i++)
-			proy[i] = listaP[i];
+			Proyectiles** proy = new Proyectiles * [cantdeproyectiles + 1]; //crea una nueva pelota
+			for (int i = 0; i < cantdeproyectiles; i++)
+				proy[i] = listaP[i];
 
-		proy[cantdeproyectiles] = obproye;
-		cantdeproyectiles++;
+			proy[cantdeproyectiles] = obproye;
+			cantdeproyectiles++;
 
-		if (listaP != nullptr)
-			delete[]listaP;
+			if (listaP != nullptr)
+				delete[]listaP;
 
-		listaP = proy;
+			listaP = proy;
+		}
 	}
 }
 void Enemigos::MostrarProyectil() {
@@ -117,22 +120,24 @@ int Enemigos::GetCantDeProyectiles() {
 	return cantdeproyectiles;
 }
 void Enemigos::PerseguirProta(Protagonista* prota) {  // Implementación de la lógica para perseguir al protagonista
-	if (tempo > 20/velocidadtempo) {
-		if (prota->GetPX() > ex) {
-			ex+=velocidad*2; // Mover hacia la derecha
+	if (cantidaddevida >= 0) {
+		if (tempo > 20 / velocidadtempo) {
+			if (prota->GetPX() > ex) {
+				ex += velocidad * 2; // Mover hacia la derecha
+			}
+			else if (prota->GetPX() < ex) {
+				ex -= velocidad * 2; // Mover hacia la izquierda
+			}
+			if (prota->GetPY() > ey) {
+				ey += velocidad; // Mover hacia abajo
+			}
+			else if (prota->GetPY() < ey) {
+				ey -= velocidad; // Mover hacia arriba
+			}
+			tempo = 0; // Reiniciar el temporizador
 		}
-		else if (prota->GetPX() < ex) {
-			ex-=velocidad*2; // Mover hacia la izquierda
-		}
-		if (prota->GetPY() > ey) {
-			ey+=velocidad; // Mover hacia abajo
-		}
-		else if (prota->GetPY() < ey) {
-			ey-=velocidad; // Mover hacia arriba
-		}
-		tempo = 0; // Reiniciar el temporizador
+		tempo++;
 	}
-	tempo++;
 }
 void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
 }

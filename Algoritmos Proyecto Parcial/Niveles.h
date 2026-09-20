@@ -21,7 +21,7 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1);
+	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1,1);
 	MoverNivel1(Miles, arriba, abajo, izquierda, derecha);
 	delete Miles;
 }
@@ -34,7 +34,7 @@ void Nivel3() {
 	
 	AnimacionBorrar();
 
-	Protagonista* punk = new Protagonista(10,10,100,1,10,100, 2,"Punk",3);
+	Protagonista* punk = new Protagonista(10,10,100,1,10,100, 2,"Punk",2,1);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
@@ -46,7 +46,7 @@ void Nivel3() {
 	enemigo[1]->SetEX(20);
 	enemigo[2]->SetEX(30);
 	enemigo[3]->SetEX(40);
-	enemigo[0]->SetEY(5);
+	enemigo[0]->SetEY(7);
 	enemigo[1]->SetEY(10);
 	enemigo[2]->SetEY(15);
 	enemigo[3]->SetEY(20);
@@ -54,7 +54,11 @@ void Nivel3() {
 	enemigo[1]->SetVelocidadTempo(2);
 	enemigo[2]->SetVelocidadTempo(3);
 	enemigo[3]->SetVelocidadTempo(4);
-	
+	enemigo[0]->SetVida(5);
+	enemigo[1]->SetVida(5);
+	enemigo[2]->SetVida(5);
+	enemigo[3]->SetVida(5);
+	tecla = 'j';
 	do {  //Parte 1
 		for (int i = 0; i < cantenemigos; i++) {
 			enemigo[i]->Borrar();
@@ -65,6 +69,9 @@ void Nivel3() {
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
+		for (int i = 0; i < cantenemigos; i++) {
+//			punk->AtacarEnemigos(enemigo[i]);
+		}
 		_sleep(1);
 		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
 			booleanoGeneralParaNiveles = false;

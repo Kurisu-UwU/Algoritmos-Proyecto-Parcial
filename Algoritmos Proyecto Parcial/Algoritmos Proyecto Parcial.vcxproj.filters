@@ -80,5 +80,8 @@
     <ClInclude Include="Mapas.h">
       <Filter>Source Files\Mapas</Filter>
     </ClInclude>
+    <ClInclude Include="Habilidades.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
