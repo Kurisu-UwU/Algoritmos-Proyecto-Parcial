@@ -41,7 +41,6 @@ void Nivel3() {
 	for (int i = 0; i < cantenemigos; i++) {
 		enemigo[i] = new Enemigos();
 	}
-
 	enemigo[0]->SetEX(10);  //Atributos de los enemigos
 	enemigo[1]->SetEX(20);
 	enemigo[2]->SetEX(30);

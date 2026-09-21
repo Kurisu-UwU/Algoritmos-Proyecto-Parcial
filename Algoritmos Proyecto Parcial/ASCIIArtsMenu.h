@@ -194,5 +194,4 @@ void DibujarSpiderman( int x, int y) {
     Posicion(x, y + 20); cout << "           ''      /;;|";
     Posicion(x, y + 21); cout << "                   \\;;|";
     Posicion(x, y + 22); cout << "                    \\/";
-
 }
