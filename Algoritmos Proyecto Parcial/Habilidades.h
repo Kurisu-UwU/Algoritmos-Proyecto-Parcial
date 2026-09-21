@@ -19,6 +19,10 @@ public:
 
 	time_t GetInicio() { return inicio; }
 	time_t GetTiempoAhora() { return tiempoahora; }
+	void Dibujar(bool);
+
+
+
 	bool GetCooldown() {
 		tiempoahora = time(nullptr);
 		if (tiempoahora - 3 >= inicio) {
@@ -37,6 +41,18 @@ Habilidades::Habilidades(int ne, time_t ini, time_t aho) {
 }
 Habilidades::~Habilidades() {}
 
-void Habilidades::TiempoHabilidad() {
+void Habilidades::TiempoHabilidad() { //inicialización de condicion para determinar cuanto tiempo ha pasado para el cooldown de la habilidad
 	inicio = time(nullptr);
+}
+void Habilidades::Dibujar(bool n) {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
+	if (tiempoahora -3 >= inicio) {
+		switch (n) {
+		case 1: DibujarHabilidadQ(n); break;
+		}
+	}
+	else {
+		switch (n) {
+		case 1: DibujarHabilidadQ(n); break;
+		}
+	}
 }

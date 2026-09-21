@@ -1,7 +1,6 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
-#include "Protagonistas.h"
 class Enemigos {
 private:
 	int ex, ey;
@@ -42,11 +41,10 @@ public:
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
-	void PerseguirProta(Protagonista*);
-	void AtacarProtagonista(Protagonista*);
+	void PerseguirProta(int, int);
+	void AtacarProtagonista(int, int);
 };
 Enemigos::Enemigos() {
-	cantidaddevida = 5;
 	ex = 0;
 	ey = 0;
 	cantdeproyectiles = 0;
@@ -119,25 +117,23 @@ void Enemigos::MostrarProyectil() {
 int Enemigos::GetCantDeProyectiles() {
 	return cantdeproyectiles;
 }
-void Enemigos::PerseguirProta(Protagonista* prota) {  // Implementación de la lógica para perseguir al protagonista
-	if (cantidaddevida >= 0) {
+void Enemigos::PerseguirProta(int px, int py) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {
-			if (prota->GetPX() > ex) {
+			if (px > ex) {
 				ex += velocidad * 2; // Mover hacia la derecha
 			}
-			else if (prota->GetPX() < ex) {
+			else if (px < ex) {
 				ex -= velocidad * 2; // Mover hacia la izquierda
 			}
-			if (prota->GetPY() > ey) {
+			if (py > ey) {
 				ey += velocidad; // Mover hacia abajo
 			}
-			else if (prota->GetPY() < ey) {
+			else if (py < ey) {
 				ey -= velocidad; // Mover hacia arriba
 			}
 			tempo = 0; // Reiniciar el temporizador
 		}
 		tempo++;
-	}
 }
-void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
-}
+//void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
+//}

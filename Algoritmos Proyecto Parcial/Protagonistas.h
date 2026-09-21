@@ -1,7 +1,6 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 #include "Habilidades.h"
-#include "Enemigos.h"
 
 class Protagonista {
 private:
@@ -11,10 +10,11 @@ private:
 	short tipo;  // 1 es miles | 2 es Miguel | 3 es punk
 	short direccionMirada;
 	Habilidades** habilidades;
+	short cantidadhabilidades;
 
 public:
 	Protagonista();
-	Protagonista(int, int, float, float, float, float, float, string, short, short);
+	Protagonista(int, int, float, float, float, float, float, string, short, short, short);
 	~Protagonista();
 
 	void Dibujar();
@@ -31,7 +31,11 @@ public:
 	void SetNombre(string);
 	void SetMirada(short);
 	void Generarhabilidades();
-	//void AtacarEnemigos(Enemigos* enemigo);
+	float AtacarEnemigos(int, int, float);
+	void DibujarHabilidades();
+
+
+
 	int GetPX();
 	int GetPY();
 	float GetEnergia();
@@ -46,8 +50,8 @@ public:
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidad = 1; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
 }
-Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float vi1, float car, string n1, short tip, short mira) {
-	px = x1; py = y1; energia = e1; velocidad = v1; ataque = a1; vida = vi1; carga = car; nombre = n1; tipo = tip; direccionMirada = mira;
+Protagonista::Protagonista(int x1, int y1, float e1, float v1, float a1, float vi1, float car, string n1, short tip, short mira, short cantHabilidades) {
+	px = x1; py = y1; energia = e1; velocidad = v1; ataque = a1; vida = vi1; carga = car; nombre = n1; tipo = tip; direccionMirada = mira; cantidadhabilidades = cantHabilidades;
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
@@ -77,14 +81,20 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 		}
 	}
 }
-/*void Protagonista::AtacarEnemigos(Enemigos* enemigo) {
-	if ((tecla == 'Q' || tecla == 'q') && (habilidades[0]->GetTiempoAhora() - 3 >= habilidades[0]->GetInicio())) {
-		if ((enemigo->GetEX() - 1 <= px && enemigo->GetEY() - 1 <= py) || (enemigo->GetEX() + 6 >= px && enemigo->GetEY() + 4 >= py)) {
-			enemigo->SetVida(enemigo->GetVida() - 1);
-			Posicion(100, 20); cout << "aaa" << enemigo->GetVida();
+float Protagonista::AtacarEnemigos(int ex, int ey, float enemigovida) {
+	if (tecla == 'Q' || tecla == 'q') {
+		for (int i = 0; i < 3; i++) {
+			if (habilidades[i]->GetTiempoAhora() - 3 >= habilidades[i]->GetInicio()) {
+				if ((ex - 1 <= px +4 && ey - 1 <= py+4) || (ex + 4 >= px-1 && ey + 4 >= py-1)) {
+					return enemigovida - 1;
+				}
+			}
 		}
 	}
-}*/
+	else {
+		return 0;
+	}
+}
 void Protagonista::SetPX(int x1) { px = x1; }
 void Protagonista::SetPY(int y1) { py = y1; }
 void Protagonista::SetEnergia(float e1) { energia = e1; }
@@ -109,11 +119,26 @@ void Protagonista::Generarhabilidades() {
 	switch (tipo) {
 	case 1: 
 		break;
-	case 2:
+	case 2: {
 		habilidades = new Habilidades * [2];
-		habilidades[0]->SetInicio(n -= 100);
+		Habilidades* Qhabilidad = new Habilidades(1, n - 100, n);
+		Habilidades* Ehabilidad = new Habilidades(2, n - 100, n);
+		Habilidades* Rhabilidad = new Habilidades(3, n - 100, n);
+		habilidades[0] = Qhabilidad;
+		habilidades[1] = Ehabilidad;
+		habilidades[2] = Rhabilidad;
 		break;
+	}
 	case 3:
 		break;
+	}
+}
+void Protagonista::DibujarHabilidades() {
+	bool nose = false;
+	for (int i = 0; i < cantidadhabilidades; i++) {
+		if (habilidades[i]->GetTiempoAhora() - 3 >= habilidades[i]->GetInicio()) {
+			nose = true;
+		}
+		habilidades[i]->Dibujar(nose);
 	}
 }

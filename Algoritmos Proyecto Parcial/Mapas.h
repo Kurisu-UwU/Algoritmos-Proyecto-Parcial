@@ -1,5 +1,5 @@
 #pragma once
-#include "clases.h"
+#include "NivelesClase.h"
 
 void MoverNivel1(Protagonista* Miles, bool arriba, bool abajo, bool izquierda, bool derecha) {
     bool Nivelcompleto = false;

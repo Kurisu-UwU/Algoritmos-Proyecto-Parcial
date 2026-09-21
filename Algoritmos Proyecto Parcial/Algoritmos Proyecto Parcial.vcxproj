@@ -127,6 +127,7 @@
     <ClInclude Include="Mejoras.h" />
     <ClInclude Include="NivelBatalla.h" />
     <ClInclude Include="Niveles.h" />
+    <ClInclude Include="NivelesClase.h" />
     <ClInclude Include="Obstaculos.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
