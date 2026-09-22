@@ -37,7 +37,7 @@ public:
 	float GetVelocidadTempo();
 	string GetTipo();
 	bool GetVivo() { return vivo; }
-	int GetCantDeProyectiles();
+	int GetCantDeProyectiles() {return cantdeproyectiles;}
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
@@ -45,16 +45,14 @@ public:
 	void AtacarProtagonista(int, int);
 };
 Enemigos::Enemigos() {
-	ex = 0;
-	ey = 0;
+	ex = 0; ey = 0;
 	cantdeproyectiles = 0;
 	listaP = nullptr;
 	velocidad = 1;
 	velocidadtempo = 1;
 }
 Enemigos::Enemigos(int x1, int y1, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
-	ex = x1;
-	ey = y1;
+	ex = x1; ey = y1;
 	cantidaddeataque = a1;
 	cantidaddevida = v1;
 	velocidad = vel1;
@@ -92,17 +90,11 @@ void Enemigos::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
 		if (tecla == 'L' || tecla == 'l') {
 			obproye = new Proyectiles();
-
 			Proyectiles** proy = new Proyectiles * [cantdeproyectiles + 1]; //crea una nueva pelota
-			for (int i = 0; i < cantdeproyectiles; i++)
-				proy[i] = listaP[i];
-
+			for (int i = 0; i < cantdeproyectiles; i++) { proy[i] = listaP[i]; }
 			proy[cantdeproyectiles] = obproye;
 			cantdeproyectiles++;
-
-			if (listaP != nullptr)
-				delete[]listaP;
-
+			if (listaP != nullptr) { delete[]listaP; }
 			listaP = proy;
 		}
 	}
@@ -113,9 +105,6 @@ void Enemigos::MostrarProyectil() {
 		listaP[i]->Mover();
 		listaP[i]->Dibujar();
 	}
-}
-int Enemigos::GetCantDeProyectiles() {
-	return cantdeproyectiles;
 }
 void Enemigos::PerseguirProta(int px, int py) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {

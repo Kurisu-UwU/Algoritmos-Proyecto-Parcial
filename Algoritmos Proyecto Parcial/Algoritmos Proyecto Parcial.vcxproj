@@ -125,6 +125,7 @@
     <ClInclude Include="Librerias.h" />
     <ClInclude Include="Mapas.h" />
     <ClInclude Include="Mejoras.h" />
+    <ClInclude Include="Muros.h" />
     <ClInclude Include="NivelBatalla.h" />
     <ClInclude Include="Niveles.h" />
     <ClInclude Include="NivelesClase.h" />
