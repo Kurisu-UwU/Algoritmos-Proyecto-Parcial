@@ -66,25 +66,22 @@ void Nivel3() {
 		if (_kbhit()) {
 			tecla = getch();
 		}
-		/*for (int i = 0; i < cantenemigos; i++) {
+		for (int i = 0; i < cantenemigos; i++) {
 			nivel2->EnemigoAcercaProta(enemigo[i],punk);
 			nivel2->EnemigoMuere(enemigo[i]);	
-		}*/
-		nivel2->EnemigoAcercaProta(enemigo1, punk);
-		nivel2->EnemigoMuere(enemigo1);
+		}
 		DibujarPanelDeControl();
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
-		Posicion(0, 42); cout << "Vida: " << enemigo1->GetVida();
+		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
-			punk->ControladorTiempoHabilidades();
-				/*for (int i = 0; i < cantenemigos; i++) {
+				for (int i = 0; i < cantenemigos; i++) {
 				nivel2->AtacarEnemigos(enemigo[i], punk);
 				
-			}*/
-			nivel2->AtacarEnemigos(enemigo1, punk);
+			}
+			punk->ControladorTiempoHabilidades(0);  
 		}
 		punk->DibujarHabilidades();
 		_sleep(1);

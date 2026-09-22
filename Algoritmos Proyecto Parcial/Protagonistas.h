@@ -33,7 +33,7 @@ public:
 	void Generarhabilidades();
 	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
-	void ControladorTiempoHabilidades();
+	void ControladorTiempoHabilidades(short);
 
 
 	int GetPX();
@@ -73,14 +73,16 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 	if (tecla == 'z' || tecla == 'Z') {DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);}
 }
 float Protagonista::AtacarEnemigos(int ex, int ey) {
-		if (tecla == 'Q' || tecla == 'q') {
+		if ((tecla == 'Q' || tecla == 'q')&& habilidades[0]->GetListo())	{
 			if ((ex - 1 <= px + 4 && ey - 1 <= py + 4) || (ex + 4 >= px - 1 && ey + 4 >= py - 1)) {return - 1;}
 		}else {return 0;}
 }
-void Protagonista::ControladorTiempoHabilidades() {
-	time_t ahora = time(nullptr);
-	habilidades[0]->SetInicio(ahora);
-	habilidades[0]->SetListo(false);
+void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
+	if (habilidades[tipodetecla]->GetListo() == true) {
+		time_t ahora = time(nullptr);
+		habilidades[tipodetecla]->SetInicio(ahora);
+		habilidades[tipodetecla]->SetListo(false);
+	}
 }
 void Protagonista::Generarhabilidades() {
 	time_t n = time(nullptr);

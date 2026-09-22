@@ -53,13 +53,15 @@ void BorrarSprite(int x, int y) {
 //	 ""    °°    ''
 
 void DibujarHabilidadQ(bool color, int n) {
-	if (color){
+	if (color) {
 		ColorVerde();
-		Posicion(0, 40); cout << "Habilidad Q: Lista"; 
+		Posicion(0, 40); cout << "Habilidad Q: Lista";
 	}
 	else if (!color) {
 		ColorRojo();
-		Posicion(0, 40); cout << "Habilidad Q:         " << n;
+		if (n > -1) {
+			Posicion(0, 40); cout << "Habilidad Q:    " << n << "  ";
+		}
 	}
 }
 void DibujarMilesMoralesGrandeTitulo(int x, int y) {
