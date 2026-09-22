@@ -3,6 +3,10 @@
 #include <iostream>
 #include <ctime>
 #include <windows.h>
+
+#define ANCHO 4
+#define ALTO 4
+
 using namespace std;
 using namespace System;
 
@@ -79,8 +83,7 @@ void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
 	Posicion(x, y); ColorBlanco();
 	for (int i = 0; i < (int)mensaje.length(); i++) {
-		cout << mensaje[i];
-		_sleep(sleep);
+		cout << mensaje[i];_sleep(sleep);
 	}
 }
 void AnimacionBorrar() {
@@ -90,6 +93,9 @@ void AnimacionBorrar() {
 		_sleep(1);
 	}
 	Console::Clear();
+}
+bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) {
+	if ((x1 <= x2 + ancho2-1 && y1 <= y2 + alto2-1) && (x1 + ancho1-1 >= x2 && y1 + alto1-1 >= y2)) { return true; }else { return false; }
 }
 void DibujarWASD(int x, int y) {
 	ColorAzul();
