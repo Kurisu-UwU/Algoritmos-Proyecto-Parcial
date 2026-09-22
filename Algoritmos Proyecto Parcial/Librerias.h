@@ -97,12 +97,12 @@ void AnimacionBorrar() {
 bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) {
 	if ((x1 <= x2 + ancho2-1 && y1 <= y2 + alto2-1) && (x1 + ancho1-1 >= x2 && y1 + alto1-1 >= y2)) { return true; }else { return false; }
 }
-bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2, int velocidad1, int velocidad2, char tipo) {
+bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2, int velocidad, char tipo) {
 	switch (tipo) {
-	case 'W': if ((x1 <= x2 + ancho2 - 1 && x1 + ancho1 - 1 >= x2) && (y1 <= y2 + alto2)) { return true; } else { return false; } break;
-	case 'A': if ((y1 <= y2 + alto2 - 1 && y1 + alto1 - 1 >= y2) && (x1 <= x2 + ancho2)) { return true; } else { return false; } break;
-	case 'S': if ((x1 <= x2 + ancho2 - 1 && x1 + ancho1 - 1 >= x2) && (y1 + alto1 >= y2)) { return true; } else { return false; } break;
-	case 'D': if ((y1 <= y2 + alto2 - 1 && y1 + alto1 - 1 >= y2) && (x1 + ancho1 >= x2)) { return true; } else { return false; } break;
+	case 'W': if ((x1 <= x2 + ancho2 - 1 && x1 + ancho1 - 1 >= x2) && (y1 - velocidad <= y2 + alto2-1)) { return true; } else { return false; } break;
+	case 'A': if ((y1 <= y2 + alto2 - 1 && y1 + alto1 - 1 >= y2) && (x1 - velocidad <= x2 + ancho2)) { return true; } else { return false; } break;
+	case 'S': if ((x1 <= x2 + ancho2 - 1 && x1 + ancho1 - 1 >= x2) && (y1 + alto1 + velocidad >= y2)) { return true; } else { return false; } break;
+	case 'D': if ((y1 <= y2 + alto2 - 1 && y1 + alto1 - 1 >= y2) && (x1 + ancho1 + velocidad >= x2)) { return true; } else { return false; } break;
 	}
 }
 void DibujarWASD(int x, int y) {
