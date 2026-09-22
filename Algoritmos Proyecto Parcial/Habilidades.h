@@ -52,5 +52,6 @@ void Habilidades::TiempoHabilidad() { //inicialización de condicion para determi
 	inicio = time(nullptr);
 }
 void Habilidades::Dibujar() {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
-		DibujarHabilidadQ(listo, cooldown - (tiempoahora - inicio));
+	int n = cooldown - (tiempoahora - inicio);
+		DibujarHabilidadQ(listo,n);
 }

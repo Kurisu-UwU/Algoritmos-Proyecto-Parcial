@@ -95,8 +95,6 @@ void Protagonista::Generarhabilidades() {
 		habilidades[1] = Ehabilidad;
 		habilidades[2] = Rhabilidad;
 		habilidades[0]->Dibujar();
-		habilidades[1]->Dibujar();
-		habilidades[2]->Dibujar();
 		break;
 	}
 	case 3:break;
