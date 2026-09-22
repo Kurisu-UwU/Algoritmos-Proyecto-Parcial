@@ -6,5 +6,4 @@
 #include "Obstaculos.h"
 #include "Protagonistas.h"
 #include "Proyectiles.h"
-#include "NivelBatalla.h"
 #include "Habilidades.h"

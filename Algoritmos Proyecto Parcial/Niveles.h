@@ -39,10 +39,9 @@ void Nivel3() {
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel2 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) {
-		enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
-	} 
-	enemigo[0]->SetEX(10);  //Atributos de los enemigos
+	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
+
+	enemigo[0]->SetEX(10); //Atributos de los enemigos
 	enemigo[1]->SetEX(20);
 	enemigo[2]->SetEX(30);
 	enemigo[3]->SetEX(40);
@@ -58,8 +57,12 @@ void Nivel3() {
 	enemigo[1]->SetVida(5);
 	enemigo[2]->SetVida(5);
 	enemigo[3]->SetVida(5);
+
+	nivel2->GenerarObstaculo(3);
+	nivel2->AtributosObstaculo(0, 10, 10, 0, 2, 10);
+	nivel2->AtributosObstaculo(1, 20, 10, 0, 2, 10);
+	nivel2->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 	punk->Generarhabilidades();
-	
 	Enemigos* enemigo1 = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	tecla = 'j';
 	do {  //Parte 1
@@ -71,9 +74,8 @@ void Nivel3() {
 			nivel2->EnemigoMuere(enemigo[i]);	
 		}
 		DibujarPanelDeControl();
-		punk->Borrar();
-		punk->Mover(true, true, true, true);
-		punk->Dibujar();
+		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));
+		nivel2->GenerarMovimientoJugador(punk);
 		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
@@ -96,7 +98,7 @@ void Nivel3() {
 	delete[]enemigo;
 }
 void NivelPrueba() {
-	int a = 0;
+	/*int a = 0;
 	NivelBatalla* nivelbatalla3;
 	nivelbatalla3 = new NivelBatalla(); /// Prueba
 	Proyectiles* proyectil;
@@ -117,4 +119,5 @@ void NivelPrueba() {
 		}
 		_sleep(1);
 	} while (1);
+	*/
 }

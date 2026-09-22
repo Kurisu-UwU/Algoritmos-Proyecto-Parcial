@@ -31,6 +31,8 @@ void TextPunkIntro(int n) {
 	case 2:
 		EscribirTextoAnimado("Vamos a la aventura!", 10, 22, 50);
 		break;
+	default:
+		break;
 	}
 }
 void CuadroDeTextoIzquierda(string nombre, int perfil) { //perfiles: 1 Miles / 2 Miguel / 3 Punk / 4 Gwen / 5 La mancha / 6 PspiderWoman / 7 Nose

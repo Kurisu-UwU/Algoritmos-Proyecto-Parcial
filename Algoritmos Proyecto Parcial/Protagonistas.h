@@ -88,7 +88,7 @@ void Protagonista::Generarhabilidades() {
 	case 1: break;
 	case 2: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1,7,n, true);
+		Habilidades* Qhabilidad = new Habilidades(1,2,n, true);
 		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true);
 		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true);
 		habilidades[0] = Qhabilidad;
