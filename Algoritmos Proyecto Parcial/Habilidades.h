@@ -6,20 +6,26 @@ private:
 	int n;
 	time_t inicio;
 	time_t tiempoahora;
+	int cooldown;
+	bool listo;
+	int tiemporestante;
 
 public:
 	Habilidades();
-	Habilidades(int, time_t, time_t);
+	Habilidades(int, int, time_t, bool);
 	~Habilidades();
 
 	void TiempoHabilidad();
 
 	void SetInicio(time_t ini) { inicio = ini; }
 	void SetTiempoAhora(time_t tmpahora) { tiempoahora = tmpahora; }
+	void SetListo(bool lis) { listo = lis; }	
 
 	time_t GetInicio() { return inicio; }
 	time_t GetTiempoAhora() { return tiempoahora; }
-	void Dibujar(bool);
+	int GetCooldownTime() { return cooldown; }
+	bool GetListo() { return listo; }
+	void Dibujar();
 
 
 
@@ -34,25 +40,17 @@ public:
 	}
 };
 Habilidades::Habilidades() {}
-Habilidades::Habilidades(int ne, time_t ini, time_t aho) {
+Habilidades::Habilidades(int ne, int cool, time_t t, bool lis) {
 	n = ne;
-	inicio = ini;
-	tiempoahora = aho;
+	cooldown = cool;
+	inicio = t;
+	listo = lis;
 }
 Habilidades::~Habilidades() {}
 
 void Habilidades::TiempoHabilidad() { //inicialización de condicion para determinar cuanto tiempo ha pasado para el cooldown de la habilidad
 	inicio = time(nullptr);
 }
-void Habilidades::Dibujar(bool n) {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
-	if (tiempoahora -3 >= inicio) {
-		switch (n) {
-		case 1: DibujarHabilidadQ(n); break;
-		}
-	}
-	else {
-		switch (n) {
-		case 1: DibujarHabilidadQ(n); break;
-		}
-	}
+void Habilidades::Dibujar() {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
+		DibujarHabilidadQ(listo, cooldown - (tiempoahora - inicio));
 }

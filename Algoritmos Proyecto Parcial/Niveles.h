@@ -41,7 +41,7 @@ void Nivel3() {
 	Niveles* nivel2 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) {
 		enemigo[i] = new Enemigos();
-	}
+	} 
 	enemigo[0]->SetEX(10);  //Atributos de los enemigos
 	enemigo[1]->SetEX(20);
 	enemigo[2]->SetEX(30);
@@ -61,6 +61,9 @@ void Nivel3() {
 	punk->Generarhabilidades();
 	tecla = 'j';
 	do {  //Parte 1
+		if (_kbhit()) {
+			tecla = getch();
+		}
 		for (int i = 0; i < cantenemigos; i++) {
 			nivel2->EnemigoAcercaProta(enemigo[i],punk);
 			nivel2->EnemigoMuere(enemigo[i]);	
@@ -69,14 +72,21 @@ void Nivel3() {
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
-		for (int i = 0; i < cantenemigos; i++) {
-			nivel2->AtacarEnemigos(enemigo[i], punk);
-			punk->DibujarHabilidades();
+		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
+		if (tecla == 'q' || tecla == 'Q') {
+			Posicion(0, 30); cout << "Habilidad Q activada";
+			punk->ControladorTiempoHabilidades();
+				for (int i = 0; i < cantenemigos; i++) {
+				nivel2->AtacarEnemigos(enemigo[i], punk);
+				
+			}
 		}
+		punk->DibujarHabilidades();
 		_sleep(1);
 		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
 			booleanoGeneralParaNiveles = false;
 		}
+		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
 	for (int i = 0; i < cantenemigos; i++) {
 		delete enemigo[i];

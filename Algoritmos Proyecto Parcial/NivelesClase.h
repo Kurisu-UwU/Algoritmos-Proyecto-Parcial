@@ -67,8 +67,9 @@ void Niveles::MostrarProyectil() {
 	}
 }
 void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) {
-	if (enemigo->GetVivo()) {
-	enemigo->SetVida(enemigo->GetVida()-(protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY(), enemigo->GetVida())));
+		if (enemigo->GetVivo()) {
+			enemigo->SetVida(enemigo->GetVida() - (protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY(), enemigo->GetVida())));
+		
 	}
 }
 void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) {

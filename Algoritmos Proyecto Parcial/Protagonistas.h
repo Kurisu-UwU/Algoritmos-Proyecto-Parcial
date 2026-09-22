@@ -33,7 +33,7 @@ public:
 	void Generarhabilidades();
 	float AtacarEnemigos(int, int, float);
 	void DibujarHabilidades();
-
+	void ControladorTiempoHabilidades();
 
 
 	int GetPX();
@@ -45,7 +45,6 @@ public:
 	float GetCarga();
 	string GetNombre();
 	short GetMirada();
-
 };
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidad = 1; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
@@ -61,38 +60,57 @@ void Protagonista::Dibujar() {
 	case 3: DibujarPunk(px, py); break;
 	}
 }
-void Protagonista::Borrar() {
-	BorrarSprite(px, py);
-}
+void Protagonista::Borrar() {BorrarSprite(px, py);}
 void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {
-	if (_kbhit()) {
-		tecla = _getch();
-		if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
-		if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-		if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }
-		if (tecla == 's' || tecla == 'S') { direccionMirada = 3; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-		if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 1; }
-		if (tecla == 'a' || tecla == 'A') { direccionMirada = 2; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-		if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 206)) { px += 1; }
-		if (tecla == 'd' || tecla == 'D') { direccionMirada = 4; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-
-		if (tecla == 'z' || tecla == 'Z') {
-			DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);
-		}
-	}
+	if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
+	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
+	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }
+	if (tecla == 's' || tecla == 'S') { direccionMirada = 3; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
+	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 1; }
+	if (tecla == 'a' || tecla == 'A') { direccionMirada = 2; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
+	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 206)) { px += 1; }
+	if (tecla == 'd' || tecla == 'D') { direccionMirada = 4; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
+	if (tecla == 'z' || tecla == 'Z') {DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);}
 }
 float Protagonista::AtacarEnemigos(int ex, int ey, float enemigovida) {
-	if (tecla == 'Q' || tecla == 'q') {
-		for (int i = 0; i < 3; i++) {
-			if (habilidades[i]->GetTiempoAhora() - 3 >= habilidades[i]->GetInicio()) {
-				if ((ex - 1 <= px +4 && ey - 1 <= py+4) || (ex + 4 >= px-1 && ey + 4 >= py-1)) {
-					return enemigovida - 1;
-				}
-			}
-		}
+		if (tecla == 'Q' || tecla == 'q') {
+			if ((ex - 1 <= px + 4 && ey - 1 <= py + 4) || (ex + 4 >= px - 1 && ey + 4 >= py - 1)) {return enemigovida - 1;}
+		}else {return 0;}
+}
+void Protagonista::ControladorTiempoHabilidades() {
+	time_t ahora = time(nullptr);
+	habilidades[0]->SetInicio(ahora);
+	habilidades[0]->SetListo(false);
+}
+void Protagonista::Generarhabilidades() {
+	time_t n = time(nullptr);
+	switch (tipo) {
+	case 1: break;
+	case 2: {
+		habilidades = new Habilidades * [2];
+		Habilidades* Qhabilidad = new Habilidades(1,3,n, true);
+		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true);
+		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true);
+		habilidades[0] = Qhabilidad;
+		habilidades[1] = Ehabilidad;
+		habilidades[2] = Rhabilidad;
+		habilidades[0]->Dibujar();
+		habilidades[1]->Dibujar();
+		habilidades[2]->Dibujar();
+		break;
 	}
-	else {
-		return 0;
+	case 3:break;
+	}
+}
+void Protagonista::DibujarHabilidades() {
+	time_t ahora = time(nullptr);
+	bool n = habilidades[0]->GetListo();
+	if (!n) {
+		habilidades[0]->SetTiempoAhora(ahora);
+		if (habilidades[0]->GetTiempoAhora() - habilidades[0]->GetInicio() >= habilidades[0]->GetCooldown()) {
+			habilidades[0]->SetListo(true);
+			habilidades[0]->Dibujar();
+		}
 	}
 }
 void Protagonista::SetPX(int x1) { px = x1; }
@@ -113,32 +131,9 @@ float Protagonista::GetAtaque() { return ataque; }
 float Protagonista::GetVida() { return vida; }
 float Protagonista::GetCarga() { return carga; }
 string Protagonista::GetNombre() { return nombre; }
-
-void Protagonista::Generarhabilidades() {
-	time_t n = time(nullptr);
-	switch (tipo) {
-	case 1: 
-		break;
-	case 2: {
-		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1, n - 100, n);
-		Habilidades* Ehabilidad = new Habilidades(2, n - 100, n);
-		Habilidades* Rhabilidad = new Habilidades(3, n - 100, n);
-		habilidades[0] = Qhabilidad;
-		habilidades[1] = Ehabilidad;
-		habilidades[2] = Rhabilidad;
-		break;
-	}
-	case 3:
-		break;
-	}
-}
-void Protagonista::DibujarHabilidades() {
-	bool nose = false;
-	for (int i = 0; i < cantidadhabilidades; i++) {
-		if (habilidades[i]->GetTiempoAhora() - 3 >= habilidades[i]->GetInicio()) {
-			nose = true;
-		}
-		habilidades[i]->Dibujar(nose);
-	}
-}
+/*for (int i = 0; i < cantidadhabilidades; i++) {
+	if (habilidades[i]->GetListo() == false) {
+		habilidades[i]->SetTiempoAhora(ahora);
+		if (habilidades[i]->GetTiempoAhora() - habilidades[i]->GetInicio() >= habilidades[i]->GetCooldown()) {
+			habilidades[i]->SetListo(true);
+			habilidades[i]->Dibujar();*/
