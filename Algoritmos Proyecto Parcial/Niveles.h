@@ -40,7 +40,7 @@ void Nivel3() {
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel2 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) {
-		enemigo[i] = new Enemigos();
+		enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	} 
 	enemigo[0]->SetEX(10);  //Atributos de los enemigos
 	enemigo[1]->SetEX(20);
@@ -59,27 +59,32 @@ void Nivel3() {
 	enemigo[2]->SetVida(5);
 	enemigo[3]->SetVida(5);
 	punk->Generarhabilidades();
+	
+	Enemigos* enemigo1 = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) {
 			tecla = getch();
 		}
-		for (int i = 0; i < cantenemigos; i++) {
+		/*for (int i = 0; i < cantenemigos; i++) {
 			nivel2->EnemigoAcercaProta(enemigo[i],punk);
 			nivel2->EnemigoMuere(enemigo[i]);	
-		}
+		}*/
+		nivel2->EnemigoAcercaProta(enemigo1, punk);
+		nivel2->EnemigoMuere(enemigo1);
 		DibujarPanelDeControl();
 		punk->Borrar();
 		punk->Mover(true, true, true, true);
 		punk->Dibujar();
-		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
+		Posicion(0, 42); cout << "Vida: " << enemigo1->GetVida();
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 			punk->ControladorTiempoHabilidades();
-				for (int i = 0; i < cantenemigos; i++) {
+				/*for (int i = 0; i < cantenemigos; i++) {
 				nivel2->AtacarEnemigos(enemigo[i], punk);
 				
-			}
+			}*/
+			nivel2->AtacarEnemigos(enemigo1, punk);
 		}
 		punk->DibujarHabilidades();
 		_sleep(1);

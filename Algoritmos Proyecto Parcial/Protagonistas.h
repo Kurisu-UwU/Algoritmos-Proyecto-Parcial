@@ -31,7 +31,7 @@ public:
 	void SetNombre(string);
 	void SetMirada(short);
 	void Generarhabilidades();
-	float AtacarEnemigos(int, int, float);
+	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
 	void ControladorTiempoHabilidades();
 
@@ -66,15 +66,15 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }
 	if (tecla == 's' || tecla == 'S') { direccionMirada = 3; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 1; }
+	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
 	if (tecla == 'a' || tecla == 'A') { direccionMirada = 2; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 206)) { px += 1; }
+	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 206)) { px += 2; }
 	if (tecla == 'd' || tecla == 'D') { direccionMirada = 4; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if (tecla == 'z' || tecla == 'Z') {DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);}
 }
-float Protagonista::AtacarEnemigos(int ex, int ey, float enemigovida) {
+float Protagonista::AtacarEnemigos(int ex, int ey) {
 		if (tecla == 'Q' || tecla == 'q') {
-			if ((ex - 1 <= px + 4 && ey - 1 <= py + 4) || (ex + 4 >= px - 1 && ey + 4 >= py - 1)) {return enemigovida - 1;}
+			if ((ex - 1 <= px + 4 && ey - 1 <= py + 4) || (ex + 4 >= px - 1 && ey + 4 >= py - 1)) {return - 1;}
 		}else {return 0;}
 }
 void Protagonista::ControladorTiempoHabilidades() {
@@ -88,7 +88,7 @@ void Protagonista::Generarhabilidades() {
 	case 1: break;
 	case 2: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1,3,n, true);
+		Habilidades* Qhabilidad = new Habilidades(1,7,n, true);
 		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true);
 		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true);
 		habilidades[0] = Qhabilidad;
@@ -103,9 +103,11 @@ void Protagonista::Generarhabilidades() {
 void Protagonista::DibujarHabilidades() {
 	time_t ahora = time(nullptr);
 	bool n = habilidades[0]->GetListo();
-	if (!n) {
+	if (n==false) {
 		habilidades[0]->SetTiempoAhora(ahora);
-		if (habilidades[0]->GetTiempoAhora() - habilidades[0]->GetInicio() >= habilidades[0]->GetCooldown()) {
+		time_t diferencia = ahora - (habilidades[0]->GetInicio());
+		habilidades[0]->Dibujar();
+		if ((time_t)diferencia > (time_t)habilidades[0]->GetCooldownTime()) {
 			habilidades[0]->SetListo(true);
 			habilidades[0]->Dibujar();
 		}

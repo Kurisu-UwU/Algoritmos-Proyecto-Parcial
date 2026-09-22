@@ -6,7 +6,7 @@ private:
 	int n;
 	time_t inicio;
 	time_t tiempoahora;
-	int cooldown;
+	time_t cooldown;
 	bool listo;
 	int tiemporestante;
 
@@ -23,7 +23,7 @@ public:
 
 	time_t GetInicio() { return inicio; }
 	time_t GetTiempoAhora() { return tiempoahora; }
-	int GetCooldownTime() { return cooldown; }
+	time_t GetCooldownTime() { return cooldown; }
 	bool GetListo() { return listo; }
 	void Dibujar();
 

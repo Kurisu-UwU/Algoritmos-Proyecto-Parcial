@@ -68,8 +68,8 @@ void Niveles::MostrarProyectil() {
 }
 void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) {
 		if (enemigo->GetVivo()) {
-			float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY(), enemigo->GetVida());
-			float f = enemigo->GetVida() - n;
+			float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
+			float f = enemigo->GetVida() + n;
 			enemigo->SetVida(f);
 		
 	}
