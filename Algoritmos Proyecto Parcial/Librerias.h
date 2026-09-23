@@ -101,14 +101,14 @@ void AnimacionBorrar() {   // limpiar pantalla
 bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) { // colisiones para entidades
 	if ((x1 <= x2 + ancho2-1 && y1 <= y2 + alto2-1) && (x1 + ancho1-1 >= x2 && y1 + alto1-1 >= y2)) { return true; }else { return false; }
 }
-bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1, int alto1, int ancho2, int alto2, int velocidad, int tipo) { // colisiones para muros y obstáculos
+bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1, int alto1, int ancho2, int alto2, int velocidadx, int velocidady, int tipo) { // colisiones para muros y obstáculos
 	int futuroX1 = x1;
 	int futuroY1 = y1;
 	switch (tipo) {
-	case 0: futuroY1 -= velocidad; break; // Arriba (W)  
-	case 1: futuroX1 -= velocidad; break; // Izquierda (A) 
-	case 2: futuroY1 += velocidad; break; // Abajo (S)      
-	case 3: futuroX1 += velocidad; break; // Derecha (D)
+	case 0: futuroY1 -= velocidady; break; // Arriba (W)  
+	case 1: futuroX1 -= velocidadx; break; // Izquierda (A) 
+	case 2: futuroY1 += velocidady; break; // Abajo (S)      
+	case 3: futuroX1 += velocidadx; break; // Derecha (D)
 	default: return false;
 	}
 	bool colisionX = (futuroX1 < x2 + ancho2) && (futuroX1 + ancho1 > x2);
