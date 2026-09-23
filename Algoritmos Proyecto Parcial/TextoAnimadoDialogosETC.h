@@ -89,7 +89,7 @@ void TextPunk1(int n) {
 		break;
 	case 5: 
 		CuadroDeTexto("Gwen Stacy", 3, false);
-		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...        ", PosDerDIALOGO, 4, 50);
+		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...     ", PosDerDIALOGO, 4, 50);
 		break;
 	case 6: 
 		CuadroDeTexto("Spider Punk", 3, true);
