@@ -34,13 +34,13 @@ Niveles::Niveles() {
 	listaPro = nullptr;
 	canMejora = 0;
 }
-Niveles::~Niveles() {
+Niveles::~Niveles() {  // eliminador
 	//if (listaEne != nullptr) delete[]listaEne;
 	//if (listaPro != nullptr) delete[]listaPro;
 	//if (listaMejora != nullptr) delete[]listaMejora;
 	if (listaObs != nullptr) delete[]listaObs;
 }
-void Niveles::GenerarProyectil(char n) {
+void Niveles::GenerarProyectil(char n) {  // sin usar de momento, ignorar
 	Proyectiles* obproye;
 	canObs = n;
 	if (n == 'L' || n == 'l')
@@ -65,7 +65,7 @@ void Niveles::GenerarProyectil(char n) {
 		}
 	}
 }
-void Niveles::GenerarObstaculo(int n) {
+void Niveles::GenerarObstaculo(int n) { // inicializador de registro de obstáculos
 	canObs = n;
 	listaObs = new Obstaculos* [n];
 	for (int i = 0; i < n; i++)
@@ -78,40 +78,40 @@ void Niveles::BorrarObjetos() {
 	//for (int i = 0; i < canPro; i++) { delete listaPro[i]; }delete[]listaPro;
 	//for (int i = 0; i < canEne; i++) { delete listaEne[i]; }delete[]listaEne;		
 }
-void Niveles::AtributosObstaculo(int numero, int x, int y, int velocidad, int ancho, int alto) {
+void Niveles::AtributosObstaculo(int numero, int x, int y, int velocidad, int ancho, int alto) {  // asignación de atributos a los obstáculos
 	listaObs[numero]->SetX(x);
 	listaObs[numero]->SetY(y);
 	listaObs[numero]->SetAncho(ancho);
 	listaObs[numero]->SetAlto(alto);
 }
-void Niveles::MostrarProyectil() {
+void Niveles::MostrarProyectil() { // muestra proyectil :V
 	for (int i = 0; i < canPro; i++) {
 		listaPro[i]->Borrar();
 		listaPro[i]->Mover();
 		listaPro[i]->Dibujar();
 	}
 }
-void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) {
+void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
 		if (enemigo->GetVivo()) {
 			float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
 			float f = enemigo->GetVida() + n;
 			enemigo->SetVida(f);
 	}
 }
-void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) {
+void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
 	if (enemigo->GetVivo()) {
 		enemigo->Borrar();
 		enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY());
 		enemigo->Dibujar();
 	}
 }
-void Niveles::EnemigoMuere(Enemigos* enemigo) {
+void Niveles::EnemigoMuere(Enemigos* enemigo) {  // cuando el enemigo muere
 		if (enemigo->GetVida() <= 0) {
 		enemigo->SetVivo(false);
 		enemigo->Borrar();
 		}
 }
-void Niveles::GenerarMovimientoJugador(Protagonista* prota) {
+void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición general de todo el nivel para decirle al jugador si se puede mover o no -- aqui vas todas las colisiones del nivel, todo, todito todo
 	bool w, a, s, d; w = a = s = d = true;
 	int px=prota->GetPX();
 	int py = prota->GetPY();

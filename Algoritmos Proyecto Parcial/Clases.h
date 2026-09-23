@@ -1,4 +1,4 @@
-#pragma once
+#pragma once  // aqui solo hay librerias de clase, es la agrupación
 #include "LasersMenu.h"
 #include "Ayudantes.h"
 #include "Enemigos.h"

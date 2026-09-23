@@ -1,6 +1,6 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
-class Mejoras {
+class Mejoras {  // sin usar
 private:
 	int x, y, dx;
 	bool uwu = true;

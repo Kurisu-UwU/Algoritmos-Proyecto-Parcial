@@ -20,30 +20,29 @@ public:
 	void Dibujar();
 	void Borrar();
 	void Mover(bool, bool, bool, bool);
-
-	void SetPX(int);
-	void SetPY(int);
-	void SetEnergia(float);
-	void SetVelocidad(float);
-	void SetAtaque(float);
-	void SetVida(float);
-	void SetCarga(float);
-	void SetNombre(string);
+	void SetPX(int x1) { px = x1; }  //setters
+	void SetPY(int y1) { py = y1; }
+	void SetEnergia(float e1) { energia = e1; }
+	void SetVelocidad(float v1) { velocidad = v1; }
+	void SetAtaque(float a1) { ataque = a1; }
+	void SetVida(float vi1) { vida = vi1; }
+	void SetCarga(float c1) { carga = c1; }
+	void SetNombre(string n1) { nombre = n1; }
 	void SetMirada(short);
+
 	void Generarhabilidades();
 	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
 	void ControladorTiempoHabilidades(short);
 
-
-	int GetPX();
-	int GetPY();
-	float GetEnergia();
-	float GetVelocidad();
-	float GetAtaque();
-	float GetVida();
-	float GetCarga();
-	string GetNombre();
+	int GetPX() { return px; }  // getters
+	int GetPY() { return py; }
+	float GetEnergia() { return energia; }
+	float GetVelocidad() { return velocidad; }
+	float GetAtaque() { return ataque; }
+	float GetVida() { return vida; }
+	float GetCarga() { return carga; }
+	string GetNombre() { return nombre; }
 	short GetMirada();
 };
 Protagonista::Protagonista() {
@@ -61,7 +60,7 @@ void Protagonista::Dibujar() {
 	}
 }
 void Protagonista::Borrar() {BorrarSprite(px, py);}
-void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {
+void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {  // condicion del prota para que no salga de la pantalla
 	if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
 	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }
@@ -82,7 +81,7 @@ void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q
 		habilidades[tipodetecla]->SetListo(false);
 	}
 }
-void Protagonista::Generarhabilidades() {
+void Protagonista::Generarhabilidades() {  // el protagonista guarda la información de las habilidades, este es el inicializador
 	time_t n = time(nullptr);
 	switch (tipo) {
 	case 1: break;
@@ -97,10 +96,10 @@ void Protagonista::Generarhabilidades() {
 		habilidades[0]->Dibujar();
 		break;
 	}
-	case 3:break;
+	case 3:break;  // nose
 	}
 }
-void Protagonista::DibujarHabilidades() {
+void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo de la tecla
 	time_t ahora = time(nullptr);
 	bool n = habilidades[0]->GetListo();
 	if (n==false) {
@@ -113,24 +112,6 @@ void Protagonista::DibujarHabilidades() {
 		}
 	}
 }
-void Protagonista::SetPX(int x1) { px = x1; }
-void Protagonista::SetPY(int y1) { py = y1; }
-void Protagonista::SetEnergia(float e1) { energia = e1; }
-void Protagonista::SetVelocidad(float v1) { velocidad = v1; }
-void Protagonista::SetAtaque(float a1) { ataque = a1; }
-void Protagonista::SetVida(float vi1) { vida = vi1; }
-void Protagonista::SetCarga(float c1) { carga = c1; }
-void Protagonista::SetNombre(string n1) { nombre = n1; }
-
-
-int Protagonista::GetPX() { return px; }
-int Protagonista::GetPY() { return py; }
-float Protagonista::GetEnergia() { return energia; }
-float Protagonista::GetVelocidad() { return velocidad; }
-float Protagonista::GetAtaque() { return ataque; }
-float Protagonista::GetVida() { return vida; }
-float Protagonista::GetCarga() { return carga; }
-string Protagonista::GetNombre() { return nombre; }
 /*for (int i = 0; i < cantidadhabilidades; i++) {
 	if (habilidades[i]->GetListo() == false) {
 		habilidades[i]->SetTiempoAhora(ahora);
