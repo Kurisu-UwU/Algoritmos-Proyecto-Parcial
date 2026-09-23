@@ -139,7 +139,6 @@ void NivelPrueba() {
 	nivel2->AtributosObstaculo(1, 20, 10, 0, 2, 10);
 	nivel2->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 	punk->Generarhabilidades();
-	Enemigos* enemigo1 = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) {
@@ -156,8 +155,7 @@ void NivelPrueba() {
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 			for (int i = 0; i < cantenemigos; i++) {
-				nivel2->AtacarEnemigos(enemigo[i], punk)
-
+				nivel2->AtacarEnemigos(enemigo[i], punk);
 			}
 			punk->ControladorTiempoHabilidades(0);
 		}
