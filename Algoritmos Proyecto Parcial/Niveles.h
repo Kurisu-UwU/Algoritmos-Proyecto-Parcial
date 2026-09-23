@@ -156,9 +156,7 @@ void NivelPrueba() {
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 			for (int i = 0; i < cantenemigos; i++) {
-				nivel2->AtacarEnemigos(enemigo[i], punk)
-
-			}
+				nivel2->AtacarEnemigos(enemigo[i], punk);}
 			punk->ControladorTiempoHabilidades(0);
 		}
 		punk->DibujarHabilidades();
