@@ -21,7 +21,7 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miles = new Protagonista(50, 10, 100, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
+	Protagonista* Miles = new Protagonista(50, 10, 100, 2, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
 	Niveles* nivel2 = new Niveles();
 	nivel2->GenerarObstaculo(4);
 	nivel2->AtributosObstaculo(0, 10, 10, 0, 5, 5);
@@ -57,7 +57,7 @@ void Nivel3() {
 		TextPunk1(a);
 	} while (a < 9);
 	
-	Protagonista* punk = new Protagonista(20,20,100,1,10,100, 2,"Punk",2,1,3);
+	Protagonista* punk = new Protagonista(20,20,100,2,1,10,100, 2,"Punk",2,1,3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
@@ -130,7 +130,7 @@ void NivelPrueba() {
 
 	AnimacionBorrar();
 
-	Protagonista* punk = new Protagonista(20, 20, 100, 1, 10, 100, 2, "Punk", 2, 1, 3);
+	Protagonista* punk = new Protagonista(20, 20, 100, 1, 2, 10, 100, 2, "Punk", 2, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
