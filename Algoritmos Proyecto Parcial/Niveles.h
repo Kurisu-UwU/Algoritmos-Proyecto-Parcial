@@ -21,9 +21,29 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
+	Protagonista* Miles = new Protagonista(50, 10, 100, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
+	Niveles* nivel2 = new Niveles();
+	nivel2->GenerarObstaculo(4);
+	nivel2->AtributosObstaculo(0, 10, 10, 0, 5, 5);
+	nivel2->AtributosObstaculo(1, 20, 20, 0, 5, 5);
+	nivel2->AtributosObstaculo(2, 30, 30, 0, 5, 5);
+	nivel2->AtributosObstaculo(3, 30, 40, 0, 5, 5);
+	do {  //Parte 1
+		if (_kbhit()) {
+			tecla = getch();
+		}
+		DibujarPanelDeControl();
+		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));//Dibuja obstaculo
+		DibujarMiguel(nivel2->GetObjX(1), nivel2->GetObjY(1));//Dibuja obstaculo
+		DibujarMiguel(nivel2->GetObjX(2), nivel2->GetObjY(2));//Dibuja obstaculo
+		nivel2->GenerarMovimientoJugador(Miles);
+		if (tecla == 'q' || tecla == 'Q') {
+			Posicion(0, 30); cout << "Habilidad Q activada";
+		}
+		_sleep(1);
+		tecla = 'j';
+	} while (booleanoGeneralParaNiveles);
 	// Inicialización de protagonista
-	MoverNivel1(Miles, arriba, abajo, izquierda, derecha);
 	delete Miles;
 }
 void Nivel3() {
@@ -41,7 +61,7 @@ void Nivel3() {
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
-	Niveles* nivel2 = new Niveles();
+	Niveles* nivel3 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(10); //Atributos de los enemigos
@@ -61,10 +81,10 @@ void Nivel3() {
 	enemigo[2]->SetVida(5);
 	enemigo[3]->SetVida(5);
 
-	nivel2->GenerarObstaculo(3);
-	nivel2->AtributosObstaculo(0, 10, 10, 0, 2, 10);
-	nivel2->AtributosObstaculo(1, 20, 10, 0, 2, 10);
-	nivel2->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+	nivel3->GenerarObstaculo(3);
+	nivel3->AtributosObstaculo(0, 10, 10, 0, 2, 10);
+	nivel3->AtributosObstaculo(1, 20, 10, 0, 2, 10);
+	nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 	punk->Generarhabilidades();
 	Enemigos* enemigo1 = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	tecla = 'j';
@@ -73,17 +93,17 @@ void Nivel3() {
 			tecla = getch();
 		}
 		for (int i = 0; i < cantenemigos; i++) {
-			nivel2->EnemigoAcercaProta(enemigo[i],punk);
-			nivel2->EnemigoMuere(enemigo[i]);	
+			nivel3->EnemigoAcercaProta(enemigo[i],punk);
+			nivel3->EnemigoMuere(enemigo[i]);	
 		}
 		DibujarPanelDeControl();
-		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));//Dibuja obstaculo
-		nivel2->GenerarMovimientoJugador(punk);
+		DibujarMiguel(nivel3->GetObjX(0), nivel3->GetObjY(0));//Dibuja obstaculo
+		nivel3->GenerarMovimientoJugador(punk);
 		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 				for (int i = 0; i < cantenemigos; i++) {
-					nivel2->AtacarEnemigos(enemigo[i], punk);//Ataca a los enemigos
+					nivel3->AtacarEnemigos(enemigo[i], punk);//Ataca a los enemigos
 				
 			}
 				punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
