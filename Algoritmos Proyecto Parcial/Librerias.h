@@ -7,6 +7,9 @@
 #define ANCHO 4
 #define ALTO 4
 
+#define PosIzDIALOGO 20
+#define PosDerDIALOGO 120
+
 using namespace std;
 using namespace System;
 

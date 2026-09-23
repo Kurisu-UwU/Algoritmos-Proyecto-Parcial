@@ -73,31 +73,31 @@ void TextPunk1(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Spider Punk", 3, true);
-		EscribirTextoAnimado("...     Que....    problematico     ", 20, 4, 25);
+		EscribirTextoAnimado("...     Que....    problematico     ", PosIzDIALOGO, 4, 25);
 		break;
 	case 2:
 		CuadroDeTexto("Spider Punk", 3, true);
-		EscribirTextoAnimado("Bien... tengo cosas pendientes por hacer       ", 20, 4, 40);
+		EscribirTextoAnimado("Bien... tengo cosas pendientes por hacer       ", PosIzDIALOGO, 4, 40);
 		break;
 	case 3:
 		CuadroDeTexto("Spider Punk", 3, true);
-		EscribirTextoAnimado("...     adios", 20, 4, 50);
+		EscribirTextoAnimado("...     adios", PosIzDIALOGO, 4, 50);
 		break;
 	case 4: 
 		CuadroDeTexto("Gwen Stacy", 3, false);
-		EscribirTextoAnimado("Vas a dejarnos justo ahora?!... EN UN MOMENTO COMO ESTE???           ", 100, 4, 50);
+		EscribirTextoAnimado("Vas a dejarnos justo ahora?!... EN UN MOMENTO COMO ESTE???           ", PosDerDIALOGO, 4, 50);
 		break;
 	case 5: 
 		CuadroDeTexto("Gwen Stacy", 3, false);
-		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...        ", 10, 4, 50);
+		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...        ", PosDerDIALOGO, 4, 50);
 		break;
 	case 6: 
 		CuadroDeTexto("Spider Punk", 3, true);
-		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", 10, 4, 50);
+		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", PosIzDIALOGO, 4, 50);
 		break;
 	case 7:
 		CuadroDeTexto("Gwen Stacy", 3, false);
-		EscribirTextoAnimado("Ah.. mas te vale que sea importante... sabes donde encontrarme   ", 10, 4, 50);
+		EscribirTextoAnimado("Ah.. mas te vale que sea importante... sabes donde encontrarme   ", PosDerDIALOGO, 4, 50);
 		break;
 	case 8: AnimacionBorrar(); break;
 	default:break;
