@@ -34,7 +34,7 @@ void Nivel3() {
 	
 	AnimacionBorrar();
 
-	Protagonista* punk = new Protagonista(10,10,100,1,10,100, 2,"Punk",2,1,3);
+	Protagonista* punk = new Protagonista(20,20,100,1,10,100, 2,"Punk",2,1,3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
@@ -92,7 +92,7 @@ void Nivel3() {
 		}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
-	for (int i = 0; i < cantenemigos; i++) {
+	for (int i= 0; i < cantenemigos; i++) {
 		delete enemigo[i];
 	}
 	delete[]enemigo;

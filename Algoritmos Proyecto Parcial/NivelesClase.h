@@ -66,6 +66,7 @@ void Niveles::GenerarProyectil(char n) {
 	}
 }
 void Niveles::GenerarObstaculo(int n) {
+	canObs = n;
 	listaObs = new Obstaculos* [n];
 	for (int i = 0; i < n; i++)
 		listaObs[i] = new Obstaculos(1,1,0,1,1,true);
