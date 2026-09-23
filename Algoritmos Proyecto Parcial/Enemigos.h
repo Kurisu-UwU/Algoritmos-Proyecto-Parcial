@@ -7,9 +7,9 @@ private:
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
 	string tipo;
 	bool vivo;
-	Proyectiles** listaP;
+	Proyectiles** listaP;// Permite almacenar varios proyectiles.
 	int cantdeproyectiles;
-	Proyectiles* obproye;
+	Proyectiles* obproye;// Puntero utilizado para crear un nuevo proyectil.
 	float tempo = 0;
 public:
 	Enemigos();
@@ -19,7 +19,7 @@ public:
 	void Dibujar();
 	void Borrar();
 	void Mover();
-
+	//coloca y cambia los datos de los enemigos los set
 	void SetEX(int);
 	void SetEY(int);
 	void SetAtaque(float);
@@ -28,7 +28,7 @@ public:
 	void SetTipo(string);
 	void SetVivo(bool);
 	void SetVelocidadTempo(float v1);
-
+	//obtiene y devuelve los datos de los enemigos los get
 	int GetEX();
 	int GetEY();
 	float GetAtaque();

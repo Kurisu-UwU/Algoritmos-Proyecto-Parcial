@@ -21,14 +21,15 @@ public:
 	void SetTiempoAhora(time_t tmpahora) { tiempoahora = tmpahora; }
 	void SetListo(bool lis) { listo = lis; }	
 
+	// Funciones para obtener los valores de las variables privadas
 	time_t GetInicio() { return inicio; }
-	time_t GetTiempoAhora() { return tiempoahora; }
+	time_t GetTiempoAhora() { return tiempoahora; }// Función para obtener el tiempo restante de la habilidad
 	time_t GetCooldownTime() { return cooldown; }
 	bool GetListo() { return listo; }
 	void Dibujar();
 
 
-
+	// Función para determinar si la habilidad está lista o no
 	bool GetCooldown() {
 		tiempoahora = time(nullptr);
 		if (tiempoahora - 3 >= inicio) {

@@ -1,6 +1,6 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
-class Proyectiles {
+class Proyectiles { // sin usar
 private:
 	int x, y, dx, dy;
 	bool uwu = true;

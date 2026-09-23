@@ -36,13 +36,16 @@ void Ayudantes::Dibujar() {
 }
 void Ayudantes::Mover() {
 	if (uwu == true) {
+		// Genera un número aleatorio entre 0 y 2
 		int random = rand() % 3;
 		y = (rand() % 46) + 1;
+		// Elige una velocidad/dirección aleatoria entre 1 y 3
 		dx = (rand() % 3) + 1;
 		if (random == 2) { dx *= -1; x = 210; }
 		else { x = 1; }
 		uwu = false;
 	}
 	if ((dx > 0 && (x + dx > 208 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
+	// Si el ayudante llega al borde de la pantalla, se reinicia su posición y dirección
 	x += dx;
 }

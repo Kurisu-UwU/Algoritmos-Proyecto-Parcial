@@ -7,6 +7,9 @@
 #define ANCHO 4
 #define ALTO 4
 
+#define PosIzDIALOGO 20
+#define PosDerDIALOGO 120
+
 using namespace std;
 using namespace System;
 
@@ -16,8 +19,8 @@ bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 char tecla = ' ';
 bool booleanoGeneralParaNiveles = true;
-
-int Nivel2_2[30][100] = {
+//Se crea una matriz de 30 filas y 100 columnas
+int Nivel2_2[30][100] = {  //ignorar
  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -52,15 +55,16 @@ int Nivel2_2[30][100] = {
 
 void ConsolayOjetos() {
 	Console::SetWindowSize(213, 48);
-	Console::SetBufferSize(213, 48);
-	Console::LargestWindowWidth;
+	Console::SetBufferSize(213, 48);// Establece el tamaño del área de almacenamiento
+	
+	Console::LargestWindowWidth;// Estas propiedades hacen referencia al tamaño máximo 
 	Console::LargestWindowHeight;
-	Console::CursorVisible = false;
+	Console::CursorVisible = false;// Oculta el cursor para que no aparezca parpadeando
 }
 
-void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }
-
-void ColorAmarillo() { Console::ForegroundColor = ConsoleColor::Yellow; }
+void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }  // posicion
+ 
+void ColorAmarillo() { Console::ForegroundColor = ConsoleColor::Yellow; }  // colores
 void ColorBlanco() { Console::ForegroundColor = ConsoleColor::White; }
 void ColorRojo() { Console::ForegroundColor = ConsoleColor::Red; }
 void ColorVerde() { Console::ForegroundColor = ConsoleColor::Green; }
@@ -80,13 +84,13 @@ void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 
-void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
+void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {  // efecto de animacion bonita de texto uwu
 	Posicion(x, y); ColorBlanco();
 	for (int i = 0; i < (int)mensaje.length(); i++) {
 		cout << mensaje[i];_sleep(sleep);
 	}
 }
-void AnimacionBorrar() {
+void AnimacionBorrar() {   // limpiar pantalla
 	ColorRojo();
 	for (int i = 213; i > 7; i = i - 7) {
 		for (int j = 0; j < 47; j++) { Posicion(i - 6, j); cout << "|       "; }
@@ -94,10 +98,10 @@ void AnimacionBorrar() {
 	}
 	Console::Clear();
 }
-bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) {
+bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) { // colisiones para entidades
 	if ((x1 <= x2 + ancho2-1 && y1 <= y2 + alto2-1) && (x1 + ancho1-1 >= x2 && y1 + alto1-1 >= y2)) { return true; }else { return false; }
 }
-bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1, int alto1, int ancho2, int alto2, int velocidad, int tipo) {
+bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1, int alto1, int ancho2, int alto2, int velocidad, int tipo) { // colisiones para muros y obstáculos
 	int futuroX1 = x1;
 	int futuroY1 = y1;
 	switch (tipo) {
@@ -111,7 +115,7 @@ bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1,
 	bool colisionY = (futuroY1 < y2 + alto2) && (futuroY1 + alto1 > y2);
 	return colisionX && colisionY;
 }
-void DibujarWASD(int x, int y) {
+void DibujarWASD(int x, int y) { // WASD
 	ColorAzul();
 	Posicion(x, y);     cout << " ____ ____ ____ ____";
 	Posicion(x, y + 1); cout << "||W |||A |||S |||D ||";
@@ -126,7 +130,7 @@ void DibujarWASD(int x, int y) {
 //||a |||s |||d ||
 //||__|||__|||__||
 //|/__\|/__\|/__\|
-void AnimacionWASD(int x,int y,int noseaaa) {  //visual
+void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 	ColorAmarillo();
 	switch (noseaaa) {
 	case 1: 

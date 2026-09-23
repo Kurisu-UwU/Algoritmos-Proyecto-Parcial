@@ -20,6 +20,7 @@ public:
 	int GetFX();
 };
 LasersMenu::LasersMenu() { x = 10; y = 10; dx = 1; }
+
 LasersMenu::LasersMenu(int x1, int y1, int dx1, bool owo, short tipo1) { x = x1; y = y1; dx = dx1; uwu = owo; tipo = 1; }
 LasersMenu::~LasersMenu() {}
 void LasersMenu::SetX(int x1) { x = x1; }
@@ -54,7 +55,7 @@ void LasersMenu::Mover() {
 	x += dx;
 	ColorRojo();
 	switch (tipo) {
-	case 1: 	
+	case 1: // Dibujar el primer tipo de láser	
 		if ((dx > 0 && (x + dx > 206 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
 		Posicion(x, y); cout << "========";
 		break;
