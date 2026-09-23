@@ -60,7 +60,8 @@ void Protagonista::Dibujar() {
 	}
 }
 void Protagonista::Borrar() {BorrarSprite(px, py);}
-void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {  // condicion del prota para que no salga de la pantalla
+void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {  
+	// condicion del prota para que no salga de la pantalla
 	if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
 	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }

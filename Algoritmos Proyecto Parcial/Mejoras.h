@@ -26,7 +26,7 @@ Mejoras::~Mejoras() {}
 void Mejoras::Borrar() { Posicion(x, y); cout << "     "; }
 void Mejoras::SetX(int x1) { x = x1; }
 void Mejoras::SetY(int y1) { y = y1; }
-void Mejoras::SetDX(int dx1) { dx = dx1; }
+void Mejoras::SetDX(int dx1) { dx = dx1; }// Función para establecer el desplazamiento en el eje X
 int Mejoras::GetX() { return x; }
 int Mejoras::GetY() { return y; }
 int Mejoras::GetFX() { return dx; }
@@ -40,9 +40,11 @@ void Mejoras::Mover() {
 		y = (rand() % 46) + 1;
 		dx = (rand() % 3) + 1;
 		if (random == 2) { dx *= -1; x = 210; }
+		// Si el número aleatorio es 2, invertir la dirección y colocar el objeto en el borde derecho
 		else { x = 1; }
 		uwu = false;
 	}
 	if ((dx > 0 && (x + dx > 208 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
-	x += dx;
+	// Si el objeto llega al borde de la pantalla, reiniciar su posición y dirección
+	x += dx; // Actualizar la posición en el eje X según el desplazamiento
 }

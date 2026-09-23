@@ -19,7 +19,7 @@ bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 char tecla = ' ';
 bool booleanoGeneralParaNiveles = true;
-
+//Se crea una matriz de 30 filas y 100 columnas
 int Nivel2_2[30][100] = {  //ignorar
  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -55,10 +55,11 @@ int Nivel2_2[30][100] = {  //ignorar
 
 void ConsolayOjetos() {
 	Console::SetWindowSize(213, 48);
-	Console::SetBufferSize(213, 48);
-	Console::LargestWindowWidth;
+	Console::SetBufferSize(213, 48);// Establece el tamaño del área de almacenamiento
+	
+	Console::LargestWindowWidth;// Estas propiedades hacen referencia al tamaño máximo 
 	Console::LargestWindowHeight;
-	Console::CursorVisible = false;
+	Console::CursorVisible = false;// Oculta el cursor para que no aparezca parpadeando
 }
 
 void Posicion(int x, int y) { Console::SetCursorPosition(x, y); }  // posicion
@@ -83,7 +84,7 @@ void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 
-void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {  // animacion bonita de texto uwu
+void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {  // efecto de animacion bonita de texto uwu
 	Posicion(x, y); ColorBlanco();
 	for (int i = 0; i < (int)mensaje.length(); i++) {
 		cout << mensaje[i];_sleep(sleep);

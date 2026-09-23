@@ -7,7 +7,7 @@ void Nivel1() {
 	int a=0;
 	do {
 		a++;
-		TextMilesIntro(a);
+		TextMilesIntro(a);// Dialogo introduccion
 		_sleep(100);
 	} while (a < 2);
 }
@@ -21,7 +21,8 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1,1, 3);
+	Protagonista* Miles = new Protagonista(10, 10, 100, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
+	// Inicialización de protagonista
 	MoverNivel1(Miles, arriba, abajo, izquierda, derecha);
 	delete Miles;
 }
@@ -76,20 +77,21 @@ void Nivel3() {
 			nivel2->EnemigoMuere(enemigo[i]);	
 		}
 		DibujarPanelDeControl();
-		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));
+		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));//Dibuja obstaculo
 		nivel2->GenerarMovimientoJugador(punk);
-		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
+		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 				for (int i = 0; i < cantenemigos; i++) {
-				nivel2->AtacarEnemigos(enemigo[i], punk);
+					nivel2->AtacarEnemigos(enemigo[i], punk);//Ataca a los enemigos
 				
 			}
-			punk->ControladorTiempoHabilidades(0);  
+				punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 		}
 		punk->DibujarHabilidades();
 		_sleep(1);
 		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
+			//Condición de victoria
 			booleanoGeneralParaNiveles = false;
 		}
 		tecla = 'j';
@@ -144,24 +146,25 @@ void NivelPrueba() {
 			tecla = getch();
 		}
 		for (int i = 0; i < cantenemigos; i++) {
-			nivel2->EnemigoAcercaProta(enemigo[i], punk);
+			nivel2->EnemigoAcercaProta(enemigo[i], punk);//Acerca al enemigo al protagonista
 			nivel2->EnemigoMuere(enemigo[i]);
 		}
 		DibujarPanelDeControl();
 		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));
 		nivel2->GenerarMovimientoJugador(punk);
-		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();
+		Posicion(0, 42); cout << "Vida: " << enemigo[1]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 			for (int i = 0; i < cantenemigos; i++) {
-				nivel2->AtacarEnemigos(enemigo[i], punk);
+				nivel2->AtacarEnemigos(enemigo[i], punk)
 
 			}
 			punk->ControladorTiempoHabilidades(0);
 		}
 		punk->DibujarHabilidades();
 		_sleep(1);
-		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
+		if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {		
+			// Condición de victoria
 			booleanoGeneralParaNiveles = false;
 		}
 		tecla = 'j';
