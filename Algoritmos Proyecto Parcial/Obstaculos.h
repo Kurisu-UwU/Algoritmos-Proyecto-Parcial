@@ -16,7 +16,7 @@ public:
 	void SetVelocidad(int dx1) { dx = dx1; }
 	void SetAncho(int anc) { anchura = anc; }
 	void SetAlto(int alt) { altura = alt; }
-	int GetX() { return x; }
+	int GetX() { return x; } 
 	int GetY() { return y; }
 	int GetVelocidad() { return dx; }
 	int GetAncho() { return anchura; }

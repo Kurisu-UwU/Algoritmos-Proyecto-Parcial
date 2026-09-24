@@ -50,5 +50,5 @@ int main() {
             break;
         }
     } while (Condicion1);
-	delete laser1; delete laser2; delete laser3; return 0;// liberar memoria
+    delete laser1; delete laser2; delete laser3; delete laser4; return 0;
 }

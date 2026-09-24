@@ -115,13 +115,14 @@ void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición gene
 	bool w, a, s, d; w = a = s = d = true;
 	int px=prota->GetPX();
 	int py = prota->GetPY();
-	int pvl = prota->GetVelocidad();
+	int pvlx = prota->GetVelocidadx();
+	int pvly = prota->GetVelocidady();
 	prota->Borrar();
 	for (int i = 0; i < canObs; i++) {// colisiones con obstáculos
-		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvl, 0) == true) { w = false; }// arriba
-		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvl, 1) == true) { a = false; }// izquierda
-		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(),pvl, 2)==true) { s = false; }
-		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(),pvl, 3)==true) { d = false; }
+		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvlx, pvly, 0) == true) { w = false; }// arriba
+		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvlx, pvly, 2) == true) { s = false; }//abajo
+		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvlx, pvly, 1) == true) { a = false; }// izquierda
+		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvlx, pvly, 3) == true) { d = false; }//derecha
 	}
 	prota->Mover(w, s, a, d);
 	prota->Dibujar();
