@@ -4,7 +4,6 @@ class Ayudantes {
 private:
 	int x, y, dx;
 	bool uwu = true;
-
 public:
 	Ayudantes();
 	Ayudantes(int, int, int, bool);

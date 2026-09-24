@@ -9,7 +9,6 @@ private:
 	time_t cooldown;
 	bool listo;
 	int tiemporestante;
-
 public:
 	Habilidades();
 	Habilidades(int, int, time_t, bool);
@@ -28,16 +27,11 @@ public:
 	bool GetListo() { return listo; }
 	void Dibujar();
 
-
 	// Función para determinar si la habilidad está lista o no
 	bool GetCooldown() {
 		tiempoahora = time(nullptr);
-		if (tiempoahora - 3 >= inicio) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		if (tiempoahora - 3 >= inicio) { return true; }
+		else { return false; }
 	}
 };
 Habilidades::Habilidades() {}
@@ -54,5 +48,5 @@ void Habilidades::TiempoHabilidad() { //inicialización de condicion para determi
 }
 void Habilidades::Dibujar() {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
 	int n = cooldown - (tiempoahora - inicio);
-		DibujarHabilidadQ(listo,n);
+	DibujarHabilidadQ(listo, n);
 }

@@ -14,12 +14,9 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) { //perfiles: 1 Mi
 	Posicion(0, 6); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 7); cout << "=====================================================================================================================================================================================================================";
 	switch (perfil) {
-	case 1:
-		DibujarMiles(n, 2);break;
-	case 2:
-		DibujarMiguel(n, 2);break;
-	case 3:
-		DibujarPunk(n, 2);break;
+	case 1:DibujarMiles(n, 2);break;
+	case 2:DibujarMiguel(n, 2);break;
+	case 3:DibujarPunk(n, 2);break;
 	default:break;
 	}
 	Posicion(n+6, 3); cout << nombre;

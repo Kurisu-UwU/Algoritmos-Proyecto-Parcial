@@ -11,26 +11,17 @@ public:
 	void Borrar();
 	void Dibujar();
 
-	void SetX(int);
-	void SetY(int);
-	void SetDX(int);
-	int GetX();
-	int GetY();
-	int GetFX();
+	void SetX(int x1) { x = x1; }
+	void SetY(int y1) { y = y1; }
+	void SetDX(int dx1) { dx = dx1; }
+	int GetX() { return x; }
+	int GetY() { return y; }
+	int GetFX() { return dx; }
 };
 Proyectiles::Proyectiles() { x = 10; y = 10; dx = dy=  1; }
 Proyectiles::~Proyectiles() {}
 void Proyectiles::Borrar() { Posicion(x, y); cout << "     "; }
-void Proyectiles::SetX(int x1) { x = x1; }
-void Proyectiles::SetY(int y1) { y = y1; }
-void Proyectiles::SetDX(int dx1) { dx = dx1; }
-int Proyectiles::GetX() { return x; }
-int Proyectiles::GetY() { return y; }
-int Proyectiles::GetFX() { return dx; }
-void Proyectiles::Dibujar() {
-	ColorRojo();
-	Posicion(x, y); cout << "=====";
-}
+void Proyectiles::Dibujar() { ColorRojo(); Posicion(x, y); cout << "====="; }
 void Proyectiles::Mover() {
 	if (uwu == true) {
 		int random = rand() % 3;

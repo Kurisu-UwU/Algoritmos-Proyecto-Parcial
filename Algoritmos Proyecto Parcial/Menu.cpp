@@ -9,10 +9,8 @@ int main() {
 	LasersMenu* laser4; laser4 = new LasersMenu();
     opMenu = 1;
     do {
-        do //para mantener el menu en pantalla
-        {
-            int random;
-            random = rand() % 4;
+        do {//para mantener el menu en pantalla 
+            int random; random = rand() % 4;
             Condicion2 = true;
             DibujarMenu();
             ColorMorado();
@@ -25,14 +23,8 @@ int main() {
             laser4->Mover();
             if (kbhit()){
                 char tecla = getch();
-                if (tecla == 'w' || tecla == 'W'){
-                    opMenu--;
-                    if (opMenu < 1) opMenu = 5;
-                }
-                if (tecla == 's' || tecla == 'S'){
-                    opMenu++;
-                    if (opMenu > 5) opMenu = 1;
-                }
+                if (tecla == 'w' || tecla == 'W') { opMenu--; if (opMenu < 1) opMenu = 5; }
+                if (tecla == 's' || tecla == 'S') { opMenu++; if (opMenu > 5) opMenu = 1; }
                 if (tecla == 'z' || tecla == 'Z'){
                     AnimacionBorrar();
                     opFinal = opMenu;  // saber que opción eligió
@@ -43,11 +35,9 @@ int main() {
         } while (Condicion2);
         switch (opFinal) { //registrar opcion menu
         case 1:
-			IniciarSeleccionPersonajes(); //Iniciar seleccion de personajes
-            break;
+			IniciarSeleccionPersonajes(); break; //Iniciar seleccion de personajes
         case 5: 
-			Condicion1 = false; // Salir del juego
-            break;
+			Condicion1 = false; break; // Salir del juego
         }
     } while (Condicion1);
     delete laser1; delete laser2; delete laser3; delete laser4; return 0;

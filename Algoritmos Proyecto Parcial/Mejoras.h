@@ -4,7 +4,6 @@ class Mejoras {  // sin usar
 private:
 	int x, y, dx;
 	bool uwu = true;
-
 public:
 	Mejoras();
 	Mejoras(int, int, int, bool);
