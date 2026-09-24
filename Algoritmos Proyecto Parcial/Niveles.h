@@ -24,16 +24,14 @@ void Nivel2() {
 	Protagonista* Miles = new Protagonista(50, 10, 100, 2, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
 	Niveles* nivel2 = new Niveles();
 	nivel2->GenerarObstaculo(4);
-	nivel2->AtributosObstaculo(0, 10, 10, 0, 5, 5);
+	DibujarEdificio(1, 7);
+	nivel2->AtributosObstaculo(0, 1, 7, 0, 25, 16);
 	nivel2->AtributosObstaculo(1, 20, 20, 0, 5, 5);
 	nivel2->AtributosObstaculo(2, 30, 30, 0, 5, 5);
 	nivel2->AtributosObstaculo(3, 30, 40, 0, 5, 5);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
-		DibujarMiguel(nivel2->GetObjX(0), nivel2->GetObjY(0));//Dibuja obstaculo
-		DibujarMiguel(nivel2->GetObjX(1), nivel2->GetObjY(1));//Dibuja obstaculo
-		DibujarMiguel(nivel2->GetObjX(2), nivel2->GetObjY(2));//Dibuja obstaculo
 		nivel2->GenerarMovimientoJugador(Miles);
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";

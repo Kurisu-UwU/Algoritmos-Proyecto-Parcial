@@ -106,5 +106,21 @@ void DibujarPanelDeControl() {
 }
 
 void DibujarEdificio(int x, int y) {
-	Posicion(x, y); cout << "";
+	Posicion(x, y); cout << "_________________________"; y++;
+	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| -----   -----   ----- |"; y++;
+	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| -----   -----   ----- |"; y++;
+	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
+	Posicion(x, y); cout << "| |   |   | 0 |   |   | |"; y++;
+	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
+	Posicion(x, y); cout << "| -----   |   |   ----- |"; y++;
+	Posicion(x, y); cout << "|_________|___|_________|";
 }
+
