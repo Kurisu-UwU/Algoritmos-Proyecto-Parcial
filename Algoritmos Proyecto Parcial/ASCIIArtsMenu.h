@@ -5,37 +5,31 @@ void DibujarMenu() {
     int equiz = 150;
     int equiz2 = 0;
     ColorBlanco();
-    if (opMenu == 1) { ColorAmarillo(); equiz2 = 10;
-    }
+    if (opMenu == 1) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 6); cout << "                     __        __           ";
     Posicion(equiz - equiz2, 7); cout << "             | |  | / _`  /\\  |__)          ";
     Posicion(equiz - equiz2, 8); cout << "          \\__/ \\__/ \\__> /~~\\ |  \\          ";
     ColorBlanco();
     equiz2 = 0;
-    if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; 
-    }
+    if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 13); cout << "           __   __   __     __        ___  __          "; 
     Posicion(equiz - equiz2, 14); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
     Posicion(equiz - equiz2, 15); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
     ColorBlanco();
     equiz2 = 0;
-    if (opMenu == 3) { ColorAmarillo(); equiz2 = 10;
-    }
+    if (opMenu == 3) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 20); cout << "           __   ___  __   __   __                  ___  __           ";
     Posicion(equiz - equiz2, 21); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
     Posicion(equiz - equiz2, 22); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
     ColorBlanco();
     equiz2 = 0;
-    if (opMenu == 4) { ColorAmarillo(); equiz2 = 10;
-    }
+    if (opMenu == 4) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 27); cout << "           __   __   ___  __    ___  __   __          ";
     Posicion(equiz - equiz2, 28); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
     Posicion(equiz - equiz2, 29); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
     ColorBlanco();
     equiz2 = 0;
-    if (opMenu == 5) {
-        ColorAmarillo(); equiz2 = 10;
-    }
+    if (opMenu == 5) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 34); cout << "           __               __          ";
     Posicion(equiz - equiz2, 35); cout << "          /__`  /\\  |    | |__)          ";
     Posicion(equiz - equiz2, 36); cout << "          .__/ /~~\\ |___ | |  \\          ";

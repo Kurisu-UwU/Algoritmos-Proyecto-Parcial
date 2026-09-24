@@ -16,14 +16,8 @@ void IniciarSeleccionPersonajes() {
             DibujarOpcionPunk(160, 10);
             if (kbhit()) {
                 tecla = getch();
-                if (tecla == 'a' || tecla == 'A') {
-                    opMenu--;
-                    if (opMenu < 1) opMenu = 3;
-                }
-                if (tecla == 'd' || tecla == 'D') {
-                    opMenu++;
-                    if (opMenu > 3) opMenu = 1;
-                }
+                if (tecla == 'a' || tecla == 'A') { opMenu--; if (opMenu < 1) opMenu = 3; }
+                if (tecla == 'd' || tecla == 'D') { opMenu++; if (opMenu > 3) opMenu = 1; }
                 if (tecla == 'z' || tecla == 'Z') {
                     AnimacionBorrar();
                     opFinal = opMenu;  // saber que opción eligió

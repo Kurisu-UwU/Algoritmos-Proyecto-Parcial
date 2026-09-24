@@ -18,24 +18,23 @@ public:
 
 	void Dibujar();
 	void Borrar();
-	void Mover();
 	//coloca y cambia los datos de los enemigos los set
-	void SetEX(int);
-	void SetEY(int);
-	void SetAtaque(float);
-	void SetVida(float);
-	void SetVelocidad(float);
-	void SetTipo(string);
-	void SetVivo(bool);
-	void SetVelocidadTempo(float v1);
+	void SetEX(int x1) { ex = x1; }
+	void SetEY(int y1) { ey = y1; }
+	void SetAtaque(float a1) { cantidaddeataque = a1; }
+	void SetVida(float v1) { cantidaddevida = v1; }
+	void SetVelocidad(float v1) { velocidad = v1; }
+	void SetTipo(string t1) { tipo = t1; }
+	void SetVivo(bool vi) { vivo = vi; }
+	void SetVelocidadTempo(float v1) { velocidadtempo = v1; }
 	//obtiene y devuelve los datos de los enemigos los get
-	int GetEX();
-	int GetEY();
-	float GetAtaque();
-	float GetVida();
-	float GetVelocidad();
-	float GetVelocidadTempo();
-	string GetTipo();
+	int GetEX() { return ex; }
+	int GetEY() { return ey; }
+	float GetAtaque() { return cantidaddeataque; }
+	float GetVida() { return cantidaddevida; }
+	float GetVelocidad() { return velocidad; }
+	float GetVelocidadTempo() { return velocidadtempo; }
+	string GetTipo() { return tipo; }
 	bool GetVivo() { return vivo; }
 	int GetCantDeProyectiles() {return cantdeproyectiles;}
 
@@ -67,25 +66,6 @@ Enemigos::Enemigos(int x1, int y1, float a1, float v1, float vel1,float vel1temp
 Enemigos::~Enemigos() {if (listaP != nullptr) delete[]listaP;}
 void Enemigos::Dibujar() {DibujarEnemigo(ex, ey);}
 void Enemigos::Borrar() {BorrarSprite(ex, ey);}
-void Enemigos::Mover() {
-}
-void Enemigos::SetEX(int x1) { ex = x1; }
-void Enemigos::SetEY(int y1) { ey = y1; }
-void Enemigos::SetAtaque(float a1) { cantidaddeataque = a1; }
-void Enemigos::SetVida(float v1) { cantidaddevida = v1; }
-void Enemigos::SetVelocidad(float v1) { velocidad = v1; }
-void Enemigos::SetTipo(string t1) { tipo = t1; }
-void Enemigos::SetVivo(bool vi) { vivo = vi; }
-void Enemigos::SetVelocidadTempo(float v1) { velocidadtempo = v1; }
-
-int Enemigos::GetEX() { return ex; }
-int Enemigos::GetEY() { return ey; }
-float Enemigos::GetAtaque() { return cantidaddeataque; }
-float Enemigos::GetVida() { return cantidaddevida; }
-float Enemigos::GetVelocidad() { return velocidad; }
-float Enemigos::GetVelocidadTempo() { return velocidadtempo; }
-string Enemigos::GetTipo() { return tipo; }
-
 void Enemigos::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
 		if (tecla == 'L' || tecla == 'l') {
@@ -108,18 +88,10 @@ void Enemigos::MostrarProyectil() {
 }
 void Enemigos::PerseguirProta(int px, int py) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {
-			if (px > ex) {
-				ex += velocidad * 2; // Mover hacia la derecha
-			}
-			else if (px < ex) {
-				ex -= velocidad * 2; // Mover hacia la izquierda
-			}
-			if (py > ey) {
-				ey += velocidad; // Mover hacia abajo
-			}
-			else if (py < ey) {
-				ey -= velocidad; // Mover hacia arriba
-			}
+			if (px > ex) { ex += velocidad * 2; } // Mover hacia la derecha
+			else if (px < ex) { ex -= velocidad * 2; } // Mover hacia la izquierda
+			if (py > ey) { ey += velocidad; } // Mover hacia abajo
+			else if (py < ey) { ey -= velocidad; }// Mover hacia arriba
 			tempo = 0; // Reiniciar el temporizador
 		}
 		tempo++;

@@ -51,7 +51,6 @@ void BorrarSprite(int x, int y) {
 //  [°°]  (^^)  (\/)
 //  -()-  \||/  -()-
 //	 ""    °°    ''
-
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();
