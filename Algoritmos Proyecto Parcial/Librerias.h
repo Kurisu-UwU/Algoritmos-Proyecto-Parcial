@@ -20,6 +20,7 @@ int tiempo = 0;
 char tecla = ' ';
 bool booleanoGeneralParaNiveles = true;
 //Se crea una matriz de 30 filas y 100 columnas
+char teclageneralbasura = 'j';
 int Nivel2_2[30][100] = {  //ignorar
  {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
  {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -84,7 +85,10 @@ void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 
-void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {  // efecto de animacion bonita de texto uwu
+void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
+	tecla = teclageneralbasura;
+	if (_kbhit()) tecla = getch();// efecto de animacion bonita de texto uwu
+	if (tecla == 'z' || tecla == 'Z') sleep = sleep / 5;
 	Posicion(x, y); ColorBlanco();
 	for (int i = 0; i < (int)mensaje.length(); i++) {
 		cout << mensaje[i];_sleep(sleep);
