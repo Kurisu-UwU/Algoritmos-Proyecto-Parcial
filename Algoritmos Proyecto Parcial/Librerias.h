@@ -85,13 +85,15 @@ void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 
-void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) {
-	tecla = teclageneralbasura;
-	if (_kbhit()) tecla = getch();// efecto de animacion bonita de texto uwu
-	if (tecla == 'z' || tecla == 'Z') sleep = sleep / 5;
+void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) { // efecto de animacion bonita de texto uwu
 	Posicion(x, y); ColorBlanco();
+	tecla = teclageneralbasura;
 	for (int i = 0; i < (int)mensaje.length(); i++) {
-		cout << mensaje[i];_sleep(sleep);
+		if (_kbhit()) tecla = getch();
+		if (tecla == 'z' || tecla == 'Z') { cout << mensaje[i]; _sleep(1); }
+		else {
+			cout << mensaje[i]; _sleep(sleep);
+		}
 	}
 }
 void AnimacionBorrar() {   // limpiar pantalla

@@ -2,7 +2,7 @@
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
 class Enemigos {
-private:
+protected:
 	int ex, ey;
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
 	string tipo;
