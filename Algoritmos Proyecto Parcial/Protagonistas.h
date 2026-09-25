@@ -99,7 +99,17 @@ void Protagonista::Generarhabilidades() {  // el protagonista guarda la informac
 		habilidades[0]->Dibujar();
 		break;
 	}
-	case 3:break;  // nose
+	case 3: {
+		habilidades = new Habilidades * [2];
+		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true);
+		Habilidades* Ehabilidad = new Habilidades(2, 4, n, true);
+		Habilidades* Rhabilidad = new Habilidades(3, 5, n, true);
+		habilidades[0] = Qhabilidad;
+		habilidades[1] = Ehabilidad;
+		habilidades[2] = Rhabilidad;
+		habilidades[0]->Dibujar();
+		break;
+	}
 	}
 }
 void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo de la tecla

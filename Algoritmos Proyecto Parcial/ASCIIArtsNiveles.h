@@ -106,22 +106,22 @@ void DibujarPanelDeControl() {
 }
 
 void DibujarEdificio(int x, int y) {
-	Posicion(x, y); cout << "_________________________"; y++;
-	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| -----   -----   ----- |"; y++;
-	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| -----   -----   ----- |"; y++;
-	Posicion(x, y); cout << "| _____   _____   _____ |"; y++;
-	Posicion(x, y); cout << "| |   |   | 0 |   |   | |"; y++;
-	Posicion(x, y); cout << "| |   |   |   |   |   | |"; y++;
-	Posicion(x, y); cout << "| -----   |   |   ----- |"; y++;
-	Posicion(x, y); cout << "|_________|___|_________|";
+	Posicion(x, y); cout << "_________________________";
+	Posicion(x, y + 1); cout << "| _____   _____   _____ |";
+	Posicion(x, y + 2); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 3); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 4); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 5); cout << "| -----   -----   ----- |";
+	Posicion(x, y + 6); cout << "| _____   _____   _____ |";
+	Posicion(x, y + 7); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 8); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 9); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 10); cout << "| -----   -----   ----- |";
+	Posicion(x, y + 11); cout << "| _____   _____   _____ |";
+	Posicion(x, y + 12); cout << "| |   |   | 0 |   |   | |";
+	Posicion(x, y + 13); cout << "| |   |   |   |   |   | |";
+	Posicion(x, y + 14); cout << "| -----   |   |   ----- |";
+	Posicion(x, y + 15); cout << "|_________|___|_________|";
 }
 
 void DibujarTornillos(int x, int y) {
