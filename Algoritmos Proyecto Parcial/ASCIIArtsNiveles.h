@@ -142,11 +142,11 @@ void DibujarAbrazadera(int x, int y) {
 	Posicion(x, y); cout << "|_|_|_|_|_|"; y++;
 }
 
-void DibujarAbrazadera(int x, int y) {
+void DibujarCables(int x, int y) {
 	Posicion(x, y); cout << "X========X";
 }
 
-void DibujarAbrazadera(int x, int y) {
+void DibujarCarcasa(int x, int y) {
 	Posicion(x, y); cout << "_______";
 	Posicion(x, y); cout << "| +--/ |";
 	Posicion(x, y); cout << "| |_/o |";
