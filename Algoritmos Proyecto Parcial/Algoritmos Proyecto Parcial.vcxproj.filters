@@ -83,5 +83,11 @@
     <ClInclude Include="NivelesClase.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
+    <ClInclude Include="NPCs.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Items.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

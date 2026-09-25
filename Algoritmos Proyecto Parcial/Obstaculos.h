@@ -1,9 +1,9 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 class Obstaculos {
-private:
+protected:
 	int x, y, dx, anchura, altura;
-	bool uwu = true;
+	bool existencia = true;
 public:
 	Obstaculos();
 	Obstaculos(int, int, int, int, int, bool);
@@ -23,6 +23,6 @@ public:
 	int GetAlto() { return altura; }
 };
 Obstaculos::Obstaculos() { x = 10; y = 10; dx = 1; anchura = 5; altura = 1; }
-Obstaculos::Obstaculos(int x1, int y1, int dx1, int alto, int ancho, bool owo) { x = x1; y = y1; dx = dx1; uwu = owo; anchura = ancho; altura = alto; }
+Obstaculos::Obstaculos(int x1, int y1, int dx1, int alto, int ancho, bool owo) { x = x1; y = y1; dx = dx1; existencia = owo; anchura = ancho; altura = alto; }
 Obstaculos::~Obstaculos() {}
 void Obstaculos::Borrar() { Posicion(x, y); cout << "     "; }

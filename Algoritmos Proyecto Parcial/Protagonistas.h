@@ -35,6 +35,7 @@ public:
 	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
 	void ControladorTiempoHabilidades(short);
+	bool SobreObjeto(int, int, int, int);
 
 	int GetPX() { return px; }  // getters
 	int GetPY() { return py; }
@@ -124,6 +125,17 @@ void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo 
 			habilidades[0]->Dibujar();
 		}
 	}
+}
+
+bool Protagonista::SobreObjeto(int x, int y, int altura, int anchura) {
+	bool colision;
+	if (((px < x + anchura) && (px >= x)) && ((py < y + altura) && (py >= y))) {
+		colision = true;
+	}
+	else {
+		colision = false;
+	}
+	return colision;
 }
 /*for (int i = 0; i < cantidadhabilidades; i++) {
 	if (habilidades[i]->GetListo() == false) {
