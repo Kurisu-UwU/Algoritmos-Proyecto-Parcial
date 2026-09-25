@@ -125,8 +125,8 @@ void DibujarEdificio(int x, int y) {
 }
 
 void DibujarTornillos(int x, int y) {
-	Posicion(x, y); cout << "_"; y++;
-	Posicion(x, y); cout << "|"; y++;
+	Posicion(x, y); cout << "_";
+	Posicion(x, y + 1); cout << "|";
 }
 
 void DibujarTuercas(int x, int y) {
@@ -139,7 +139,7 @@ void DibujarArandelas(int x, int y) {
 
 void DibujarAbrazadera(int x, int y) {
 	Posicion(x + 1, y); cout << "_._._._._"; y++;
-	Posicion(x, y); cout << "|_|_|_|_|_|"; y++;
+	Posicion(x, y + 1); cout << "|_|_|_|_|_|"; y++;
 }
 
 void DibujarCables(int x, int y) {
@@ -148,7 +148,13 @@ void DibujarCables(int x, int y) {
 
 void DibujarCarcasa(int x, int y) {
 	Posicion(x, y); cout << "_______";
-	Posicion(x, y); cout << "| +--/ |";
-	Posicion(x, y); cout << "| |_/o |";
-	Posicion(x, y); cout << "|______|";
+	Posicion(x, y + 1); cout << "| +--/ |";
+	Posicion(x, y + 2); cout << "| |_/o |";
+	Posicion(x, y + 3); cout << "|______|";
+}
+
+void DibujarCarcasa(int x, int y) {
+	Posicion(x, y);     cout << " _____";
+	Posicion(x, y + 1); cout << "/__Y__\\";
+	Posicion(x, y + 2); cout << "|_____|";
 }
