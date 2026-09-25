@@ -153,7 +153,7 @@ void DibujarCarcasa(int x, int y) {
 	Posicion(x, y + 3); cout << "|______|";
 }
 
-void DibujarCarcasa(int x, int y) {
+void DibujarCofre(int x, int y) {
 	Posicion(x, y);     cout << " _____";
 	Posicion(x, y + 1); cout << "/__Y__\\";
 	Posicion(x, y + 2); cout << "|_____|";
