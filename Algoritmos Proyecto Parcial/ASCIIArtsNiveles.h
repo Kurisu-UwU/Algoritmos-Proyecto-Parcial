@@ -124,3 +124,31 @@ void DibujarEdificio(int x, int y) {
 	Posicion(x, y); cout << "|_________|___|_________|";
 }
 
+void DibujarTornillos(int x, int y) {
+	Posicion(x, y); cout << "_"; y++;
+	Posicion(x, y); cout << "|"; y++;
+}
+
+void DibujarTuercas(int x, int y) {
+	Posicion(x, y); cout << "<0>"; y++;
+}
+
+void DibujarArandelas(int x, int y) {
+	Posicion(x, y); cout << "O";
+}
+
+void DibujarAbrazadera(int x, int y) {
+	Posicion(x + 1, y); cout << "_._._._._"; y++;
+	Posicion(x, y); cout << "|_|_|_|_|_|"; y++;
+}
+
+void DibujarAbrazadera(int x, int y) {
+	Posicion(x, y); cout << "X========X";
+}
+
+void DibujarAbrazadera(int x, int y) {
+	Posicion(x, y); cout << "_______";
+	Posicion(x, y); cout << "| +--/ |";
+	Posicion(x, y); cout << "| |_/o |";
+	Posicion(x, y); cout << "|______|";
+}
