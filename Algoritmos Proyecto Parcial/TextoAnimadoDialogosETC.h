@@ -49,11 +49,6 @@ void TextMiguelIntro(int n) {
 	default:break;
 	}
 }
-
-
-
-
-
 void TextPunkIntro(int n) {
 	switch (n) {
 	case 1:

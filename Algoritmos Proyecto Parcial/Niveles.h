@@ -114,6 +114,11 @@ void Nivel3() {
 		}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
+	booleanoGeneralParaNiveles = true;
+	do {
+		DibujarPanelDeControl();
+
+	} while (booleanoGeneralParaNiveles);
 	for (int i = 0; i < cantenemigos; i++) { delete enemigo[i]; }
 	delete[]enemigo;
 }
