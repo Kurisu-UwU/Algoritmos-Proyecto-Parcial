@@ -23,6 +23,7 @@ public:
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void BorrarObjetos();
 	void GenerarMovimientoJugador(Protagonista*);
+	void GenerarProyectiles();
 
 	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -126,4 +127,7 @@ void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición gene
 	}
 	prota->Mover(w, s, a, d);
 	prota->Dibujar();
+}
+void GenerarProyectiles(int cantidad) {
+	 
 }
