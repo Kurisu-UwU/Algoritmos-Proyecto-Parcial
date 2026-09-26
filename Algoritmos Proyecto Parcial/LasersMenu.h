@@ -11,22 +11,16 @@ public:
 	~LasersMenu();
 	void Mover();
 
-	void SetX(int);
-	void SetY(int);
-	void SetDX(int);
-	int GetX();
-	int GetY();
-	int GetFX();
+	void SetX(int x1) { x = x1; }
+	void SetY(int y1) { y = y1; }
+	void SetDX(int dx1) { dx = dx1; }
+	int GetX() { return x; }
+	int GetY() { return y; }
+	int GetFX() { return dx; }
 };
 LasersMenu::LasersMenu() { x = 10; y = 10; dx = 1; }
 LasersMenu::LasersMenu(int x1, int y1, int dx1, bool owo, short tipo1) { x = x1; y = y1; dx = dx1; uwu = owo; tipo = 1; }
 LasersMenu::~LasersMenu() {}
-void LasersMenu::SetX(int x1) { x = x1; }
-void LasersMenu::SetY(int y1) { y = y1; }
-void LasersMenu::SetDX(int dx1) { dx = dx1; }
-int LasersMenu::GetX() { return x; }
-int LasersMenu::GetY() { return y; }
-int LasersMenu::GetFX() { return dx; }
 void LasersMenu::Mover() {
 	switch (tipo){
 	case 1: Posicion(x, y); cout << "        ";	break;

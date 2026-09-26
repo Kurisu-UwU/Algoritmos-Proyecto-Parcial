@@ -4,6 +4,8 @@ class Niveles {
 private:
 //Enemigos** listaEne;
 	//int canEne;
+	Tambores** listaTamb;
+	int canTamb;
 	Proyectiles** listaPro;
 	int canPro;
 	Mejoras** listaMejora;
@@ -23,7 +25,11 @@ public:
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void BorrarObjetos();
 	void GenerarMovimientoJugador(Protagonista*);
-	void GenerarProyectiles();
+	int PresionarTambores(int);
+	void TamboresMovimiento(int);
+	void GenerarTambores(int);
+	void RevivirTambor(short);
+	void AtributosTambores(int);
 
 	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -128,6 +134,56 @@ void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición gene
 	prota->Mover(w, s, a, d);
 	prota->Dibujar();
 }
-void GenerarProyectiles(int cantidad) {
-	 
+void Niveles::GenerarTambores(int cantidad) {
+	canTamb = cantidad;
+	listaTamb = new Tambores * [cantidad];
+	for (int i = 0; i < cantidad; i++)
+		listaTamb[i] = new Tambores();
+}
+int Niveles::PresionarTambores(int psocicionparatocar) {
+	if (_kbhit()) {
+		tecla = getch();
+		for (int i = 0; i < canTamb; i++) {
+			if (CalcularColisiones(25, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 1, 1, 1, 4)) {
+				if (listaTamb[i]->PresionarTambores(psocicionparatocar)) { return (1); listaTamb[i]->SetVivo(false); }
+				else { return (-2); }
+			}
+		}
+	}
+	else { return 0; }
+}
+void Niveles::TamboresMovimiento(int psocicionparatocar) {
+	for (int i = 0; i < canTamb; i++) {
+		if (listaTamb[i]->GetVivo() == true) {
+			if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Borrar(); }
+			if (listaTamb[i]->GetX() > psocicionparatocar - 11) { listaTamb[i]->SetX(listaTamb[i]->GetX() - 1); }
+			if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Dibujar(); }
+			if (listaTamb[i]->GetX() < psocicionparatocar - 10 && listaTamb[i]->GetVivo()) {
+				listaTamb[i]->SetVivo(false);
+				listaTamb[i]->Borrar();
+			}
+		}
+	}
+}
+void Niveles::RevivirTambor(short tipo) {
+	bool n = true;
+	int i=0;
+	do {
+		if (listaTamb[i]->GetVivo() == false) {
+			listaTamb[i]->SetX(200);
+			listaTamb[i]->SetTipo(tipo);
+			listaTamb[i]->SetVivo(true);
+			n = false;
+			listaTamb[i]->Dibujar();
+		}
+		if (i < canTamb) i++;
+	} while (n);
+}
+void Niveles::AtributosTambores(int x) {  // asignación de atributos a los obstáculos
+	for (int i = 0; i < x; i++) {
+		listaTamb[i]->SetX(1);
+		listaTamb[i]->SetY(25);
+		listaTamb[i]->SetTipo(0);
+		listaTamb[i]->SetVivo(false);
+	}
 }

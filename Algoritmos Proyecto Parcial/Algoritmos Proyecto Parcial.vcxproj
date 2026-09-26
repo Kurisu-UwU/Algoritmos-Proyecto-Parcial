@@ -132,6 +132,7 @@
     <ClInclude Include="Obstaculos.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
+    <ClInclude Include="Tambores.h" />
     <ClInclude Include="TextoAnimadoDialogosETC.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

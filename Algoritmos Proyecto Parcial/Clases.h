@@ -5,5 +5,6 @@
 #include "Mejoras.h"
 #include "Obstaculos.h"
 #include "Protagonistas.h"
-#include "Proyectiles.h"
+#include "Tambores.h"
 #include "Habilidades.h"
+#include "Proyectiles.h"

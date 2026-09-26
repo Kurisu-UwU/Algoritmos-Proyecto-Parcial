@@ -39,11 +39,11 @@ void DibujarAyudante(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "°°";
 }
 void BorrarSprite(int x, int y) {
-	Posicion(x + 1, y); y++; cout << "      ";
-	Posicion(x, y); y++;     cout << "      ";
-	Posicion(x, y); y++;     cout << "      ";
-	Posicion(x + 1, y); y++; cout << "      ";
-	Posicion(x + 1, y); y++; cout << "      ";
+	Posicion(x + 1, y); y++; cout << "        ";
+	Posicion(x, y); y++;     cout << "        ";
+	Posicion(x, y); y++;     cout << "        ";
+	Posicion(x + 1, y); y++; cout << "        ";
+	Posicion(x + 1, y); y++; cout << "        ";
 }
 //   __     __     ¡¡
 //  (\/)   (><)   (\/)

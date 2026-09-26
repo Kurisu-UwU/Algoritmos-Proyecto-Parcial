@@ -11,6 +11,10 @@ void Nivel1() {
 		_sleep(100);
 	} while (a < 2);
 }
+//
+//
+//
+//
 void Nivel2() {
 	bool arriba = true, abajo = true, izquierda = true, derecha = true;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
@@ -42,18 +46,22 @@ void Nivel2() {
 	// Inicialización de protagonista
 	delete Miles;
 }
+//
+//
+//
+//
 void Nivel3() {
-	int a = 0;
-	do {   // Dialogo introduccion
+	int a = 9;
+	while (a < 4) {   // Dialogo introduccion
 		a++;
 		TextPunkIntro(a);
-	} while (a < 4); a = 0;
-	do {  // dialogo punk 1
+	} a = 9;
+	while (a < 9) {  // dialogo punk 1
 		a++;
 		TextPunk1(a);
-	} while (a < 9);
-	
-	Protagonista* punk = new Protagonista(30,30,100,2,1,10,100, 2,"Punk",3,1,3);
+	}
+
+	Protagonista* punk = new Protagonista(30, 30, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
@@ -64,25 +72,24 @@ void Nivel3() {
 	enemigo[1]->SetEX(20);
 	enemigo[2]->SetEX(30);
 	enemigo[3]->SetEX(40);
-	enemigo[0]->SetEY(7);
-	enemigo[1]->SetEY(10);
-	enemigo[2]->SetEY(15);
-	enemigo[3]->SetEY(20);
+	enemigo[0]->SetEY(23);
+	enemigo[1]->SetEY(24);
+	enemigo[2]->SetEY(25);
+	enemigo[3]->SetEY(26);
 	enemigo[0]->SetVelocidadTempo(1);
-	enemigo[1]->SetVelocidadTempo(2);
-	enemigo[2]->SetVelocidadTempo(3);
-	enemigo[3]->SetVelocidadTempo(4);
-	enemigo[0]->SetVida(5);
-	enemigo[1]->SetVida(5);
-	enemigo[2]->SetVida(5);
-	enemigo[3]->SetVida(5);
+	enemigo[1]->SetVelocidadTempo(1);
+	enemigo[2]->SetVelocidadTempo(1);
+	enemigo[3]->SetVelocidadTempo(1);
+	enemigo[0]->SetVida(1);
+	enemigo[1]->SetVida(1);
+	enemigo[2]->SetVida(1);
+	enemigo[3]->SetVida(1);
 
 	nivel3->GenerarObstaculo(3);
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 	nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 	punk->Generarhabilidades();
-	Enemigos* enemigo1 = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
@@ -114,15 +121,44 @@ void Nivel3() {
 		}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
+	AnimacionBorrar();
 	booleanoGeneralParaNiveles = true;
-
+	tiempo = 0;
+	nivel3->GenerarTambores(13);
+	nivel3->AtributosTambores(13);
+	int puntaje = 0;
 	do {
 		DibujarPanelDeControl();
+		puntaje += nivel3->PresionarTambores(25);
+		nivel3->TamboresMovimiento(25);
+		switch (tiempo) {
+		case 100: nivel3->RevivirTambor(0); break;
+		case 120: nivel3->RevivirTambor(1); break;
+		case 140: nivel3->RevivirTambor(0); break;
+		case 150: nivel3->RevivirTambor(1); break;
+		case 180: nivel3->RevivirTambor(0); break;
+		case 201: nivel3->RevivirTambor(1); break;
+		case 220: nivel3->RevivirTambor(0); break;
+		case 300: nivel3->RevivirTambor(1); break;
+		case 450: nivel3->RevivirTambor(0); break;
+		case 467: nivel3->RevivirTambor(1); break;
+		case 499: nivel3->RevivirTambor(0); break;
+		case 550: nivel3->RevivirTambor(1); break;
 
+		default: break;
+		}
+		tiempo++;
+		Posicion(20, 20); cout << "Tiempo: " << tiempo;
+		Posicion(30, 20); cout << "Puntaje: " << puntaje;
+		_sleep(1);
 	} while (booleanoGeneralParaNiveles);
 	for (int i = 0; i < cantenemigos; i++) { delete enemigo[i]; }
 	delete[]enemigo;
 }
+//
+//
+//
+//
 void NivelPrueba() {
 	int a = 0;
 	do {
