@@ -14,10 +14,11 @@ void DibujarMiguel(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "¨ uu ¨";
 }
 void DibujarPunk(int x, int y) {
-	Posicion(x+1, y); y++; cout << "¡¡";
-	Posicion(x, y); y++;  cout << "(\\/)";
-	Posicion(x, y); y++;  cout << "<||>";
-	Posicion(x+1, y); y++; cout << "oo";
+	Posicion(x + 2, y);     cout <<   "/\\";
+	Posicion(x + 1, y + 1); cout <<  "(\\/) W";
+	Posicion(x, y + 2);     cout << "o=||=o|";
+	Posicion(x + 2, y + 3); cout <<   "|| (0)";
+	Posicion(x + 2, y + 4); cout <<   "XX (_)";
 }
 void DibujarEnemigo(int x, int y) {
 	Posicion(x+1, y); y++; cout << "..";
@@ -38,9 +39,10 @@ void DibujarAyudante(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "°°";
 }
 void BorrarSprite(int x, int y) {
-	Posicion(x + 1, y); y++; cout << "    ";
-	Posicion(x, y); y++;     cout << "    ";
+	Posicion(x + 1, y); y++; cout << "      ";
 	Posicion(x, y); y++;     cout << "      ";
+	Posicion(x, y); y++;     cout << "      ";
+	Posicion(x + 1, y); y++; cout << "      ";
 	Posicion(x + 1, y); y++; cout << "      ";
 }
 //   __     __     ¡¡
