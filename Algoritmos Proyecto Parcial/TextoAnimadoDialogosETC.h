@@ -19,6 +19,11 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	}
 	Posicion(n+6, 3); cout << nombre;
 }
+//
+//
+//
+//
+//
 void TextMilesIntro(int n) {
 	switch (n) {
 	case 1:
@@ -33,9 +38,11 @@ void TextMilesIntro(int n) {
 	default:break;
 	}
 }
-
-
-
+//
+//
+//
+// 
+//
 void TextMiguelIntro(int n) {
 	switch (n) {
 	case 1:
@@ -47,6 +54,11 @@ void TextMiguelIntro(int n) {
 	default:break;
 	}
 }
+//
+//
+//
+//
+//
 void TextPunkIntro(int n) {
 	switch (n) {
 	case 1:

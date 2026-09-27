@@ -41,7 +41,7 @@ public:
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
-	void PerseguirProta(int, int);
+	void PerseguirProta(int, int,bool,bool,bool,bool);
 	void AtacarProtagonista(int, int);
 };
 Enemigos::Enemigos() {
@@ -87,12 +87,12 @@ void Enemigos::MostrarProyectil() {
 		listaP[i]->Dibujar();
 	}
 }
-void Enemigos::PerseguirProta(int px, int py) {  // Implementación de la lógica para perseguir al protagonista
+void Enemigos::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {
-			if (px > ex) { ex += velocidad * 2; } // Mover hacia la derecha
-			else if (px < ex) { ex -= velocidad * 2; } // Mover hacia la izquierda
-			if (py > ey) { ey += velocidad; } // Mover hacia abajo
-			else if (py < ey) { ey -= velocidad; }// Mover hacia arriba
+			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
+			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda
+			if (py > ey && S) { ey += velocidad; } // Mover hacia abajo
+			else if (py < ey && W) { ey -= velocidad; }// Mover hacia arriba
 			tempo = 0; // Reiniciar el temporizador
 		}
 		tempo++;

@@ -25,9 +25,10 @@ Tornillos::~Tornillos()
 void Tornillos::ImprimirItem(int x, int y) {
 	DibujarTornillos(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Tuercas : public Item
 {
 protected:
@@ -52,9 +53,10 @@ Tuercas::~Tuercas()
 void Tuercas::ImprimirItem(int x, int y) {
 	DibujarTuercas(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Arandelas : public Item
 {
 protected:
@@ -79,9 +81,10 @@ Arandelas::~Arandelas()
 void Arandelas::ImprimirItem(int x, int y) {
 	DibujarArandelas(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Abrazadera : public Item
 {
 protected:
@@ -106,9 +109,10 @@ Abrazadera::~Abrazadera()
 void Abrazadera::ImprimirItem(int x, int y) {
 	DibujarAbrazadera(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Cables : public Item
 {
 protected:
@@ -133,9 +137,10 @@ Cables::~Cables()
 void Cables::ImprimirItem(int x, int y) {
 	DibujarCables(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Carcasa : public Item
 {
 protected:
@@ -160,19 +165,23 @@ Carcasa::~Carcasa()
 void Carcasa::ImprimirItem(int x, int y) {
 	DibujarCarcasa(x, y);
 }
-
-
-
+//
+//
+//
+//
 class Cofre : public Item
 {
 protected:
+	bool estarCercaDeCofre;
 public:
-	Cofre(int, int, int, int, int, bool);
+	Cofre(int, int, int, int, int, bool, bool);
 	~Cofre() override;
 	void ImprimirItem(int, int) override;
+	void SetEstarCerca(bool est) { estarCercaDeCofre = est; }
+	bool GetEstarCerca() { return estarCercaDeCofre; }
 
 };
-Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia) :Item(x, y, dx, anchura, altura, existencia)
+Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia, bool estarCercaDeCofre) : Item(x, y, dx, anchura, altura, existencia)
 {
 	this->x = x;
 	this->y = y;
@@ -180,6 +189,7 @@ Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia) :It
 	this->anchura = 3;
 	this->altura = 1;
 	this->existencia = existencia;
+	this->estarCercaDeCofre = estarCercaDeCofre;
 }
 Cofre::~Cofre()
 {

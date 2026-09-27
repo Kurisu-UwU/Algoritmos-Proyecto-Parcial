@@ -4,17 +4,13 @@
 class Item: public Obstaculos
 {
 protected:
-
 public:
 	Item(int, int, int, int, int, bool);
 	~Item() override;
 	bool PisandoItem(Protagonista*);
 	virtual void ImprimirItem(int, int);
-
 };
-
-Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia)
-{
+Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia) {
 	this->x = x;
 	this->y = y;
 	this->dx = dx;
@@ -22,22 +18,9 @@ Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia)
 	this->altura = altura;
 	this->existencia = existencia;
 }
-
-bool Item::PisandoItem(Protagonista* personaje) {
-	bool colision;
-	if (((personaje->GetPX() < x + anchura) && (personaje->GetPX() >= x)) && ((personaje->GetPY() < y + altura) && (personaje->GetPY() >= y))) {
-		colision = true;
-	}
-	else {
-		colision = false;
-	}
-	return colision;
+bool Item::PisandoItem(Protagonista* personaje) { 
+	if (((personaje->GetPX() < x + anchura) && (personaje->GetPX() >= x)) && ((personaje->GetPY() < y + altura) && (personaje->GetPY() >= y))) { 
+	return true; } else { return false; } 
 }
-
-Item::~Item()
-{
-}
-
-void Item::ImprimirItem(int x, int y) {
-	Posicion(x, y); cout << "";
-}
+Item::~Item(){}
+void Item::ImprimirItem(int x, int y) { Posicion(x, y); cout << ""; }

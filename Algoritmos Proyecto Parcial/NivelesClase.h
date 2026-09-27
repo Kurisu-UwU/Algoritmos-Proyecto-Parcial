@@ -12,6 +12,9 @@ private:
 	int canMejora;
 	Obstaculos** listaObs;
 	int canObs;
+	Cofre** listaCofre;
+	int canCofre;
+	bool MostrarPreguntaCofre;
 public:
 	Niveles();
 	~Niveles();
@@ -30,6 +33,10 @@ public:
 	void GenerarTambores(int);
 	void RevivirTambor(short);
 	void AtributosTambores(int);
+	void GenerarCofres(int);
+	void AtributosCofres(int, int, int);
+	void DibujarCofre();
+	int PisandoItem(Protagonista*);
 
 	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -40,6 +47,7 @@ Niveles::Niveles() {
 	canPro = 0;
 	listaPro = nullptr;
 	canMejora = 0;
+	MostrarPreguntaCofre = true;
 }
 Niveles::~Niveles() {  // eliminador
 	//if (listaEne != nullptr) delete[]listaEne;
@@ -106,9 +114,19 @@ void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { //
 	}
 }
 void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
+	bool w, a, s, d = true;
+	int x = enemigo->GetEX();
+	int y = enemigo->GetEY();
+	int velx = enemigo->GetVelocidad();
 	if (enemigo->GetVivo()) {
 		enemigo->Borrar();
-		enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY());
+		for (int i = 0; i < canObs; i++) {
+			if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx*2, 0) == true) { w = false; }// arriba
+			if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx*2, 2) == true) { s = false; }//abajo
+			if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx*2, 1) == true) { a = false; }// izquierda
+			if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx*2, 3) == true) { d = false; }//derecha
+		}
+		enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY(),w,a,s,d);
 		enemigo->Dibujar();
 	}
 }
@@ -185,7 +203,7 @@ void Niveles::RevivirTambor(short tipo) {
 			n = false;  // github copilot
 			listaTamb[i]->Dibujar();
 		}
-		if (i < canTamb) i++;
+		if (i < canTamb) { i++; }
 	} while (n);
 }
 void Niveles::AtributosTambores(int x) {  // asignación de atributos a los obstáculos
@@ -194,5 +212,38 @@ void Niveles::AtributosTambores(int x) {  // asignación de atributos a los obstá
 		listaTamb[i]->SetY(25);
 		listaTamb[i]->SetTipo(0);
 		listaTamb[i]->SetVivo(false);
+	}
+}
+void Niveles::GenerarCofres(int cantidad) {
+	canCofre = cantidad;
+	listaCofre = new Cofre * [cantidad];
+	for (int i = 0; i < cantidad; i++) { listaCofre[i] = new Cofre(1, 1, 1, 1, 1, true, true); }
+}
+void Niveles::AtributosCofres(int numero, int x, int y) {
+	listaCofre[numero]->SetX(x);
+	listaCofre[numero]->SetY(y);
+
+}
+void Niveles::DibujarCofre() {
+	for (int i = 0; i < canCofre; i++) {
+		if (listaCofre[i]->GetExistencia()) {
+			listaCofre[i]->ImprimirItem(listaCofre[i]->GetX(), listaCofre[i]->GetY());
+		}
+	}
+}
+int Niveles::PisandoItem(Protagonista* prota) {
+	for (int i = 0; i < canCofre; i++) {
+		if (listaCofre[i]->GetExistencia()) {
+			if (listaCofre[i]->PisandoItem(prota)) {
+				Posicion(20, 5); ColorBlanco(); cout << "Desea Abrir el cofre?: pulse Z";
+				MostrarPreguntaCofre = true;
+				if (tecla == 'Z' || tecla == 'z') { return i + 1; }
+				else { return 0; }
+			}
+			else if (MostrarPreguntaCofre){
+				Posicion(20, 5); ColorBlanco(); cout << "                                ";
+				return 0;
+			}
+		}
 	}
 }
