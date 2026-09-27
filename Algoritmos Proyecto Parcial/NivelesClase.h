@@ -37,6 +37,7 @@ public:
 	void AtributosCofres(int, int, int, int, int);
 	void DibujarCofre();
 	int PisandoItem(Protagonista*);
+	void AtacarJefes(Spot*, Protagonista*);
 
 	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -113,13 +114,6 @@ void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { //
 			enemigo->SetVida(f);
 	}
 }
-void Niveles::AtacarEnemigos(Spot* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
-	if (enemigo->GetVivo()) {
-		float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
-		float f = enemigo->GetVida() + n;
-		enemigo->SetVida(f);
-	}
-}
 void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
 	bool w, a, s, d = true;
 	int x = enemigo->GetEX();
@@ -151,6 +145,10 @@ void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición gene
 	int pvly = prota->GetVelocidady();
 	int ancho = prota->GetAncho();
 	int alto = prota->GetAlto();
+	if (tecla == 'w' || tecla == 'W') prota->SetMirada(1);
+	if (tecla == 'a' || tecla == 'A') prota->SetMirada(2);
+	if (tecla == 's' || tecla == 'S') prota->SetMirada(3);
+	if (tecla == 'd' || tecla == 'D') prota->SetMirada(4);
 	prota->Borrar();
 	for (int i = 0; i < canObs; i++) {// colisiones con obstáculos
 		if (CalcularColisionesDireccionales(px, py, listaObs[i]->GetX(), listaObs[i]->GetY(), ancho, alto, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), pvlx, pvly, 0) == true) { w = false; }// arriba

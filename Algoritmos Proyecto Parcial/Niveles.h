@@ -252,8 +252,7 @@ void Nivel3parte4() {
 		if (contador % 150 == 0) {
 			Jefe->MoverSpot(8, 30, 190, 40);
 		}
-
-		Posicion(100, 2); cout << "Vida: " << Jefe->GetVida();//Muestra vida de enemigo
+		Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
 			nivel3->AtacarEnemigos(Jefe, punk);

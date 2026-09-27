@@ -9,7 +9,7 @@ private:
 	float energia, velocidadx, velocidady, ataque, vida, carga;
 	string nombre;
 	short tipo;  // 1 es miles | 2 es Miguel | 3 es punk
-	short direccionMirada;
+	short direccionMirada; // W 1 / a 2 / s 3 / d4
 	Habilidades** habilidades;
 	short cantidadhabilidades;
 
@@ -30,7 +30,7 @@ public:
 	void SetVida(float vi1) { vida = vi1; }
 	void SetCarga(float c1) { carga = c1; }
 	void SetNombre(string n1) { nombre = n1; }
-	void SetMirada(short);
+	void SetMirada(short mira) { direccionMirada = mira; }
 
 	void Generarhabilidades();
 	float AtacarEnemigos(int, int);
@@ -92,22 +92,24 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 		if ((tecla == 'Q' || tecla == 'q') && habilidades[0]->GetListo()) { if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; } else { return 0; } }break;
 	}
 	case 2:
-	case 3: if ((tecla == 'Q' || tecla == 'q') && habilidades[0]->GetListo()) {
-		if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; }
-		else { return 0; }
-		break;
-		if (tecla == 'q' || tecla == 'Q') {
-			if (direccionMirada == 2 && habilidades[0]->GetListo()) {
-				if (CalcularColisiones(px - 10, py, ex, ey, alto, ancho + 10, 10, 10)) {
-					return -1;
+	case 3: {
+		if ((tecla == 'Q' || tecla == 'q') && habilidades[0]->GetListo()) {
+			if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; }
+			else { return 0; }
+			break;
+			if (tecla == 'q' || tecla == 'Q') {
+				if (direccionMirada == 2 && habilidades[0]->GetListo()) {
+					if (CalcularColisiones(px - 10, py, ex, ey, alto, ancho + 10, 10, 10)) {
+						return -1;
+					}
+					else return 0;
 				}
-				else return 0;
-			}
-			if (direccionMirada == 4 && habilidades[0]->GetListo()) {
-				if (CalcularColisiones(px, py, ex, ey, alto, ancho + 10, 10, 10)) {
-					return -1;
+				if (direccionMirada == 4 && habilidades[0]->GetListo()) {
+					if (CalcularColisiones(px, py, ex, ey, alto, ancho + 10, 10, 10)) {
+						return -1;
+					}
+					else return 0;
 				}
-				else return 0;
 			}
 		}
 	}
