@@ -79,6 +79,14 @@ void Nivel3() {
 	nivel3->AtributosCofres(2, 150, 20, 7, 3);
 	punk->Generarhabilidades();
 	tecla = 'j';
+
+
+	DibujarEdificio(1, 7);//Dibuja obstaculo
+	DibujarEdificio(26, 7);
+	DibujarEdificio(51, 7);
+	DibujarEdificio(187, 32);
+	DibujarEdificio(162, 32);
+	DibujarEdificio(137, 32);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		for (int i = 0; i < cantenemigos; i++) {
@@ -86,12 +94,6 @@ void Nivel3() {
 			nivel3->EnemigoMuere(enemigo[i]);	
 		}
 		DibujarPanelDeControl();
-		DibujarEdificio(1, 7);//Dibuja obstaculo
-		DibujarEdificio(26, 7);
-		DibujarEdificio(51, 7);
-		DibujarEdificio(187, 32);
-		DibujarEdificio(162, 32);
-		DibujarEdificio(137, 32);
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
@@ -158,20 +160,6 @@ void Nivel3parte2() {
 	DibujarEdificio(26, 32);
 	DibujarEdificio(51, 32);
 	tecla = 'j';
-	DibujarEdificio(1, 32);
-	DibujarEdificio(26, 32);
-	DibujarEdificio(51, 32);
-	DibujarEdificio(76, 32);
-	DibujarEdificio(101, 32);
-	DibujarEdificio(126, 32);
-	DibujarEdificio(151, 32);
-	DibujarEdificio(176, 32);
-	DibujarEdificio(187, 7);
-	DibujarEdificio(162, 7);
-	DibujarEdificio(137, 7);
-	DibujarEdificio(1, 7);
-	DibujarEdificio(26, 7);
-	DibujarEdificio(51, 7);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		for (int i = 0; i < cantenemigos; i++) {
@@ -231,23 +219,40 @@ void Nivel3parte3() {
 	enemigo[2]->SetVida(1);
 	enemigo[3]->SetVida(1);
 
-	nivel3->GenerarObstaculo(4);
-	nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
-	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
+	nivel3->GenerarObstaculo(5);
+	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+	nivel3->AtributosObstaculo(1, 137, 7, 0, 75, 16);
+	nivel3->AtributosObstaculo(2, 1, 32, 0, 200, 16);
 	nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
+	nivel3->AtributosObstaculo(4, 0, 47, 0, 213, 2);
 	nivel3->GenerarCofres(3);
 	nivel3->AtributosCofres(0, 100, 28, 7, 3);
 	nivel3->AtributosCofres(1, 125, 28, 7, 3);
 	nivel3->AtributosCofres(2, 150, 28, 7, 3);
 	punk->Generarhabilidades();
 	tecla = 'j';
+
+	DibujarEdificio(1, 32);
+	DibujarEdificio(26, 32);
+	DibujarEdificio(51, 32);
+	DibujarEdificio(76, 32);
+	DibujarEdificio(101, 32);
+	DibujarEdificio(126, 32);
+	DibujarEdificio(151, 32);
+	DibujarEdificio(176, 32);
+	DibujarEdificio(187, 7);
+	DibujarEdificio(162, 7);
+	DibujarEdificio(137, 7);
+	DibujarEdificio(1, 7);
+	DibujarEdificio(26, 7);
+	DibujarEdificio(51, 7);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		for (int i = 0; i < cantenemigos; i++) {
 			nivel3->EnemigoAcercaProta(enemigo[i], punk);
 			nivel3->EnemigoMuere(enemigo[i]);
 		}
+		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
