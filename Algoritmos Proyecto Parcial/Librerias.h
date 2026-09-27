@@ -3,6 +3,9 @@
 #include <iostream>
 #include <ctime>
 #include <windows.h>
+#include <string>
+#include <vector>
+#using <System.dll>  // Claude IA
 
 #define ANCHO 4
 #define ALTO 4
@@ -12,6 +15,8 @@
 
 using namespace std;
 using namespace System;
+using namespace System::Diagnostics;
+using namespace System::Media; // Claude IA
 
 int opMenu = 1, opFinal = 0;
 bool Condicion2; // condicion para el bucle main

@@ -34,9 +34,25 @@ Tambores::~Tambores() {}
  // Hay que generar una funcion que reciba los frames en variable e implementar el ritmo por el tiempo de variable,
 	// tambien falta agregar una función que limite los fps para que todo funcione acorde a lo planeado, lo ideal sería que dependa del tiempo, bastante, lo más probable, en milisegundos
 bool Tambores::PresionarTambores(int x2) {
+	SoundPlayer^ pum; // Claude IA
+	SoundPlayer^ pam;
+	String^ rutapum = "Sonidos/pum.wav";
+	String^ rutapam = "Sonidos/pam.wav";
+	try { pum = gcnew SoundPlayer(rutapum); pum->Load(); } // (...) Atrapa cualquier tipo de excepción
+	catch (...) { pum = nullptr; } // si falta el archivo, no rompe el juego
+	try { pam = gcnew SoundPlayer(rutapam); pam->Load(); }
+	catch (...) { pam = nullptr; }
+	SoundPlayer^ pu = pum;
+	SoundPlayer^ pa = pam;
 	switch (tipo) {
-	case 0: if ((tecla == 'Z' || tecla == 'z') && tipo == 0) { return true; } else { return false; } break;
-	case 1: if ((tecla == 'X' || tecla == 'x') && tipo == 1) { return true; } else { return false; } break;
+	case 0: if ((tecla == 'Z' || tecla == 'z') && tipo == 0) {
+		if (pu != nullptr) { pu->Play(); }
+		else { SystemSounds::Beep->Play(); }; return true; }
+		  else { return false; } break;
+	case 1: if ((tecla == 'X' || tecla == 'x') && tipo == 1) {
+		if (pa != nullptr) { pa->Play(); }
+		else { SystemSounds::Beep->Play(); }; return true; }
+		  else { return false; } break;
 	default: break;
 	}
 }

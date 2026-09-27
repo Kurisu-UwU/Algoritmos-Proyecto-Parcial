@@ -96,4 +96,12 @@
       <Filter>Source Files\Funciones</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sonidos\pam.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Sonidos\pum.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
 </Project>

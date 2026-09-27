@@ -134,7 +134,13 @@
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
     <ClInclude Include="Tambores.h" />
-    <ClInclude Include="TextoAnimadoDialogosETC.h" />
+    <ClInclude Include="TextoAnimadoDialogosETC.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Sonidos\pam.wav" />
+    <Media Include="Sonidos\pum.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

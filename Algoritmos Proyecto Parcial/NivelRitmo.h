@@ -2,6 +2,7 @@
 #include "NivelesClase.h"
 #include "TextoAnimadoDialogosETC.h"
 
+
 void NivelesRitmo(Niveles* nivel3, int n) {
 	switch (n) {
 	case 1: {
