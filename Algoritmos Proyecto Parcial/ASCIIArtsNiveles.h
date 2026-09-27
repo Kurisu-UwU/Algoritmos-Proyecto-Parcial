@@ -77,7 +77,6 @@ void Dibujar(int x, int y) {
 //_|    ||  ||___
 //| **| D
 //C - (o)---- - (o)-- -
-
 void Dibujara(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";
 	Posicion(x + 1, y); y++;   cout << "(())";
@@ -101,12 +100,12 @@ void BorrarSprite(int x, int y) {
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();
-		Posicion(0, 40); cout << "Habilidad Q: Lista";
+		Posicion(53, 4); cout << "Habilidad Q: Lista";
 	}
 	else if (!color) {
 		ColorRojo();
 		if (n > -1) {
-			Posicion(0, 40); cout << "Habilidad Q:    " << n << "  ";
+			Posicion(53, 4); cout << "Habilidad Q:    " << n << "  ";
 		}
 	}
 }
