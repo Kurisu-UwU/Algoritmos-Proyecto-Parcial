@@ -13,6 +13,7 @@ void NivelesRitmo(Niveles* nivel3, int n) {
 		nivel3->AtributosTambores(12);
 		int puntaje = 0;
 		short pos = 1;
+		int vida = 20;
 		do {
 
 			DibujarPanelDeControl();
@@ -29,15 +30,19 @@ void NivelesRitmo(Niveles* nivel3, int n) {
 				BorrarPunk(26, 23);
 				BorrarPunk(26, 30);
 				tecla = _getch();
-				puntaje = puntaje + nivel3->PresionarTambores(25, pos);
+				switch (nivel3->PresionarTambores(25, pos)) {
+				case 0: vida -= 2; break;
+				case 1: puntaje += 2;  break;
+				case 2: puntaje++; vida--;  break;
+				}
 				if ((tecla == 's' || tecla == 'S')&& pos < 2) { pos++; }
 				if ((tecla == 'w' || tecla == 'W')&& pos > 0) { pos--; }
 			}
 			switch (tiempo) {
 			case 20: nivel3->RevivirTambor(0,1); break;
-			case 40: nivel3->RevivirTambor(1,2); break;
-			case 80: nivel3->RevivirTambor(0,2); break;
-			case 100: nivel3->RevivirTambor(1,0); break;
+			case 40: nivel3->RevivirTambor(0,1); break;
+			case 60: nivel3->RevivirTambor(1,1); break;
+			case 110: nivel3->RevivirTambor(1,0); break;
 			case 120: nivel3->RevivirTambor(0, 2); break;
 			case 130: nivel3->RevivirTambor(1, 1); break;
 			case 180: nivel3->RevivirTambor(0, 2); break;

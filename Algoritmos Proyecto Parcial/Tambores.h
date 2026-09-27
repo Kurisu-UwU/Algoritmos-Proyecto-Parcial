@@ -34,8 +34,8 @@ Tambores::~Tambores() {}
  // Hay que generar una funcion que reciba los frames en variable e implementar el ritmo por el tiempo de variable,
 	// tambien falta agregar una función que limite los fps para que todo funcione acorde a lo planeado, lo ideal sería que dependa del tiempo, bastante, lo más probable, en milisegundos
 bool Tambores::PresionarTambores(int x2) {
-	SoundPlayer^ pum; // Claude IA
-	SoundPlayer^ pam;
+	SoundPlayer^ pum; // Claude IA  // el ^ "hat" es un tipo de puntero/vector del CRL.net / no necesita de un delete[]
+	SoundPlayer^ pam; 
 	String^ rutapum = "Sonidos/pum.wav";
 	String^ rutapam = "Sonidos/pam.wav";
 	try { pum = gcnew SoundPlayer(rutapum); pum->Load(); } // (...) Atrapa cualquier tipo de excepción

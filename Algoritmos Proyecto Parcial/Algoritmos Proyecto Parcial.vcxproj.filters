@@ -86,14 +86,14 @@
     <ClInclude Include="Items.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
-    <ClInclude Include="Tambores.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ItemsConstruccion.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
     <ClInclude Include="NivelRitmo.h">
       <Filter>Source Files\Funciones</Filter>
+    </ClInclude>
+    <ClInclude Include="Tambores.h">
+      <Filter>Source Files\Clases</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
