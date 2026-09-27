@@ -68,14 +68,14 @@ void Nivel3() {
 	Niveles* nivel3 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
-	enemigo[0]->SetEX(10); //Atributos de los enemigos
-	enemigo[1]->SetEX(20);
+	enemigo[0]->SetEX(30); //Atributos de los enemigos
+	enemigo[1]->SetEX(30);
 	enemigo[2]->SetEX(30);
-	enemigo[3]->SetEX(40);
-	enemigo[0]->SetEY(23);
-	enemigo[1]->SetEY(24);
-	enemigo[2]->SetEY(25);
-	enemigo[3]->SetEY(26);
+	enemigo[3]->SetEX(30);
+	enemigo[0]->SetEY(27);
+	enemigo[1]->SetEY(27);
+	enemigo[2]->SetEY(27);
+	enemigo[3]->SetEY(27);
 	enemigo[0]->SetVelocidadTempo(1);
 	enemigo[1]->SetVelocidadTempo(1);
 	enemigo[2]->SetVelocidadTempo(1);
@@ -124,32 +124,45 @@ void Nivel3() {
 	AnimacionBorrar();
 	booleanoGeneralParaNiveles = true;
 	tiempo = 0;
-	nivel3->GenerarTambores(13);
-	nivel3->AtributosTambores(13);
+	nivel3->GenerarTambores(12);
+	nivel3->AtributosTambores(12);
 	int puntaje = 0;
 	do {
 		DibujarPanelDeControl();
-		puntaje += nivel3->PresionarTambores(25);
 		nivel3->TamboresMovimiento(25);
+		if (_kbhit()) {
+			tecla = getch();
+			puntaje = puntaje + nivel3->PresionarTambores(25);
+			tecla = 'j';
+		}
 		switch (tiempo) {
 		case 100: nivel3->RevivirTambor(0); break;
 		case 120: nivel3->RevivirTambor(1); break;
 		case 140: nivel3->RevivirTambor(0); break;
-		case 150: nivel3->RevivirTambor(1); break;
+		case 160: nivel3->RevivirTambor(1); break;
 		case 180: nivel3->RevivirTambor(0); break;
 		case 201: nivel3->RevivirTambor(1); break;
 		case 220: nivel3->RevivirTambor(0); break;
-		case 300: nivel3->RevivirTambor(1); break;
-		case 450: nivel3->RevivirTambor(0); break;
-		case 467: nivel3->RevivirTambor(1); break;
-		case 499: nivel3->RevivirTambor(0); break;
+		case 240: nivel3->RevivirTambor(1); break;
+		case 350: nivel3->RevivirTambor(0); break;
+		case 380: nivel3->RevivirTambor(1); break;
+		case 400: nivel3->RevivirTambor(0); break;
+		case 450: nivel3->RevivirTambor(1); break;
+		case 470: nivel3->RevivirTambor(1); break;
+		case 490: nivel3->RevivirTambor(1); break;
+		case 520: nivel3->RevivirTambor(1); break;
 		case 550: nivel3->RevivirTambor(1); break;
-
+		case 570: nivel3->RevivirTambor(1); break;
+		case 590: nivel3->RevivirTambor(1); break;
+		case 620: nivel3->RevivirTambor(1); break;
+		case 640: nivel3->RevivirTambor(1); break;
+		case 660: nivel3->RevivirTambor(1); break;
 		default: break;
 		}
 		tiempo++;
 		Posicion(20, 20); cout << "Tiempo: " << tiempo;
-		Posicion(30, 20); cout << "Puntaje: " << puntaje;
+		Posicion(45, 20); cout << "Puntaje: " << puntaje<<" ";
+		Posicion(26, 25); ColorVerde(); cout << "|"; ColorBlanco();
 		_sleep(1);
 	} while (booleanoGeneralParaNiveles);
 	for (int i = 0; i < cantenemigos; i++) { delete enemigo[i]; }

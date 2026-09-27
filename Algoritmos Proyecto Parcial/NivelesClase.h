@@ -141,16 +141,23 @@ void Niveles::GenerarTambores(int cantidad) {
 		listaTamb[i] = new Tambores();
 }
 int Niveles::PresionarTambores(int psocicionparatocar) {
-	if (_kbhit()) {
-		tecla = getch();
-		for (int i = 0; i < canTamb; i++) {
-			if (CalcularColisiones(25, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 1, 1, 1, 4)) {
-				if (listaTamb[i]->PresionarTambores(psocicionparatocar)) { return (1); listaTamb[i]->SetVivo(false); }
-				else { return (-2); }
+	short n = 0;
+	for (int i = 0; i < canTamb; i++) {
+		if (CalcularColisiones(25, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 3, 3, 2, 4) && listaTamb[i]->GetVivo()==true) {
+			if (listaTamb[i]->PresionarTambores(psocicionparatocar)) {
+				n = 1;
+				listaTamb[i]->SetVivo(false);
+				listaTamb[i]->SetY(50);
 			}
+			else { n = 2; }
 		}
 	}
-	else { return 0; }
+	switch (n) {
+	case 0: return 0; break;
+	case 1: return 1; break;
+	case 2: return -2; break;
+	default: break;
+	}
 }
 void Niveles::TamboresMovimiento(int psocicionparatocar) {
 	for (int i = 0; i < canTamb; i++) {
@@ -173,7 +180,7 @@ void Niveles::RevivirTambor(short tipo) {
 			listaTamb[i]->SetX(200);
 			listaTamb[i]->SetTipo(tipo);
 			listaTamb[i]->SetVivo(true);
-			n = false;
+			n = false;  // github copilot
 			listaTamb[i]->Dibujar();
 		}
 		if (i < canTamb) i++;

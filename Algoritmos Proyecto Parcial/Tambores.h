@@ -34,9 +34,11 @@ Tambores::~Tambores() {}
  // Hay que generar una funcion que reciba los frames en variable e implementar el ritmo por el tiempo de variable,
 	// tambien falta agregar una función que limite los fps para que todo funcione acorde a lo planeado, lo ideal sería que dependa del tiempo, bastante, lo más probable, en milisegundos
 bool Tambores::PresionarTambores(int x2) {
-	if ((tecla == 'Z' || tecla == 'z') && x == x2 && tipo == 0) { return true; }
-	else if ((tecla == 'X' || tecla == 'x') && x == x2 && tipo == 1) { return true; }
-	else { return false; }
+	switch (tipo) {
+	case 0: if ((tecla == 'Z' || tecla == 'z') && x == x2 && tipo == 0) { return true; } else { return false; } break;
+	case 1: if ((tecla == 'X' || tecla == 'x') && x == x2 && tipo == 1) { return true; } else { return false; } break;
+	default: break;
+	}
 }
 void Tambores::Dibujar() {
 	if (tipo == 0) { BColorAzul(); } else { BColorRojo(); }
