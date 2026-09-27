@@ -180,12 +180,7 @@ int Niveles::PresionarTambores(int psocicionparatocar, short pos) {
 			listaTamb[i]->SetY(40);
 		}
 	}
-	switch (n) {
-	case 0: return 0; break;
-	case 1: return 2; break;
-	case 2: return 1; break;
-	default: break;
-	}
+	return n;
 }
 void Niveles::TamboresMovimiento(int psocicionparatocar) {
 	for (int i = 0; i < canTamb; i++) {

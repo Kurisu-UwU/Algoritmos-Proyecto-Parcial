@@ -24,6 +24,7 @@ bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 char tecla = ' ';
 bool booleanoGeneralParaNiveles = true;
+bool booleanoGeneralParaNiveles3 = true;
 
 char teclageneralbasura = 'j';
 
@@ -139,5 +140,35 @@ void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 		Posicion(x + 15, y + 3); cout << "|/__\\|";
 		break;
 	case 5: Posicion(x, y); cout << "Z"; break;
+	}
+}
+void DibujarZX(int x, int y) {  //visual WASD AMARILLO
+	ColorAzul();
+	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y + 1); cout << "||Z ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+	ColorRojo();
+	Posicion(x+6, y);     cout << " ____ ";
+	Posicion(x+6, y + 1); cout << "||X ||";
+	Posicion(x+6, y + 2); cout << "||__||";
+	Posicion(x+6, y + 3); cout << "|/__\\|";
+}
+void AnimacionZX(int x, int y, int noseaaa) {  //visual WASD AMARILLO
+	ColorAmarillo();
+	switch (noseaaa) {
+	case 0:
+		Posicion(x, y);     cout << " ____ ";
+		Posicion(x, y + 1); cout << "||Z ||";
+		Posicion(x, y + 2); cout << "||__||";
+		Posicion(x, y + 3); cout << "|/__\\|";
+		break;
+	case 1:
+		Posicion(x + 6, y);     cout << " ____ ";
+		Posicion(x + 6, y + 1); cout << "||X ||";
+		Posicion(x + 6, y + 2); cout << "||__||";
+		Posicion(x + 6, y + 3); cout << "|/__\\|";
+		break;
+	default: break;
 	}
 }

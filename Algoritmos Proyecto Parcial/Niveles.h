@@ -64,10 +64,8 @@ void Nivel3() {
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 	nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
-	nivel3->GenerarCofres(3);
+	nivel3->GenerarCofres(1);
 	nivel3->AtributosCofres(0, 100,10, 7, 3);
-	nivel3->AtributosCofres(1, 125, 15, 7, 3);
-	nivel3->AtributosCofres(2, 150, 20, 7, 3);
 	tecla = 'j';
 	DibujarEdificio(1, 7);//Dibuja obstaculo
 	DibujarEdificio(26, 7);
@@ -75,12 +73,20 @@ void Nivel3() {
 	DibujarEdificio(187, 32);
 	DibujarEdificio(162, 32);
 	DibujarEdificio(137, 32);
+	booleanoGeneralParaNiveles3 = true;
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
+		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
+		if (!booleanoGeneralParaNiveles3) {
+			Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+			if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
+				booleanoGeneralParaNiveles = false;
+			}
+		}
+		else { booleanoGeneralParaNiveles3 = true; }
 		_sleep(1);
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
@@ -128,7 +134,7 @@ void Nivel3parte2() {
 		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
+		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
 			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
@@ -186,7 +192,7 @@ void Nivel3parte3() {
 		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
+		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
 			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
