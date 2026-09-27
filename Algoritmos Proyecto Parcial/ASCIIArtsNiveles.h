@@ -32,6 +32,13 @@ void DibujarPunk(int x, int y) {
 	Posicion(x + 2, y + 4); ColorRojo(); cout << "XX";
 	Posicion(x + 5, y + 4); ColorRojoOscuro(); cout << "(_)";
 }
+void BorrarPunk(int x, int y) {
+	Posicion(x + 2, y);     cout << "  ";
+	Posicion(x + 1, y + 1);  cout << "      ";
+	Posicion(x, y + 2); ; cout << "       ";
+	Posicion(x + 2, y + 3); cout << "       ";
+	Posicion(x + 2, y + 4); cout << "      ";
+}
 void DibujarEnemigo(int x, int y) {
 	Posicion(x+1, y); y++; cout << "..";
 	Posicion(x, y); y++; cout << "[oo]";
@@ -39,14 +46,41 @@ void DibujarEnemigo(int x, int y) {
 	Posicion(x+1, y); y++; cout << "''";
 }
 void DibujarGwen(int x, int y) {
-	Posicion(x+1, y); y++; cout << "__";
-	Posicion(x, y); y++;   cout << "(\\/)";
-	Posicion(x, y); y++;   cout << "-()-";
-	Posicion(x+1, y); y++; cout << "''";
+	Posicion(x + 2, y); y++; cout << "__";
+	Posicion(x + 1, y); y++;   cout << "(\/)";
+	Posicion(x, y); y++;   cout << "o+YY+o";
+	Posicion(x + 2, y); y++; cout << "/\\";
+	Posicion(x + 2, y); y++; cout << "ll";
 }
-void Dibujar(int x, int y) {
+void DibujarSpot(int x, int y) {
 	Posicion(x +2, y); y++; cout << "__";
 	Posicion(x+1, y); y++;   cout << "(())";
+	Posicion(x, y); y++;   cout << "o=()=o";
+	Posicion(x + 2, y); y++; cout << "00";
+	Posicion(x + 2, y); y++; cout << "OO";
+}
+void BorrarSpot(int x, int y) {
+	Posicion(x + 2, y); y++; cout << "  ";
+	Posicion(x + 1, y); y++;   cout << "    ";
+	Posicion(x, y); y++;   cout << "      ";
+	Posicion(x + 2, y); y++; cout << "  ";
+	Posicion(x + 2, y); y++; cout << "  ";
+}
+void Dibujar(int x, int y) {
+	Posicion(x + 2, y); y++; cout << "___________";
+	Posicion(x + 1, y); y++;   cout << "(())";
+	Posicion(x, y); y++;   cout << "o=()=o";
+	Posicion(x + 2, y); y++; cout << "00";
+	Posicion(x + 2, y); y++; cout << "OO";
+}
+//___________
+//_|    ||  ||___
+//| **| D
+//C - (o)---- - (o)-- -
+
+void Dibujara(int x, int y) {
+	Posicion(x + 2, y); y++; cout << "__";
+	Posicion(x + 1, y); y++;   cout << "(())";
 	Posicion(x, y); y++;   cout << "o=()=o";
 	Posicion(x + 2, y); y++; cout << "00";
 	Posicion(x + 2, y); y++; cout << "OO";

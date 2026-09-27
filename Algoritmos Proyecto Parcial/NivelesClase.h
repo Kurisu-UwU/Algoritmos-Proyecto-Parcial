@@ -28,10 +28,10 @@ public:
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void BorrarObjetos();
 	void GenerarMovimientoJugador(Protagonista*);
-	int PresionarTambores(int);
+	int PresionarTambores(int, short);
 	void TamboresMovimiento(int);
 	void GenerarTambores(int);
-	void RevivirTambor(short);
+	void RevivirTambor(short, short);
 	void AtributosTambores(int);
 	void GenerarCofres(int);
 	void AtributosCofres(int, int, int);
@@ -160,10 +160,10 @@ void Niveles::GenerarTambores(int cantidad) {
 	for (int i = 0; i < cantidad; i++)
 		listaTamb[i] = new Tambores();
 }
-int Niveles::PresionarTambores(int psocicionparatocar) {
+int Niveles::PresionarTambores(int psocicionparatocar, short pos) {
 	short n = 0;
 	for (int i = 0; i < canTamb; i++) {
-		if (CalcularColisiones(24, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 3, 3, 3, 5) && listaTamb[i]->GetVivo()==true) {
+		if (CalcularColisiones(26, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 4, 9, 3, 5) && listaTamb[i]->GetVivo()==true) {
 			if (listaTamb[i]->PresionarTambores(psocicionparatocar)&& listaTamb[i]->GetVivo() == true) {
 				n = 1;
 			}
@@ -193,13 +193,24 @@ void Niveles::TamboresMovimiento(int psocicionparatocar) {
 		}
 	}
 }
-void Niveles::RevivirTambor(short tipo) {
+void Niveles::RevivirTambor(short tipo, short nivel) {
 	bool n = true;
 	int i=0;
+	int y;
+	switch (nivel) {
+	case 0: y = 18; break;
+	case 1: y = 25; break;
+	case 2: y = 32; break;
+	default: break;
+	}
+	BorrarSpot(190, 16);
+	BorrarSpot(190, 23);
+	BorrarSpot(190, 30);
 	do {
 		if (listaTamb[i]->GetVivo() == false) {
-			listaTamb[i]->SetX(200);
-			listaTamb[i]->SetY(25);
+			listaTamb[i]->SetX(180);
+			listaTamb[i]->SetY(y);
+			DibujarSpot(190, y-2);
 			listaTamb[i]->SetTipo(tipo);
 			listaTamb[i]->SetVivo(true);
 			n = false;  // github copilot
