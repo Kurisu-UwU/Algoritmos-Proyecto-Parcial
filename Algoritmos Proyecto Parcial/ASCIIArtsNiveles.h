@@ -40,10 +40,10 @@ void BorrarPunk(int x, int y) {
 	Posicion(x + 2, y + 4); cout << "      ";
 }
 void DibujarEnemigo(int x, int y) {
-	Posicion(x+1, y); y++; cout << "..";
-	Posicion(x, y); y++; cout << "[oo]";
-	Posicion(x, y); y++; cout << "-()-";
-	Posicion(x+1, y); y++; cout << "''";
+	Posicion(x + 1, y); y++; ColorGris(); cout << "..";
+	Posicion(x, y + 1); y++; ColorGris(); cout << "[oo]";
+	Posicion(x, y + 2); y++; ColorGris(); cout << "-()-";
+	Posicion(x + 1, y + 3); ColorGris(); y++; cout << "''";
 }
 void DibujarGwen(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";
@@ -53,11 +53,13 @@ void DibujarGwen(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "ll";
 }
 void DibujarSpot(int x, int y) {
-	Posicion(x +2, y); y++; cout << "__";
-	Posicion(x+1, y); y++;   cout << "(())";
-	Posicion(x, y); y++;   cout << "o=()=o";
-	Posicion(x + 2, y); y++; cout << "00";
-	Posicion(x + 2, y); y++; cout << "OO";
+	Posicion(x + 2, y); ColorBlanco(); cout << "__";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout << "(";
+	Posicion(x + 2, y + 1); ColorAzulOscuro(); cout << "()";
+	Posicion(x + 4, y + 1); ColorBlanco(); cout << ")";
+	Posicion(x, y + 2); ColorBlanco(); cout << "o=()=o";
+	Posicion(x + 2, y + 3); ColorBlanco(); cout << "00";
+	Posicion(x + 2, y + 4); ColorBlanco(); cout << "OO";
 }
 void BorrarSpot(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "  ";
@@ -65,13 +67,6 @@ void BorrarSpot(int x, int y) {
 	Posicion(x, y); y++;   cout << "      ";
 	Posicion(x + 2, y); y++; cout << "  ";
 	Posicion(x + 2, y); y++; cout << "  ";
-}
-void Dibujar(int x, int y) {
-	Posicion(x + 2, y); y++; cout << "___________";
-	Posicion(x + 1, y); y++;   cout << "(())";
-	Posicion(x, y); y++;   cout << "o=()=o";
-	Posicion(x + 2, y); y++; cout << "00";
-	Posicion(x + 2, y); y++; cout << "OO";
 }
 //___________
 //_|    ||  ||___
