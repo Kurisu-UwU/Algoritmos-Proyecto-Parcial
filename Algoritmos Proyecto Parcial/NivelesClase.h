@@ -34,7 +34,7 @@ public:
 	void RevivirTambor(short, short);
 	void AtributosTambores(int);
 	void GenerarCofres(int);
-	void AtributosCofres(int, int, int);
+	void AtributosCofres(int, int, int, int, int);
 	void DibujarCofre();
 	int PisandoItem(Protagonista*);
 
@@ -232,9 +232,11 @@ void Niveles::GenerarCofres(int cantidad) {
 	listaCofre = new Cofre * [cantidad];
 	for (int i = 0; i < cantidad; i++) { listaCofre[i] = new Cofre(1, 1, 1, 1, 1, true, true); }
 }
-void Niveles::AtributosCofres(int numero, int x, int y) {
+void Niveles::AtributosCofres(int numero, int x, int y, int ANCHURA, int ALTURA) {
 	listaCofre[numero]->SetX(x);
 	listaCofre[numero]->SetY(y);
+	listaCofre[numero]->SetAlto(ALTURA);
+	listaCofre[numero]->SetAncho(ANCHURA);
 }
 void Niveles::DibujarCofre() {
 	for (int i = 0; i < canCofre; i++) {

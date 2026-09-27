@@ -36,7 +36,7 @@ void IniciarSeleccionPersonajes() {
             opciniciarnivel2 = false;
 			break;
         case 3: 
-            Nivel3();
+            Nivel3parte2();
             opciniciarnivel2 = false;
 			break;
         }
