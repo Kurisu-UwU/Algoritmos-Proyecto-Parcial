@@ -110,22 +110,67 @@ void DibujarPanelDeControl() {
 
 void DibujarEdificio(int x, int y) {
 	ColorAmarillo();
-	Posicion(x, y); cout << "_________________________";
-	Posicion(x, y + 1); cout << "| _____   _____   _____ |";
-	Posicion(x, y + 2); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 3); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 4); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 5); cout << "| -----   -----   ----- |";
-	Posicion(x, y + 6); cout << "| _____   _____   _____ |";
-	Posicion(x, y + 7); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 8); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 9); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 10); cout << "| -----   -----   ----- |";
-	Posicion(x, y + 11); cout << "| _____   _____   _____ |";
-	Posicion(x, y + 12); cout << "| |   |   | 0 |   |   | |";
-	Posicion(x, y + 13); cout << "| |   |   |   |   |   | |";
-	Posicion(x, y + 14); cout << "| -----   |   |   ----- |";
-	Posicion(x, y + 15); cout << "|_________|___|_________|";
+	Posicion(x, y); ColorGris(); cout << "_________________________";
+	Posicion(x, y + 1); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 1); ColorAzul(); cout << "_____   _____   _____";
+	Posicion(x + 24, y + 1); ColorGris(); cout << "|";
+	Posicion(x, y + 2); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 2); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 2); ColorGris(); cout << "|";
+	Posicion(x, y + 3); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 3); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 3); ColorGris(); cout << "|";
+	Posicion(x, y + 4); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 4); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 4); ColorGris(); cout << "|";
+	Posicion(x, y + 5); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 5); ColorAzul(); cout << "-----   -----   -----";
+	Posicion(x + 24, y + 5); ColorGris(); cout << "|";
+	Posicion(x, y + 6); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 6); ColorAzul(); cout << "_____   _____   _____";
+	Posicion(x + 24, y + 6); ColorGris(); cout << "|";
+	Posicion(x, y + 7); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 7); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 7); ColorGris(); cout << "|";
+	Posicion(x, y + 8); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 8); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 8); ColorGris(); cout << "|";
+	Posicion(x, y + 9); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 9); ColorAzul(); cout << "|   |   |   |   |   |";
+	Posicion(x + 24, y + 9); ColorGris(); cout << "|";
+	Posicion(x, y + 10); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 10); ColorAzul(); cout << "-----   -----   -----";
+	Posicion(x + 24, y + 10); ColorGris(); cout << "|";
+	Posicion(x, y + 11); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 11); ColorAzul(); cout << "_____";
+	Posicion(x + 10, y + 11); ColorAmarilloOscuro(); cout << "_____";
+	Posicion(x + 18, y + 11); ColorAzul(); cout << "_____";
+	Posicion(x + 24, y + 11); ColorGris(); cout << "|";
+	Posicion(x, y + 12); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 12); ColorAzul(); cout << "|   |";
+	Posicion(x + 10, y + 12); ColorAmarilloOscuro(); cout << "|";
+	Posicion(x + 12, y + 12); ColorAzul(); cout << "0";
+	Posicion(x + 14, y + 12); ColorAmarilloOscuro(); cout << "|";
+	Posicion(x + 18, y + 12); ColorAzul(); cout << "|   |";
+	Posicion(x + 24, y + 12); ColorGris(); cout << "|";
+	Posicion(x, y + 13); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 13); ColorAzul(); cout << "|   |";
+	Posicion(x + 10, y + 13); ColorAmarilloOscuro(); cout << "|   |";
+	Posicion(x + 18, y + 13); ColorAzul(); cout << "|   |";
+	Posicion(x + 24, y + 13); ColorGris(); cout << "|";
+	Posicion(x, y + 14); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 14); ColorAzul(); cout << "-----";
+	Posicion(x + 10, y + 14); ColorAmarilloOscuro(); cout << "|   |";
+	Posicion(x + 18, y + 14); ColorAzul(); cout << "-----";
+	Posicion(x + 24, y + 14); ColorGris(); cout << "|";
+	Posicion(x, y + 15); ColorGris(); cout << "|";
+	Posicion(x + 1, y + 15); ColorGris(); cout << "_________";
+	Posicion(x + 10, y + 15); ColorAmarilloOscuro(); cout << "|___|";
+	Posicion(x + 15, y + 15); ColorGris(); cout << "_________";
+	Posicion(x + 24, y + 15); ColorGris(); cout << "|";
+
+
+
 }
 
 void DibujarTornillos(int x, int y) {
