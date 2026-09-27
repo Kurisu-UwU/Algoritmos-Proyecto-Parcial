@@ -197,15 +197,7 @@ void Nivel3parte3() {
 
 	Protagonista* punk = new Protagonista(25, 25, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	int cantenemigos = 1;
-	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel3 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
-
-	enemigo[0]->SetEX(30); //Atributos de los enemigos
-	enemigo[0]->SetEY(27);
-	enemigo[0]->SetVelocidadTempo(1);
-	enemigo[0]->SetVida(1);
 
 	nivel3->GenerarObstaculo(5);
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -236,18 +228,12 @@ void Nivel3parte3() {
 	DibujarEdificio(51, 7);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
-		for (int i = 0; i < cantenemigos; i++) {
-			nivel3->EnemigoAcercaProta(enemigo[i], punk);
-			nivel3->EnemigoMuere(enemigo[i]);
-		}
 		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
-		Posicion(53, 2); cout << "Vida: " << enemigo[0]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
-			for (int i = 0; i < cantenemigos; i++) { nivel3->AtacarEnemigos(enemigo[i], punk); }//Ataca a los enemigos
 			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 		}
 		punk->DibujarHabilidades();
@@ -258,8 +244,6 @@ void Nivel3parte3() {
 		//}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
-	for (int i = 0; i < cantenemigos; i++) { delete enemigo[i]; }
-	delete[]enemigo;
 }
 //
 //
