@@ -40,10 +40,10 @@ void BorrarPunk(int x, int y) {
 	Posicion(x + 2, y + 4); cout << "      ";
 }
 void DibujarEnemigo(int x, int y) {
-	Posicion(x + 1, y); y++; ColorGris(); cout << "..";
-	Posicion(x, y + 1); y++; ColorGris(); cout << "[oo]";
-	Posicion(x, y + 2); y++; ColorGris(); cout << "-()-";
-	Posicion(x + 1, y + 3); ColorGris(); y++; cout << "''";
+	Posicion(x + 1, y); ColorGris(); cout << "..";
+	Posicion(x, y + 1); ColorGris(); cout << "[oo]";
+	Posicion(x, y + 2); ColorGris(); cout << "-()-";
+	Posicion(x + 1, y + 3); ColorGris(); cout << "''";
 }
 void DibujarGwen(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";
