@@ -7,14 +7,12 @@ void DibujarMiles(int x, int y) {
 	Posicion(x, y); y++;  cout << "o||o";
 	Posicion(x+1, y); y++; cout << "^^";
 }
-
 void DibujarMiguel(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";
 	Posicion(x, y); y++;     cout << "(><)";
 	Posicion(x, y); y++;     cout << "[=||=]";
 	Posicion(x + 1, y); y++; cout << "¨ uu ¨";
 }
-
 void DibujarPunk(int x, int y) {
 	Posicion(x + 2, y);ColorBlanco();     cout << "/\\";
 	Posicion(x + 1, y + 1); ColorRojo(); cout << "(";
@@ -34,28 +32,31 @@ void DibujarPunk(int x, int y) {
 	Posicion(x + 2, y + 4); ColorRojo(); cout << "XX";
 	Posicion(x + 5, y + 4); ColorRojoOscuro(); cout << "(_)";
 }
-
 void DibujarEnemigo(int x, int y) {
 	Posicion(x+1, y); y++; cout << "..";
 	Posicion(x, y); y++; cout << "[oo]";
 	Posicion(x, y); y++; cout << "-()-";
 	Posicion(x+1, y); y++; cout << "''";
 }
-
 void DibujarGwen(int x, int y) {
 	Posicion(x+1, y); y++; cout << "__";
 	Posicion(x, y); y++;   cout << "(\\/)";
 	Posicion(x, y); y++;   cout << "-()-";
 	Posicion(x+1, y); y++; cout << "''";
 }
-
+void Dibujar(int x, int y) {
+	Posicion(x +2, y); y++; cout << "__";
+	Posicion(x+1, y); y++;   cout << "(())";
+	Posicion(x, y); y++;   cout << "o=()=o";
+	Posicion(x + 2, y); y++; cout << "00";
+	Posicion(x + 2, y); y++; cout << "OO";
+}
 void DibujarAyudante(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "__";
 	Posicion(x, y); y++;     cout << "(^^)";
 	Posicion(x, y); y++;     cout << "\\||/";
 	Posicion(x + 1, y); y++; cout << "°°";
 }
-
 void BorrarSprite(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "        ";
 	Posicion(x, y); y++;     cout << "        ";
@@ -63,7 +64,6 @@ void BorrarSprite(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "        ";
 	Posicion(x + 1, y); y++; cout << "        ";
 }
-
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();
@@ -76,7 +76,6 @@ void DibujarHabilidadQ(bool color, int n) {
 		}
 	}
 }
-
 void DibujarMilesMoralesGrandeTitulo(int x, int y) {
 	ColorMorado();
 	Posicion(x, y);     cout << ".___  ___.  __   __       _______     _______.   .___  ___.   ______   .______          ___       __       _______     _______.";

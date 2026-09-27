@@ -138,7 +138,7 @@ void Niveles::EnemigoMuere(Enemigos* enemigo) {  // cuando el enemigo muere
 }
 void Niveles::GenerarMovimientoJugador(Protagonista* prota) {  // Condición general de todo el nivel para decirle al jugador si se puede mover o no -- aqui vas todas las colisiones del nivel, todo, todito todo
 	bool w, a, s, d; w = a = s = d = true;
-	int px=prota->GetPX();
+	int px = prota->GetPX();
 	int py = prota->GetPY();
 	int pvlx = prota->GetVelocidadx();
 	int pvly = prota->GetVelocidady();
@@ -224,7 +224,6 @@ void Niveles::GenerarCofres(int cantidad) {
 void Niveles::AtributosCofres(int numero, int x, int y) {
 	listaCofre[numero]->SetX(x);
 	listaCofre[numero]->SetY(y);
-
 }
 void Niveles::DibujarCofre() {
 	for (int i = 0; i < canCofre; i++) {
