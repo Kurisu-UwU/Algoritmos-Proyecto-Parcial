@@ -55,27 +55,27 @@ void Nivel3() {
 
 	Protagonista* punk = new Protagonista(30, 30,8,5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	int cantenemigos = 1;
+	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel3 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(30); //Atributos de los enemigos
-	//enemigo[1]->SetEX(30);
-	//enemigo[2]->SetEX(30);
-	//enemigo[3]->SetEX(30);
+	enemigo[1]->SetEX(30);
+	enemigo[2]->SetEX(30);
+	enemigo[3]->SetEX(30);
 	enemigo[0]->SetEY(27);
-	//enemigo[1]->SetEY(27);
-	//enemigo[2]->SetEY(27);
-	//enemigo[3]->SetEY(27);
+	enemigo[1]->SetEY(27);
+	enemigo[2]->SetEY(27);
+	enemigo[3]->SetEY(27);
 	enemigo[0]->SetVelocidadTempo(1);
-	//enemigo[1]->SetVelocidadTempo(1);
-	//enemigo[2]->SetVelocidadTempo(1);
-	//enemigo[3]->SetVelocidadTempo(1);
+	enemigo[1]->SetVelocidadTempo(1);
+	enemigo[2]->SetVelocidadTempo(1);
+	enemigo[3]->SetVelocidadTempo(1);
 	enemigo[0]->SetVida(1);
-	//enemigo[1]->SetVida(1);
-	//enemigo[2]->SetVida(1);
-	//enemigo[3]->SetVida(1);
+	enemigo[1]->SetVida(1);
+	enemigo[2]->SetVida(1);
+	enemigo[3]->SetVida(1);
 
 	nivel3->GenerarObstaculo(3);
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -121,34 +121,33 @@ void Nivel3() {
 	delete[]enemigo;
 	delete punk;
 }
-
 void Nivel3parte2() {
 	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
 	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 	Protagonista* punk = new Protagonista(25, 25, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	int cantenemigos = 4;
+	int cantenemigos = 1;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel3 = new Niveles();
 	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(30); //Atributos de los enemigos
-	enemigo[1]->SetEX(30);
-	enemigo[2]->SetEX(30);
-	enemigo[3]->SetEX(30);
+	//enemigo[1]->SetEX(30);
+	//enemigo[2]->SetEX(30);
+	//enemigo[3]->SetEX(30);
 	enemigo[0]->SetEY(27);
-	enemigo[1]->SetEY(27);
-	enemigo[2]->SetEY(27);
-	enemigo[3]->SetEY(27);
+	//enemigo[1]->SetEY(27);
+	//enemigo[2]->SetEY(27);
+//	enemigo[3]->SetEY(27);
 	enemigo[0]->SetVelocidadTempo(1);
-	enemigo[1]->SetVelocidadTempo(1);
-	enemigo[2]->SetVelocidadTempo(1);
-	enemigo[3]->SetVelocidadTempo(1);
+	//enemigo[1]->SetVelocidadTempo(1);
+	//enemigo[2]->SetVelocidadTempo(1);
+	//enemigo[3]->SetVelocidadTempo(1);
 	enemigo[0]->SetVida(1);
-	enemigo[1]->SetVida(1);
-	enemigo[2]->SetVida(1);
-	enemigo[3]->SetVida(1);
+	//enemigo[1]->SetVida(1);
+//	enemigo[2]->SetVida(1);
+//	enemigo[3]->SetVida(1);
 
 	nivel3->GenerarObstaculo(4);
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
@@ -160,6 +159,21 @@ void Nivel3parte2() {
 	nivel3->AtributosCofres(1, 125, 28, 7, 3);
 	nivel3->AtributosCofres(2, 150, 28, 7, 3);
 	punk->Generarhabilidades();
+	DibujarPanelDeControl();
+	DibujarEdificio(1, 7);
+	DibujarEdificio(26, 7);
+	DibujarEdificio(51, 7);
+	DibujarEdificio(76, 7);
+	DibujarEdificio(101, 7);
+	DibujarEdificio(126, 7);
+	DibujarEdificio(151, 7);
+	DibujarEdificio(176, 7);
+	DibujarEdificio(187, 32);
+	DibujarEdificio(162, 32);
+	DibujarEdificio(137, 32);
+	DibujarEdificio(1, 32);
+	DibujarEdificio(26, 32);
+	DibujarEdificio(51, 32);
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
@@ -167,26 +181,10 @@ void Nivel3parte2() {
 			nivel3->EnemigoAcercaProta(enemigo[i], punk);
 			nivel3->EnemigoMuere(enemigo[i]);
 		}
-		DibujarPanelDeControl();
-		DibujarEdificio(1, 7);
-		DibujarEdificio(26, 7);
-		DibujarEdificio(51, 7);
-		DibujarEdificio(76, 7);
-		DibujarEdificio(101, 7);
-		DibujarEdificio(126, 7);
-		DibujarEdificio(151, 7);
-		DibujarEdificio(176, 7);
-		DibujarEdificio(187, 32);
-		DibujarEdificio(162, 32);
-		DibujarEdificio(137, 32);
-		DibujarEdificio(1, 32);
-		DibujarEdificio(26, 32);
-		DibujarEdificio(51, 32);
-
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
-		Posicion(53, 2); cout << "Vida: " << enemigo[1]->GetVida();//Muestra vida de enemigo
+		Posicion(53, 2); cout << "Vida: " << enemigo[0]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
 			for (int i = 0; i < cantenemigos; i++) { nivel3->AtacarEnemigos(enemigo[i], punk); }//Ataca a los enemigos

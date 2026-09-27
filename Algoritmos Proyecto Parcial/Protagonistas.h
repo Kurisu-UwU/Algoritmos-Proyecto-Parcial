@@ -65,14 +65,21 @@ void Protagonista::Dibujar() {
 	case 3: DibujarPunk(px, py); break;
 	}
 }
-void Protagonista::Borrar() {BorrarSprite(px, py);}
+void Protagonista::Borrar() {
+	switch (tipo) {
+	case 1: break;
+	case 2: break;
+	case 3: BorrarPunk(px, py); break;
+	default: break;
+	}
+}
 void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) {  
 	// condicion del prota para que no salga de la pantalla
 	if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
 	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 48-alto)) { py++; }
 	if (tecla == 's' || tecla == 'S') { direccionMirada = 3; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
+	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 1)) { px -= 2; }
 	if (tecla == 'a' || tecla == 'A') { direccionMirada = 2; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 212-ancho)) { px += 2; }
 	if (tecla == 'd' || tecla == 'D') { direccionMirada = 4; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }

@@ -12,6 +12,7 @@ void NivelesRitmo(Niveles* nivel3, int n) {
 		nivel3->AtributosTambores(12);
 		int puntaje = 0;
 		short pos = 0;
+		DibujarPunk(26, 23);
 		do {
 
 			DibujarPanelDeControl();

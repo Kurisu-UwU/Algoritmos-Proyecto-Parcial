@@ -162,8 +162,15 @@ void Niveles::GenerarTambores(int cantidad) {
 }
 int Niveles::PresionarTambores(int psocicionparatocar, short pos) {
 	short n = 0;
+	int nu;
+	switch (pos) {
+	case 0: nu = 16; break;
+	case 1: nu = 23; break;
+	case 2: nu = 30; break;
+	default: break;
+	}
 	for (int i = 0; i < canTamb; i++) {
-		if (CalcularColisiones(26, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 4, 9, 3, 5) && listaTamb[i]->GetVivo()==true) {
+		if (CalcularColisiones(26, nu, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 4, 9, 3, 5) && listaTamb[i]->GetVivo()==true) {
 			if (listaTamb[i]->PresionarTambores(psocicionparatocar)&& listaTamb[i]->GetVivo() == true) {
 				n = 1;
 			}
