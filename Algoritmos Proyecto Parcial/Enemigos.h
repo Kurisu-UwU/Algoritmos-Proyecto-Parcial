@@ -1,10 +1,11 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
+#include "NPCs.h"
 class Enemigos
 {
 protected:
-	int ex, ey;
+	int ex, ey, anchura, altura;
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
 	string tipo;
 	bool vivo;
@@ -14,8 +15,8 @@ protected:
 	float tempo = 0;
 public:
 	Enemigos();
-	Enemigos(int, int, float, float, float,float,float, string, bool, float);
-	~Enemigos();
+	Enemigos(int, int, int, int, float, float, float,float,float, string, bool, float);
+	virtual ~Enemigos();
 
 	void Dibujar();
 	void Borrar();
@@ -51,8 +52,10 @@ Enemigos::Enemigos() {
 	velocidad = 1;
 	velocidadtempo = 1;
 }
-Enemigos::Enemigos(int x1, int y1, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
+Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
 	ex = x1; ey = y1;
+	this->anchura = ancho;
+	this->altura = alto;
 	cantidaddeataque = a1;
 	cantidaddevida = v1;
 	velocidad = vel1;
