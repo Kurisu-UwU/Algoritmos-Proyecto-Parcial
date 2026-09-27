@@ -5,7 +5,7 @@
 
 class Protagonista {
 private:
-	int px, py;
+	int px, py, ancho, alto;
 	float energia, velocidadx, velocidady, ataque, vida, carga;
 	string nombre;
 	short tipo;  // 1 es miles | 2 es Miguel | 3 es punk
@@ -15,7 +15,7 @@ private:
 
 public:
 	Protagonista();
-	Protagonista(int, int, float, float, float, float, float, float, string, short, short, short);
+	Protagonista(int, int, int, int, float, float, float, float, float, float, string, short, short, short);
 	~Protagonista();
 
 	void Dibujar();
@@ -40,6 +40,8 @@ public:
 
 	int GetPX() { return px; }  // getters
 	int GetPY() { return py; }
+	int GetAncho() { return ancho; }
+	int GetAlto() { return alto; }
 	float GetEnergia() { return energia; }
 	float GetVelocidadx() { return velocidadx; }
 	float GetVelocidady() { return velocidady; }
@@ -52,8 +54,8 @@ public:
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidadx = 1; velocidady = 2; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
 }
-Protagonista::Protagonista(int x1, int y1, float e1, float vx1, float vy1, float a1, float vi1, float car, string n1, short tip, short mira, short cantHabilidades) {
-	px = x1; py = y1; energia = e1; velocidadx = vx1; velocidady = vy1; ataque = a1; vida = vi1; carga = car; nombre = n1; tipo = tip; direccionMirada = mira; cantidadhabilidades = cantHabilidades;
+Protagonista::Protagonista(int x1, int y1,int anch, int alt, float e1, float vx1, float vy1, float a1, float vi1, float car, string n1, short tip, short mira, short cantHabilidades) {
+	px = x1; py = y1; energia = e1; velocidadx = vx1; velocidady = vy1; ataque = a1; vida = vi1; carga = car; nombre = n1; tipo = tip; direccionMirada = mira; cantidadhabilidades = cantHabilidades; ancho = anch; alto = alt;
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
@@ -68,11 +70,11 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 	// condicion del prota para que no salga de la pantalla
 	if ((tecla == 'w' || tecla == 'W') && (arriba == true) && (py > 7)) { py--; }
 	if (tecla == 'w' || tecla == 'W') { direccionMirada = 1; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 44)) { py++; }
+	if ((tecla == 's' || tecla == 'S') && (abajo == true) && (py < 48-alto)) { py++; }
 	if (tecla == 's' || tecla == 'S') { direccionMirada = 3; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if ((tecla == 'a' || tecla == 'A') && (izquierda == true) && (px > 0)) { px -= 2; }
 	if (tecla == 'a' || tecla == 'A') { direccionMirada = 2; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
-	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 206)) { px += 2; }
+	if ((tecla == 'd' || tecla == 'D') && (derecha == true) && (px < 212-ancho)) { px += 2; }
 	if (tecla == 'd' || tecla == 'D') { direccionMirada = 4; DibujarWASD(190, 1); AnimacionWASD(190, 1, direccionMirada); }
 	if (tecla == 'z' || tecla == 'Z') {DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);}
 }
