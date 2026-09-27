@@ -1,9 +1,7 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 
-//Para dialogos animados en el juego
-										   /*verdadero izquierda, falso derecha*/
-void CuadroDeTexto(string nombre, int perfil, bool direccion) { //perfiles: 1 Miles / 2 Miguel / 3 Punk / 4 Gwen / 5 La mancha / 6 PspiderWoman / 7 Nose
+void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	int n; if (direccion == true) { n = 4; }else { n = 100; }
 	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
 	Posicion(0, 1); cout << "|                                                                                                                                                                                                                   |";

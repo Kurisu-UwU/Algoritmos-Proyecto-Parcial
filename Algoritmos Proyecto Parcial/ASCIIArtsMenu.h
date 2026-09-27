@@ -34,22 +34,8 @@ void DibujarMenu() {
     Posicion(equiz - equiz2, 35); cout << "          /__`  /\\  |    | |__)          ";
     Posicion(equiz - equiz2, 36); cout << "          .__/ /~~\\ |___ | |  \\          ";
     ColorBlanco();
-    // __   __   __     __        ___  __  
-    ///  \ |__) /  ` | /  \ |\ | |__  /__` 
-    //\__/ |    \__, | \__/ | \| |___ .__/    
-//           __        __  
-//   | |  | / _`  /\  |__) 
-//\__/ \__/ \__> /~~\ |  \ 
-// __   ___  __   __   __                  ___  __  
-//|__) |__  |__) /__` /  \ |\ |  /\     | |__  /__` 
-//|    |___ |  \ .__/ \__/ | \| /~~\ \__/ |___ .__/ 
-// __   __   ___  __    ___  __   __  
-///  ` |__) |__  |  \ |  |  /  \ /__` 
-//\__, |  \ |___ |__/ |  |  \__/ .__/  
-// __               __  
-///__`  /\  |    | |__) 
-//.__/ /~~\ |___ | |  \                       
 }
+
 void Dibujartitulo() {
     string mensaje = "holaaaaa";
     ColorMorado();
@@ -61,15 +47,8 @@ void Dibujartitulo() {
     Posicion(10, 13); cout << "\\____/| .__/|_|\\__,_|\\___|_|  |_| |_| |_|\\__,_|_| |_|";
     Posicion(10, 14); cout << "      | |";
     Posicion(10, 15); cout << "      |_| ";
-// _____       _     _                                 
-///  ___|     (_)   | |                                
-//\ `--. _ __  _  __| | ___ _ __ _ __ ___   __ _ _ __  
-// `--. \ '_ \| |/ _` |/ _ \ '__| '_ ` _ \ / _` | '_ \ 
-///\__/ / |_) | | (_| |  __/ |  | | | | | | (_| | | | |
-//\____/| .__/|_|\__,_|\___|_|  |_| |_| |_|\__,_|_| |_|
-//      | |                                            
-//      |_|    
 }
+
 void DibujarOpcionMiles(int x, int y) {
     if (opMenu == 1) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
@@ -100,6 +79,7 @@ void DibujarOpcionMiles(int x, int y) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "=========================================";
 }
+
 void DibujarOpcionMiguel(int x, int y) {
     if (opMenu == 2) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
@@ -130,6 +110,7 @@ void DibujarOpcionMiguel(int x, int y) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "=========================================";
 }
+
 void DibujarOpcionPunk(int x, int y) {
     if (opMenu == 3) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
@@ -158,10 +139,7 @@ void DibujarOpcionPunk(int x, int y) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "=========================================";
-    // _   _                 _          
-    //(_  |_) o  _| _  __   |_)   __  | 
-    // _) |   | (_|(/_ |    |  |_|| | |<             
+    Posicion(x, y); y++; cout << "=========================================";        
 }
 
 void DibujarSpiderman( int x, int y) {

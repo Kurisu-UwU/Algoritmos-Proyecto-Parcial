@@ -74,9 +74,6 @@
     <ClInclude Include="Protagonistas.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
-    <ClInclude Include="Mapas.h">
-      <Filter>Source Files\Mapas</Filter>
-    </ClInclude>
     <ClInclude Include="Habilidades.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
@@ -87,6 +84,12 @@
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
     <ClInclude Include="Items.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
+    <ClInclude Include="Tambores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemsConstruccion.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
   </ItemGroup>

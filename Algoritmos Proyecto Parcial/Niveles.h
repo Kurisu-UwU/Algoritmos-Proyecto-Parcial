@@ -1,5 +1,5 @@
 #pragma once
-#include "Mapas.h"
+#include "NivelesClase.h"
 #include "TextoAnimadoDialogosETC.h"
 
 void Nivel1() {

@@ -4,7 +4,7 @@
 #include "Enemigos.h"
 #include "Mejoras.h"
 #include "Obstaculos.h"
-#include "Protagonistas.h"
+#include "NPCs.h"
 #include "Tambores.h"
 #include "Habilidades.h"
 #include "Proyectiles.h"

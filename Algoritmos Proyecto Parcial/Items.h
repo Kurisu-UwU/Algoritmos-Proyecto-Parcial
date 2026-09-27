@@ -4,16 +4,16 @@
 class Item: public Obstaculos
 {
 protected:
-	char tipo;
 
 public:
-	Item(int, int, int, int, int, bool, char tipo);
-	~Item();
-
+	Item(int, int, int, int, int, bool);
+	~Item() override;
+	bool PisandoItem(Protagonista*);
+	virtual void ImprimirItem(int, int);
 
 };
 
-Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia, char tipo)
+Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia)
 {
 	this->x = x;
 	this->y = y;
@@ -21,9 +21,23 @@ Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia, char
 	this->anchura = anchura;
 	this->altura = altura;
 	this->existencia = existencia;
-	this->tipo = tipo;
+}
+
+bool Item::PisandoItem(Protagonista* personaje) {
+	bool colision;
+	if (((personaje->GetPX() < x + anchura) && (personaje->GetPX() >= x)) && ((personaje->GetPY() < y + altura) && (personaje->GetPY() >= y))) {
+		colision = true;
+	}
+	else {
+		colision = false;
+	}
+	return colision;
 }
 
 Item::~Item()
 {
+}
+
+void Item::ImprimirItem(int x, int y) {
+	Posicion(x, y); cout << "";
 }

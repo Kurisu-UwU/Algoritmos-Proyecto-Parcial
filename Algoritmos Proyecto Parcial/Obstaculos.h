@@ -1,5 +1,5 @@
 #pragma once
-#include "ASCIIArtsNiveles.h"
+#include "Protagonistas.h"
 class Obstaculos {
 protected:
 	int x, y, dx, anchura, altura;
@@ -7,7 +7,7 @@ protected:
 public:
 	Obstaculos();
 	Obstaculos(int, int, int, int, int, bool);
-	~Obstaculos();
+	virtual ~Obstaculos();
 	void Mover();
 	void Borrar();
 

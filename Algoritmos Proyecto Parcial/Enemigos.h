@@ -1,7 +1,8 @@
 #pragma once
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
-class Enemigos {
+class Enemigos
+{
 protected:
 	int ex, ey;
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
