@@ -19,7 +19,9 @@ Item::Item (int x, int y, int dx, int anchura, int altura, bool existencia) {
 	this->existencia = existencia;
 }
 bool Item::PisandoItem(Protagonista* personaje) { 
-	if (((personaje->GetPX() < x + anchura) && (personaje->GetPX() >= x)) && ((personaje->GetPY() < y + altura) && (personaje->GetPY() >= y))) { 
+
+	//if (((personaje->GetPX() < x + anchura) && (personaje->GetPX() >= x)) && ((personaje->GetPY() < y + altura) && (personaje->GetPY() >= y))) { 
+	if (CalcularColisiones(personaje->GetPX(), personaje->GetPY(), x, y, personaje->GetAlto(), personaje->GetAncho(),altura, anchura)) {
 	return true; } else { return false; } 
 }
 Item::~Item(){}

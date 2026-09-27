@@ -280,7 +280,6 @@ void NivelPrueba() {
 		a++;
 		TextPunkIntro(a);
 	} while (a < 2);
-
 	AnimacionBorrar();
 
 	Protagonista* punk = new Protagonista(20, 20,4,4,100, 1, 2, 10, 100, 2, "Punk", 2, 1, 3);
