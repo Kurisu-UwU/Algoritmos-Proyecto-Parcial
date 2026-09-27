@@ -44,7 +44,7 @@ void ColorMorado() { Console::ForegroundColor = ConsoleColor::Magenta; }
 void ColorGris() { Console::ForegroundColor = ConsoleColor::Gray; }
 void ColorRojoOscuro() { Console::ForegroundColor = ConsoleColor::DarkRed; }
 void ColorAzulOscuro() { Console::ForegroundColor = ConsoleColor::DarkBlue; }
-void ColorAzulOscuro() { Console::ForegroundColor = ConsoleColor::Magenta; }
+void ColorMagenta() { Console::ForegroundColor = ConsoleColor::Magenta; }
 
 void BColorRojo() { Console::BackgroundColor = ConsoleColor::Red; }
 void BColorAzul() { Console::BackgroundColor = ConsoleColor::Blue; }
