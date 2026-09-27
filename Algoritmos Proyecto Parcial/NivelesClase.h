@@ -258,7 +258,10 @@ int Niveles::PisandoItem(Protagonista* prota) {
 			if (listaCofre[i]->PisandoItem(prota)) {
 				Posicion(20, 5); ColorBlanco(); cout << "Desea Abrir el cofre?: pulse Z";
 				MostrarPreguntaCofre = true;
-				if (tecla == 'Z' || tecla == 'z') { return i + 1; }
+				if (tecla == 'Z' || tecla == 'z') { 
+					listaCofre[i]->SetExsistencia(false); 
+					return i + 1; 
+				}
 				else { return 0; }
 			}
 			else if (MostrarPreguntaCofre){
