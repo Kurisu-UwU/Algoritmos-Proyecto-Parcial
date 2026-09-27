@@ -129,36 +129,45 @@ void DibujarEdificio(int x, int y) {
 }
 
 void DibujarTornillos(int x, int y) {
-	Posicion(x, y); cout << "_";
+	Posicion(x, y); ColorGris(); cout << "_";
 	Posicion(x, y + 1); cout << "|";
 }
 
 void DibujarTuercas(int x, int y) {
-	Posicion(x, y); cout << "<0>"; y++;
+	Posicion(x, y); ColorGris(); cout << "<0>"; y++;
 }
 
 void DibujarArandelas(int x, int y) {
-	Posicion(x, y); cout << "O";
+	Posicion(x, y); ColorGris(); cout << "O";
 }
 
 void DibujarAbrazadera(int x, int y) {
-	Posicion(x + 1, y); cout << "_._._._._"; y++;
-	Posicion(x, y + 1); cout << "|_|_|_|_|_|"; y++;
+	Posicion(x + 1, y); ColorGris(); cout << "_._._._._"; y++;
+	Posicion(x, y + 1); ColorGris(); cout << "|_|_|_|_|_|"; y++;
 }
 
 void DibujarCables(int x, int y) {
-	Posicion(x, y); cout << "X========X";
+	Posicion(x, y); ColorAmarillo(); cout << "X";
+	Posicion(x + 1, y); ColorAzulOscuro(); cout << "========";
+	Posicion(x + 9, y); ColorAmarillo(); cout << "X";
 }
 
 void DibujarCarcasa(int x, int y) {
-	Posicion(x, y); cout << "_______";
-	Posicion(x, y + 1); cout << "| +--/ |";
-	Posicion(x, y + 2); cout << "| |_/o |";
-	Posicion(x, y + 3); cout << "|______|";
+	Posicion(x, y); ColorGris(); cout << "_______";
+	Posicion(x, y + 1); ColorGris; cout << "|";
+	Posicion(x + 2, y + 1); ColorAmarillo; cout << "+--/ |";
+	Posicion(x + 7, y + 1); ColorGris; cout << "|";
+	Posicion(x, y + 2); ColorGris(); cout << "|";
+	Posicion(x + 2, y + 2); ColorAmarillo(); cout << "|_/";
+	Posicion(x + 5, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 7, y + 2); ColorGris(); cout << "|";
+	Posicion(x, y + 3); ColorGris(); cout << "|______|";
 }
 
 void DibujarCofre(int x, int y) {
-	Posicion(x, y);     cout << " _____";
-	Posicion(x, y + 1); cout << "/__Y__\\";
-	Posicion(x, y + 2); cout << "|_____|";
+	Posicion(x, y); ColorAmarilloOscuro(); cout << " _____";
+	Posicion(x, y + 1); ColorAmarilloOscuro(); cout << "/__Y__\\";
+	Posicion(x + 3, y + 1); ColorAmarillo(); cout << "Y__\\";
+	Posicion(x + 4, y + 1); ColorAmarilloOscuro(); cout << "__\\";
+	Posicion(x, y + 2); ColorAmarilloOscuro(); cout << "|_____|";
 }
