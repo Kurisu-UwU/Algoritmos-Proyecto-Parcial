@@ -50,10 +50,10 @@ void Dibujartitulo() {
 }
 
 void DibujarOpcionMiles(int x, int y) {
-    if (opMenu == 1) ColorAmarillo(); else ColorVerde();
+    if (opMenu == 1) ColorGrisClaro(); else ColorGris();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
+    Posicion(x, y); y++; cout << "|                    Proximamente       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
@@ -81,10 +81,10 @@ void DibujarOpcionMiles(int x, int y) {
 }
 
 void DibujarOpcionMiguel(int x, int y) {
-    if (opMenu == 2) ColorAmarillo(); else ColorVerde();
+    if (opMenu == 2) ColorGrisClaro(); else ColorGris();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                    MILES MORALES      |";
+    Posicion(x, y); y++; cout << "|                    Proximamente       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";

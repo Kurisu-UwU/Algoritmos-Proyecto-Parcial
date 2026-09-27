@@ -14,7 +14,7 @@ void DibujarMiguel(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "¨ uu ¨";
 }
 void DibujarPunk(int x, int y) {
-	Posicion(x + 2, y);ColorBlanco();     cout << "/\\";
+	Posicion(x + 2, y);ColorBlanco();     cout << "^^";
 	Posicion(x + 1, y + 1); ColorRojo(); cout << "(";
 	Posicion(x + 2, y + 1); ColorBlanco(); cout << "\\/";
 	Posicion(x + 4, y + 1); ColorRojo();cout << ")";
