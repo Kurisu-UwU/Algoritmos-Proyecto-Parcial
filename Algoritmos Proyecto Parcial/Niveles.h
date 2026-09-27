@@ -58,10 +58,8 @@ void Nivel3() {
 	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 	Protagonista* punk = new Protagonista(30, 30,8,5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
-	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	Niveles* nivel3 = new Niveles();
 	
-
 	nivel3->GenerarObstaculo(3);
 	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
@@ -70,10 +68,7 @@ void Nivel3() {
 	nivel3->AtributosCofres(0, 100,10, 7, 3);
 	nivel3->AtributosCofres(1, 125, 15, 7, 3);
 	nivel3->AtributosCofres(2, 150, 20, 7, 3);
-	punk->Generarhabilidades();
 	tecla = 'j';
-
-
 	DibujarEdificio(1, 7);//Dibuja obstaculo
 	DibujarEdificio(26, 7);
 	DibujarEdificio(51, 7);
@@ -81,20 +76,12 @@ void Nivel3() {
 	DibujarEdificio(162, 32);
 	DibujarEdificio(137, 32);
 	do {  //Parte 1
+		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(50, 5); cout << "Habilidad Q activada";
-			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
-		}
-		punk->DibujarHabilidades();
 		_sleep(1);
-		//if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
-			//Condición de victoria
-		//	booleanoGeneralParaNiveles = false;
-		//}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
 	delete punk;
@@ -139,8 +126,6 @@ void Nivel3parte2() {
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
-		
-
 		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
 		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
