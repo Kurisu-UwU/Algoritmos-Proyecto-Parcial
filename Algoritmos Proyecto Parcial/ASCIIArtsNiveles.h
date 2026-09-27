@@ -16,11 +16,23 @@ void DibujarMiguel(int x, int y) {
 }
 
 void DibujarPunk(int x, int y) {
-	Posicion(x + 2, y);     cout <<   "/\\";
-	Posicion(x + 1, y + 1); cout <<  "(\\/) W";
-	Posicion(x, y + 2);     cout << "o=||=o|";
-	Posicion(x + 2, y + 3); cout <<   "|| (0)";
-	Posicion(x + 2, y + 4); cout <<   "XX (_)";
+	Posicion(x + 2, y);ColorBlanco();     cout << "/\\";
+	Posicion(x + 1, y + 1); ColorRojo(); cout << "(";
+	Posicion(x + 2, y + 1); ColorBlanco(); cout << "\\/";
+	Posicion(x + 4, y + 1); ColorRojo();cout << ")";
+	Posicion(x + 6, y + 1); ColorRojoOscuro(); cout << "W";
+	Posicion(x, y + 2); ColorRojoOscuro(); cout << "o";
+	Posicion(x + 1, y + 2); ColorRojo(); cout << "=";
+	Posicion(x + 2, y + 2); ColorAzul(); cout << "||";
+	Posicion(x + 4, y + 2); ColorAzul(); cout << "=";
+	Posicion(x + 5, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 6, y + 2); ColorAzul(); cout << "|";
+	Posicion(x + 2, y + 3); ColorAzul(); cout << "II";
+	Posicion(x + 5, y + 3); ColorRojoOscuro(); cout << "(";
+	Posicion(x + 6, y + 3); ColorRojoOscuro(); cout << "0";
+	Posicion(x + 7, y + 3); ColorRojoOscuro(); cout << ")";
+	Posicion(x + 2, y + 4); ColorRojo(); cout << "XX";
+	Posicion(x + 5, y + 4); ColorRojoOscuro(); cout << "(_)";
 }
 
 void DibujarEnemigo(int x, int y) {
