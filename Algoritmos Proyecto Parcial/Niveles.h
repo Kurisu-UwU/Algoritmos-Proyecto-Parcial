@@ -222,7 +222,7 @@ void Nivel3parte4() {
 	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
 	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
-	Protagonista* punk = new Protagonista(25, 25, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
+	Protagonista* punk = new Protagonista(20, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 1;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
@@ -235,47 +235,40 @@ void Nivel3parte4() {
 	enemigo[0]->SetVida(1);
 
 	nivel3->GenerarObstaculo(4);
-	nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
-	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
-	nivel3->GenerarCofres(3);
-	nivel3->AtributosCofres(0, 100, 28, 7, 3);
-	nivel3->AtributosCofres(1, 125, 28, 7, 3);
-	nivel3->AtributosCofres(2, 150, 28, 7, 3);
+	nivel3->AtributosObstaculo(0, 0, 10, 0, 213, 16);
+	nivel3->AtributosObstaculo(1, 0, 47, 0, 213, 2);
+	nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
+	nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
+
 	punk->Generarhabilidades();
 	DibujarPanelDeControl();
-	DibujarEdificio(1, 7);
-	DibujarEdificio(26, 7);
-	DibujarEdificio(51, 7);
-	DibujarEdificio(76, 7);
-	DibujarEdificio(101, 7);
-	DibujarEdificio(126, 7);
-	DibujarEdificio(151, 7);
-	DibujarEdificio(176, 7);
-	DibujarEdificio(187, 32);
-	DibujarEdificio(162, 32);
-	DibujarEdificio(137, 32);
-	DibujarEdificio(1, 32);
-	DibujarEdificio(26, 32);
-	DibujarEdificio(51, 32);
+	DibujarEdificio(1, 10);
+	DibujarEdificio(26, 10);
+	DibujarEdificio(51, 10);
+	DibujarEdificio(76, 10);
+	DibujarEdificio(101, 10);
+	DibujarEdificio(126, 10);
+	DibujarEdificio(151, 10);
+	DibujarEdificio(176, 10);
+
+	DibujarGrieta(2, 28);
+	DibujarGrieta(2, 38);
+	DibujarGrieta(200, 28);
+	DibujarGrieta(200, 38);
+
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
-		for (int i = 0; i < cantenemigos; i++) {
-			nivel3->EnemigoAcercaProta(enemigo[i], punk);
-			nivel3->EnemigoMuere(enemigo[i]);
-		}
+		nivel3->EnemigoAcercaProta(enemigo[0], punk);
+		nivel3->EnemigoMuere(enemigo[0]);
 		DibujarPanelDeControl();
 
 
-		nivel3->DibujarCofre();
 		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo(nivel3, nivel3->PisandoItem(punk));
-		Posicion(53, 2); cout << "Vida: " << enemigo[1]->GetVida();//Muestra vida de enemigo
+		Posicion(100, 2); cout << "Vida: " << enemigo[0]->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
-			for (int i = 0; i < cantenemigos; i++) { nivel3->AtacarEnemigos(enemigo[i], punk); }//Ataca a los enemigos
+			nivel3->AtacarEnemigos(enemigo[0], punk);//Ataca a los enemigos
 			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 		}
 		punk->DibujarHabilidades();
@@ -286,7 +279,6 @@ void Nivel3parte4() {
 		//}
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
-	for (int i = 0; i < cantenemigos; i++) { delete enemigo[i]; }
 	delete[]enemigo;
 }
 

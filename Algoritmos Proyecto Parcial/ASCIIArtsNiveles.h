@@ -243,3 +243,14 @@ void DibujarCofre(int x, int y) {
 	Posicion(x + 4, y + 1); ColorAmarilloOscuro(); cout << "__\\";
 	Posicion(x, y + 2); ColorAmarilloOscuro(); cout << "|_____|";
 }
+
+void DibujarGrieta(int x, int y) {
+	Posicion(x + 1, y);     ColorBlanco(); cout << "|";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout << "||";
+	Posicion(x, y + 2); ColorBlanco(); cout << "|||";
+	Posicion(x, y + 3); ColorBlanco(); cout << "||||";
+	Posicion(x + 1, y + 4); ColorBlanco(); cout << "||||";
+	Posicion(x, y + 5); ColorBlanco(); cout << "|||||";
+	Posicion(x + 1, y + 6); ColorBlanco(); cout << "||| ";
+	Posicion(x + 2, y + 7); ColorBlanco(); cout << "|";
+}
