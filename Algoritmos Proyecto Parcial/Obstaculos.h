@@ -3,7 +3,7 @@
 class Obstaculos {
 protected:
 	int x, y, dx, anchura, altura;
-	bool existencia = true;
+	bool existencia;
 public:
 	Obstaculos();
 	Obstaculos(int, int, int, int, int, bool);
