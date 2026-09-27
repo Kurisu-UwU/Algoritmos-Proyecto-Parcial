@@ -224,15 +224,8 @@ void Nivel3parte4() {
 
 	Protagonista* punk = new Protagonista(20, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	int cantenemigos = 1;
-	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+	Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel3 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
-
-	enemigo[0]->SetEX(30); //Atributos de los enemigos
-	enemigo[0]->SetEY(27);
-	enemigo[0]->SetVelocidadTempo(1);
-	enemigo[0]->SetVida(1);
 
 	nivel3->GenerarObstaculo(4);
 	nivel3->AtributosObstaculo(0, 0, 10, 0, 213, 16);
@@ -256,19 +249,23 @@ void Nivel3parte4() {
 	DibujarGrieta(200, 28);
 	DibujarGrieta(200, 38);
 
+	int contador = 0;
+
 	tecla = 'j';
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
-		nivel3->EnemigoAcercaProta(enemigo[0], punk);
-		nivel3->EnemigoMuere(enemigo[0]);
 		DibujarPanelDeControl();
 
-
 		nivel3->GenerarMovimientoJugador(punk);
-		Posicion(100, 2); cout << "Vida: " << enemigo[0]->GetVida();//Muestra vida de enemigo
+		if (contador % 150 == 0) {
+
+			Jefe->MoverSpot(8, 30, 190, 40);
+		}
+
+
+		Posicion(100, 2); cout << "Vida: " << Jefe->GetVida();//Muestra vida de enemigo
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(53, 5); cout << "Habilidad Q activada";
-			nivel3->AtacarEnemigos(enemigo[0], punk);//Ataca a los enemigos
 			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 		}
 		punk->DibujarHabilidades();
@@ -278,8 +275,9 @@ void Nivel3parte4() {
 		//	booleanoGeneralParaNiveles = false;
 		//}
 		tecla = 'j';
+		contador++;
 	} while (booleanoGeneralParaNiveles);
-	delete[]enemigo;
+	delete[]Jefe;
 }
 
 
@@ -297,7 +295,7 @@ void NivelPrueba() {
 	int cantenemigos = 4;
 	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel2 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
+	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(10); //Atributos de los enemigos
 	enemigo[1]->SetEX(20);

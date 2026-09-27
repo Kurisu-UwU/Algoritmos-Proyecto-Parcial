@@ -1,10 +1,9 @@
 #pragma once  // aqui solo hay librerias de clase, es la agrupación
 #include "LasersMenu.h"
 #include "Ayudantes.h"
-#include "Enemigos.h"
+#include "Spot.h"
 #include "Mejoras.h"
 #include "Obstaculos.h"
-#include "NPCs.h"
 #include "Tambores.h"
 #include "Habilidades.h"
 #include "Proyectiles.h"

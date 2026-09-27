@@ -133,6 +133,7 @@
     <ClInclude Include="Obstaculos.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
+    <ClInclude Include="Spot.h" />
     <ClInclude Include="Tambores.h" />
     <ClInclude Include="TextoAnimadoDialogosETC.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

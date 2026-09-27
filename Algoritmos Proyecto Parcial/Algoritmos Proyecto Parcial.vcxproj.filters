@@ -95,6 +95,9 @@
     <ClInclude Include="Tambores.h">
       <Filter>Source Files\Clases</Filter>
     </ClInclude>
+    <ClInclude Include="Spot.h">
+      <Filter>Source Files\Clases</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Sonidos\pam.wav">
