@@ -113,6 +113,13 @@ void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { //
 			enemigo->SetVida(f);
 	}
 }
+void Niveles::AtacarEnemigos(Spot* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
+	if (enemigo->GetVivo()) {
+		float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
+		float f = enemigo->GetVida() + n;
+		enemigo->SetVida(f);
+	}
+}
 void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
 	bool w, a, s, d = true;
 	int x = enemigo->GetEX();
