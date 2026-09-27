@@ -86,7 +86,33 @@ void Protagonista::Mover(bool arriba, bool abajo, bool izquierda, bool derecha) 
 	if (tecla == 'z' || tecla == 'Z') {DibujarWASD(190, 1); AnimacionWASD(190, 1, 5);}
 }
 float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex - 1 <= px + 4 && ey - 1 <= py + 4) && (ex + 4 >= px - 1 && ey + 4 >= py - 1)) {return -1;}
-		if ((tecla == 'Q' || tecla == 'q')&& habilidades[0]->GetListo()){if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; }else { return 0; }}
+	switch (tipo) {
+	case 1:
+	{
+		if ((tecla == 'Q' || tecla == 'q') && habilidades[0]->GetListo()) { if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; } else { return 0; } }break;
+	}
+	case 2:
+	case 3: if ((tecla == 'Q' || tecla == 'q') && habilidades[0]->GetListo()) {
+		if (CalcularColisiones(px - 1, py - 1, ex - 1, ey - 1, ALTO + 1, ANCHO + 1, ALTO + 1, ANCHO + 1)) { return -1; }
+		else { return 0; }
+		break;
+		if (tecla == 'q' || tecla == 'Q') {
+			if (direccionMirada == 2 && habilidades[0]->GetListo()) {
+				if (CalcularColisiones(px - 10, py, ex, ey, alto, ancho + 10, 10, 10)) {
+					return -1;
+				}
+				else return 0;
+			}
+			if (direccionMirada == 4 && habilidades[0]->GetListo()) {
+				if (CalcularColisiones(px, py, ex, ey, alto, ancho + 10, 10, 10)) {
+					return -1;
+				}
+				else return 0;
+			}
+		}
+	}
+	default: break;
+	}
 }
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
 	if (habilidades[tipodetecla]->GetListo() == true) {

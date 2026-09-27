@@ -143,8 +143,9 @@ void Nivel3parte2() {
 	} while (booleanoGeneralParaNiveles);
 	delete punk;
 }
-
-
+//
+// 
+//
 void Nivel3parte3() {
 	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
 	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
@@ -200,9 +201,9 @@ void Nivel3parte3() {
 	} while (booleanoGeneralParaNiveles);
 	delete punk;
 }
-
-
-
+//
+// 
+//
 void Nivel3parte4() {
 	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
 	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
@@ -266,9 +267,12 @@ void Nivel3parte4() {
 	} while (booleanoGeneralParaNiveles);
 	delete[]enemigo;
 }
-
-
-
+//
+//
+//
+//
+// 
+//
 void NivelPrueba() {
 	int a = 0;
 	do {
