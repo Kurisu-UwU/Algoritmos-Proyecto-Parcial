@@ -82,9 +82,9 @@ void Nivel3() {
 	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 	nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 	nivel3->GenerarCofres(3);
-	nivel3->AtributosCofres(0, 100,10);
-	nivel3->AtributosCofres(1, 125, 15);
-	nivel3->AtributosCofres(2, 150, 20);
+	nivel3->AtributosCofres(0, 100,10, 7, 3);
+	nivel3->AtributosCofres(1, 125, 15, 7, 3);
+	nivel3->AtributosCofres(2, 150, 20, 7, 3);
 	punk->Generarhabilidades();
 	tecla = 'j';
 	do {  //Parte 1
