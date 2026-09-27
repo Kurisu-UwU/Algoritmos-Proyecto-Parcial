@@ -143,13 +143,14 @@ void Niveles::GenerarTambores(int cantidad) {
 int Niveles::PresionarTambores(int psocicionparatocar) {
 	short n = 0;
 	for (int i = 0; i < canTamb; i++) {
-		if (CalcularColisiones(25, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 3, 3, 2, 4) && listaTamb[i]->GetVivo()==true) {
-			if (listaTamb[i]->PresionarTambores(psocicionparatocar)) {
+		if (CalcularColisiones(24, 25, listaTamb[i]->GetX(), listaTamb[i]->GetY(), 3, 3, 3, 5) && listaTamb[i]->GetVivo()==true) {
+			if (listaTamb[i]->PresionarTambores(psocicionparatocar)&& listaTamb[i]->GetVivo() == true) {
 				n = 1;
-				listaTamb[i]->SetVivo(false);
-				listaTamb[i]->SetY(50);
 			}
 			else { n = 2; }
+			listaTamb[i]->SetVivo(false);
+			listaTamb[i]->Borrar();
+			listaTamb[i]->SetY(40);
 		}
 	}
 	switch (n) {
@@ -178,6 +179,7 @@ void Niveles::RevivirTambor(short tipo) {
 	do {
 		if (listaTamb[i]->GetVivo() == false) {
 			listaTamb[i]->SetX(200);
+			listaTamb[i]->SetY(25);
 			listaTamb[i]->SetTipo(tipo);
 			listaTamb[i]->SetVivo(true);
 			n = false;  // github copilot

@@ -35,8 +35,8 @@ Tambores::~Tambores() {}
 	// tambien falta agregar una función que limite los fps para que todo funcione acorde a lo planeado, lo ideal sería que dependa del tiempo, bastante, lo más probable, en milisegundos
 bool Tambores::PresionarTambores(int x2) {
 	switch (tipo) {
-	case 0: if ((tecla == 'Z' || tecla == 'z') && x == x2 && tipo == 0) { return true; } else { return false; } break;
-	case 1: if ((tecla == 'X' || tecla == 'x') && x == x2 && tipo == 1) { return true; } else { return false; } break;
+	case 0: if ((tecla == 'Z' || tecla == 'z') && tipo == 0) { return true; } else { return false; } break;
+	case 1: if ((tecla == 'X' || tecla == 'x') && tipo == 1) { return true; } else { return false; } break;
 	default: break;
 	}
 }

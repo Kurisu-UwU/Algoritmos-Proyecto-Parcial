@@ -130,33 +130,33 @@ void Nivel3() {
 	do {
 		DibujarPanelDeControl();
 		nivel3->TamboresMovimiento(25);
+		_sleep(1);
 		if (_kbhit()) {
-			tecla = getch();
+			tecla = _getch();
 			puntaje = puntaje + nivel3->PresionarTambores(25);
-			tecla = 'j';
 		}
 		switch (tiempo) {
-		case 100: nivel3->RevivirTambor(0); break;
-		case 120: nivel3->RevivirTambor(1); break;
-		case 140: nivel3->RevivirTambor(0); break;
-		case 160: nivel3->RevivirTambor(1); break;
-		case 180: nivel3->RevivirTambor(0); break;
-		case 201: nivel3->RevivirTambor(1); break;
-		case 220: nivel3->RevivirTambor(0); break;
-		case 240: nivel3->RevivirTambor(1); break;
-		case 350: nivel3->RevivirTambor(0); break;
-		case 380: nivel3->RevivirTambor(1); break;
-		case 400: nivel3->RevivirTambor(0); break;
+		case 10: nivel3->RevivirTambor(0); break;
+		case 20: nivel3->RevivirTambor(1); break;
+		case 40: nivel3->RevivirTambor(0); break;
+		case 60: nivel3->RevivirTambor(1); break;
+		case 80: nivel3->RevivirTambor(0); break;
+		case 101: nivel3->RevivirTambor(1); break;
+		case 120: nivel3->RevivirTambor(0); break;
+		case 140: nivel3->RevivirTambor(1); break;
+		case 250: nivel3->RevivirTambor(0); break;
+		case 280: nivel3->RevivirTambor(1); break;
+		case 300: nivel3->RevivirTambor(0); break;
+		case 350: nivel3->RevivirTambor(1); break;
+		case 370: nivel3->RevivirTambor(1); break;
+		case 390: nivel3->RevivirTambor(1); break;
+		case 420: nivel3->RevivirTambor(1); break;
 		case 450: nivel3->RevivirTambor(1); break;
 		case 470: nivel3->RevivirTambor(1); break;
 		case 490: nivel3->RevivirTambor(1); break;
 		case 520: nivel3->RevivirTambor(1); break;
-		case 550: nivel3->RevivirTambor(1); break;
-		case 570: nivel3->RevivirTambor(1); break;
-		case 590: nivel3->RevivirTambor(1); break;
-		case 620: nivel3->RevivirTambor(1); break;
-		case 640: nivel3->RevivirTambor(1); break;
-		case 660: nivel3->RevivirTambor(1); break;
+		case 540: nivel3->RevivirTambor(1); break;
+		case 560: nivel3->RevivirTambor(1); break;
 		default: break;
 		}
 		tiempo++;
