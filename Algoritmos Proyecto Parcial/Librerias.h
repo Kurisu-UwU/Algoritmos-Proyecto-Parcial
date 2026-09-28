@@ -62,7 +62,6 @@ void BColorGris() { Console::BackgroundColor = ConsoleColor::Gray; }
 void BColorNegro() { Console::BackgroundColor = ConsoleColor::Black; }
 void BColorVerde() { Console::BackgroundColor = ConsoleColor::Green; }
 void BColorAmarillo() { Console::BackgroundColor = ConsoleColor::Yellow; }
-void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
 void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
