@@ -254,3 +254,49 @@ void DibujarGrieta(int x, int y) {
 	Posicion(x + 1, y + 6); ColorBlanco(); cout << "||| ";
 	Posicion(x + 2, y + 7); ColorBlanco(); cout << "|";
 }
+void Dibujaarbol(int x, int y) {
+	Posicion(x, y); ColorVerde(); cout << "  ^  ";
+	Posicion(x, y + 1); ColorVerde(); cout << " ^^^ ";
+	Posicion(x, y + 2); ColorVerde(); cout << "^^^^^";
+	Posicion(x, y + 3);	ColorMarron(); cout << "  |  ";
+}
+void dibujargranarbol(int x, int y) {
+	Posicion(x, y); ColorVerde(); cout << "   ###   ";
+	Posicion(x, y + 1); ColorVerde(); cout << " ### #o###  ";
+	Posicion(x, y + 2); ColorVerde(); cout << " ####o###### ";
+	Posicion(x, y + 3); ColorVerde(); cout << "#o#\\ \\#|_#,# ";
+	Posicion(x, y + 4); ColorMarron(); cout << " ##\\||// #o#   ";
+	Posicion(x, y + 5); ColorMarron(); cout << "    }|{   ";
+	Posicion(x, y + 6); ColorMarron(); cout << "     }|{      ";
+}
+void dibujarpporker(int x, int y) {
+	Posicion(x, y); ColorRojo(); cout << "  N_N";
+	Posicion(x, y + 1); ColorRojo(); cout << "(\ / )  ";
+	Posicion(x, y + 2); ColorRojo(); cout << "  O O";
+	Posicion(x, y + 3); ColorRojo(); cout << "   “. | .”";
+
+}
+void borrarpporker(int x, int y) {
+	Posicion(x, y); cout << "     ";
+	Posicion(x, y + 1); cout << "       ";
+	Posicion(x, y + 2); cout << "     ";
+	Posicion(x, y + 3); cout << "         ";
+
+}
+void dibujarmargokees(int x, int y) {
+	Posicion(x, y); ColorAzul(); cout << "       _____";
+	Posicion(x, y + 1); ColorRojo(); cout << "       o\/o";
+	Posicion(x, y + 2); ColorRojo(); cout << "  / ()\  ";
+	Posicion(x, y + 3); ColorRojo(); cout << "   || ";
+	Posicion(x, y + 4); ColorRojo(); cout << "   UU";
+	Posicion(x, y + 5); ColorRojo(); cout << "   ;";
+}
+void borrarmargokees(int x, int y) {
+	Posicion(x, y); cout << "           ";
+	Posicion(x, y + 1); cout << "           ";
+	Posicion(x, y + 2); cout << "           ";
+	Posicion(x, y + 3); cout << "           ";
+	Posicion(x, y + 4); cout << "           ";
+	Posicion(x, y + 5); cout << "           ";
+}
+	
