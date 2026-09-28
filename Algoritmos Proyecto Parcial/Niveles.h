@@ -64,8 +64,8 @@ void Nivel3() {
 		booleanoGeneralParaNiveles6 = false;
 		switch (uwu) {
 		case 1: {
-			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+			for (int i = 0; i < 4; i++) { TextPunkIntro(i); }
+			for (int i = 0; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(30); punk->SetPY(30);
 			Niveles* nivel3 = new Niveles();
@@ -106,8 +106,6 @@ void Nivel3() {
 			break;
 		}
 		case 2: {  ///////// PARTE 2 ///////////////////////
-			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(25); punk->SetPY(25);
 			Niveles* nivel3 = new Niveles();
@@ -158,8 +156,6 @@ void Nivel3() {
 			break;
 		} 
 		case 3: {
-			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(25); punk->SetPY(25);
 			Niveles* nivel3 = new Niveles();
@@ -212,8 +208,7 @@ void Nivel3() {
 			break;
 		}
 		case 4: {
-			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+			for (int i = 0; i < 12; i++) { TextPunkSpot(i); }  // dialogo punk 1
 
 			punk->SetPX(20); punk->SetPY(30);
 			punk->SetVida(30);
@@ -264,8 +259,11 @@ void Nivel3() {
 					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 				}
 				punk->DibujarHabilidades();
-				if (Jefe->GetVida() < 1) { Victoria(100,18); booleanoGeneralParaNiveles = false; }
-				if (punk->GetVida() < 1) { Derrota(100, 18); }
+				if (Jefe->GetVida() < 1) {
+					AnimacionBorrar();
+					DibujarVictoria(); booleanoGeneralParaNiveles = false; booleanoGeneralParaNiveles4;
+				}
+				if (punk->GetVida() < 1) { AnimacionBorrar(); DibujarDerrota(); }
 				_sleep(1);
 				tecla = 'j';
 				contador++;

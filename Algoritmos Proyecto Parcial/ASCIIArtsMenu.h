@@ -175,6 +175,18 @@ void Victoria(int x, int y) {
     Posicion(x, y + 4); cout << "\\ \\_/ / | (__| || (_) | |  | | (_| |";
     Posicion(x, y + 5); cout << " \\___/|_|\\___|\\__\\___/|_|  |_|\\__,_|";
 }
+void DibujarVictoria() {
+    bool elwhile1 = true;
+    bool uwu = true;
+    Victoria(100, 18);
+    do {
+        if (_kbhit()) {
+            tecla = _getch();
+            if (tecla == 'Z' || tecla == 'z') elwhile1 = false;
+            if (tecla == 'X' || tecla == 'x') uwu = false;
+        }
+    } while (uwu && elwhile1);
+}
 void Derrota(int x, int y) {
     Posicion(x, y); 	cout << "______                    _";
     Posicion(x, y + 1);	cout << "|  _  \\                  | |";
@@ -182,4 +194,16 @@ void Derrota(int x, int y) {
     Posicion(x, y + 3); cout << "| | | / _ \\ '__| '__/ _ \\| __/ _` |";
     Posicion(x, y + 4); cout << "| |/ /  __/ |  | | | (_) | || (_| |";
     Posicion(x, y + 5); cout << "|___/ \\___|_|  |_|  \\___/ \\__\\__,_|";
+}
+void DibujarDerrota() {
+    bool elwhile1 = true;
+    bool uwu = true;
+    Derrota(100, 18);
+    do {
+        if (_kbhit()) {
+            tecla = _getch();
+            if (tecla == 'Z' || tecla == 'z') elwhile1 = false;
+            if (tecla == 'X' || tecla == 'x') uwu = false;
+        }
+    } while (uwu && elwhile1);
 }

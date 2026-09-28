@@ -2,7 +2,7 @@
 #include "ASCIIArtsNiveles.h"
 
 void CuadroDeTexto(string nombre, int perfil, bool direccion) {
-	int n; if (direccion == true) { n = 4; }else { n = 100; }
+	int n; if (direccion == true) { n = 6; }else { n = 102; }
 	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
 	Posicion(0, 1); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 2); cout << "|                                                                                                                                                                                                                   |";
@@ -15,9 +15,11 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 1:DibujarMiles(n, 2);break;
 	case 2:DibujarMiguel(n, 2);break;
 	case 3:DibujarPunk(n, 2);break;
-	default:break;
+	case 4:DibujarGwen(n, 2); break;
+	case 5: DibujarSpot(n, 2); break;
+	default: break;
 	}
-	Posicion(n+6, 3); cout << nombre;
+	Posicion(n+10, 3); cout << nombre;
 }
 //
 //
@@ -86,11 +88,11 @@ void TextPunk1(int n) {
 		EscribirTextoAnimado("...     adios", PosIzDIALOGO, 4, 50);
 		break;
 	case 4: 
-		CuadroDeTexto("Gwen Stacy", 3, false);
+		CuadroDeTexto("Gwen Stacy", 4, false);
 		EscribirTextoAnimado("Vas a dejarnos justo ahora?!... EN UN MOMENTO COMO ESTE???           ", PosDerDIALOGO, 4, 50);
 		break;
 	case 5: 
-		CuadroDeTexto("Gwen Stacy", 3, false);
+		CuadroDeTexto("Gwen Stacy", 4, false);
 		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...     ", PosDerDIALOGO, 4, 50);
 		break;
 	case 6: 
@@ -98,10 +100,56 @@ void TextPunk1(int n) {
 		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", PosIzDIALOGO, 4, 50);
 		break;
 	case 7:
-		CuadroDeTexto("Gwen Stacy", 3, false);
+		CuadroDeTexto("Gwen Stacy", 4, false);
 		EscribirTextoAnimado("Ah.. mas te vale que sea importante... sabes donde encontrarme   ", PosDerDIALOGO, 4, 50);
 		break;
 	case 8: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+void TextPunkSpot(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("...     Que....    problematico     ", PosIzDIALOGO, 4, 25);
+		break;
+	case 2:
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("No tan rapido..... dime donde esta miles       ", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("TU otra vez!                ", PosIzDIALOGO, 4, 50);
+		break;
+	case 4: 
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("No vas a escapar esta v-", PosIzDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("Silencio~            ", PosDerDIALOGO, 4, 50);
+		break;
+	case 6:
+		CuadroDeTexto("The Spot", 5, false);;
+		EscribirTextoAnimado("Donde esta?.... Miles.... tengo asuntos pendientes con el       ", PosDerDIALOGO, 4, 50);
+		break;
+	case 7:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Bueno..... Casualmente yo tambien lo estaba buscando            ", PosIzDIALOGO, 4, 50);
+		break;
+	case 8:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Que te parece si... el primero que lo encuentra gana?            ", PosIzDIALOGO, 4, 50);
+		break;
+	case 9: 
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("Solo quieres hacerme perder el tiempo            ", PosDerDIALOGO, 4, 50);
+		break;
+	case 10:
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("Acabemos esto de una vez            ", PosDerDIALOGO, 4, 50);
+		break;
+	case 11: AnimacionBorrar(); break;
 	default:break;
 	}
 }
