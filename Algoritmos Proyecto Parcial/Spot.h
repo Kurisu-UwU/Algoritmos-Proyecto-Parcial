@@ -11,7 +11,7 @@ public:
 	void ImprimirSpot(int, int);
 	void MoverSpot(int, int, int, int);
 };
-Spot::Spot(int x1, int y1, int ancho, int alto, float ataque, float vida, float velocidad, float velotemp, float veloatac, string tipo, bool vivo, float temp)  {
+Spot::Spot(int x1, int y1, int ancho, int alto, float ataque, float vida, float velocidad, float velotemp, float veloatac, string tipo, bool vivo, float temp) : Enemigos() {
 	ex = x1; ey = y1;
 	anchura = ancho; altura = alto;
 	cantidaddeataque = ataque;
@@ -25,7 +25,7 @@ Spot::Spot(int x1, int y1, int ancho, int alto, float ataque, float vida, float 
 	listaP = nullptr;
 	tempo = temp;
 }
-
+Spot::~Spot() {}
 bool Spot::ColisionSpot(Protagonista* personaje) {
 	if (CalcularColisiones(personaje->GetPX(), personaje->GetPY(), ex, ey, personaje->GetAlto(), personaje->GetAncho(), altura, anchura)) {
 		return true;
@@ -59,6 +59,3 @@ void Spot::MoverSpot(int xi, int ys, int xd, int yi) {
 	ImprimirSpot(ex, ey);
 	_sleep(1);
 }
-
-
-Spot::~Spot() {}

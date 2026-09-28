@@ -54,7 +54,7 @@ void Nivel2() {
 //
 //
 void Nivel3() {
-	int uwu = 1;
+	int uwu = 4;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
@@ -86,6 +86,7 @@ void Nivel3() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3) {
@@ -138,6 +139,7 @@ void Nivel3() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5) {
@@ -172,8 +174,6 @@ void Nivel3() {
 			nivel3->AtributosCofres(0, 100, 28, 7, 3,4);
 			nivel3->AtributosCofres(1, 120, 28, 7, 3, 4);
 			nivel3->AtributosCofres(2, 140, 28, 7, 3, 4);
-			//nivel3->AtributosCofres(1, 125, 28, 7, 3);
-			//nivel3->AtributosCofres(2, 150, 28, 7, 3);
 			tecla = 'j';
 
 			DibujarEdificio(1, 32);
@@ -194,6 +194,7 @@ void Nivel3() {
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5 || booleanoGeneralParaNiveles6) {
 					NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
@@ -215,6 +216,7 @@ void Nivel3() {
 			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(20); punk->SetPY(30);
+			punk->SetVida(30);
 			Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 			Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 			Niveles* nivel3 = new Niveles();
@@ -224,6 +226,7 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(1, 0, 47, 0, 213, 2);
 			nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
 			nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
+			nivel3->GenerarLasers(2);
 
 			punk->Generarhabilidades();
 			DibujarPanelDeControl();
@@ -249,22 +252,25 @@ void Nivel3() {
 				DibujarPanelDeControl();
 
 				nivel3->GenerarMovimientoJugador(punk);
+				nivel3->LasersMover(punk);
 				if (contador % 150 == 0) {
 					Jefe->MoverSpot(8, 30, 190, 40);
 				}
 				Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
+				Posicion(20, 1); cout << "Vida: " << punk->GetVida() << " ";
 				if (tecla == 'q' || tecla == 'Q') {
 					Posicion(53, 5); cout << "Habilidad Q activada";
 					nivel3->AtacarEnemigos(Jefe, punk);
 					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 				}
 				punk->DibujarHabilidades();
-				if (Jefe->GetVida() < 1) booleanoGeneralParaNiveles = false;
+				if (Jefe->GetVida() < 1)  booleanoGeneralParaNiveles = false;
+				if (punk->GetVida() < 1) booleanoGeneralParaNiveles = false;
 				_sleep(1);
 				tecla = 'j';
 				contador++;
 			} while (booleanoGeneralParaNiveles);
-			delete[]Jefe;
+			delete Jefe;
 			break; }
 		default: break;
 		}

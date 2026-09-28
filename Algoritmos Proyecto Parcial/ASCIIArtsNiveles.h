@@ -127,7 +127,7 @@ void DibujarMiguelOharaGrandeTitulo(int x, int y) {
 void DibujarPanelDeControl() {
 	ColorVerde();
 	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
-	Posicion(0, 1); cout << "|"; Posicion(20, 1); cout << "Vida:"; Posicion(212, 1); cout << "|";
+	Posicion(0, 1); cout << "|"; Posicion(212, 1); cout << "|";
 	Posicion(0, 2); cout << "|"; Posicion(212, 2); cout << "|";
 	Posicion(0, 3); cout << "|"; Posicion(20, 3); cout << "Energia:"; Posicion(212, 3); cout << "|";
 	Posicion(0, 4); cout << "|"; Posicion(212, 4); cout << "|";
