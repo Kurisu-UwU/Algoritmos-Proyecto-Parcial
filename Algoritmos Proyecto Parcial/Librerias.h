@@ -53,7 +53,7 @@ void ColorAzulOscuro() { Console::ForegroundColor = ConsoleColor::DarkBlue; }
 void ColorMagenta() { Console::ForegroundColor = ConsoleColor::Magenta; }
 void ColorAmarilloOscuro() { Console::ForegroundColor = ConsoleColor::DarkYellow; }
 void ColorGrisClaro() { Console::ForegroundColor = ConsoleColor::Gray; }
-
+void ColorMarron() { Console::ForegroundColor = ConsoleColor::DarkRed; }
 void BColorRojo() { Console::BackgroundColor = ConsoleColor::Red; }
 void BColorAzul() { Console::BackgroundColor = ConsoleColor::Blue; }
 void BColorGris() { Console::BackgroundColor = ConsoleColor::Gray; }
@@ -63,6 +63,13 @@ void BColorAmarillo() { Console::BackgroundColor = ConsoleColor::Yellow; }
 void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
 void BColorMorado() { Console::BackgroundColor = ConsoleColor::Magenta; }
 void BColorBlanco() { Console::BackgroundColor = ConsoleColor::White; }
+void BColorCafe() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
+void BColorAzulOscuro() { Console::BackgroundColor = ConsoleColor::DarkBlue; }
+void BColorRojoOscuro() { Console::BackgroundColor = ConsoleColor::DarkRed; }
+void BColorAmarilloOscuro() { Console::BackgroundColor = ConsoleColor::DarkYellow; }
+void BColorMagenta() { Console::BackgroundColor = ConsoleColor::Magenta; }
+void BColorMarron() { Console::BackgroundColor = ConsoleColor::DarkRed; }
+
 
 void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) { // efecto de animacion bonita de texto uwu
 	Posicion(x, y); ColorBlanco();
