@@ -59,7 +59,7 @@ void Nivel3() {
 	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
 		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = false;
+		booleanoGeneralParaNiveles3 = true;
 		switch (uwu) {
 		case 1: {
 			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
@@ -86,7 +86,7 @@ void Nivel3() {
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
-				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),1);
+				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk), 1);
 				if (!booleanoGeneralParaNiveles3) {
 					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
 					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
