@@ -54,220 +54,214 @@ void Nivel2() {
 //
 //
 void Nivel3() {
-	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+	int uwu = 1;
+	booleanoGeneralParaNiveles4 = true;
+	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
+	do {
+		booleanoGeneralParaNiveles = true;
+		booleanoGeneralParaNiveles3 = false;
+		switch (uwu) {
+		case 1: {
+			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
+			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
 
-	Protagonista* punk = new Protagonista(30, 30,8,5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
-	Niveles* nivel3 = new Niveles();
-	
-	nivel3->GenerarObstaculo(3);
-	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
-	nivel3->GenerarCofres(1);
-	nivel3->AtributosCofres(0, 100,10, 7, 3);
-	tecla = 'j';
-	DibujarEdificio(1, 7);//Dibuja obstaculo
-	DibujarEdificio(26, 7);
-	DibujarEdificio(51, 7);
-	DibujarEdificio(187, 32);
-	DibujarEdificio(162, 32);
-	DibujarEdificio(137, 32);
-	booleanoGeneralParaNiveles3 = true;
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel3->DibujarCofre();
-		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
-		if (!booleanoGeneralParaNiveles3) {
-			Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-			if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
-				booleanoGeneralParaNiveles = false;
-			}
+			punk->SetPX(30); punk->SetPY(30);
+			Niveles* nivel3 = new Niveles();
+
+			nivel3->GenerarObstaculo(3);
+			nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
+			nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+			nivel3->GenerarCofres(1);
+			nivel3->AtributosCofres(0, 100, 10, 7, 3);
+			tecla = 'j';
+			DibujarEdificio(1, 7);//Dibuja obstaculo
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(187, 32);
+			DibujarEdificio(162, 32);
+			DibujarEdificio(137, 32);
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel3->DibujarCofre();
+				nivel3->GenerarMovimientoJugador(punk);
+				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),1);
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						uwu = 2;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = 'j';
+			} while (booleanoGeneralParaNiveles);
+			break;
 		}
-		else { booleanoGeneralParaNiveles3 = true; }
-		_sleep(1);
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
+		case 2: {  ///////// PARTE 2 ///////////////////////
+			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
+			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+
+			punk->SetPX(25); punk->SetPY(25);
+			Niveles* nivel3 = new Niveles();
+
+			nivel3->GenerarObstaculo(4);
+			nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
+			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
+			nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
+			nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
+			nivel3->GenerarCofres(1);
+			nivel3->AtributosCofres(0, 100, 28, 7, 3);
+			DibujarPanelDeControl();
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(76, 7);
+			DibujarEdificio(101, 7);
+			DibujarEdificio(126, 7);
+			DibujarEdificio(151, 7);
+			DibujarEdificio(176, 7);
+			DibujarEdificio(187, 32);
+			DibujarEdificio(162, 32);
+			DibujarEdificio(137, 32);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			tecla = 'j';
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel3->DibujarCofre();
+				nivel3->GenerarMovimientoJugador(punk);
+				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),2);
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						uwu = 3;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = 'j';
+			} while (booleanoGeneralParaNiveles);
+			break;
+		} 
+		case 3: {
+			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
+			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+
+			punk->SetPX(25); punk->SetPY(25);
+			Niveles* nivel3 = new Niveles();
+
+			nivel3->GenerarObstaculo(5);
+			nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel3->AtributosObstaculo(1, 137, 7, 0, 75, 16);
+			nivel3->AtributosObstaculo(2, 1, 32, 0, 200, 16);
+			nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
+			nivel3->AtributosObstaculo(4, 0, 47, 0, 213, 2);
+			nivel3->GenerarCofres(1);
+			nivel3->AtributosCofres(0, 100, 28, 7, 3);
+			//nivel3->AtributosCofres(1, 125, 28, 7, 3);
+			//nivel3->AtributosCofres(2, 150, 28, 7, 3);
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(76, 32);
+			DibujarEdificio(101, 32);
+			DibujarEdificio(126, 32);
+			DibujarEdificio(151, 32);
+			DibujarEdificio(176, 32);
+			DibujarEdificio(187, 7);
+			DibujarEdificio(162, 7);
+			DibujarEdificio(137, 7);
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel3->DibujarCofre();
+				nivel3->GenerarMovimientoJugador(punk);
+				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),3);
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						uwu = 4;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = 'j';
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		case 4: {
+			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
+			for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+
+			punk->SetPX(20); punk->SetPY(30);
+			Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
+			Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+			Niveles* nivel3 = new Niveles();
+
+			nivel3->GenerarObstaculo(4);
+			nivel3->AtributosObstaculo(0, 0, 10, 0, 213, 16);
+			nivel3->AtributosObstaculo(1, 0, 47, 0, 213, 2);
+			nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
+			nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
+
+			punk->Generarhabilidades();
+			DibujarPanelDeControl();
+			DibujarEdificio(1, 10);
+			DibujarEdificio(26, 10);
+			DibujarEdificio(51, 10);
+			DibujarEdificio(76, 10);
+			DibujarEdificio(101, 10);
+			DibujarEdificio(126, 10);
+			DibujarEdificio(151, 10);
+			DibujarEdificio(176, 10);
+
+			DibujarGrieta(2, 28);
+			DibujarGrieta(2, 38);
+			DibujarGrieta(200, 28);
+			DibujarGrieta(200, 38);
+
+			int contador = 0;
+
+			tecla = 'j';
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+
+				nivel3->GenerarMovimientoJugador(punk);
+				if (contador % 150 == 0) {
+					Jefe->MoverSpot(8, 30, 190, 40);
+				}
+				Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
+				if (tecla == 'q' || tecla == 'Q') {
+					Posicion(53, 5); cout << "Habilidad Q activada";
+					nivel3->AtacarEnemigos(Jefe, punk);
+					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
+				}
+				punk->DibujarHabilidades();
+				if (Jefe->GetVida() < 1) booleanoGeneralParaNiveles = false;
+				_sleep(1);
+				tecla = 'j';
+				contador++;
+			} while (booleanoGeneralParaNiveles);
+			delete[]Jefe;
+			break; }
+		default: break;
+		}
+		AnimacionBorrar();
+	} while (booleanoGeneralParaNiveles4);
 	delete punk;
-}
-//
-//
-//
-void Nivel3parte2() {
-	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
-
-	Protagonista* punk = new Protagonista(25, 25, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
-	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	Niveles* nivel3 = new Niveles();
-	
-	nivel3->GenerarObstaculo(4);
-	nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
-	nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
-	nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
-	nivel3->GenerarCofres(3);
-	nivel3->AtributosCofres(0, 100, 28, 7, 3);
-	nivel3->AtributosCofres(1, 125, 28, 7, 3);
-	nivel3->AtributosCofres(2, 150, 28, 7, 3);
-	punk->Generarhabilidades();
-	DibujarPanelDeControl();
-	DibujarEdificio(1, 7);
-	DibujarEdificio(26, 7);
-	DibujarEdificio(51, 7);
-	DibujarEdificio(76, 7);
-	DibujarEdificio(101, 7);
-	DibujarEdificio(126, 7);
-	DibujarEdificio(151, 7);
-	DibujarEdificio(176, 7);
-	DibujarEdificio(187, 32);
-	DibujarEdificio(162, 32);
-	DibujarEdificio(137, 32);
-	DibujarEdificio(1, 32);
-	DibujarEdificio(26, 32);
-	DibujarEdificio(51, 32);
-	tecla = 'j';
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel3->DibujarCofre();
-		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(53, 5); cout << "Habilidad Q activada";
-			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
-		}
-		punk->DibujarHabilidades();
-		_sleep(1);
-		//if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
-			//Condición de victoria
-		//	booleanoGeneralParaNiveles = false;
-		//}
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
-	delete punk;
-}
-//
-// 
-//
-void Nivel3parte3() {
-	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
-
-	Protagonista* punk = new Protagonista(25, 25, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
-	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	Niveles* nivel3 = new Niveles();
-
-	nivel3->GenerarObstaculo(5);
-	nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-	nivel3->AtributosObstaculo(1, 137, 7, 0, 75, 16);
-	nivel3->AtributosObstaculo(2, 1, 32, 0, 200, 16);
-	nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
-	nivel3->AtributosObstaculo(4, 0, 47, 0, 213, 2);
-	nivel3->GenerarCofres(3);
-	nivel3->AtributosCofres(0, 100, 28, 7, 3);
-	nivel3->AtributosCofres(1, 125, 28, 7, 3);
-	nivel3->AtributosCofres(2, 150, 28, 7, 3);
-	punk->Generarhabilidades();
-	tecla = 'j';
-
-	DibujarEdificio(1, 32);
-	DibujarEdificio(26, 32);
-	DibujarEdificio(51, 32);
-	DibujarEdificio(76, 32);
-	DibujarEdificio(101, 32);
-	DibujarEdificio(126, 32);
-	DibujarEdificio(151, 32);
-	DibujarEdificio(176, 32);
-	DibujarEdificio(187, 7);
-	DibujarEdificio(162, 7);
-	DibujarEdificio(137, 7);
-	DibujarEdificio(1, 7);
-	DibujarEdificio(26, 7);
-	DibujarEdificio(51, 7);
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel3->DibujarCofre();
-		nivel3->GenerarMovimientoJugador(punk);
-		NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(53, 5); cout << "Habilidad Q activada";
-			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
-		}
-		punk->DibujarHabilidades();
-		_sleep(1);
-		//if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
-			//Condición de victoria
-		//	booleanoGeneralParaNiveles = false;
-		//}
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
-	delete punk;
-}
-//
-// 
-//
-void Nivel3parte4() {
-	for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
-	for (int i = 9; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
-
-	Protagonista* punk = new Protagonista(20, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
-	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-	Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
-	Niveles* nivel3 = new Niveles();
-
-	nivel3->GenerarObstaculo(4);
-	nivel3->AtributosObstaculo(0, 0, 10, 0, 213, 16);
-	nivel3->AtributosObstaculo(1, 0, 47, 0, 213, 2);
-	nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
-	nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
-
-	punk->Generarhabilidades();
-	DibujarPanelDeControl();
-	DibujarEdificio(1, 10);
-	DibujarEdificio(26, 10);
-	DibujarEdificio(51, 10);
-	DibujarEdificio(76, 10);
-	DibujarEdificio(101, 10);
-	DibujarEdificio(126, 10);
-	DibujarEdificio(151, 10);
-	DibujarEdificio(176, 10);
-
-	DibujarGrieta(2, 28);
-	DibujarGrieta(2, 38);
-	DibujarGrieta(200, 28);
-	DibujarGrieta(200, 38);
-
-	int contador = 0;
-
-	tecla = 'j';
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-
-		nivel3->GenerarMovimientoJugador(punk);
-		if (contador % 150 == 0) {
-			Jefe->MoverSpot(8, 30, 190, 40);
-		}
-		Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(53, 5); cout << "Habilidad Q activada";
-			nivel3->AtacarEnemigos(Jefe, punk);
-			punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
-		}
-		punk->DibujarHabilidades();
-		_sleep(1);
-		//if (!enemigo[0]->GetVivo() && !enemigo[1]->GetVivo() && !enemigo[2]->GetVivo() && !enemigo[3]->GetVivo()) {
-			//Condición de victoria
-		//	booleanoGeneralParaNiveles = false;
-		//}
-		tecla = 'j';
-		contador++;
-	} while (booleanoGeneralParaNiveles);
-	delete[]Jefe;
 }
 //
 //

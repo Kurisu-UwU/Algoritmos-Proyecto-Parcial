@@ -24,7 +24,9 @@ bool Condicion1 = true; // condicion para el bucle main
 int tiempo = 0;
 char tecla = ' ';
 bool booleanoGeneralParaNiveles = true;
+// El 2 ya se usa
 bool booleanoGeneralParaNiveles3 = true;
+bool booleanoGeneralParaNiveles4 = true;
 
 char teclageneralbasura = 'j';
 
