@@ -2,6 +2,7 @@
 #include "ASCIIArtsNiveles.h"
 
 void CuadroDeTexto(string nombre, int perfil, bool direccion) {
+	ColorVerde();
 	int n; if (direccion == true) { n = 6; }else { n = 102; }
 	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
 	Posicion(0, 1); cout << "|                                                                                                                                                                                                                   |";
@@ -16,7 +17,7 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 2:DibujarMiguel(n, 2);break;
 	case 3:DibujarPunk(n, 2);break;
 	case 4:DibujarGwen(n, 2); break;
-	case 5: DibujarSpot(n, 2); break;
+	case 5:DibujarSpot(n, 2); break;
 	default: break;
 	}
 	Posicion(n+10, 3); cout << nombre;
@@ -100,10 +101,18 @@ void TextPunk1(int n) {
 		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", PosIzDIALOGO, 4, 50);
 		break;
 	case 7:
-		CuadroDeTexto("Gwen Stacy", 4, false);
-		EscribirTextoAnimado("Ah.. mas te vale que sea importante... sabes donde encontrarme   ", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Vas a tener que encontrar cofres y recolectar tornillos...      ", PosIzDIALOGO, 4, 50);
 		break;
-	case 8: AnimacionBorrar(); break;
+	case 8:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Tornillos?... bueno.. mas te vale que sea importante...    ", PosDerDIALOGO, 4, 50);
+		break; 
+	case 9: 
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Bueno... sabes donde encontrarme     ", PosDerDIALOGO, 4, 50);
+		break;
+	case 10: AnimacionBorrar(); break;
 	default:break;
 	}
 }
@@ -149,7 +158,11 @@ void TextPunkSpot(int n) {
 		CuadroDeTexto("The Spot", 5, false);
 		EscribirTextoAnimado("Acabemos esto de una vez            ", PosDerDIALOGO, 4, 50);
 		break;
-	case 11: AnimacionBorrar(); break;
+	case 11: 
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Es hora del espectaculo!            ", PosIzDIALOGO, 4, 50);
+		break;
+	case 12: AnimacionBorrar(); break;
 	default:break;
 	}
 }

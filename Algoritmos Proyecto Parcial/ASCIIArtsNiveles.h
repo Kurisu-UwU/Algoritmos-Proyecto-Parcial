@@ -14,7 +14,7 @@ void DibujarMiguel(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "¨ uu ¨";
 }
 void DibujarPunk(int x, int y) {
-	Posicion(x + 2, y);ColorBlanco();     cout << "^^";
+	Posicion(x + 2, y);ColorBlanco();     cout << "/\\";
 	Posicion(x + 1, y + 1); ColorRojo(); cout << "(";
 	Posicion(x + 2, y + 1); ColorBlanco(); cout << "\\/";
 	Posicion(x + 4, y + 1); ColorRojo();cout << ")";
@@ -47,7 +47,7 @@ void DibujarEnemigo(int x, int y) {
 }
 void DibujarGwen(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";
-	Posicion(x + 1, y); y++;   cout << "(\/)";
+	Posicion(x + 1, y); y++;   cout << "(\\/)";
 	Posicion(x, y); y++;   cout << "o+YY+o";
 	Posicion(x + 2, y); y++; cout << "/\\";
 	Posicion(x + 2, y); y++; cout << "ll";
@@ -123,13 +123,21 @@ void DibujarMiguelOharaGrandeTitulo(int x, int y) {
 	Posicion(x, y + 4); cout << "|  |  |  | |  | |  |__| | |  `--'  | |  |____ |  `----.   |  `--'  |    |  |  |  |  /  _____  \\  |  |\\  \\----./  _____  \\";
 	Posicion(x, y + 5); cout << "|__|  |__| |__|  \\______|  \\______/  |_______||_______|    \\______/     |__|  |__| /__/     \\__\\ | _| `._____/__/     \\__\\";
 }
-
+void DibujarSpiderPunkGrandeTitulo(int x, int y) {
+	ColorMorado();
+	Posicion(x, y);   cout << "     _______..______    __   _______   _______ .______         .______    __    __  .__   __.  __  ___ ";
+	Posicion(x, y+1); cout << "    /       ||   _  \\  |  | |       \\ |   ____||   _  \\        |   _  \\  |  |  |  | |  \\ |  | |  |/  / ";
+	Posicion(x, y+2); cout << "   |   (----`|  |_)  | |  | |  .--.  ||  |__   |  |_)  |       |  |_)  | |  |  |  | |   \\|  | |  '  /  ";
+	Posicion(x, y+3); cout << "    \\   \\    |   ___/  |  | |  |  |  ||   __|  |      /        |   ___/  |  |  |  | |  . `  | |    <   ";
+	Posicion(x, y+4); cout << ".----)   |   |  |      |  | |  '--'  ||  |____ |  |\\  \\----.   |  |      |  `--'  | |  |\\   | |  .  \\  ";
+	Posicion(x, y+5); cout << "|_______/    | _|      |__| |_______/ |_______|| _| `._____|   | _|       \\______/  |__| \\__| |__|\\__\\ ";
+}
 void DibujarPanelDeControl() {
 	ColorVerde();
 	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
 	Posicion(0, 1); cout << "|"; Posicion(212, 1); cout << "|";
 	Posicion(0, 2); cout << "|"; Posicion(212, 2); cout << "|";
-	Posicion(0, 3); cout << "|"; Posicion(20, 3); cout << "Energia:"; Posicion(212, 3); cout << "|";
+	Posicion(0, 3); cout << "|"; Posicion(212, 3); cout << "|";
 	Posicion(0, 4); cout << "|"; Posicion(212, 4); cout << "|";
 	Posicion(0, 5); cout << "|"; Posicion(212, 5); cout << "|";
 	Posicion(0, 6); cout << "=====================================================================================================================================================================================================================";

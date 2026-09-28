@@ -54,18 +54,19 @@ void Nivel2() {
 //
 //
 void Nivel3() {
-	int uwu = 1;
+	int uwu = 4;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
 		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = false;
-		booleanoGeneralParaNiveles5 = false;
-		booleanoGeneralParaNiveles6 = false;
+		booleanoGeneralParaNiveles3 = true;
+		booleanoGeneralParaNiveles5 = true;
+		booleanoGeneralParaNiveles6 = true;
 		switch (uwu) {
 		case 1: {
+			DibujarSpiderPunkGrandeTitulo(10,10);
 			for (int i = 0; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 0; i < 9; i++) { TextPunk1(i); }  // dialogo punk 1
+			for (int i = 0; i < 11; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(30); punk->SetPY(30);
 			Niveles* nivel3 = new Niveles();
@@ -208,8 +209,9 @@ void Nivel3() {
 			break;
 		}
 		case 4: {
-			for (int i = 0; i < 12; i++) { TextPunkSpot(i); }  // dialogo punk 1
-
+			for (int i = 0; i < 13; i++) { TextPunkSpot(i); }  // dialogo punk 1
+			EscribirTextoAnimado("Presiona Q para atacar, el ataque apuntará hacia la dirección de tu movimiento!", 40, 20, 50);
+			AnimacionBorrar();
 			punk->SetPX(20); punk->SetPY(30);
 			punk->SetVida(30);
 			Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
@@ -244,6 +246,7 @@ void Nivel3() {
 			tecla = 'j';
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
+
 				DibujarPanelDeControl();
 
 				nivel3->GenerarMovimientoJugador(punk);
@@ -261,7 +264,7 @@ void Nivel3() {
 				punk->DibujarHabilidades();
 				if (Jefe->GetVida() < 1) {
 					AnimacionBorrar();
-					DibujarVictoria(); booleanoGeneralParaNiveles = false; booleanoGeneralParaNiveles4;
+					DibujarVictoria(); booleanoGeneralParaNiveles = false; booleanoGeneralParaNiveles4=false;
 				}
 				if (punk->GetVida() < 1) { AnimacionBorrar(); DibujarDerrota(); }
 				_sleep(1);
