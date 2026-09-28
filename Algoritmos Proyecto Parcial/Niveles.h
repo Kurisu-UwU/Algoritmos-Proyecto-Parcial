@@ -54,14 +54,14 @@ void Nivel2() {
 //
 //
 void Nivel3() {
-	int uwu = 4;
+	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
 		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = true;
-		booleanoGeneralParaNiveles5 = true;
-		booleanoGeneralParaNiveles6 = true;
+		booleanoGeneralParaNiveles3 = false;
+		booleanoGeneralParaNiveles5 = false;
+		booleanoGeneralParaNiveles6 = false;
 		switch (uwu) {
 		case 1: {
 			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
@@ -264,8 +264,8 @@ void Nivel3() {
 					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 				}
 				punk->DibujarHabilidades();
-				if (Jefe->GetVida() < 1)  booleanoGeneralParaNiveles = false;
-				if (punk->GetVida() < 1) booleanoGeneralParaNiveles = false;
+				if (Jefe->GetVida() < 1) { Victoria(100,18); booleanoGeneralParaNiveles = false; }
+				if (punk->GetVida() < 1) { Derrota(100, 18); }
 				_sleep(1);
 				tecla = 'j';
 				contador++;

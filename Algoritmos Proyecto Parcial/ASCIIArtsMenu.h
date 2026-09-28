@@ -167,3 +167,19 @@ void DibujarSpiderman( int x, int y) {
     Posicion(x, y + 21); cout << "                   \\;;|";
     Posicion(x, y + 22); cout << "                    \\/";
 }
+void Victoria(int x, int y) {
+    Posicion(x, y); 	cout << " _   _ _      _             _";
+    Posicion(x, y + 1);	cout << "| | | (_)    | |           (_)";
+    Posicion(x, y + 2); cout << "| | | |_  ___| |_ ___  _ __ _  __ _";
+    Posicion(x, y + 3); cout << "| | | | |/ __| __/ _ \\| '__| |/ _` |";
+    Posicion(x, y + 4); cout << "\\ \\_/ / | (__| || (_) | |  | | (_| |";
+    Posicion(x, y + 5); cout << " \\___/|_|\\___|\\__\\___/|_|  |_|\\__,_|";
+}
+void Derrota(int x, int y) {
+    Posicion(x, y); 	cout << "______                    _";
+    Posicion(x, y + 1);	cout << "|  _  \\                  | |";
+    Posicion(x, y + 2); cout << "| | | |___ _ __ _ __ ___ | |_ __ _";
+    Posicion(x, y + 3); cout << "| | | / _ \\ '__| '__/ _ \\| __/ _` |";
+    Posicion(x, y + 4); cout << "| |/ /  __/ |  | | | (_) | || (_| |";
+    Posicion(x, y + 5); cout << "|___/ \\___|_|  |_|  \\___/ \\__\\__,_|";
+}
