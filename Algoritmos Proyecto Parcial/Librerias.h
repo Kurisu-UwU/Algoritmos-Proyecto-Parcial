@@ -27,6 +27,8 @@ bool booleanoGeneralParaNiveles = true;
 // El 2 ya se usa
 bool booleanoGeneralParaNiveles3 = true;
 bool booleanoGeneralParaNiveles4 = true;
+bool booleanoGeneralParaNiveles5 = true;
+bool booleanoGeneralParaNiveles6 = true;
 
 char teclageneralbasura = 'j';
 

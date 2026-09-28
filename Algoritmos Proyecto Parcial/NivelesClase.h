@@ -34,7 +34,7 @@ public:
 	void RevivirTambor(short, short);
 	void AtributosTambores(int);
 	void GenerarCofres(int);
-	void AtributosCofres(int, int, int, int, int);
+	void AtributosCofres(int, int, int, int, int, int);
 	void DibujarCofre();
 	int PisandoItem(Protagonista*);
 	void AtacarJefes(Spot*, Protagonista*);
@@ -237,13 +237,14 @@ void Niveles::AtributosTambores(int x) {  // asignación de atributos a los obstá
 void Niveles::GenerarCofres(int cantidad) {
 	canCofre = cantidad;
 	listaCofre = new Cofre * [cantidad];
-	for (int i = 0; i < cantidad; i++) { listaCofre[i] = new Cofre(1, 1, 1, 1, 1, true, true); }
+	for (int i = 0; i < cantidad; i++) { listaCofre[i] = new Cofre(1, 1, 1, 1, 1, true, true,1); }
 }
-void Niveles::AtributosCofres(int numero, int x, int y, int ANCHURA, int ALTURA) {
+void Niveles::AtributosCofres(int numero, int x, int y, int ANCHURA, int ALTURA, int num) {
 	listaCofre[numero]->SetX(x);
 	listaCofre[numero]->SetY(y);
 	listaCofre[numero]->SetAlto(ALTURA);
 	listaCofre[numero]->SetAncho(ANCHURA);
+	listaCofre[numero]->SetNumero(num);
 }
 void Niveles::DibujarCofre() {
 	for (int i = 0; i < canCofre; i++) {
@@ -260,7 +261,7 @@ int Niveles::PisandoItem(Protagonista* prota) {
 				MostrarPreguntaCofre = true;
 				if (tecla == 'Z' || tecla == 'z') { 
 					listaCofre[i]->SetExsistencia(false); 
-					return i + 1; 
+					return i + listaCofre[i]->GetNumero(); 
 				}
 				else { return 0; }
 			}

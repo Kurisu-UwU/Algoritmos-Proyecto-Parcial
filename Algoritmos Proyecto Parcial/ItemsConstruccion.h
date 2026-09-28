@@ -173,15 +173,18 @@ class Cofre : public Item
 {
 protected:
 	bool estarCercaDeCofre;
+	int numero;
 public:
-	Cofre(int, int, int, int, int, bool, bool);
+	Cofre(int, int, int, int, int, bool, bool, int);
 	~Cofre() override;
 	void ImprimirItem(int, int) override;
 	void SetEstarCerca(bool est) { estarCercaDeCofre = est; }
 	bool GetEstarCerca() { return estarCercaDeCofre; }
+	void SetNumero(int num) { numero = num; }
+	int GetNumero() { return numero; }
 
 };
-Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia, bool estarCercaDeCofre) : Item(x, y, dx, anchura, altura, existencia)
+Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia, bool estarCercaDeCofre, int num) : Item(x, y, dx, anchura, altura, existencia)
 {
 	this->x = x;
 	this->y = y;
@@ -190,6 +193,7 @@ Cofre::Cofre(int x, int y, int dx, int anchura, int altura, bool existencia, boo
 	this->altura = 1;
 	this->existencia = existencia;
 	this->estarCercaDeCofre = estarCercaDeCofre;
+	numero = num;
 }
 Cofre::~Cofre()
 {

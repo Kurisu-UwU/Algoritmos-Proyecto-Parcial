@@ -60,6 +60,8 @@ void Nivel3() {
 	do {
 		booleanoGeneralParaNiveles = true;
 		booleanoGeneralParaNiveles3 = true;
+		booleanoGeneralParaNiveles5 = true;
+		booleanoGeneralParaNiveles6 = true;
 		switch (uwu) {
 		case 1: {
 			for (int i = 9; i < 4; i++) { TextPunkIntro(i); }
@@ -73,7 +75,7 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 			nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 			nivel3->GenerarCofres(1);
-			nivel3->AtributosCofres(0, 100, 10, 7, 3);
+			nivel3->AtributosCofres(0, 100, 10, 7, 3,1);
 			tecla = 'j';
 			DibujarEdificio(1, 7);//Dibuja obstaculo
 			DibujarEdificio(26, 7);
@@ -86,7 +88,9 @@ void Nivel3() {
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
-				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk), 1);
+				if (booleanoGeneralParaNiveles3) {
+					NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
+				}
 				if (!booleanoGeneralParaNiveles3) {
 					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
 					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
@@ -112,8 +116,9 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 			nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
 			nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
-			nivel3->GenerarCofres(1);
-			nivel3->AtributosCofres(0, 100, 28, 7, 3);
+			nivel3->GenerarCofres(2);
+			nivel3->AtributosCofres(0, 100, 28, 7, 3,2);
+			nivel3->AtributosCofres(1, 120, 28, 7, 3, 2);
 			DibujarPanelDeControl();
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
@@ -135,15 +140,16 @@ void Nivel3() {
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
-				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),2);
-				if (!booleanoGeneralParaNiveles3) {
+				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5) {
+					NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
+				}
+				if (!booleanoGeneralParaNiveles3 && !booleanoGeneralParaNiveles5) {
 					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
 					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
 						booleanoGeneralParaNiveles = false;
 						uwu = 3;
 					}
 				}
-				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = 'j';
 			} while (booleanoGeneralParaNiveles);
@@ -162,8 +168,10 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(2, 1, 32, 0, 200, 16);
 			nivel3->AtributosObstaculo(3, 30, 10, 0, 2, 10);
 			nivel3->AtributosObstaculo(4, 0, 47, 0, 213, 2);
-			nivel3->GenerarCofres(1);
-			nivel3->AtributosCofres(0, 100, 28, 7, 3);
+			nivel3->GenerarCofres(3);
+			nivel3->AtributosCofres(0, 100, 28, 7, 3,4);
+			nivel3->AtributosCofres(1, 120, 28, 7, 3, 4);
+			nivel3->AtributosCofres(2, 140, 28, 7, 3, 4);
 			//nivel3->AtributosCofres(1, 125, 28, 7, 3);
 			//nivel3->AtributosCofres(2, 150, 28, 7, 3);
 			tecla = 'j';
@@ -187,15 +195,16 @@ void Nivel3() {
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
-				NivelesRitmo1(nivel3, nivel3->PisandoItem(punk),3);
-				if (!booleanoGeneralParaNiveles3) {
+				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5 || booleanoGeneralParaNiveles6) {
+					NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
+				}
+				if (!booleanoGeneralParaNiveles3 && !booleanoGeneralParaNiveles5 && !booleanoGeneralParaNiveles6) {
 					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
 					if (CalcularColisiones(punk->GetPX(), punk->GetPY(), 208, 7, punk->GetAlto(), punk->GetAncho(), 30, 4)) {
 						booleanoGeneralParaNiveles = false;
 						uwu = 4;
 					}
 				}
-				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = 'j';
 			} while (booleanoGeneralParaNiveles);
