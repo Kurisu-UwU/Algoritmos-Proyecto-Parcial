@@ -31,11 +31,11 @@ void IniciarSeleccionPersonajes() {
         } while (opciniciarnivel);
         switch (opFinal) {
         case 1:
-            //Nivel1();
+            Nivel1();
             opciniciarnivel2 = false;
             break;
         case 2:
-            //Nivel2();
+            Nivel2();
             opciniciarnivel2 = false;
             break;
         case 3:

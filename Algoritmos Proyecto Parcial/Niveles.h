@@ -3,12 +3,8 @@
 
 void Nivel1() {
 	DibujarMilesMoralesGrandeTitulo(10, 10);
-	int a=0;
-	do {
-		a++;
-		TextMilesIntro(a);// Dialogo introduccion
-		_sleep(100);
-	} while (a < 2);
+	for (int i = 0; i < 4; i++) { TextMilesIntro(i); }
+	for (int i = 0; i < 20; i++) { TextMiles1(i); }
 }
 //
 //
