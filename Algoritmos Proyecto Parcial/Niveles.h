@@ -54,7 +54,7 @@ void Nivel2() {
 //
 //
 void Nivel3() {
-	int uwu = 4;
+	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
