@@ -84,9 +84,9 @@ void DibujarOpcionMiguel(int x, int y) {
     if (opMenu == 2) ColorGrisClaro(); else ColorGris();
     Posicion(x, y); y++; cout << "=========================================";
     Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                    Proximamente       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
+    Posicion(x, y); y++; cout << "|       _              _  /             |";
+    Posicion(x, y); y++; cout << "||V| o (_|    _  |    / \   |_  _  __ _ |";
+    Posicion(x, y); y++; cout << "|| | | __||_|(/_ |    \_/   | |(_| | (_||";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
@@ -109,8 +109,11 @@ void DibujarOpcionMiguel(int x, int y) {
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "|                                       |";
     Posicion(x, y); y++; cout << "=========================================";
+    DibujarMiguel(x + 10, y + 10);
 }
-
+//           _              _  /             
+//    |V| o (_|    _  |    / \   |_  _  __ _ 
+//    | | | __||_|(/_ |    \_/   | |(_| | (_|
 void DibujarOpcionPunk(int x, int y) {
     if (opMenu == 3) ColorAmarillo(); else ColorVerde();
     Posicion(x, y); y++; cout << "=========================================";
