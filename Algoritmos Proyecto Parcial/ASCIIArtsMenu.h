@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Librerias.h"
+#include "ASCIIArtsNiveles.h"
 
 void DibujarMenu() {
     int equiz = 150;
@@ -48,114 +49,17 @@ void Dibujartitulo() {
     Posicion(10, 14); cout << "      | |";
     Posicion(10, 15); cout << "      |_| ";
 }
-
-void DibujarOpcionMiles(int x, int y) {
-    if (opMenu == 1) ColorGrisClaro(); else ColorGris();
-    Posicion(x, y); y++; cout << "=========================================";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                    Proximamente       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "=========================================";
-}
-
-void DibujarOpcionMiguel(int x, int y) {
-    if (opMenu == 2) ColorGrisClaro(); else ColorGris();
-    Posicion(x, y); y++; cout << "=========================================";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|       _              _  /             |";
-    Posicion(x, y); y++; cout << "||V| o (_|    _  |    / \   |_  _  __ _ |";
-    Posicion(x, y); y++; cout << "|| | | __||_|(/_ |    \_/   | |(_| | (_||";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "=========================================";
-    DibujarMiguel(x + 10, y + 10);
-}
-//           _              _  /             
-//    |V| o (_|    _  |    / \   |_  _  __ _ 
-//    | | | __||_|(/_ |    \_/   | |(_| | (_|
-void DibujarOpcionPunk(int x, int y) {
-    if (opMenu == 3) ColorAmarillo(); else ColorVerde();
-    Posicion(x, y); y++; cout << "=========================================";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|   _   _                 _             |";
-    Posicion(x, y); y++; cout << "|  (_  |_) o  _| _  __   |_)   __  |    |";
-    Posicion(x, y); y++; cout << "|   _) |   | (_|(/_ |    |  |_|| | |<   |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "|                                       |";
-    Posicion(x, y); y++; cout << "=========================================";        
-}
-
 void DibujarSpiderman( int x, int y) {
-    Posicion(x, y); cout << "                   ,,,, ";
-    Posicion(x, y + 1); cout << "             ,;) .';;;;',";
-    Posicion(x, y + 2); cout << " ;;,,_,-.-.,;;'_,|I\\;;;/),,_";
-    Posicion(x, y + 3); cout << "  `';;/:|:);{ ;;;|| \\;/ /;;;\\__";
-    Posicion(x, y + 4); cout << "      L;/-';/ \\;;\\',/;\\/;;;.') \\";
-    Posicion(x, y + 5); cout << "      .:`''` - \\;;'.__/;;;/  . _'-._";
-    Posicion(x, y + 6); cout << "    .'/   \\     \\;;;;;;/.'_7:.  '). \\_";
-    Posicion(x, y + 7); cout << "  .''/     | '._ );}{;//.'    '-:  '.,L";
-    Posicion(x, y + 8); cout << ".'. /       \\  ( |;;;/_/         \\._./;\\   _,";
-    Posicion(x, y + 9); cout << " . /        |\\ ( /;;/_/             ';;;\\,;;_,";
+    Posicion(x, y);      cout << "                   ,,,, ";
+    Posicion(x, y + 1);  cout << "             ,;) .';;;;',";
+    Posicion(x, y + 2);  cout << " ;;,,_,-.-.,;;'_,|I\\;;;/),,_";
+    Posicion(x, y + 3);  cout << "  `';;/:|:);{ ;;;|| \\;/ /;;;\\__";
+    Posicion(x, y + 4);  cout << "      L;/-';/ \\;;\\',/;\\/;;;.') \\";
+    Posicion(x, y + 5);  cout << "      .:`''` - \\;;'.__/;;;/  . _'-._";
+    Posicion(x, y + 6);  cout << "    .'/   \\     \\;;;;;;/.'_7:.  '). \\_";
+    Posicion(x, y + 7);  cout << "  .''/     | '._ );}{;//.'    '-:  '.,L";
+    Posicion(x, y + 8);  cout << ".'. /       \\  ( |;;;/_/         \\._./;\\   _,";
+    Posicion(x, y + 9);  cout << " . /        |\\ ( /;;/_/             ';;;\\,;;_,";
     Posicion(x, y + 10); cout << ". /         )__(/;;/_/                (;;'''''";
     Posicion(x, y + 11); cout << " /        _;:':;;;;:';-._             );";
     Posicion(x, y + 12); cout << "/        /   \\  `'`   --.'-._         \\/";
@@ -209,4 +113,15 @@ void DibujarDerrota() {
             if (tecla == 'X' || tecla == 'x') uwu = false;
         }
     } while (uwu && elwhile1);
+}
+void DibujarPersonajesLetras(int x, int y) {
+    ColorAzul();
+    Posicion(x, y);     cout << " _____                                                       _";
+    Posicion(x, y + 1); cout << "|  __ \\                                                     (_)";
+    Posicion(x, y + 2); cout << "| |__) |   ___    _ __    ___     ___     _ __      __ _     _     ___    ___";
+    Posicion(x, y + 3); cout << "|  ___/   / _ \\  | '__|  / __|   / _ \\   | '_ \\    / _` |   | |   / _ \\  / __|";
+    Posicion(x, y + 4); cout << "| |      |  __/  | |     \\__ \\  | (_) |  | | | |  | (_| |   | |  |  __/  \\__ \\";
+    Posicion(x, y + 5); cout << "|_|       \\___|  |_|     |___/   \\___/   |_| |_|   \\__,_|   | |   \\___|  |___/";
+    Posicion(x, y + 6); cout << "                                                           _/ |";
+    Posicion(x, y + 7); cout << "                                                          |__/";
 }

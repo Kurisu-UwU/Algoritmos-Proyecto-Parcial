@@ -32,29 +32,18 @@ bool Spot::ColisionSpot(Protagonista* personaje) {
 	}
 	else { return false; }
 }
-
 void Spot::ImprimirSpot(int x1, int y1) {
 	DibujarSpot(x1, y1);
 }
-
 void Spot::MoverSpot(int xi, int ys, int xd, int yi) {
 	BorrarSpot(ex, ey);
-	if (ex == xi) {
-		ex = xd;
-	}
+	if (ex == xi) {ex = xd;}
 	else {
-		if (ex == xd) {
-			ex = xi;
-		}
+		if (ex == xd) {ex = xi;}
 	}
-
-	if (ey == ys) {
-		ey = yi;
-	}
+	if (ey == ys) {ey = yi;}
 	else {
-		if (ey == yi) {
-			ey = ys;
-		}
+		if (ey == yi) {ey = ys;}
 	}
 	ImprimirSpot(ex, ey);
 	_sleep(1);

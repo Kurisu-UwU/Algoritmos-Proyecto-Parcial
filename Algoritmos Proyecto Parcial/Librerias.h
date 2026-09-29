@@ -59,6 +59,7 @@ void ColorMagenta() { Console::ForegroundColor = ConsoleColor::Magenta; }
 void ColorAmarilloOscuro() { Console::ForegroundColor = ConsoleColor::DarkYellow; }
 void ColorGrisClaro() { Console::ForegroundColor = ConsoleColor::Gray; }
 void ColorMarron() { Console::ForegroundColor = ConsoleColor::DarkRed; }
+
 void BColorRojo() { Console::BackgroundColor = ConsoleColor::Red; }
 void BColorAzul() { Console::BackgroundColor = ConsoleColor::Blue; }
 void BColorGris() { Console::BackgroundColor = ConsoleColor::Gray; }
@@ -86,7 +87,6 @@ void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) { // efecto d
 		}
 	}
 }
-
 void AnimacionBorrar() {   // limpiar pantalla
 	ColorRojo();
 	for (int i = 213; i > 7; i = i - 7) {
@@ -95,11 +95,9 @@ void AnimacionBorrar() {   // limpiar pantalla
 	}
 	Console::Clear();
 }
-
 bool CalcularColisiones(int x1, int y1, int x2, int y2, int alto1, int ancho1, int alto2, int ancho2) { // colisiones para entidades
 	if ((x1 <= x2 + ancho2-1 && y1 <= y2 + alto2-1) && (x1 + ancho1-1 >= x2 && y1 + alto1-1 >= y2)) { return true; }else { return false; }
 }
-
 bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1, int alto1, int ancho2, int alto2, int velocidadx, int velocidady, int tipo) { // colisiones para muros y obstáculos
 	int futuroX1 = x1;
 	int futuroY1 = y1;
@@ -114,7 +112,6 @@ bool CalcularColisionesDireccionales(int x1, int y1, int x2, int y2, int ancho1,
 	bool colisionY = (futuroY1 < y2 + alto2) && (futuroY1 + alto1 > y2);
 	return colisionX && colisionY;
 }
-
 void DibujarWASD(int x, int y) { // WASD
 	ColorAzul();
 	Posicion(x, y);     cout << " ____ ____ ____ ____";
@@ -122,7 +119,6 @@ void DibujarWASD(int x, int y) { // WASD
 	Posicion(x, y + 2); cout << "||__|||__|||__|||__||";
 	Posicion(x, y + 3); cout << "|/__\\|/__\\|/__\\|/__\\|";
 }
-
 void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 	ColorAmarillo();
 	switch (noseaaa) {
@@ -182,4 +178,18 @@ void AnimacionZX(int x, int y, int noseaaa) {  //visual WASD AMARILLO
 		break;
 	default: break;
 	}
+}
+void DibujarZ(int x, int y) {
+	ColorAzul();
+	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y + 1); cout << "||Z ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void DibujarX(int x, int y) {
+	ColorAzul();
+	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y + 1); cout << "||X ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
 }

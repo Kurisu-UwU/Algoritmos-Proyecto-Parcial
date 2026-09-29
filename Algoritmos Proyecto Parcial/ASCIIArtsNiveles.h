@@ -203,9 +203,6 @@ void DibujarEdificio(int x, int y) {
 	Posicion(x + 10, y + 15); ColorAmarilloOscuro(); cout << "|___|";
 	Posicion(x + 15, y + 15); ColorGris(); cout << "_________";
 	Posicion(x + 24, y + 15); ColorGris(); cout << "|";
-
-
-
 }
 
 void DibujarTornillos(int x, int y) {
@@ -307,4 +304,99 @@ void borrarmargokees(int x, int y) {
 	Posicion(x, y + 4); cout << "           ";
 	Posicion(x, y + 5); cout << "           ";
 }
-	
+void DibujarOpcionMiles(int x, int y) {
+	if (opMenu == 1) ColorAmarillo(); else ColorVerde();
+//                                           
+//    |V| o  |  _  _    |V| _  __ _  |  _  _ 
+//    | | |  | (/__>    | |(_) | (_| | (/__> 
+	Posicion(x, y);    cout << "=========================================";
+	Posicion(x, y+1);  cout << "|                                       |";
+	Posicion(x, y+2);  cout << "|                                       |";
+	Posicion(x, y+3);  cout << "| |V| o  |  _  _   |V| _  __ _  |  _  _ |";
+	Posicion(x, y+4);  cout << "| | | |  | (/__>   | |(_) | (_| | (/__> |";
+	Posicion(x, y+5);  cout << "|                                       |";
+	Posicion(x, y+6);  cout << "|                                       |";
+	Posicion(x, y+7);  cout << "|                                       |";
+	Posicion(x, y+8);  cout << "|                                       |";
+	Posicion(x, y+9);  cout << "|                                       |";
+	Posicion(x, y+10); cout << "|                                       |";
+	Posicion(x, y+11); cout << "|                                       |";
+	Posicion(x, y+12); cout << "|                                       |";
+	Posicion(x, y+13); cout << "|                                       |";
+	Posicion(x, y+14); cout << "|                                       |";
+	Posicion(x, y+15); cout << "|                                       |";
+	Posicion(x, y+16); cout << "|                                       |";
+	Posicion(x, y+17); cout << "|                                       |";
+	Posicion(x, y+18); cout << "|                                       |";
+	Posicion(x, y+19); cout << "|                                       |";
+	Posicion(x, y+20); cout << "|                                       |";
+	Posicion(x, y+21); cout << "|                                       |";
+	Posicion(x, y+22); cout << "|                                       |";
+	Posicion(x, y+23); cout << "|                                       |";
+	Posicion(x, y+24); cout << "|                                       |";
+	Posicion(x, y+25); cout << "|                                       |";
+	Posicion(x, y+26); cout << "=========================================";
+	DibujarMiles(x + 10, y + 10);
+}
+void DibujarOpcionMiguel(int x, int y) {
+	if (opMenu == 2) ColorAmarillo(); else ColorVerde();
+	Posicion(x, y);      cout << "=========================================";
+	Posicion(x, y + 1);  cout << "|                                       |";
+	Posicion(x, y + 2);  cout << "|       _              _  /             |";
+	Posicion(x, y + 3);  cout << "| |V| o (_|    _  |   / \\  |_  _  __ _  |";
+	Posicion(x, y + 4);  cout << "| | | | __||_|(/_ |   \\_/  | |(_| | (_| |";
+	Posicion(x, y + 5);  cout << "|                                       |";
+	Posicion(x, y + 6);  cout << "|                                       |";
+	Posicion(x, y + 7);  cout << "|                                       |";
+	Posicion(x, y + 8);  cout << "|                                       |";
+	Posicion(x, y + 9);  cout << "|                                       |";
+	Posicion(x, y + 10); cout << "|                                       |";
+	Posicion(x, y + 11); cout << "|                                       |";
+	Posicion(x, y + 12); cout << "|                                       |";
+	Posicion(x, y + 13); cout << "|                                       |";
+	Posicion(x, y + 14); cout << "|                                       |";
+	Posicion(x, y + 15); cout << "|                                       |";
+	Posicion(x, y + 16); cout << "|                                       |";
+	Posicion(x, y + 17); cout << "|                                       |";
+	Posicion(x, y + 18); cout << "|                                       |";
+	Posicion(x, y + 19); cout << "|                                       |";
+	Posicion(x, y + 20); cout << "|                                       |";
+	Posicion(x, y + 21); cout << "|                                       |";
+	Posicion(x, y + 22); cout << "|                                       |";
+	Posicion(x, y + 23); cout << "|                                       |";
+	Posicion(x, y + 24); cout << "|                                       |";
+	Posicion(x, y + 25); cout << "|                                       |";
+	Posicion(x, y + 26); cout << "=========================================";
+	DibujarMiguel(x + 10, y + 10);
+}
+void DibujarOpcionPunk(int x, int y) {
+	if (opMenu == 3) ColorAmarillo(); else ColorVerde();
+	Posicion(x, y);      cout << "=========================================";
+	Posicion(x, y + 1);  cout << "|                                       |";
+	Posicion(x, y + 2);  cout << "|   _   _                 _             |";
+	Posicion(x, y + 3);  cout << "|  (_  |_) o  _| _  __   |_)   __  |    |";
+	Posicion(x, y + 4);  cout << "|   _) |   | (_|(/_ |    |  |_|| | |<   |";
+	Posicion(x, y + 5);  cout << "|                                       |";
+	Posicion(x, y + 6);  cout << "|                                       |";
+	Posicion(x, y + 7);  cout << "|                                       |";
+	Posicion(x, y + 8);  cout << "|                                       |";
+	Posicion(x, y + 9);  cout << "|                                       |";
+	Posicion(x, y + 10); cout << "|                                       |";
+	Posicion(x, y + 11); cout << "|                                       |";
+	Posicion(x, y + 12); cout << "|                                       |";
+	Posicion(x, y + 13); cout << "|                                       |";
+	Posicion(x, y + 14); cout << "|                                       |";
+	Posicion(x, y + 15); cout << "|                                       |";
+	Posicion(x, y + 16); cout << "|                                       |";
+	Posicion(x, y + 17); cout << "|                                       |";
+	Posicion(x, y + 18); cout << "|                                       |";
+	Posicion(x, y + 19); cout << "|                                       |";
+	Posicion(x, y + 20); cout << "|                                       |";
+	Posicion(x, y + 21); cout << "|                                       |";
+	Posicion(x, y + 22); cout << "|                                       |";
+	Posicion(x, y + 23); cout << "|                                       |";
+	Posicion(x, y + 24); cout << "|                                       |";
+	Posicion(x, y + 25); cout << "|                                       |";
+	Posicion(x, y + 26); cout << "=========================================";
+	DibujarPunk(x + 10, y + 10);
+}
