@@ -29,6 +29,7 @@ bool booleanoGeneralParaNiveles3 = true;
 bool booleanoGeneralParaNiveles4 = true;
 bool booleanoGeneralParaNiveles5 = true;
 bool booleanoGeneralParaNiveles6 = true;
+bool booltexto = true;
 int cantidaddeherramientas = 0;
 
 char teclageneralbasura = 'j';
@@ -80,8 +81,9 @@ void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) { // efecto d
 	Posicion(x, y); ColorBlanco();
 	tecla = teclageneralbasura;
 	for (int i = 0; i < (int)mensaje.length(); i++) {
-		if (_kbhit()) tecla = getch();
+		if (_kbhit()) { tecla = getch(); }
 		if (tecla == 'z' || tecla == 'Z') { cout << mensaje[i]; _sleep(1); }
+		if (tecla == 'x' || tecla == 'X') { booltexto = false; i = (int)mensaje.length(); }
 		else {
 			cout << mensaje[i]; _sleep(sleep);
 		}
