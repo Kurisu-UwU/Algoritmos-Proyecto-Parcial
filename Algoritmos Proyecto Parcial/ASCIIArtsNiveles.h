@@ -2,10 +2,18 @@
 #include "ASCIIArtsMenu.h"
 
 void DibujarMiles(int x, int y) {
-	Posicion(x+1, y); y++; cout << "__";
-	Posicion(x, y); y++;  cout << "(\\/)";
-	Posicion(x, y); y++;  cout << "o||o";
-	Posicion(x+1, y); y++; cout << "^^";
+	Posicion(x + 2, y); ColorAzulOscuro(); cout << "__";
+	Posicion(x + 1, y + 1); cout << "("; ColorBlanco(); cout << "\\/"; ColorAzulOscuro(); cout << ")";
+	Posicion(x, y + 2); cout << "o="; ColorRojo(); cout << "||"; ColorAzulOscuro(); cout << "=o";
+	Posicion(x + 2, y + 3); cout << "II";
+	Posicion(x + 2, y + 4); cout << "^^";
+}
+void BorrarMiles(int x, int y) {
+	Posicion(x + 2, y); cout << "  ";
+	Posicion(x+1, y+1); cout << "    ";
+	Posicion(x, y+2); cout << "      ";
+	Posicion(x + 2, y+3); cout << "  ";
+	Posicion(x + 2, y+4); cout << "  ";
 }
 void DibujarMiguel(int x, int y) {
 	Posicion(x + 2, y); y++; cout << "__";

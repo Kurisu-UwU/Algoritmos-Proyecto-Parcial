@@ -42,80 +42,127 @@ void TextMilesIntro(int n) {
 	}
 }
 void TextMiles1(int n) {
+	int a;
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Miles Morales", 1, true);
+		DibujarSpot(100, 10);
+		DibujarMiles(100, 22);
+		DibujarMiguel(120, 22);
+		DibujarPunk(80, 22);
+		CuadroDeTexto("[Miles Morales]", 1, true);
 		EscribirTextoAnimado("Que... acabas de hacer?... quien.. eres?      ", PosIzDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Yo?....      ", PosDerDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Yo soy tu         ", PosDerDIALOGO, 4, 40);
 		break;
 	case 4:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Y tu... eres yo      ", PosDerDIALOGO, 4, 40);
 		break;
 	case 5:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Yo te cree a ti          ", PosDerDIALOGO, 4, 40);
 		break;
 	case 6:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Te converti en lo que eres ahora       ", PosDerDIALOGO, 4, 40);
 		break;
 	case 7:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("Un HEROE      ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("Un HEROE      ", PosDerDIALOGO, 4, 100);
 		break;
 	case 8:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("Y tu? me creaste como un monstruo     ", PosDerDIALOGO, 4, 40);
 		break;
 	case 9:
-		CuadroDeTexto("The Spot", 5, false);
+		CuadroDeTexto("[The Spot]", 5, false);
 		EscribirTextoAnimado("YO SOY TU NEMESIS        ", PosDerDIALOGO, 4, 200);
 		break;
 	case 10:
-		CuadroDeTexto("Miguel O´hara", 2, true);
-		EscribirTextoAnimado("........       ", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("[Miguel O´hara]", 2, true);
+		EscribirTextoAnimado("........       ", PosIzDIALOGO, 4, 70);
 		break;
 	case 11:
-		CuadroDeTexto("Spider Punk", 3, true);
-		EscribirTextoAnimado("Vaya problema         ", PosIzDIALOGO, 4, 25);
+		CuadroDeTexto("[Spider Punk]", 3, true);
+		EscribirTextoAnimado("Vaya problema         ", PosIzDIALOGO, 4, 50);
 		break;
 	case 12:
-		CuadroDeTexto("Miles Morales", 1, true);
+		BorrarMiles(100, 22);
+		DibujarMiles(100, 22);
+		CuadroDeTexto("[Miles Morales]", 1, true);
 		EscribirTextoAnimado("Que... piensas hacerle a mi padre?      ", PosIzDIALOGO, 4, 40);
 		break;
 	case 13:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("Que pienso hacer?... no...    ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("Que pienso hacer?... es simple    ", PosDerDIALOGO, 4, 60);
 		break;
 	case 14:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("Es tu destino, asi como lo fue el mio        ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("TU destruiste mi vida        ", PosDerDIALOGO, 4, 60);
 		break;
 	case 15:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("El CANON no puede cambiarse, Miles        ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("Yo destruire la TUYA        ", PosDerDIALOGO, 4, 80);
 		break;
 	case 16:
-		CuadroDeTexto("Miles Morales", 1, true);
-		EscribirTextoAnimado("No te atrevas a HACERLE DANO!!!!!!        ", PosIzDIALOGO, 4, 40);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("Es tu destino, asi como lo fue el mio        ", PosDerDIALOGO, 4, 60);
 		break;
 	case 17:
-		CuadroDeTexto("Miguel O´hara", 2, true);
-		EscribirTextoAnimado("ALTO!     ", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("[The Spot]", 5, false);
+		EscribirTextoAnimado("El CANON no puede cambiarse, Miles        ", PosDerDIALOGO, 4, 50);
 		break;
 	case 18:
-		CuadroDeTexto("Miles Morales", 1, true);
+		CuadroDeTexto("[Miles Morales]", 1, true);
+		EscribirTextoAnimado("No te atrevas a HACERLE DANO!!!!!!        ", PosIzDIALOGO, 4, 40);
+		break;
+	case 19:
+		CuadroDeTexto("[Miguel O´hara]", 2, true);
+		EscribirTextoAnimado("ALTO!     ", PosIzDIALOGO, 4, 50);
+		break;
+	case 20:
+		CuadroDeTexto("[Miles Morales]", 1, true);
 		EscribirTextoAnimado("....", PosIzDIALOGO, 4, 40);
 		break;
-	case 19: AnimacionBorrar(); break;
+	case 21:
+		CuadroDeTexto("[Miguel O´hara]", 2, true);
+		EscribirTextoAnimado("Miles      ", PosIzDIALOGO, 4, 70);
+		break;
+	case 22:
+		CuadroDeTexto("[Miguel O´hara]", 2, true);
+		EscribirTextoAnimado("Sabes muy bien qu-", PosIzDIALOGO, 4, 50);
+		break;
+	case 23:
+		CuadroDeTexto("[Miles Morales]", 1, true);
+		EscribirTextoAnimado("Y QUE?    ", PosIzDIALOGO, 4, 40);
+		break;
+	case 24:
+		CuadroDeTexto("[Miles Morales]", 1, true);
+		EscribirTextoAnimado("DICES QUE DEJE MORIR A MI PADRE???", PosIzDIALOGO, 4, 40);
+		break;
+	case 25:
+		CuadroDeTexto("[Miles Morales]", 1, true);
+		EscribirTextoAnimado("ASI SIN MAS??", PosIzDIALOGO, 4, 40);
+		break;
+	case 26:
+		CuadroDeTexto("[Spider Punk]", 3, true);
+		EscribirTextoAnimado(".....      ", PosIzDIALOGO, 4, 100);
+		break;
+	case 27:
+		CuadroDeTexto("[Spider Punk]", 3, true);
+		EscribirTextoAnimado("Miles, escu-", PosIzDIALOGO, 4, 70);
+		break;
+	case 28:
+		CuadroDeTexto("[Miles Morales]", 1, true);
+		EscribirTextoAnimado("No, Lo entiendo", PosIzDIALOGO, 4, 90);
+		break;
+	case 29: AnimacionBorrar(); break;
 	default:break;
 	}
 }

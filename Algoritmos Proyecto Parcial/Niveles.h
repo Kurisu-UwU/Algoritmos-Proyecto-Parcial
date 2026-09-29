@@ -4,7 +4,7 @@
 void Nivel1() {
 	DibujarMilesMoralesGrandeTitulo(10, 10);
 	for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
-	for (int i = 0; i < 20 && booltexto; i++) { TextMiles1(i); }
+	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
 	booltexto = true;
 
 
