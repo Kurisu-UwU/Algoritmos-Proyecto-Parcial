@@ -57,6 +57,48 @@ void TextMiguelIntro(int n) {
 	default:break;
 	}
 }
+void TextMiguel1(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("Finalmente te encontre      ", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("The Spot", 5, false);
+		EscribirTextoAnimado("      ", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miguel O´hara", 2, true);
+		EscribirTextoAnimado("...     adios", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Vas a dejarnos justo ahora?!... EN UN MOMENTO COMO ESTE?           ", PosDerDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...     ", PosDerDIALOGO, 4, 50);
+		break;
+	case 6:
+		CuadroDeTexto("Miguel O´hara", 2, true);
+		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", PosIzDIALOGO, 4, 50);
+		break;
+	case 7:
+		CuadroDeTexto("Miguel O´hara", 2, true);
+		EscribirTextoAnimado("Vas a tener que encontrar cofres y recolectar tornillos...      ", PosIzDIALOGO, 4, 50);
+		break;
+	case 8:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Tornillos?... bueno.. mas te vale que sea importante...    ", PosDerDIALOGO, 4, 50);
+		break;
+	case 9:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Bueno... sabes donde encontrarme     ", PosDerDIALOGO, 4, 50);
+		break;
+	case 10: AnimacionBorrar(); break;
+	default:break;
+	}
+}
 //
 //
 //
