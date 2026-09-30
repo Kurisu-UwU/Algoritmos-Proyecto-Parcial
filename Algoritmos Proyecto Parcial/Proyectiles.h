@@ -6,7 +6,7 @@ protected:
 	bool uwu = true;
 public:
 	Proyectiles();
-	~Proyectiles();
+	virtual ~Proyectiles();
 	void Mover();
 	void Borrar();
 	void Dibujar();

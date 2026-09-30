@@ -7,13 +7,13 @@ private:
 	bool vivo;
 public:
 	Carros();
-	~Carros();
+	~Carros() override;
 	void Mover();
 
 	void SetVivo(bool viv) { vivo = viv; }
 	void SetTipo(short tip) { tipo = tip; }
 
-	void Dibujar();
+	void Dibujar(short);
 	void Borrar();
 
 	bool PresionarCarros(int);
@@ -23,7 +23,7 @@ public:
 };
 Carros::Carros() : Proyectiles() { x = 10; y = 10; vivo = false; tipo = 0; }
 Carros::~Carros() {}
-void Carros::Dibujar() {
+void Carros::Dibujar(short n) {
 	if (tipo == 0) { BColorAzul(); }
 	else { BColorRojo(); }
 	Posicion(x, y); cout << "    ";
