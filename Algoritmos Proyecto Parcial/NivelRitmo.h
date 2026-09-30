@@ -2,6 +2,29 @@
 #include "NivelesClase.h"
 #include "TextoAnimadoDialogosETC.h"
 
+void NivelPersecucion(Niveles* nivelpersecucion){
+		DibujarPanelDeControl();
+		nivelpersecucion->TamboresMovimiento(25);
+		_sleep(1);
+		switch (tiempo) {
+		case 20: nivelpersecucion->RevivirTambor(0, 1); break;
+		case 40: nivelpersecucion->RevivirTambor(0, 1); break;
+		case 60: nivelpersecucion->RevivirTambor(1, 1); break;
+		case 90: nivelpersecucion->RevivirTambor(1, 1); break;
+		case 100: nivelpersecucion->RevivirTambor(0, 0); break;
+		case 120: nivelpersecucion->RevivirTambor(0, 0); break;
+		case 140: nivelpersecucion->RevivirTambor(1, 0); break;
+		case 170: nivelpersecucion->RevivirTambor(1, 0); break;
+		case 180: nivelpersecucion->RevivirTambor(0, 1); break;
+		case 380: break;
+		default: break;
+		}
+		tiempo++;
+		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+		Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << " ";
+		Posicion(60, 10); ColorRojo(); cout << "Vida: " << " ";
+		DibujarZX(26, 43);
+}
 
 void NivelesRitmo1(Niveles* nivel3, int n) {
 	switch (n) {
@@ -15,7 +38,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		int puntaje = 0;
 		short pos = 1;
 		int vida = 20;
-		DibujarZX(26,43);
+		DibujarZX(26, 43);
 		do {
 			DibujarPanelDeControl();
 			switch (pos) {
@@ -28,19 +51,19 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			_sleep(1);
 			if (_kbhit()) {
 				DibujarZX(26, 43);
-				BorrarPunk(26,16);
+				BorrarPunk(26, 16);
 				BorrarPunk(26, 23);
 				BorrarPunk(26, 30);
 				tecla = _getch();
-				if (tecla == 'z' || tecla == 'Z')AnimacionZX(26, 43,0);
+				if (tecla == 'z' || tecla == 'Z')AnimacionZX(26, 43, 0);
 				if (tecla == 'x' || tecla == 'X')AnimacionZX(26, 43, 1);
 				switch (nivel3->PresionarTambores(25, pos)) {
 				case 0: break;
 				case 1: puntaje += 2;  break;
 				case 2: puntaje++; vida--;  break;
 				}
-				if ((tecla == 's' || tecla == 'S')&& pos < 2) { pos++; }
-				if ((tecla == 'w' || tecla == 'W')&& pos > 0) { pos--; }
+				if ((tecla == 's' || tecla == 'S') && pos < 2) { pos++; }
+				if ((tecla == 'w' || tecla == 'W') && pos > 0) { pos--; }
 			}
 			switch (tiempo) {
 			case 20: nivel3->RevivirTambor(0, 1); break;
@@ -60,7 +83,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << puntaje << " ";
 			Posicion(60, 10); ColorRojo(); cout << "Vida: " << vida << " ";
 			DibujarZX(26, 43);
-		} while (booleanoGeneralParaNiveles2 && vida>1);
+		} while (booleanoGeneralParaNiveles2 && vida > 1);
 		AnimacionBorrar();
 		DibujarPanelDeControl();
 		DibujarEdificio(1, 7);//Dibuja obstaculo

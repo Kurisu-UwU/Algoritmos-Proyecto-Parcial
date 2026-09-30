@@ -4,7 +4,7 @@
 void Nivel1() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
-	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Miles Morales", 1, 1, 3);
+	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
 	do {
 		booleanoGeneralParaNiveles = true;
 		booleanoGeneralParaNiveles3 = true;
@@ -15,39 +15,27 @@ void Nivel1() {
 			DibujarMilesMoralesGrandeTitulo(10, 10);
 			for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
 			for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
-			AnimacionBorrar();
 			booltexto = true;
 
 			DibujarMiles(100, 22);
 			DibujarMiguel(100, 26);
-
-			miles->SetPX(30); miles->SetPY(30);
+			AnimacionBorrar();
+			miles->SetPX(100); miles->SetPY(22);
 			Niveles* nivelpersecucion = new Niveles();
+			nivelpersecucion->GenerarTambores(12);
+			nivelpersecucion->AtributosTambores(12);
 
 			nivelpersecucion->GenerarObstaculo(2);
-			nivelpersecucion->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-			nivelpersecucion->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-
+			nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
+			nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
 			tecla = teclageneralbasura;
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
-				nivelpersecucion->DibujarCofre();
 				nivelpersecucion->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivelpersecucion, nivelpersecucion->PisandoItem(miles));
-				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						uwu = 2;
-					}
-				}
-				else { booleanoGeneralParaNiveles3 = true; }
+				NivelPersecucion(nivelpersecucion);
 				_sleep(1);
-				tecla = 'j';
+				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
