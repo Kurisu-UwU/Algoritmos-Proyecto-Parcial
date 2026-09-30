@@ -21,18 +21,22 @@ void Nivel1() {
 			DibujarMiguel(100, 26);
 			AnimacionBorrar();
 			miles->SetPX(100); miles->SetPY(22);
-			Niveles* nivelpersecucion = new Niveles();
+			Persecucion* nivelpersecucion = new Persecucion();
 			nivelpersecucion->GenerarTambores(12);
 			nivelpersecucion->AtributosTambores(12);
 
 			nivelpersecucion->GenerarObstaculo(2);
 			nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
 			nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
+
+			nivelpersecucion->GenerarCarros(12);
+			nivelpersecucion->AtributosCarros();
 			tecla = teclageneralbasura;
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
 				nivelpersecucion->GenerarMovimientoJugador(miles);
+				miles->SetVida(nivelpersecucion->CarrosMovimiento(miles));
 				NivelPersecucion(nivelpersecucion);
 				_sleep(1);
 				tecla = teclageneralbasura;

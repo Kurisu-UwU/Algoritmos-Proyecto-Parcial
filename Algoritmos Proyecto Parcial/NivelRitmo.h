@@ -1,21 +1,24 @@
 #pragma once
-#include "NivelesClase.h"
+#include "NivelPersecucionClase.h"
 #include "TextoAnimadoDialogosETC.h"
 
-void NivelPersecucion(Niveles* nivelpersecucion){
+void NivelPersecucion(Persecucion* nivelpersecucion){
 		DibujarPanelDeControl();
-		nivelpersecucion->TamboresMovimiento(25);
 		_sleep(1);
+		Random dado;
+		Random dado2;
+		int r = dado.Next(1, 4);
+		int f = dado2.Next(1, 4);
 		switch (tiempo) {
-		case 20: nivelpersecucion->RevivirTambor(0, 1); break;
-		case 40: nivelpersecucion->RevivirTambor(0, 1); break;
-		case 60: nivelpersecucion->RevivirTambor(1, 1); break;
-		case 90: nivelpersecucion->RevivirTambor(1, 1); break;
-		case 100: nivelpersecucion->RevivirTambor(0, 0); break;
-		case 120: nivelpersecucion->RevivirTambor(0, 0); break;
-		case 140: nivelpersecucion->RevivirTambor(1, 0); break;
-		case 170: nivelpersecucion->RevivirTambor(1, 0); break;
-		case 180: nivelpersecucion->RevivirTambor(0, 1); break;
+		case 20: nivelpersecucion->RevivirCarro(r, f); break;
+		case 40: nivelpersecucion->RevivirCarro(r, f); break;
+		case 60: nivelpersecucion->RevivirCarro(r, f); break;
+		case 90: nivelpersecucion->RevivirCarro(r, f); break;
+		case 100: nivelpersecucion->RevivirCarro(r, f); break;
+		case 120: nivelpersecucion->RevivirCarro(r, f); break;
+		case 140: nivelpersecucion->RevivirCarro(r, f); break;
+		case 170: nivelpersecucion->RevivirCarro(r, f); break;
+		case 180: nivelpersecucion->RevivirCarro(r, f); break;
 		case 380: break;
 		default: break;
 		}
@@ -23,7 +26,6 @@ void NivelPersecucion(Niveles* nivelpersecucion){
 		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
 		Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << " ";
 		Posicion(60, 10); ColorRojo(); cout << "Vida: " << " ";
-		DibujarZX(26, 43);
 }
 
 void NivelesRitmo1(Niveles* nivel3, int n) {

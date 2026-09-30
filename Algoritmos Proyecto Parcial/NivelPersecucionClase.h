@@ -10,10 +10,10 @@ public:
 
 	void GenerarCarros(int);
 	void RevivirCarro(short, short);
-	void CarrosMovimiento(int);
-	void AtributosCarros(int);
+	int CarrosMovimiento(Protagonista*);
+	void AtributosCarros();
 };
-Persecucion::Persecucion() {
+Persecucion::Persecucion():Niveles() {
 	//canEne = 0;
 	//listaEne = nullptr;
 	canPro = 0;
@@ -34,16 +34,20 @@ void Persecucion::GenerarCarros(int cantidad) {
 	for (int i = 0; i < cantidad; i++)
 		listaCarro[i] = new Carros();
 }
-void Persecucion::CarrosMovimiento(int psocicionparatocar) {
-	for (int i = 0; i < canTamb; i++) {
-		if (listaTamb[i]->GetVivo() == true) {
-			if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Borrar(); }
-			if (listaTamb[i]->GetX() > psocicionparatocar - 11) { listaTamb[i]->SetX(listaTamb[i]->GetX() - 1); }
-			if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Dibujar(); }
-			if (listaTamb[i]->GetX() < psocicionparatocar - 10 && listaTamb[i]->GetVivo()) {
-				listaTamb[i]->SetVivo(false);
-				listaTamb[i]->Borrar();
+int Persecucion::CarrosMovimiento(Protagonista* prota) {
+	for (int i = 0; i < canCarro; i++) {
+		if (listaCarro[i]->GetVivo() == true) {
+			if (listaCarro[i]->GetVivo() == true) { listaTamb[i]->Borrar(); }
+			if (listaCarro[i]->GetX() > 2) { listaTamb[i]->SetX(listaTamb[i]->GetX() - 1); }
+			if (listaCarro[i]->GetVivo() == true) { listaTamb[i]->Dibujar(); }
+			if (listaCarro[i]->GetX() < 3 && listaTamb[i]->GetVivo()) {
+				listaCarro[i]->SetVivo(false);
+				listaCarro[i]->Borrar();
 			}
+			if (CalcularColisiones(prota->GetPX(), prota->GetPY(), listaCarro[i]->GetX(), listaCarro[i]->GetY(), prota->GetAlto(), prota->GetAncho(), listaCarro[i]->GetAlto(), listaCarro[i]->GetAncho())) {
+				return 1;
+			}
+			else { return 0; }
 		}
 	}
 }	
@@ -68,4 +72,15 @@ void Persecucion::RevivirCarro(short tipo, short nivel) {
 		}
 		if (i < canTamb) { i++; }
 	} while (n);
+}
+void Persecucion::AtributosCarros() {  // asignación de atributos a los obstáculos
+	for (int i = 0; i < canCarro; i++) {
+		listaCarro[i]->SetX(1);
+		listaCarro[i]->SetY(25);
+		listaCarro[i]->SetTipo(0);
+		listaCarro[i]->SetVivo(false);
+		listaCarro[i]->SetAncho(1);
+		listaCarro[i]->SetAlto(1);
+		listaCarro[i]->SetDamage(1);
+	}
 }
