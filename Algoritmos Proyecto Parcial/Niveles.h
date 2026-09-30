@@ -71,14 +71,30 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miguel = new Protagonista(50, 10,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
+	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();
-	nivel2->GenerarObstaculo(4);
+	nivel2->GenerarObstaculo(5);
 	DibujarEdificio(1, 7);
-	nivel2->AtributosObstaculo(0, 1, 7, 0, 25, 16);
-	nivel2->AtributosObstaculo(1, 20, 20, 0, 5, 5);
-	nivel2->AtributosObstaculo(2, 30, 30, 0, 5, 5);
-	nivel2->AtributosObstaculo(3, 30, 40, 0, 5, 5);
+	DibujarEdificio(26, 7);
+	DibujarEdificio(81, 7);
+	DibujarEdificio(106, 7);
+	DibujarEdificio(161, 7);
+	DibujarEdificio(186, 7);
+
+	DibujarEdificio(6, 32);
+	DibujarEdificio(31, 32);
+	DibujarEdificio(56, 32);
+	DibujarEdificio(81, 32);
+	DibujarEdificio(106, 32);
+	DibujarEdificio(131, 32);
+	DibujarEdificio(156, 32);
+	DibujarEdificio(181, 32);
+
+	nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
+	nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
+	nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
+	nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
+	nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
@@ -89,15 +105,11 @@ void Nivel2() {
 		_sleep(1);
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
-	// Inicialización de protagonista
 	delete Miguel;
 }
-//
-//
-//
-//
-//
-//
+
+
+
 void Nivel3() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
