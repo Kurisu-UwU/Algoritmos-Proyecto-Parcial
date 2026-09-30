@@ -4,6 +4,8 @@ class Niveles {
 protected:
 	//Enemigos** listaEne;
 		//int canEne;
+	Carros** listaCarro;
+	int canCarro;
 	Tambores** listaTamb;
 	int canTamb;
 	Proyectiles** listaPro;
@@ -35,7 +37,11 @@ public:
 	void GenerarTambores(int);
 	void RevivirTambor(short, short);
 	void AtributosTambores(int);
+	void GenerarCarros(int);
+	void RevivirCarro(short, short);
+	void CarrosMovimiento(int);
 	void GenerarCofres(int);
+	void AtributosCarros(int);
 	void AtributosCofres(int, int, int, int, int, int);
 	void DibujarCofre();
 	int PisandoItem(Protagonista*);
@@ -231,6 +237,58 @@ Niveles::Niveles() {
 		} while (n);
 	}
 	void Niveles::AtributosTambores(int x) {  // asignación de atributos a los obstáculos
+		for (int i = 0; i < x; i++) {
+			listaTamb[i]->SetX(1);
+			listaTamb[i]->SetY(25);
+			listaTamb[i]->SetTipo(0);
+			listaTamb[i]->SetVivo(false);
+		}
+	}
+
+
+
+	void Niveles::GenerarCarros(int cantidad) {
+		canTamb = cantidad;
+		listaTamb = new Tambores * [cantidad];
+		for (int i = 0; i < cantidad; i++)
+			listaTamb[i] = new Tambores();
+	}
+	void Niveles::CarrosMovimiento(int psocicionparatocar) {
+		for (int i = 0; i < canTamb; i++) {
+			if (listaTamb[i]->GetVivo() == true) {
+				if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Borrar(); }
+				if (listaTamb[i]->GetX() > psocicionparatocar - 11) { listaTamb[i]->SetX(listaTamb[i]->GetX() - 1); }
+				if (listaTamb[i]->GetVivo() == true) { listaTamb[i]->Dibujar(); }
+				if (listaTamb[i]->GetX() < psocicionparatocar - 10 && listaTamb[i]->GetVivo()) {
+					listaTamb[i]->SetVivo(false);
+					listaTamb[i]->Borrar();
+				}
+			}
+		}
+	}
+	void Niveles::RevivirCarro(short tipo, short nivel) {
+		bool n = true;
+		int i = 0;
+		int y;
+		switch (nivel) {
+		case 0: y = 18; break;
+		case 1: y = 25; break;
+		case 2: y = 32; break;
+		default: break;
+		}
+		do {
+			if (listaTamb[i]->GetVivo() == false) {
+				listaTamb[i]->SetX(180);
+				listaTamb[i]->SetY(y);
+				listaTamb[i]->SetTipo(tipo);
+				listaTamb[i]->SetVivo(true);
+				n = false;  // github copilot
+				listaTamb[i]->Dibujar();
+			}
+			if (i < canTamb) { i++; }
+		} while (n);
+	}
+	void Niveles::AtributosCarros(int x) {  // asignación de atributos a los obstáculos
 		for (int i = 0; i < x; i++) {
 			listaTamb[i]->SetX(1);
 			listaTamb[i]->SetY(25);
