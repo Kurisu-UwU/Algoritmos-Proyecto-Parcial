@@ -151,6 +151,25 @@ void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 	case 5: Posicion(x, y); cout << "Z"; break;
 	}
 }
+void ImprimirA(int x, int y) {
+	ColorAzul();
+	if (tecla == 'a' || tecla == 'A') {ColorAmarillo();}
+	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y + 1); cout << "||A ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void ImprimirD(int x, int y) {
+	ColorAzul();
+	if (tecla == 'd' || tecla == 'D') { ColorAmarillo(); }
+	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y + 1); cout << "||D ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void ImprimirFlechas(int x, int y) {
+	Posicion(x, y); ColorVerde(); cout << "<------------------------->";
+}
 void DibujarZX(int x, int y) {  //visual WASD AMARILLO
 	ColorAzul();
 	Posicion(x, y);     cout << " ____ ";

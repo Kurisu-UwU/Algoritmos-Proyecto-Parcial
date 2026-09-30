@@ -8,8 +8,8 @@ void IniciarSeleccionPersonajes() {
     opMenu = 1;
     bool opciniciarnivel = true;
     bool opciniciarnivel2 = true;
+    ImprimirA(83, 40); ImprimirFlechas(92, 42); ImprimirD(122, 40);
     do {
-		char tecla = ' ';
         do {
             DibujarPersonajesLetras(67, 1);
             DibujarOpcionMiles(10, 10);
@@ -19,6 +19,7 @@ void IniciarSeleccionPersonajes() {
             DibujarZ(195, 40); Posicion(166, 42); cout << "Presione Z para seleccionar";
             if (kbhit()) {
                 tecla = getch();
+                ImprimirA(83, 40); ImprimirD(122, 40);
                 if (tecla == 'a' || tecla == 'A') { opMenu--; if (opMenu < 1) opMenu = 3; }
                 if (tecla == 'd' || tecla == 'D') { opMenu++; if (opMenu > 3) opMenu = 1; }
                 if (tecla == 'z' || tecla == 'Z') {
@@ -26,6 +27,7 @@ void IniciarSeleccionPersonajes() {
                     opFinal = opMenu;  // saber que opción eligió
                     opciniciarnivel = false;
                 }
+                if (tecla == 'x' || tecla == 'X') { opciniciarnivel = false; opFinal = 0; }
             }
             _sleep(10);
         } while (opciniciarnivel);

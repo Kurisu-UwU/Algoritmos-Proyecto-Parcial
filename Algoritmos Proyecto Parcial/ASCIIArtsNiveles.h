@@ -16,10 +16,18 @@ void BorrarMiles(int x, int y) {
 	Posicion(x + 2, y+4); cout << "  ";
 }
 void DibujarMiguel(int x, int y) {
-	Posicion(x + 2, y); y++; cout << "__";
-	Posicion(x, y); y++;     cout << "(><)";
-	Posicion(x, y); y++;     cout << "[=||=]";
-	Posicion(x + 1, y); y++; cout << "¨ uu ¨";
+	Posicion(x + 2, y); ColorAzulOscuro(); cout << "__";
+	Posicion(x + 1, y + 1); cout << "("; ColorRojo(); cout << "><"; ColorAzulOscuro(); cout << ")";
+	Posicion(x, y + 2); cout << "["; ColorRojo(); cout << "=||="; ColorAzulOscuro(); cout << "]";
+	Posicion(x, y + 3); ColorRojo(); cout << '"'; Posicion(x + 2, y + 3); ColorAzulOscuro(); cout << "II"; ColorRojo(); Posicion(x + 5, y + 3); cout << '"';
+	Posicion(x + 2, y + 4); cout << "UU";
+}
+void BorrarMiguel(int x, int y) {
+	Posicion(x + 2, y); cout << "  ";
+	Posicion(x + 1, y + 1);     cout << "    ";
+	Posicion(x, y + 1);     cout << "      ";
+	Posicion(x, y + 1);     cout << "      ";
+	Posicion(x + 2, y + 1); cout << "  ";
 }
 void DibujarPunk(int x, int y) {
 	Posicion(x + 2, y);ColorBlanco();     cout << "/\\";
@@ -320,8 +328,8 @@ void DibujarOpcionMiles(int x, int y) {
 	Posicion(x, y);      cout << "=========================================";
 	Posicion(x, y + 1);  cout << "|                                       |";
 	Posicion(x, y + 2);  cout << "|                                       |";
-	Posicion(x, y + 3);  cout << "| |V| o  |  _  _   |V| _  __ _  |  _  _ |";
-	Posicion(x, y + 4);  cout << "| | | |  | (/__>   | |(_) | (_| | (/__> |";
+	Posicion(x, y + 3);  cout << "|  |V| o |  _  _   |V| _  __ _ |  _  _  |";
+	Posicion(x, y + 4);  cout << "|  | | | | (/__>   | |(_) | (_|| (/__>  |";
 	Posicion(x, y + 5);  cout << "|";   Posicion(x + 40, y + 5); cout << "|";
 	Posicion(x, y + 6);  cout << "|";   Posicion(x + 40, y + 6); cout << "|";
 	Posicion(x, y + 7);  cout << "|";   Posicion(x + 40, y + 7); cout << "|";
@@ -350,7 +358,7 @@ void DibujarOpcionMiguel(int x, int y) {
 	if (opMenu == 2) ColorAmarillo(); else ColorVerde();
 	Posicion(x, y);      cout << "=========================================";
 	Posicion(x, y + 1);  cout << "|                                       |";
-	Posicion(x, y + 2);  cout << "|       _              _  /             |";
+	Posicion(x, y + 2);  cout << "|        _             _  /             |";
 	Posicion(x, y + 3);  cout << "| |V| o (_|    _  |   / \\  |_  _  __ _  |";
 	Posicion(x, y + 4);  cout << "| | | | __||_|(/_ |   \\_/  | |(_| | (_| |";
 	Posicion(x, y + 5);  cout << "|";   Posicion(x + 40, y + 5); cout << "|";

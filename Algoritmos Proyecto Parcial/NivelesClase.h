@@ -1,7 +1,7 @@
 #pragma once
 #include "clases.h"
 class Niveles {
-private:
+protected:
 	//Enemigos** listaEne;
 		//int canEne;
 	Tambores** listaTamb;

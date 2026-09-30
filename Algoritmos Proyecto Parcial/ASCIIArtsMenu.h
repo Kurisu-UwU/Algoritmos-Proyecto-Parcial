@@ -36,7 +36,6 @@ void DibujarMenu() {
     Posicion(equiz - equiz2, 36); cout << "          .__/ /~~\\ |___ | |  \\          ";
     ColorBlanco();
 }
-
 void Dibujartitulo() {
     string mensaje = "holaaaaa";
     ColorMorado();

@@ -2,14 +2,58 @@
 #include "NivelRitmo.h"
 
 void Nivel1() {
-	DibujarMilesMoralesGrandeTitulo(10, 10);
-	for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
-	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
-	booltexto = true;
+	int uwu = 1;
+	booleanoGeneralParaNiveles4 = true;
+	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Miles Morales", 1, 1, 3);
+	do {
+		booleanoGeneralParaNiveles = true;
+		booleanoGeneralParaNiveles3 = true;
+		booleanoGeneralParaNiveles5 = true;
+		booleanoGeneralParaNiveles6 = true;
+		switch (uwu) {
+		case 1: {
+			DibujarMilesMoralesGrandeTitulo(10, 10);
+			for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
+			for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
+			AnimacionBorrar();
+			booltexto = true;
 
+			DibujarMiles(100, 22);
+			DibujarMiguel(100, 26);
 
+			miles->SetPX(30); miles->SetPY(30);
+			Niveles* nivelpersecucion = new Niveles();
 
-	tecla = teclageneralbasura;
+			nivelpersecucion->GenerarObstaculo(2);
+			nivelpersecucion->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivelpersecucion->AtributosObstaculo(1, 137, 32, 0, 75, 16);
+
+			tecla = teclageneralbasura;
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				nivelpersecucion->DibujarCofre();
+				nivelpersecucion->GenerarMovimientoJugador(miles);
+				if (booleanoGeneralParaNiveles3) {
+					NivelesRitmo1(nivelpersecucion, nivelpersecucion->PisandoItem(miles));
+				}
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						uwu = 2;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = 'j';
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		default: break;
+		}
+	} while (booleanoGeneralParaNiveles4);
 }
 //
 //
@@ -103,7 +147,7 @@ void Nivel3() {
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
-				tecla = 'j';
+				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
@@ -153,7 +197,7 @@ void Nivel3() {
 					}
 				}
 				_sleep(1);
-				tecla = 'j';
+				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
 			break;
 		} 
@@ -205,7 +249,7 @@ void Nivel3() {
 					}
 				}
 				_sleep(1);
-				tecla = 'j';
+				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
@@ -244,7 +288,7 @@ void Nivel3() {
 
 			int contador = 0;
 
-			tecla = 'j';
+			tecla = teclageneralbasura;
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 
