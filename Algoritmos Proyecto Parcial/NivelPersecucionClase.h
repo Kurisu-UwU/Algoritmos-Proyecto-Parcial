@@ -37,10 +37,10 @@ void Persecucion::GenerarCarros(int cantidad) {
 int Persecucion::CarrosMovimiento(Protagonista* prota) {
 	for (int i = 0; i < canCarro; i++) {
 		if (listaCarro[i]->GetVivo() == true) {
-			if (listaCarro[i]->GetVivo() == true) { listaTamb[i]->Borrar(); }
-			if (listaCarro[i]->GetX() > 2) { listaTamb[i]->SetX(listaTamb[i]->GetX() - 1); }
-			if (listaCarro[i]->GetVivo() == true) { listaTamb[i]->Dibujar(); }
-			if (listaCarro[i]->GetX() < 3 && listaTamb[i]->GetVivo()) {
+			if (listaCarro[i]->GetVivo() == true) { listaCarro[i]->Borrar(); }
+			if (listaCarro[i]->GetX() > 2) { listaCarro[i]->SetX(listaCarro[i]->GetX() - 1); }
+			if (listaCarro[i]->GetVivo() == true) { listaCarro[i]->Dibujar(); }
+			if (listaCarro[i]->GetX() < 3 && listaCarro[i]->GetVivo()) {
 				listaCarro[i]->SetVivo(false);
 				listaCarro[i]->Borrar();
 			}
@@ -68,14 +68,14 @@ void Persecucion::RevivirCarro(short tipo, short nivel) {
 			listaCarro[i]->SetTipo(tipo);
 			listaCarro[i]->SetVivo(true);
 			n = false;  // github copilot
-			listaCarro[i]->Dibujar(tipo);
+			listaCarro[i]->Dibujar();
 		}
 		if (i < canTamb) { i++; }
 	} while (n);
 }
 void Persecucion::AtributosCarros() {  // asignación de atributos a los obstáculos
 	for (int i = 0; i < canCarro; i++) {
-		listaCarro[i]->SetX(1);
+		listaCarro[i]->SetX(2);
 		listaCarro[i]->SetY(25);
 		listaCarro[i]->SetTipo(0);
 		listaCarro[i]->SetVivo(false);

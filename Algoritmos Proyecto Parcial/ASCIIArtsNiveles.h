@@ -320,6 +320,43 @@ void borrarmargokees(int x, int y) {
 	Posicion(x, y + 4); cout << "           ";
 	Posicion(x, y + 5); cout << "           ";
 }
+void DibujarCamion(int x, int y) {
+	Posicion(x, y);     cout << "     _______________";
+	Posicion(x, y + 1); cout << "     |   |         |";
+	Posicion(x, y + 2); cout << " ____|---|         |";
+	Posicion(x, y + 3); cout << "(|       o         |";
+	Posicion(x, y + 4); cout << " l--(o)------(o)---J";
+}
+void BorrarCamion(int x, int y) {
+	Posicion(x, y);     cout << "                    ";
+	Posicion(x, y + 1); cout << "                    ";
+	Posicion(x, y + 2); cout << "                    ";
+	Posicion(x, y + 3); cout << "                    ";
+	Posicion(x, y + 4); cout << "                    ";
+}
+void DibujarCarro(int x, int y) {
+	Posicion(x, y);     cout << "      __________";
+	Posicion(x, y + 1); cout << " _____|---|----|___";
+	Posicion(x, y + 2); cout << "(|       o    o    |";
+	Posicion(x, y + 3); cout << " l--(o)------(o)---J";
+}
+void BorrarCarro(int x, int y) {
+	Posicion(x, y);     cout << "                ";
+	Posicion(x, y + 1); cout << "                   ";
+	Posicion(x, y + 2); cout << "                    ";
+	Posicion(x, y + 3); cout << "                    ";
+}
+void DibujarBici(int x, int y) {
+	Posicion(x, y);     cout << " o   O   _";
+	Posicion(x, y + 1); cout << "  \\__|_/";
+	Posicion(x, y + 2); cout << "(o)    (o)";
+}
+void BorrarBici(int x, int y) {
+	Posicion(x, y);     cout << "          ";
+	Posicion(x, y + 1); cout << "        ";
+	Posicion(x, y + 2); cout << "          ";
+}
+
 void DibujarOpcionMiles(int x, int y) {
 	if (opMenu == 1) ColorAmarillo(); else ColorVerde();
 //                                           

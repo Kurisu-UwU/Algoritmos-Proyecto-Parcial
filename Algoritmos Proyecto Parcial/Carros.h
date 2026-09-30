@@ -17,7 +17,7 @@ public:
 	void SetAlto(int alt) { alto = alt; }
 	void SetDamage(int dam) { damage = dam; }
 
-	void Dibujar(short);
+	void Dibujar();
 	void Borrar();
 
 	bool PresionarCarros(int);
@@ -31,12 +31,13 @@ public:
 };
 Carros::Carros() : Proyectiles() { x = 10; y = 10; vivo = false; tipo = 0; }
 Carros::~Carros() {}
-void Carros::Dibujar(short n) {
-	if (tipo == 0) { BColorAzul(); }
-	else { BColorRojo(); }
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
-	BColorNegro();
+void Carros::Dibujar() {
+	switch (tipo) {
+	case 1: Posicion(x, y); cout << "================================"; break;
+	case 2: Posicion(x, y); cout << "================================"; break;
+	case 3: Posicion(x, y); cout << "================================"; break;
+	default: break;
+}
 }
 void Carros::Borrar() {
 	Posicion(x, y); cout << "    ";

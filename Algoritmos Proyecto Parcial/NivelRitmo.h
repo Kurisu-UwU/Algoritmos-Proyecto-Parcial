@@ -8,7 +8,7 @@ void NivelPersecucion(Persecucion* nivelpersecucion){
 		Random dado;
 		Random dado2;
 		int r = dado.Next(1, 4);
-		int f = dado2.Next(1, 4);
+		int f = dado2.Next(1, 3);
 		switch (tiempo) {
 		case 20: nivelpersecucion->RevivirCarro(r, f); break;
 		case 40: nivelpersecucion->RevivirCarro(r, f); break;
