@@ -8,7 +8,7 @@ private:
 	int ancho, alto, damage;
 public:
 	Carros();
-	~Carros() override;
+	~Carros();
 	void Mover();
 
 	void SetVivo(bool viv) { vivo = viv; }
@@ -33,13 +33,17 @@ Carros::Carros() : Proyectiles() { x = 10; y = 10; vivo = false; tipo = 0; }
 Carros::~Carros() {}
 void Carros::Dibujar() {
 	switch (tipo) {
-	case 1: Posicion(x, y); cout << "================================"; break;
-	case 2: Posicion(x, y); cout << "================================"; break;
-	case 3: Posicion(x, y); cout << "================================"; break;
+	case 0: DibujarBici(x, y); break;
+	case 1: DibujarCarro(x, y); break;
+	case 2: DibujarCamion(x, y); break;
 	default: break;
-}
+	}
 }
 void Carros::Borrar() {
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
+	switch (tipo) {
+	case 0: BorrarBici(x, y); break;
+	case 1: BorrarCarro(x, y); break;
+	case 2: BorrarCamion(x, y); break;
+	default: break;
+	}
 }

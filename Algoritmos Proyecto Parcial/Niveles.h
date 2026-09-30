@@ -22,8 +22,6 @@ void Nivel1() {
 			AnimacionBorrar();
 			miles->SetPX(100); miles->SetPY(22);
 			Persecucion* nivelpersecucion = new Persecucion();
-			nivelpersecucion->GenerarTambores(12);
-			nivelpersecucion->AtributosTambores(12);
 
 			nivelpersecucion->GenerarObstaculo(2);
 			nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
@@ -37,7 +35,31 @@ void Nivel1() {
 				DibujarPanelDeControl();
 				nivelpersecucion->GenerarMovimientoJugador(miles);
 				miles->SetVida(nivelpersecucion->CarrosMovimiento(miles));
-				NivelPersecucion(nivelpersecucion);
+				//NivelPersecucion(nivelpersecucion);
+				_sleep(1);
+				Random dado;
+				Random dado2;
+				int r = dado.Next(0, 3);
+				int f = dado2.Next(0, 3);
+				r = 1;
+					f = 1;
+				switch (tiempo) {
+				case 20: nivelpersecucion->RevivirCarro(r, f); break;
+				case 40: nivelpersecucion->RevivirCarro(1, 1); break;
+				case 60: nivelpersecucion->RevivirCarro(r, f); break;
+				case 90: nivelpersecucion->RevivirCarro(r, f); break;
+				case 100: nivelpersecucion->RevivirCarro(r, f); break;
+				case 120: nivelpersecucion->RevivirCarro(r, f); break;
+				case 140: nivelpersecucion->RevivirCarro(r, f); break;
+				case 170: nivelpersecucion->RevivirCarro(r, f); break;
+				case 180: nivelpersecucion->RevivirCarro(r, f); break;
+				case 380: break;
+				default: break;
+				}
+				tiempo++;
+				Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+				Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << " ";
+				Posicion(60, 10); ColorRojo(); cout << "Vida: " << " ";
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);

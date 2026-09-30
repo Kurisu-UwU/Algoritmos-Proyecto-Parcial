@@ -27,7 +27,6 @@ Persecucion::~Persecucion() {  // eliminador
 	//if (listaMejora != nullptr) delete[]listaMejora;
 	if (listaObs != nullptr) delete[]listaObs;
 }
-
 void Persecucion::GenerarCarros(int cantidad) {
 	canCarro = cantidad;
 	listaCarro = new Carros * [cantidad];
@@ -77,7 +76,7 @@ void Persecucion::AtributosCarros() {  // asignación de atributos a los obstácul
 	for (int i = 0; i < canCarro; i++) {
 		listaCarro[i]->SetX(2);
 		listaCarro[i]->SetY(25);
-		listaCarro[i]->SetTipo(0);
+		listaCarro[i]->SetTipo(1);
 		listaCarro[i]->SetVivo(false);
 		listaCarro[i]->SetAncho(1);
 		listaCarro[i]->SetAlto(1);
