@@ -71,7 +71,7 @@ void Nivel2() {
 	} while (a < 2);
 	AnimacionBorrar();
 
-	Protagonista* Miles = new Protagonista(50, 10,4,4, 100, 2, 1, 10, 100, 1, "Miles Morales", 1, 1, 3);
+	Protagonista* Miguel = new Protagonista(50, 10,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();
 	nivel2->GenerarObstaculo(4);
 	DibujarEdificio(1, 7);
@@ -82,7 +82,7 @@ void Nivel2() {
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
-		nivel2->GenerarMovimientoJugador(Miles);
+		nivel2->GenerarMovimientoJugador(Miguel);
 		if (tecla == 'q' || tecla == 'Q') {
 			Posicion(0, 30); cout << "Habilidad Q activada";
 		}
@@ -90,7 +90,7 @@ void Nivel2() {
 		tecla = 'j';
 	} while (booleanoGeneralParaNiveles);
 	// Inicialización de protagonista
-	delete Miles;
+	delete Miguel;
 }
 //
 //

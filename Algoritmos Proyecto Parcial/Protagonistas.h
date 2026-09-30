@@ -68,7 +68,7 @@ void Protagonista::Dibujar() {
 void Protagonista::Borrar() {
 	switch (tipo) {
 	case 1: break;
-	case 2: break;
+	case 2: BorrarMiguel(px, py); break;
 	case 3: BorrarPunk(px, py); break;
 	default: break;
 	}
