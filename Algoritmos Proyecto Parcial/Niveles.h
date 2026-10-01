@@ -2,42 +2,83 @@
 #include "NivelRitmo.h"
 
 void Nivel1() {
-	int uwu = 1;
+	int subnivel = 1;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
-	do {
 		booleanoGeneralParaNiveles = true;
 		booleanoGeneralParaNiveles3 = true;
 		booleanoGeneralParaNiveles5 = true;
 		booleanoGeneralParaNiveles6 = true;
-		switch (uwu) {
-		case 1: {
-			DibujarMilesMoralesGrandeTitulo(10, 10);
-			for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
-			for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
-			booltexto = true;
+		DibujarMilesMoralesGrandeTitulo(10, 10);
+		for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
+		for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
+		booltexto = true;
 
-			DibujarMiles(100, 22);
-			DibujarMiguel(100, 26);
-			AnimacionBorrar();
-			miles->SetPX(100); miles->SetPY(22);
-			Persecucion* nivelpersecucion = new Persecucion();
+		DibujarMiles(100, 22);
+		DibujarMiguel(100, 26);
+		AnimacionBorrar();
+		miles->SetPX(100); miles->SetPY(22);
+		Persecucion* nivelpersecucion = new Persecucion();
 
-			nivelpersecucion->GenerarObstaculo(2);
-			nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
-			nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
+		nivelpersecucion->GenerarObstaculo(2);
+		nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
+		nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
 
-			nivelpersecucion->GenerarCarros(12);
-			nivelpersecucion->AtributosCarros();
+		nivelpersecucion->GenerarCarros(12);
+		nivelpersecucion->AtributosCarros();
+		tecla = teclageneralbasura;
+		do {  //Parte 1
+			if (_kbhit()) { tecla = getch(); }
+			DibujarPanelDeControl();
+			nivelpersecucion->GenerarMovimientoJugador(miles);
+			NivelPersecucion(nivelpersecucion);
+			nivelpersecucion->CarrosMovimiento(miles);
+			Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+			Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+			_sleep(1);
 			tecla = teclageneralbasura;
+		} while (booleanoGeneralParaNiveles);
+	booleanoGeneralParaNiveles4 = true;
+	Niveles* nivel1 = new Niveles();
+	DibujarSpiderPunkGrandeTitulo(10, 10);
+	for (int i = 0; i < 4; i++) { TextPunkIntro(i); }
+	for (int i = 0; i < 11; i++) { TextPunk1(i); }
+	do {
+		switch (subnivel) {
+		case 1: {
+
+			miles->SetPX(30); miles->SetPY(30);
+
+			nivel1->GenerarObstaculo(3);
+			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
+			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+			nivel1->GenerarCofres(1);
+			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
+			tecla = 'j';
+			DibujarEdificio(1, 7);//Dibuja obstaculo
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(187, 32);
+			DibujarEdificio(162, 32);
+			DibujarEdificio(137, 32);
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				nivelpersecucion->GenerarMovimientoJugador(miles);
-				NivelPersecucion(nivelpersecucion);
-				nivelpersecucion->CarrosMovimiento(miles);   
-				Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-				Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				nivel1->DibujarCofre();
+				nivel1->GenerarMovimientoJugador(miles);
+				if (booleanoGeneralParaNiveles3) {
+					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				}
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles	->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						subnivel = 2;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
