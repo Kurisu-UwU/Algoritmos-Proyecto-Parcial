@@ -5,20 +5,18 @@
 void NivelPersecucion(Persecucion* nivelpersecucion){
 		DibujarPanelDeControl();
 		_sleep(1);
-		Random dado;
-		Random dado2;
-		int r = dado.Next(1, 4);
-		int f = dado2.Next(1, 3);
+		int t = rand() % 3;
+		int n = rand() % 3;
 		switch (tiempo) {
-		case 20: nivelpersecucion->RevivirCarro(r, f); break;
-		case 40: nivelpersecucion->RevivirCarro(r, f); break;
-		case 60: nivelpersecucion->RevivirCarro(r, f); break;
-		case 90: nivelpersecucion->RevivirCarro(r, f); break;
-		case 100: nivelpersecucion->RevivirCarro(r, f); break;
-		case 120: nivelpersecucion->RevivirCarro(r, f); break;
-		case 140: nivelpersecucion->RevivirCarro(r, f); break;
-		case 170: nivelpersecucion->RevivirCarro(r, f); break;
-		case 180: nivelpersecucion->RevivirCarro(r, f); break;
+		case 20: nivelpersecucion->RevivirCarro(t, n); break;
+		case 60: nivelpersecucion->RevivirCarro(t, n); break;
+		case 100: nivelpersecucion->RevivirCarro(t, n); break;
+		case 140: nivelpersecucion->RevivirCarro(t, n); break;
+		case 180: nivelpersecucion->RevivirCarro(t, n); break;
+		case 220: nivelpersecucion->RevivirCarro(t, n); break;
+		case 260: nivelpersecucion->RevivirCarro(t, n); break;
+		case 300: nivelpersecucion->RevivirCarro(t, n); break;
+		case 340: nivelpersecucion->RevivirCarro(t, n); break;
 		case 380: break;
 		default: break;
 		}

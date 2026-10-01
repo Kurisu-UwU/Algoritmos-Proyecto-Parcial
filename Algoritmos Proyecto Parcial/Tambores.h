@@ -8,7 +8,6 @@ private:
 public:
 	Tambores();
 	~Tambores();
-	void Mover();
 
 	void SetX(int x1) { x = x1; }
 	void SetY(int y1) { y = y1; }

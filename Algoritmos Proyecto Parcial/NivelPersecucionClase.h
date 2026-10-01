@@ -6,11 +6,11 @@ protected:
 	int canCarro;
 public:
 	Persecucion();
-	~Persecucion() override;
+	~Persecucion();
 
 	void GenerarCarros(int);
 	void RevivirCarro(short, short);
-	int CarrosMovimiento(Protagonista*);
+	void CarrosMovimiento(Protagonista*);
 	void AtributosCarros();
 };
 Persecucion::Persecucion():Niveles() {
@@ -33,7 +33,7 @@ void Persecucion::GenerarCarros(int cantidad) {
 	for (int i = 0; i < cantidad; i++)
 		listaCarro[i] = new Carros();
 }
-int Persecucion::CarrosMovimiento(Protagonista* prota) {
+void Persecucion::CarrosMovimiento(Protagonista* prota) {
 	for (int i = 0; i < canCarro; i++) {
 		if (listaCarro[i]->GetVivo() == true) {
 			if (listaCarro[i]->GetVivo() == true) { listaCarro[i]->Borrar(); }
@@ -44,9 +44,8 @@ int Persecucion::CarrosMovimiento(Protagonista* prota) {
 				listaCarro[i]->Borrar();
 			}
 			if (CalcularColisiones(prota->GetPX(), prota->GetPY(), listaCarro[i]->GetX(), listaCarro[i]->GetY(), prota->GetAlto(), prota->GetAncho(), listaCarro[i]->GetAlto(), listaCarro[i]->GetAncho())) {
-				return 1;
+				prota->SetVida(prota->GetVida()-1);
 			}
-			else { return 0; }
 		}
 	}
 }	
@@ -55,21 +54,21 @@ void Persecucion::RevivirCarro(short tipo, short nivel) {
 	int i = 0;
 	int y;
 	switch (nivel) {
-	case 0: y = 18; break;
-	case 1: y = 25; break;
-	case 2: y = 32; break;
+	case 0: y = 19; break;
+	case 1: y = 24; break;
+	case 2: y = 28; break;
 	default: break;
 	}
 	do {
 		if (listaCarro[i]->GetVivo() == false) {
-			listaCarro[i]->SetX(180);
-			listaCarro[i]->SetY(y);
+			if (tipo == 0) { listaCarro[i]->SetY(y + 1); listaCarro[i]->SetX(200);
+			} else {listaCarro[i]->SetX(192);listaCarro[i]->SetY(y);}
 			listaCarro[i]->SetTipo(tipo);
 			listaCarro[i]->SetVivo(true);
 			n = false;  // github copilot
 			listaCarro[i]->Dibujar();
 		}
-		if (i < canTamb) { i++; }
+		if (i < canCarro) { i++; }
 	} while (n);
 }
 void Persecucion::AtributosCarros() {  // asignación de atributos a los obstáculos

@@ -9,8 +9,9 @@ private:
 public:
 	Carros();
 	~Carros();
-	void Mover();
 
+	void SetX(int x1) { x = x1; }
+	void SetY(int y1) { y = y1; }
 	void SetVivo(bool viv) { vivo = viv; }
 	void SetTipo(short tip) { tipo = tip; }
 	void SetAncho(int anc) { ancho = anc; }
@@ -20,8 +21,8 @@ public:
 	void Dibujar();
 	void Borrar();
 
-	bool PresionarCarros(int);
-
+	int GetX() { return x; }
+	int GetY() { return y; }
 	bool GetVivo() { return vivo; }
 	short GetTipo() { return tipo; }
 	int GetAncho() { return ancho; }

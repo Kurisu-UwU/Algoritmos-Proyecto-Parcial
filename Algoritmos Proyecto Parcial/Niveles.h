@@ -34,32 +34,8 @@ void Nivel1() {
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
 				nivelpersecucion->GenerarMovimientoJugador(miles);
-				miles->SetVida(nivelpersecucion->CarrosMovimiento(miles));
-				//NivelPersecucion(nivelpersecucion);
-				_sleep(1);
-				Random dado;
-				Random dado2;
-				int r = dado.Next(0, 3);
-				int f = dado2.Next(0, 3);
-				r = 1;
-					f = 1;
-				switch (tiempo) {
-				case 20: nivelpersecucion->RevivirCarro(r, f); break;
-				case 40: nivelpersecucion->RevivirCarro(1, 1); break;
-				case 60: nivelpersecucion->RevivirCarro(r, f); break;
-				case 90: nivelpersecucion->RevivirCarro(r, f); break;
-				case 100: nivelpersecucion->RevivirCarro(r, f); break;
-				case 120: nivelpersecucion->RevivirCarro(r, f); break;
-				case 140: nivelpersecucion->RevivirCarro(r, f); break;
-				case 170: nivelpersecucion->RevivirCarro(r, f); break;
-				case 180: nivelpersecucion->RevivirCarro(r, f); break;
-				case 380: break;
-				default: break;
-				}
-				tiempo++;
-				Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-				Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << " ";
-				Posicion(60, 10); ColorRojo(); cout << "Vida: " << " ";
+				NivelPersecucion(nivelpersecucion);
+				nivelpersecucion->CarrosMovimiento(miles);
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
