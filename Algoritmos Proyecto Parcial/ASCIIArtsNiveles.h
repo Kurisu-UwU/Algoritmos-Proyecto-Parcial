@@ -62,11 +62,17 @@ void DibujarEnemigo(int x, int y) {
 	Posicion(x + 1, y + 3); ColorGris(); cout << "''";
 }
 void DibujarGwen(int x, int y) {
-	Posicion(x + 2, y); y++; cout << "__";
-	Posicion(x + 1, y); y++;   cout << "(\\/)";
-	Posicion(x, y); y++;   cout << "o+YY+o";
-	Posicion(x + 2, y); y++; cout << "/\\";
-	Posicion(x + 2, y); y++; cout << "ll";
+	Posicion(x + 2, y); ColorBlanco(); cout << "__";
+	Posicion(x + 1, y + 1); ColorBlanco();  cout << "(\\/)";
+	Posicion(x + 2, y + 1); ColorMagenta();  cout << "\\/";
+	Posicion(x + 4, y + 1); ColorBlanco();  cout << ")";
+	Posicion(x, y + 2); ColorBlanco();  cout << "o";
+	Posicion(x + 1, y + 2); ColorMagenta(); cout << "+";
+	Posicion(x + 2, y + 2); ColorAzulOscuro(); cout << "YY";
+	Posicion(x + 4, y + 2); ColorMagenta(); cout << "+";
+	Posicion(x + 5, y + 2); ColorBlanco(); cout << "o";
+	Posicion(x + 2, y + 3); ColorAzulOscuro(); cout << "/\\";
+	Posicion(x + 2, y + 4); ColorBlanco(); cout << "ll";
 }
 void DibujarSpot(int x, int y) {
 	Posicion(x + 2, y); ColorBlanco(); cout << "__";

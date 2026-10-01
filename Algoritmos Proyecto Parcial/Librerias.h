@@ -83,10 +83,8 @@ void EscribirTextoAnimado(string mensaje, int x, int y, int sleep) { // efecto d
 	for (int i = 0; i < (int)mensaje.length(); i++) {
 		if (_kbhit()) { tecla = getch(); }
 		if (tecla == 'z' || tecla == 'Z') { cout << mensaje[i]; _sleep(1); }
+		else {cout << mensaje[i]; _sleep(sleep);} 
 		if (tecla == 'x' || tecla == 'X') { booltexto = false; i = (int)mensaje.length(); }
-		else {
-			cout << mensaje[i]; _sleep(sleep);
-		}
 	}
 }
 void AnimacionBorrar() {   // limpiar pantalla

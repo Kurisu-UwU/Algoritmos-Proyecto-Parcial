@@ -102,6 +102,8 @@ void Nivel2() {
 
 
 
+
+
 void Nivel3() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
