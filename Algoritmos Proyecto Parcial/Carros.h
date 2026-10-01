@@ -6,6 +6,7 @@ private:
 	short tipo;
 	bool vivo;
 	int ancho, alto, damage;
+	bool yapego;
 public:
 	Carros();
 	~Carros();
@@ -17,6 +18,7 @@ public:
 	void SetAncho(int anc) { ancho = anc; }
 	void SetAlto(int alt) { alto = alt; }
 	void SetDamage(int dam) { damage = dam; }
+	void SetYapego(bool peg) { yapego = peg; }
 
 	void Dibujar();
 	void Borrar();
@@ -28,7 +30,7 @@ public:
 	int GetAncho() { return ancho; }
 	int GetAlto() { return alto; }
 	int GetDamage() { return damage; }
-
+	bool GetYapego() { return yapego; }
 };
 Carros::Carros() : Proyectiles() { x = 10; y = 10; vivo = false; tipo = 0; }
 Carros::~Carros() {}

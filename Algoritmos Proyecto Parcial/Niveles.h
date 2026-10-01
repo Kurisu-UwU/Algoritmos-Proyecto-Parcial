@@ -35,7 +35,9 @@ void Nivel1() {
 				DibujarPanelDeControl();
 				nivelpersecucion->GenerarMovimientoJugador(miles);
 				NivelPersecucion(nivelpersecucion);
-				nivelpersecucion->CarrosMovimiento(miles);
+				nivelpersecucion->CarrosMovimiento(miles);   
+				Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+				Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);

@@ -21,9 +21,6 @@ void NivelPersecucion(Persecucion* nivelpersecucion){
 		default: break;
 		}
 		tiempo++;
-		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-		Posicion(40, 10); ColorVerde(); cout << "Puntaje: " << " ";
-		Posicion(60, 10); ColorRojo(); cout << "Vida: " << " ";
 }
 
 void NivelesRitmo1(Niveles* nivel3, int n) {

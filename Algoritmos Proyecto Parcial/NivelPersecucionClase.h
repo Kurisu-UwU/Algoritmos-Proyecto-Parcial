@@ -43,8 +43,11 @@ void Persecucion::CarrosMovimiento(Protagonista* prota) {
 				listaCarro[i]->SetVivo(false);
 				listaCarro[i]->Borrar();
 			}
-			if (CalcularColisiones(prota->GetPX(), prota->GetPY(), listaCarro[i]->GetX(), listaCarro[i]->GetY(), prota->GetAlto(), prota->GetAncho(), listaCarro[i]->GetAlto(), listaCarro[i]->GetAncho())) {
-				prota->SetVida(prota->GetVida()-1);
+			if (!listaCarro[i]->GetYapego()) {    //Claude en un mal return 0 return 1
+				if (CalcularColisiones(prota->GetPX(), prota->GetPY(), listaCarro[i]->GetX(), listaCarro[i]->GetY(), prota->GetAlto(), prota->GetAncho(), listaCarro[i]->GetAlto(), listaCarro[i]->GetAncho())) {
+					prota->SetVida(prota->GetVida() - 1);
+					listaCarro[i]->SetYapego(true);
+				}
 			}
 		}
 	}
@@ -67,8 +70,9 @@ void Persecucion::RevivirCarro(short tipo, short nivel) {
 			listaCarro[i]->SetVivo(true);
 			n = false;  // github copilot
 			listaCarro[i]->Dibujar();
+			listaCarro[i]->SetYapego(false);
 		}
-		if (i < canCarro) { i++; }
+		if (i < canCarro) { i++; }   // Claude en CanTamb en vez de canCarro
 	} while (n);
 }
 void Persecucion::AtributosCarros() {  // asignación de atributos a los obstáculos
@@ -80,5 +84,6 @@ void Persecucion::AtributosCarros() {  // asignación de atributos a los obstácul
 		listaCarro[i]->SetAncho(1);
 		listaCarro[i]->SetAlto(1);
 		listaCarro[i]->SetDamage(1);
+		listaCarro[i]->SetYapego(false);
 	}
 }
