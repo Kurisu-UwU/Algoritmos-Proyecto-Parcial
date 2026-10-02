@@ -26,6 +26,28 @@ void Nivel1() {
 
 		nivelpersecucion->GenerarCarros(12);
 		nivelpersecucion->AtributosCarros();
+		DibujarPanelDeControl();
+		nivelpersecucion->GenerarMovimientoJugador(miles);
+		NivelPersecucion(nivelpersecucion);
+		nivelpersecucion->CarrosMovimiento(miles);
+		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+		Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+		tiempo = 0;
+		do {
+			if (tiempo == 0) {ColorAzul();} else if (tiempo == 1) {ColorAmarillo();}
+			DibujarW(100, 17);
+			Posicion(110, 18); cout << "Mover arriba";
+			if (tiempo == 0) { ColorAmarillo(); } else if (tiempo == 1) { ColorAzul(); }
+			DibujarS(100, 28);
+			Posicion(110, 27); cout << "Mover abajo";
+			_sleep(300);
+			tiempo++;
+			if (tiempo >= 2) { tiempo = 0; }
+		} while (!_kbhit());
+		BorrarTecla(100, 17);
+		BorrarTecla(100, 28);
+		Posicion(110, 18); cout << "            ";
+		Posicion(110, 27); cout << "            ";
 		tecla = teclageneralbasura;
 		do {  //Parte 1
 			if (_kbhit()) { tecla = getch(); }
@@ -38,7 +60,9 @@ void Nivel1() {
 			_sleep(1);
 			tecla = teclageneralbasura;
 		} while (booleanoGeneralParaNiveles);
+	delete[]nivelpersecucion;
 	booleanoGeneralParaNiveles4 = true;
+	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
 	DibujarSpiderPunkGrandeTitulo(10, 10);
 	for (int i = 0; i < 4; i++) { TextPunkIntro(i); }

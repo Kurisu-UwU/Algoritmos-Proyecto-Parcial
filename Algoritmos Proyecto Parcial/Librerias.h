@@ -123,25 +123,25 @@ void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 	ColorAmarillo();
 	switch (noseaaa) {
 	case 1: 
-		Posicion(x, y);     cout << " ____ ";
+		Posicion(x, y);     cout << " ____";
 		Posicion(x, y + 1); cout << "||W ||";
 		Posicion(x, y + 2); cout << "||__||";
 		Posicion(x, y + 3); cout << "|/__\\|";
 		break;
 	case 2: 
-		Posicion(x+5, y);     cout << " ____ ";
+		Posicion(x+5, y);     cout << " ____";
 		Posicion(x+5, y + 1); cout << "||A ||";
 		Posicion(x+5, y + 2); cout << "||__||";
 		Posicion(x+5, y + 3); cout << "|/__\\|";
 		break;
 	case 3: 
-		Posicion(x+10, y);     cout << " ____ ";
+		Posicion(x+10, y);     cout << " ____";
 		Posicion(x+10, y + 1); cout << "||S ||";
 		Posicion(x+10, y + 2); cout << "||__||";
 		Posicion(x+10, y + 3); cout << "|/__\\|";
 		break;
 	case 4: 
-		Posicion(x + 15, y);     cout << " ____ ";
+		Posicion(x + 15, y);     cout << " ____";
 		Posicion(x + 15, y + 1); cout << "||D ||";
 		Posicion(x + 15, y + 2); cout << "||__||";
 		Posicion(x + 15, y + 3); cout << "|/__\\|";
@@ -152,7 +152,7 @@ void AnimacionWASD(int x,int y,int noseaaa) {  //visual WASD AMARILLO
 void ImprimirA(int x, int y) {
 	ColorAzul();
 	if (tecla == 'a' || tecla == 'A') {ColorAmarillo();}
-	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y);     cout << " ____";
 	Posicion(x, y + 1); cout << "||A ||";
 	Posicion(x, y + 2); cout << "||__||";
 	Posicion(x, y + 3); cout << "|/__\\|";
@@ -160,7 +160,7 @@ void ImprimirA(int x, int y) {
 void ImprimirD(int x, int y) {
 	ColorAzul();
 	if (tecla == 'd' || tecla == 'D') { ColorAmarillo(); }
-	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y);     cout << " ____";
 	Posicion(x, y + 1); cout << "||D ||";
 	Posicion(x, y + 2); cout << "||__||";
 	Posicion(x, y + 3); cout << "|/__\\|";
@@ -170,12 +170,12 @@ void ImprimirFlechas(int x, int y) {
 }
 void DibujarZX(int x, int y) {  //visual WASD AMARILLO
 	ColorAzul();
-	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y);     cout << " ____";
 	Posicion(x, y + 1); cout << "||Z ||";
 	Posicion(x, y + 2); cout << "||__||";
 	Posicion(x, y + 3); cout << "|/__\\|";
 	ColorRojo();
-	Posicion(x+6, y);     cout << " ____ ";
+	Posicion(x+6, y);     cout << " ____";
 	Posicion(x+6, y + 1); cout << "||X ||";
 	Posicion(x+6, y + 2); cout << "||__||";
 	Posicion(x+6, y + 3); cout << "|/__\\|";
@@ -184,13 +184,13 @@ void AnimacionZX(int x, int y, int noseaaa) {  //visual WASD AMARILLO
 	ColorAmarillo();
 	switch (noseaaa) {
 	case 0:
-		Posicion(x, y);     cout << " ____ ";
+		Posicion(x, y);     cout << " ____";
 		Posicion(x, y + 1); cout << "||Z ||";
 		Posicion(x, y + 2); cout << "||__||";
 		Posicion(x, y + 3); cout << "|/__\\|";
 		break;
 	case 1:
-		Posicion(x + 6, y);     cout << " ____ ";
+		Posicion(x + 6, y);     cout << " ____";
 		Posicion(x + 6, y + 1); cout << "||X ||";
 		Posicion(x + 6, y + 2); cout << "||__||";
 		Posicion(x + 6, y + 3); cout << "|/__\\|";
@@ -200,15 +200,33 @@ void AnimacionZX(int x, int y, int noseaaa) {  //visual WASD AMARILLO
 }
 void DibujarZ(int x, int y) {
 	ColorAzul();
-	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y);     cout << " ____";
 	Posicion(x, y + 1); cout << "||Z ||";
 	Posicion(x, y + 2); cout << "||__||";
 	Posicion(x, y + 3); cout << "|/__\\|";
 }
 void DibujarX(int x, int y) {
 	ColorAzul();
-	Posicion(x, y);     cout << " ____ ";
+	Posicion(x, y);     cout << " ____";
 	Posicion(x, y + 1); cout << "||X ||";
 	Posicion(x, y + 2); cout << "||__||";
 	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void DibujarW(int x, int y) {
+	Posicion(x, y);     cout << " ____";
+	Posicion(x, y + 1); cout << "||W ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void DibujarS(int x, int y) {
+	Posicion(x, y);     cout << " ____";
+	Posicion(x, y + 1); cout << "||S ||";
+	Posicion(x, y + 2); cout << "||__||";
+	Posicion(x, y + 3); cout << "|/__\\|";
+}
+void BorrarTecla(int x, int y) {
+	Posicion(x, y);     cout << "     ";
+	Posicion(x, y + 1); cout << "      ";
+	Posicion(x, y + 2); cout << "      ";
+	Posicion(x, y + 3); cout << "      ";
 }

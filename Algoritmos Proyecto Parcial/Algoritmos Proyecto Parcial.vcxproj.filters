@@ -22,8 +22,32 @@
     <Filter Include="Source Files\AnimacionesYASCIIArts">
       <UniqueIdentifier>{39dfad78-f505-4d16-9797-5203517313de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Mapas">
+    <Filter Include="Source Files\Clases\Padres">
+      <UniqueIdentifier>{170990df-5c47-46c9-b63e-1d61aa9c20c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia">
+      <UniqueIdentifier>{0a5b6ae0-9ea5-4be4-aa78-827c2190a871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Proyectiles">
+      <UniqueIdentifier>{d96b96ba-a40f-4270-84c9-95e81971c452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Enemigos">
+      <UniqueIdentifier>{e83ad3f6-707b-4d6c-b539-838964bb8340}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Obstaculos">
+      <UniqueIdentifier>{4da04039-f154-4a4a-a625-c5bc44ea1aea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Niveles">
+      <UniqueIdentifier>{20fda0d8-fec7-4e21-852e-9e6fba588f80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Niveles">
       <UniqueIdentifier>{e25d82f7-6f85-40aa-881c-228fcc9d685e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AnimacionesYASCIIArts\ASCII">
+      <UniqueIdentifier>{fbbf8c62-1b24-4a94-a8ca-68029eb3f009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Libreria">
+      <UniqueIdentifier>{51d792f1-b844-485e-bcbb-ad772ceffef6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,74 +59,74 @@
     <ClInclude Include="Librerias.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="ASCIIArtsMenu.h">
-      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
-    </ClInclude>
-    <ClInclude Include="Clases.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
     <ClInclude Include="FuncionesDelMenu.h">
       <Filter>Source Files\Funciones</Filter>
-    </ClInclude>
-    <ClInclude Include="Niveles.h">
-      <Filter>Source Files\Funciones</Filter>
-    </ClInclude>
-    <ClInclude Include="ASCIIArtsNiveles.h">
-      <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
     <ClInclude Include="TextoAnimadoDialogosETC.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
-    <ClInclude Include="Proyectiles.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Ayudantes.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
     <ClInclude Include="Enemigos.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Mejoras.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="LasersMenu.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculos.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Protagonistas.h">
-      <Filter>Source Files\Clases</Filter>
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
     <ClInclude Include="Habilidades.h">
-      <Filter>Source Files\Clases</Filter>
+      <Filter>Source Files\Clases\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="LasersMenu.h">
+      <Filter>Source Files\Clases\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="Mejoras.h">
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
     <ClInclude Include="NivelesClase.h">
-      <Filter>Source Files\Clases</Filter>
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
-    <ClInclude Include="NPCs.h">
-      <Filter>Source Files\Clases</Filter>
+    <ClInclude Include="Obstaculos.h">
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
-    <ClInclude Include="Items.h">
-      <Filter>Source Files\Clases</Filter>
+    <ClInclude Include="Protagonistas.h">
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
-    <ClInclude Include="ItemsConstruccion.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="NivelRitmo.h">
-      <Filter>Source Files\Funciones</Filter>
-    </ClInclude>
-    <ClInclude Include="Tambores.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="Spot.h">
-      <Filter>Source Files\Clases</Filter>
-    </ClInclude>
-    <ClInclude Include="NivelPersecucionClase.h">
-      <Filter>Source Files\Clases</Filter>
+    <ClInclude Include="Proyectiles.h">
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
     <ClInclude Include="Carros.h">
-      <Filter>Source Files\Clases</Filter>
+      <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Tambores.h">
+      <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Ayudantes.h">
+      <Filter>Source Files\Clases\Herencia\Enemigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Items.h">
+      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemsConstruccion.h">
+      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
+    </ClInclude>
+    <ClInclude Include="NivelPersecucionClase.h">
+      <Filter>Source Files\Clases\Herencia\Niveles</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCs.h">
+      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
+    </ClInclude>
+    <ClInclude Include="Spot.h">
+      <Filter>Source Files\Clases\Herencia\Enemigos</Filter>
+    </ClInclude>
+    <ClInclude Include="Niveles.h">
+      <Filter>Source Files\Niveles</Filter>
+    </ClInclude>
+    <ClInclude Include="NivelRitmo.h">
+      <Filter>Source Files\Niveles</Filter>
+    </ClInclude>
+    <ClInclude Include="ASCIIArtsMenu.h">
+      <Filter>Source Files\AnimacionesYASCIIArts\ASCII</Filter>
+    </ClInclude>
+    <ClInclude Include="ASCIIArtsNiveles.h">
+      <Filter>Source Files\AnimacionesYASCIIArts\ASCII</Filter>
+    </ClInclude>
+    <ClInclude Include="Clases.h">
+      <Filter>Source Files\Clases\Libreria</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
