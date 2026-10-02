@@ -18,7 +18,7 @@ void Nivel1() {
 		DibujarMiguel(100, 26);
 		AnimacionBorrar();
 		miles->SetPX(100); miles->SetPY(22);
-		Persecucion* nivelpersecucion = new Persecucion();
+		/*Persecucion* nivelpersecucion = new Persecucion();
 
 		nivelpersecucion->GenerarObstaculo(2);
 		nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
@@ -60,13 +60,13 @@ void Nivel1() {
 			_sleep(1);
 			tecla = teclageneralbasura;
 		} while (booleanoGeneralParaNiveles);
-	delete nivelpersecucion;
+	delete nivelpersecucion;*/
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
 	DibujarSpiderPunkGrandeTitulo(10, 10);
-	for (int i = 0; i < 4; i++) { TextPunkIntro(i); }
-	for (int i = 0; i < 11; i++) { TextPunk1(i); }
+	Console::Clear();
+	miles->SetVelocidady(1);
 	do {
 		switch (subnivel) {
 		case 1: {
@@ -80,12 +80,7 @@ void Nivel1() {
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
-			DibujarEdificio(1, 7);//Dibuja obstaculo
-			DibujarEdificio(26, 7);
-			DibujarEdificio(51, 7);
-			DibujarEdificio(187, 32);
-			DibujarEdificio(162, 32);
-			DibujarEdificio(137, 32);
+			DibujarNivelUno1();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -219,8 +214,8 @@ void Nivel3() {
 		switch (uwu) {
 		case 1: {
 			DibujarSpiderPunkGrandeTitulo(10,10);
-			for (int i = 0; i < 4; i++) { TextPunkIntro(i); }
-			for (int i = 0; i < 11; i++) { TextPunk1(i); }  // dialogo punk 1
+			for (int i = 0; i < 4 && booltexto; i++) { TextPunkIntro(i); }
+			for (int i = 0; i < 11 && booltexto; i++) { TextPunk1(i); }  // dialogo punk 1
 
 			punk->SetPX(30); punk->SetPY(30);
 			Niveles* nivel3 = new Niveles();
