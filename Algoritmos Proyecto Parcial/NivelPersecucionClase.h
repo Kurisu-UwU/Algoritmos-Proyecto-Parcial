@@ -6,7 +6,7 @@ protected:
 	int canCarro;
 public:
 	Persecucion();
-	~Persecucion();
+	~Persecucion() override;
 
 	void GenerarCarros(int);
 	void RevivirCarro(short, short);
@@ -21,11 +21,9 @@ Persecucion::Persecucion():Niveles() {
 	canMejora = 0;
 	MostrarPreguntaCofre = true;
 }
-Persecucion::~Persecucion() {  // eliminador
-	//if (listaEne != nullptr) delete[]listaEne;
-	//if (listaPro != nullptr) delete[]listaPro;
-	//if (listaMejora != nullptr) delete[]listaMejora;
-	if (listaObs != nullptr) delete[]listaObs;
+Persecucion::~Persecucion() {
+	//if (listaObs != nullptr) delete[]listaObs;
+	//if (listaCarro != nullptr) delete[]listaCarro;
 }
 void Persecucion::GenerarCarros(int cantidad) {
 	canCarro = cantidad;

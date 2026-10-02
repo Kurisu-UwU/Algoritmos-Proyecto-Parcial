@@ -60,7 +60,7 @@ void Nivel1() {
 			_sleep(1);
 			tecla = teclageneralbasura;
 		} while (booleanoGeneralParaNiveles);
-	delete[]nivelpersecucion;
+	delete nivelpersecucion;
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
@@ -100,6 +100,43 @@ void Nivel1() {
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles	->GetAncho(), 30, 4)) {
 						booleanoGeneralParaNiveles = false;
 						subnivel = 2;
+					}
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = teclageneralbasura;
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		case 2: {
+
+			miles->SetPX(30); miles->SetPY(30);
+
+			nivel1->GenerarObstaculo(3);
+			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
+			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+			nivel1->GenerarCofres(1);
+			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
+			tecla = 'j';
+			DibujarEdificio(1, 7);//Dibuja obstaculo
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(187, 32);
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				nivel1->DibujarCofre();
+				nivel1->GenerarMovimientoJugador(miles);
+				if (booleanoGeneralParaNiveles3) {
+					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				}
+				if (!booleanoGeneralParaNiveles3) {
+					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
+					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
+						booleanoGeneralParaNiveles = false;
+						subnivel = 1;
 					}
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
@@ -164,11 +201,12 @@ void Nivel2() {
 	} while (booleanoGeneralParaNiveles);
 	delete Miguel;
 }
-
-
-
-
-
+//
+// 
+// 
+// 
+// 
+// 
 void Nivel3() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
