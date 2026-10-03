@@ -42,18 +42,19 @@ public:
 	void AtacarJefes(Spot*, Protagonista*);
 	void GenerarLasers(int);
 	void LasersMover(Protagonista*);
+	void EnemigoHaceGuardia(PersonajeSecundario*);
 
-	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
-	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
-};
-Niveles::Niveles() {
-	//canEne = 0;
-	//listaEne = nullptr;
-	canPro = 0;
-	listaPro = nullptr;
-	canMejora = 0;
-	MostrarPreguntaCofre = true;
-}
+		int GetObjX(int obj) { return listaObs[obj]->GetX(); }
+		int GetObjY(int obj) { return listaObs[obj]->GetY(); }
+	};
+	Niveles::Niveles() {
+		//canEne = 0;
+		//listaEne = nullptr;
+		canPro = 0;
+		listaPro = nullptr;
+		canMejora = 0;
+		MostrarPreguntaCofre = true;
+	}
 	Niveles::~Niveles() {  // eliminador
 		//if (listaEne != nullptr) delete[]listaEne;
 		//if (listaPro != nullptr) delete[]listaPro;
@@ -132,6 +133,29 @@ Niveles::Niveles() {
 				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
 			}
 			enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY(), w, a, s, d);
+			enemigo->Dibujar();
+		}
+	}
+	void Niveles::EnemigoHaceGuardia(PersonajeSecundario* enemigo) { // movimiento para que los enemigos se acerquen al prota
+		bool w, a, s, d = true;
+		int x = enemigo->GetEX();
+		int y = enemigo->GetEY();
+		int velx = enemigo->GetVelocidad();
+		if (enemigo->GetVivo()) {
+			enemigo->Borrar();
+			for (int i = 0; i < canObs; i++) {
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 0) == true) { w = false; }// arriba
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 2) == true) { s = false; }//abajo
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
+			}
+			if (enemigo->GetEX() < 44) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
+			if (enemigo->GetEX() > 189) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
+			if (enemigo->GetTempo() == enemigo->GetVelocidadTempo()) {
+				enemigo->SetEX(enemigo->GetEX() + enemigo->GetVelocidad());
+				enemigo->SetTempo(0);
+			}
+			enemigo->SetTempo(enemigo->GetTempo() + 1);
 			enemigo->Dibujar();
 		}
 	}

@@ -29,6 +29,7 @@ public:
 	void SetTipo(string t1) { tipo = t1; }
 	void SetVivo(bool vi) { vivo = vi; }
 	void SetVelocidadTempo(float v1) { velocidadtempo = v1; }
+	void SetTempo(float temp) { tempo = temp; }
 	//obtiene y devuelve los datos de los enemigos los get
 	int GetEX() { return ex; }
 	int GetEY() { return ey; }
@@ -39,6 +40,7 @@ public:
 	string GetTipo() { return tipo; }
 	bool GetVivo() { return vivo; }
 	int GetCantDeProyectiles() {return cantdeproyectiles;}
+	float GetTempo() { return tempo; }
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();

@@ -63,14 +63,17 @@ void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
+	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
+	enemigos1[0] = new PersonajeSecundario(170, 39, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
+	enemigos1[1] = new PersonajeSecundario(170, 41, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
 	DibujarSpiderPunkGrandeTitulo(10, 10);
 	Console::Clear();
 	miles->SetVelocidady(1);
-	int subnivel = 2; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
+	miles->SetPX(5); miles->SetPY(9);
+	int subnivel = 1; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
 	do {
 		switch (subnivel) {
 		case 1: {
-			miles->SetPX(30); miles->SetPY(30);
 			nivel1->GenerarObstaculo(13);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
@@ -82,11 +85,13 @@ void Nivel1() {
 			nivel1->AtributosObstaculo(6, 73, 22, 0, 109 - 73, 34 - 22);
 			nivel1->AtributosObstaculo(7, 49, 7, 0, 73 - 49, 19 - 7);
 			nivel1->AtributosObstaculo(8, 146, 22, 0, 156 - 145, 34 - 21);
-			nivel1->AtributosObstaculo(9, 156, 0, 0, 187 - 156, 35);
+			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 156, 35-7);
 			//Puertas Abiertas
 			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
 			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
 			nivel1->AtributosObstaculo(12, 208, 7, 0, 8, 1);
+
+			
 
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
@@ -95,18 +100,10 @@ void Nivel1() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
 				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
-				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
+					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
@@ -115,74 +112,56 @@ void Nivel1() {
 			break;
 		}
 		case 2: {
-			miles->SetPX(194); miles->SetPY(41);
-			nivel1->GenerarObstaculo(6);
-			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
-			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
+			nivel1->GenerarObstaculo(8);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 6, 1); /* muro extremo*/ nivel1->AtributosObstaculo(6, 20, 7, 0, 7, 1);
+			nivel1->AtributosObstaculo(1, 182, 47, 0,9, 1);/*muro extremo */ nivel1->AtributosObstaculo(7, 104, 47, 0, 9, 1);
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
 			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
 			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
 			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
 
-			nivel1->GenerarCofres(1);
-			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
 			DibujarNivelUno2();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
-				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
+					booleanoGeneralParaNiveles = false; subnivel = 1; miles->SetPX(194); miles->SetPY(9);
 				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 5, 7, miles->GetAlto(), miles->GetAncho(), 1, 15)) {
+					booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(194); miles->SetPY(41);
 				}
-				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
 		case 3: {
-			miles->SetPX(194); miles->SetPY(41);
-			nivel1->GenerarObstaculo(6);
-			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
-			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
-			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
+			nivel1->GenerarObstaculo(10);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
 			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
-			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
-			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
+			nivel1->AtributosObstaculo(4, 0, 20, 0, 55, 35-22);
+			nivel1->AtributosObstaculo(5, 55, 35, 0, 181-55, 47-35);
+			nivel1->AtributosObstaculo(6, 55, 20, 0, 181-55, 1);
+			nivel1->AtributosObstaculo(7, 181, 20, 0, 1, 35 -20);
 
-			nivel1->GenerarCofres(1);
-			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
-			DibujarNivelUno2();
+			DibujarNivelUno3();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
-				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
+					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(9); miles->SetPY(9);
 				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 0, 10, miles->GetAlto(), miles->GetAncho(), 7, 2)) {
+					booleanoGeneralParaNiveles = false; subnivel = 4; miles->SetPX(194); miles->SetPY(9);
 				}
-				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
 			} while (booleanoGeneralParaNiveles);
@@ -190,34 +169,28 @@ void Nivel1() {
 		}
 		case 4: {
 			miles->SetPX(194); miles->SetPY(41);
-			nivel1->GenerarObstaculo(6);
-			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
+			nivel1->GenerarObstaculo(10);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
-			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
-			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
+			nivel1->AtributosObstaculo(3, 213, 16, 0, 1, 47 - 15); /* muro extremo */ nivel1->AtributosObstaculo(9, 213, 7, 0, 1, 2);
 
-			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
-			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
-
-			nivel1->GenerarCofres(1);
-			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
+			nivel1->AtributosObstaculo(4, 106, 27, 0, 213 - 105, 36-26);
+			nivel1->AtributosObstaculo(5, 170, 18, 0, 213-169, 27 - 17);
+			nivel1->AtributosObstaculo(6, 26, 18, 0, 1, 36 - 18);
+			nivel1->AtributosObstaculo(7, 26, 18, 0, 213 - 26, 1);
+			nivel1->AtributosObstaculo(8, 26, 36, 0, 213 - 26, 1);
 			tecla = 'j';
-			DibujarNivelUno2();
+			DibujarNivelUno4();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
-				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 39, miles->GetAlto(), miles->GetAncho(), 5, 1)) {
+					booleanoGeneralParaNiveles = false; subnivel = 5; miles->SetPX(9); miles->SetPY(9);
 				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 10, miles->GetAlto(), miles->GetAncho(), 5, 2)) {
+					booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(7); miles->SetPY(10);
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
@@ -226,7 +199,8 @@ void Nivel1() {
 			break;
 		}
 		case 5: {
-			miles->SetPX(194); miles->SetPY(41);
+			booleanoGeneralParaNiveles4 = false;
+			/*miles->SetPX(194); miles->SetPY(41);
 			nivel1->GenerarObstaculo(6);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
@@ -259,11 +233,13 @@ void Nivel1() {
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
-			} while (booleanoGeneralParaNiveles);
+			} while (booleanoGeneralParaNiveles);*/
 			break;
 		}
 		default: break;
 		}
+	Console::Clear();
+	booleanoGeneralParaNiveles = true;
 	} while (booleanoGeneralParaNiveles4);
 }
 
