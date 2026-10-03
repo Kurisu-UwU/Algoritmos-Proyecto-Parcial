@@ -10,7 +10,7 @@ protected:
 	int canPro;
 	Mejoras** listaMejora;
 	int canMejora;
-	Obstaculos** listaObs;
+	Entidad** listaObs;
 	int canObs;
 	Cofre** listaCofre;
 	int canCofre;
@@ -23,9 +23,9 @@ public:
 
 	virtual void GenerarProyectil(char n);
 	void MostrarProyectil();
-	void AtacarEnemigos(Enemigos*, Protagonista*);
-	void EnemigoAcercaProta(Enemigos*, Protagonista*);
-	void EnemigoMuere(Enemigos*);
+	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
+	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*);
+	void EnemigoMuere(PersonajeSecundario*);
 	void GenerarObstaculo(int);
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void BorrarObjetos();
@@ -42,18 +42,19 @@ public:
 	void AtacarJefes(Spot*, Protagonista*);
 	void GenerarLasers(int);
 	void LasersMover(Protagonista*);
+	void EnemigoHaceGuardia(PersonajeSecundario*);
 
-	int GetObjX(int obj) { return listaObs[obj]->GetX(); }
-	int GetObjY(int obj) { return listaObs[obj]->GetY(); }
-};
-Niveles::Niveles() {
-	//canEne = 0;
-	//listaEne = nullptr;
-	canPro = 0;
-	listaPro = nullptr;
-	canMejora = 0;
-	MostrarPreguntaCofre = true;
-}
+		int GetObjX(int obj) { return listaObs[obj]->GetX(); }
+		int GetObjY(int obj) { return listaObs[obj]->GetY(); }
+	};
+	Niveles::Niveles() {
+		//canEne = 0;
+		//listaEne = nullptr;
+		canPro = 0;
+		listaPro = nullptr;
+		canMejora = 0;
+		MostrarPreguntaCofre = true;
+	}
 	Niveles::~Niveles() {  // eliminador
 		//if (listaEne != nullptr) delete[]listaEne;
 		//if (listaPro != nullptr) delete[]listaPro;
@@ -87,9 +88,9 @@ Niveles::Niveles() {
 	}
 	void Niveles::GenerarObstaculo(int n) { // inicializador de registro de obstáculos
 		canObs = n;
-		listaObs = new Obstaculos * [n];
+		listaObs = new Entidad * [n];
 		for (int i = 0; i < n; i++)
-			listaObs[i] = new Obstaculos(1, 1, 0, 1, 1, true);
+			listaObs[i] = new Entidad(1, 1, 0, 1, 1, true);
 	}
 	void Niveles::BorrarObjetos() {
 		//for (int i = 0; i < canObs; i++) {delete listaObs[i];}delete[]listaObs;
@@ -111,14 +112,14 @@ Niveles::Niveles() {
 			listaPro[i]->Dibujar();
 		}
 	}
-	void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
+	void Niveles::AtacarEnemigos(PersonajeSecundario* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
 		if (enemigo->GetVivo()) {
 			float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
 			float f = enemigo->GetVida() + n;
 			enemigo->SetVida(f);
 		}
 	}
-	void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
+	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
 		bool w, a, s, d = true;
 		int x = enemigo->GetEX();
 		int y = enemigo->GetEY();
@@ -135,7 +136,30 @@ Niveles::Niveles() {
 			enemigo->Dibujar();
 		}
 	}
-	void Niveles::EnemigoMuere(Enemigos* enemigo) {  // cuando el enemigo muere
+	void Niveles::EnemigoHaceGuardia(PersonajeSecundario* enemigo) { // movimiento para que los enemigos se acerquen al prota
+		bool w, a, s, d = true;
+		int x = enemigo->GetEX();
+		int y = enemigo->GetEY();
+		int velx = enemigo->GetVelocidad();
+		if (enemigo->GetVivo()) {
+			enemigo->Borrar();
+			for (int i = 0; i < canObs; i++) {
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 0) == true) { w = false; }// arriba
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 2) == true) { s = false; }//abajo
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
+				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
+			}
+			if (enemigo->GetTempo() >= enemigo->GetVelocidadTempo()) {
+			if (enemigo->GetEX() < 44) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
+			if (enemigo->GetEX() > 189) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
+				enemigo->SetEX(enemigo->GetEX() + enemigo->GetVelocidad());
+				enemigo->SetTempo(0);
+			}
+			enemigo->SetTempo(enemigo->GetTempo() + 1);
+			enemigo->Dibujar();
+		}
+	}
+	void Niveles::EnemigoMuere(PersonajeSecundario* enemigo) {  // cuando el enemigo muere
 		if (enemigo->GetVida() <= 0) {
 			enemigo->SetVivo(false);
 			enemigo->Borrar();

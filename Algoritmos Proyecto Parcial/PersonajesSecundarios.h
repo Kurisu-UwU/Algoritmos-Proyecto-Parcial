@@ -2,7 +2,7 @@
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
 #include "NPCs.h"
-class Enemigos
+class PersonajeSecundario
 {
 protected:
 	int ex, ey, anchura, altura;
@@ -14,9 +14,9 @@ protected:
 	Proyectiles* obproye;// Puntero utilizado para crear un nuevo proyectil.
 	float tempo = 0;
 public:
-	Enemigos();
-	Enemigos(int, int, int, int, float, float, float,float,float, string, bool, float);
-	virtual ~Enemigos();
+	PersonajeSecundario();
+	PersonajeSecundario(int, int, int, int, float, float, float,float,float, string, bool, float);
+	virtual ~PersonajeSecundario();
 
 	void Dibujar();
 	void Borrar();
@@ -29,6 +29,7 @@ public:
 	void SetTipo(string t1) { tipo = t1; }
 	void SetVivo(bool vi) { vivo = vi; }
 	void SetVelocidadTempo(float v1) { velocidadtempo = v1; }
+	void SetTempo(float temp) { tempo = temp; }
 	//obtiene y devuelve los datos de los enemigos los get
 	int GetEX() { return ex; }
 	int GetEY() { return ey; }
@@ -39,20 +40,21 @@ public:
 	string GetTipo() { return tipo; }
 	bool GetVivo() { return vivo; }
 	int GetCantDeProyectiles() {return cantdeproyectiles;}
+	float GetTempo() { return tempo; }
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
 	void PerseguirProta(int, int,bool,bool,bool,bool);
 	void AtacarProtagonista(int, int);
 };
-Enemigos::Enemigos() {
+PersonajeSecundario::PersonajeSecundario() {
 	ex = 0; ey = 0;
 	cantdeproyectiles = 0;
 	listaP = nullptr;
 	velocidad = 1;
 	velocidadtempo = 1;
 }
-Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
+PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
 	ex = x1; ey = y1;
 	this->anchura = ancho;
 	this->altura = alto;
@@ -67,10 +69,10 @@ Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, floa
 	listaP = nullptr;
 	tempo = temp;
 }
-Enemigos::~Enemigos() {if (listaP != nullptr) delete[]listaP;}
-void Enemigos::Dibujar() {DibujarEnemigo(ex, ey);}
-void Enemigos::Borrar() {BorrarSprite(ex, ey);}
-void Enemigos::GenerarProyectil(char tecla) {
+PersonajeSecundario::~PersonajeSecundario() {if (listaP != nullptr) delete[]listaP;}
+void PersonajeSecundario::Dibujar() {DibujarEnemigo(ex, ey);}
+void PersonajeSecundario::Borrar() {BorrarSprite(ex, ey);}
+void PersonajeSecundario::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
 		if (tecla == 'L' || tecla == 'l') {
 			obproye = new Proyectiles();
@@ -83,14 +85,14 @@ void Enemigos::GenerarProyectil(char tecla) {
 		}
 	}
 }
-void Enemigos::MostrarProyectil() {
+void PersonajeSecundario::MostrarProyectil() {
 	for (int i = 0; i < cantdeproyectiles; i++) {
 		listaP[i]->Borrar();
 		listaP[i]->Mover();
 		listaP[i]->Dibujar();
 	}
 }
-void Enemigos::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
+void PersonajeSecundario::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {
 			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
 			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda

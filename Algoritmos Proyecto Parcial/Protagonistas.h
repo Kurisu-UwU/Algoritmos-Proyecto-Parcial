@@ -12,6 +12,7 @@ private:
 	short direccionMirada; // W 1 / a 2 / s 3 / d4
 	Habilidades** habilidades;
 	short cantidadhabilidades;
+	bool invisibilidad;
 
 public:
 	Protagonista();
@@ -31,12 +32,14 @@ public:
 	void SetCarga(float c1) { carga = c1; }
 	void SetNombre(string n1) { nombre = n1; }
 	void SetMirada(short mira) { direccionMirada = mira; }
+	void SetInvisibilidad(bool inv) { invisibilidad = inv; }
 
 	void Generarhabilidades();
 	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
 	void ControladorTiempoHabilidades(short);
 	bool SobreObjeto(int, int, int, int);
+	void MilesInvisible();
 
 	int GetPX() { return px; }  // getters
 	int GetPY() { return py; }
@@ -50,6 +53,7 @@ public:
 	float GetCarga() { return carga; }
 	string GetNombre() { return nombre; }
 	short GetMirada();
+	bool GetInvisibilidad() { return invisibilidad; }
 };
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidadx = 1; velocidady = 2; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
@@ -60,7 +64,14 @@ Protagonista::Protagonista(int x1, int y1,int anch, int alt, float e1, float vx1
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
 	switch (tipo) {
-	case 1: DibujarMiles(px, py); break;
+	case 1: 
+		if (invisibilidad) {
+			DibujarMilesInvisible(px, py);
+		}
+		else {
+			DibujarMiles(px, py);
+		}
+		break;
 	case 2: DibujarMiguel(px, py); break;
 	case 3: DibujarPunk(px, py); break;
 	}
@@ -112,21 +123,35 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 	}
 }
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
+	time_t ahora = time(nullptr);
 	if (habilidades[tipodetecla]->GetListo() == true) {
-		time_t ahora = time(nullptr);
 		habilidades[tipodetecla]->SetInicio(ahora);
 		habilidades[tipodetecla]->SetListo(false);
+	}
+	if (tipo == 1) {
+		habilidades[tipodetecla]->SetTiempoRestante(habilidades[tipodetecla]->GetTiempoEfecto() - ahora);
+		if (habilidades[tipodetecla]->GetTiempoRestante() >= 0) {
+			invisibilidad = true;
+		}
+		else { invisibilidad = false; }
 	}
 }
 void Protagonista::Generarhabilidades() {  // el protagonista guarda la información de las habilidades, este es el inicializador
 	time_t n = time(nullptr);
 	switch (tipo) {
-	case 1: break;
+	case 1: {
+		habilidades = new Habilidades * [1];
+		Habilidades* Qhabilidad = new Habilidades(1, 10, n, true, 4);
+		habilidades[0] = Qhabilidad;
+		habilidades[0]->Dibujar();
+		habilidades[0]->SetTiempoRestante(0);
+		break;
+	}
 	case 2: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1,2,n, true);
-		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true);
-		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true);
+		Habilidades* Qhabilidad = new Habilidades(1,2,n, true,1);
+		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true,1);
+		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true,1);
 		habilidades[0] = Qhabilidad;
 		habilidades[1] = Ehabilidad;
 		habilidades[2] = Rhabilidad;
@@ -135,9 +160,9 @@ void Protagonista::Generarhabilidades() {  // el protagonista guarda la informac
 	}
 	case 3: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true);
-		Habilidades* Ehabilidad = new Habilidades(2, 4, n, true);
-		Habilidades* Rhabilidad = new Habilidades(3, 5, n, true);
+		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true,1);
+		Habilidades* Ehabilidad = new Habilidades(2, 4, n, true,1);
+		Habilidades* Rhabilidad = new Habilidades(3, 5, n, true,1);
 		habilidades[0] = Qhabilidad;
 		habilidades[1] = Ehabilidad;
 		habilidades[2] = Rhabilidad;
@@ -156,6 +181,9 @@ void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo 
 		if ((time_t)diferencia > (time_t)habilidades[0]->GetCooldownTime()) {
 			habilidades[0]->SetListo(true);
 			habilidades[0]->Dibujar();
+		}
+		if (tipo == 1) {
+			habilidades[0]->DibujarMiles(diferencia);
 		}
 	}
 }

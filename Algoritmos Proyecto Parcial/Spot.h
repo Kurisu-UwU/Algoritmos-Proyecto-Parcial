@@ -1,7 +1,7 @@
 #pragma once
-#include "Enemigos.h"
+#include "PersonajesSecundarios.h"
 
-class Spot : public Enemigos
+class Spot : public PersonajeSecundario
 {
 protected:
 public:
@@ -11,7 +11,7 @@ public:
 	void ImprimirSpot(int, int);
 	void MoverSpot(int, int, int, int);
 };
-Spot::Spot(int x1, int y1, int ancho, int alto, float ataque, float vida, float velocidad, float velotemp, float veloatac, string tipo, bool vivo, float temp) : Enemigos() {
+Spot::Spot(int x1, int y1, int ancho, int alto, float ataque, float vida, float velocidad, float velotemp, float veloatac, string tipo, bool vivo, float temp) : PersonajeSecundario() {
 	ex = x1; ey = y1;
 	anchura = ancho; altura = alto;
 	cantidaddeataque = ataque;

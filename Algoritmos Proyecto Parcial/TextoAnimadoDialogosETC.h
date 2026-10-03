@@ -18,6 +18,10 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 3:DibujarPunk(n, 2);break;
 	case 4:DibujarGwen(n, 2); break;
 	case 5:DibujarSpot(n, 2); break;
+	case 6:DibujarMargoKees(n, 2); break;
+	case 7:DibujarSpiderWoman(n, 2); break;
+	case 9:DibujarPeterPorker(n, 2); break;
+
 	default: break;
 	}
 	Posicion(n+10, 3); cout << nombre;
@@ -174,10 +178,10 @@ void TextMiles1(int n) {
 void TextMiguelIntro(int n) {
 	switch (n) {
 	case 1:
-		EscribirTextoAnimado("Miles: ¡Hola! Soy Miguel O'hara", 10, 20, 25);
+		EscribirTextoAnimado("Miguel: Hola, mi nombre es Miguel O'hara", 10, 20, 25);
 		break;
 	case 2:
-		EscribirTextoAnimado("Vamos a la aventura!", 10, 22, 50);
+		EscribirTextoAnimado("Salvemos el spider verso!", 10, 22, 50);
 		break;
 	default:break;
 	}
@@ -185,42 +189,74 @@ void TextMiguelIntro(int n) {
 void TextMiguel1(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("Finalmente te encontre      ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("¡Que acaba de pasar!", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("The Spot", 5, false);
-		EscribirTextoAnimado("      ", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Como permitieron que Miles escapara, puede romper el canon y destruir el spider verso", PosDerDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Miguel O´hara", 2, true);
-		EscribirTextoAnimado("...     adios", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("Gwen Stacy", 4, true);
+		EscribirTextoAnimado("Pues no se, tal vez no le gritaste con suficiente fuerza", PosIzDIALOGO, 4, 50);
 		break;
 	case 4:
-		CuadroDeTexto("Gwen Stacy", 4, false);
-		EscribirTextoAnimado("Vas a dejarnos justo ahora?!... EN UN MOMENTO COMO ESTE?           ", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Esto es culpa tuya, tu lo trajiste aqui y lo dejaste huir", PosDerDIALOGO, 4, 50);
 		break;
 	case 5:
 		CuadroDeTexto("Gwen Stacy", 4, false);
-		EscribirTextoAnimado("Tenemos que hablar con miles, el tiene que... entender... que el canon no puede cambiarse...     ", PosDerDIALOGO, 4, 50);
+		EscribirTextoAnimado("Solo dejenme hablar con el, puedo resolver esto", PosDerDIALOGO, 4, 50);
 		break;
 	case 6:
 		CuadroDeTexto("Miguel O´hara", 2, true);
-		EscribirTextoAnimado("... Como dije, tengo asuntos pendientes, a no ser que quieras venir conmigo     ", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("No, ya nos has estorvado suficiente, te prohibo seguirnos a la dimension de Miles", PosIzDIALOGO, 4, 50);
 		break;
 	case 7:
-		CuadroDeTexto("Miguel O´hara", 2, true);
-		EscribirTextoAnimado("Vas a tener que encontrar cofres y recolectar tornillos...      ", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("Gwen Stacy", 4, true);
+		EscribirTextoAnimado("No puedes hacer eso, Spider Woman dile que se equivoca", PosIzDIALOGO, 4, 50);
 		break;
 	case 8:
-		CuadroDeTexto("Gwen Stacy", 4, false);
-		EscribirTextoAnimado("Tornillos?... bueno.. mas te vale que sea importante...    ", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("El tiene razon, deberias quedarte aqui", PosDerDIALOGO, 4, 50);
 		break;
 	case 9:
 		CuadroDeTexto("Gwen Stacy", 4, false);
-		EscribirTextoAnimado("Bueno... sabes donde encontrarme     ", PosDerDIALOGO, 4, 50);
+		EscribirTextoAnimado("Eso no es justo, Miles no tenia malas intenciones", PosDerDIALOGO, 4, 50);
 		break;
-	case 10: AnimacionBorrar(); break;
+	case 10:
+		CuadroDeTexto("Margo Kees", 6, false);
+		EscribirTextoAnimado("Gwen tiene razon, Miles no sabe lo que esta haciendo", PosDerDIALOGO, 4, 50);
+		break;
+	case 11:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("¡Silencio!, tu solo estas aqui para manejar la maquina transportadora", PosDerDIALOGO, 4, 50);
+		break;
+	case 12:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Y controlar el sistema de seguridad", PosDerDIALOGO, 4, 50);
+		break;
+	case 13:
+		CuadroDeTexto("Margo Kees", 6, false);
+		EscribirTextoAnimado("Estoy harta de esto, Miles es inocente", PosDerDIALOGO, 4, 50);
+		break;
+	case 14:
+		CuadroDeTexto("Margo Kees", 6, false);
+		EscribirTextoAnimado("Veamos que tan facilmente lo encuentras con tu propio sistema de seguridad en tu contra", PosDerDIALOGO, 4, 50);
+		break;
+	case 15:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("No tengo tiempo para esto, debo ir tras Miles, tu has lo que quieras", PosDerDIALOGO, 4, 50);
+		break;
+	case 16:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Spider Woman, vamonos, tu me ayudaras en la busqueda", PosDerDIALOGO, 4, 50);
+		break;
+	case 17:
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Bien, vamonos", PosDerDIALOGO, 4, 50);
+		break;
+	case 18: AnimacionBorrar(); break;
 	default:break;
 	}
 }
@@ -283,6 +319,7 @@ void TextPunk1(int n) {
 	default:break;
 	}
 }
+
 void TextPunkSpot(int n) {
 	switch (n) {
 	case 1:
@@ -330,6 +367,33 @@ void TextPunkSpot(int n) {
 		EscribirTextoAnimado("Es hora del espectaculo!            ", PosIzDIALOGO, 4, 50);
 		break;
 	case 12: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void TextMiguelFinal(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Por fin, después de tonta te encuentro", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("No tienes idea de la cantidad de problemas que me has dado hoy", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Intentar rescatar a un ser querido es un crimen?", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Ese no es el punto, pones en riesgo todo el spider verso", PosDerDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Ahora que te tengo, por fin, todos estan a salvo", PosDerDIALOGO, 4, 50);
+		break;
+	case 6: AnimacionBorrar(); break;
 	default:break;
 	}
 }

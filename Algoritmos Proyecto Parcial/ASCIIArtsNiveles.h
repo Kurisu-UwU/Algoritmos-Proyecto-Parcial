@@ -8,6 +8,13 @@ void DibujarMiles(int x, int y) {
 	Posicion(x + 2, y + 3); cout << "II";
 	Posicion(x + 2, y + 4); cout << "^^";
 }
+void DibujarMilesInvisible(int x, int y) {
+	Posicion(x + 2, y); ColorGris(); cout << "__";
+	Posicion(x + 1, y + 1); cout << "(";  cout << "\\/";  cout << ")";
+	Posicion(x, y + 2); cout << "o=";  cout << "||";  cout << "=o";
+	Posicion(x + 2, y + 3); cout << "II";
+	Posicion(x + 2, y + 4); cout << "^^";
+}
 void BorrarMiles(int x, int y) {
 	Posicion(x + 2, y); cout << "  ";
 	Posicion(x+1, y+1); cout << "    ";
@@ -114,6 +121,39 @@ void BorrarSprite(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "        ";
 	Posicion(x + 1, y); y++; cout << "        ";
 }
+void DibujarMargoKees(int x, int y) {
+	Posicion(x + 1, y); ColorAzul(); cout << "__";
+	Posicion(x, y + 1); ColorAzul();  cout << "o";
+	Posicion(x + 1, y + 1); ColorMagentaOscuro(); cout << "\\/";
+	Posicion(x + 3, y + 1); ColorAzul(); cout << "o";
+	Posicion(x, y + 2); ColorMagentaOscuro(); cout << "/()\\";
+	Posicion(x + 1, y + 3); ColorMagentaOscuro(); cout << "||";
+	Posicion(x + 1, y + 4); ColorMagentaOscuro(); cout << "UU";
+}
+void DibujarSpiderWoman(int x, int y) {
+	Posicion(x + 1, y); ColorAzulOscuro(); cout << "oOOo";
+	Posicion(x + 1, y + 1); ColorRojo();  cout << "(";
+	Posicion(x + 2, y + 1); ColorAmarillo();  cout << "\\/";
+	Posicion(x + 4, y + 1); ColorRojo();  cout << ")";
+	Posicion(x, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 1, y + 2); ColorAzulOscuro(); cout << "=";
+	Posicion(x + 2, y + 2); ColorRojo(); cout << "qp";
+	Posicion(x + 4, y + 2); ColorAzulOscuro(); cout << "=";
+	Posicion(x + 5, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 2, y + 3); ColorAzulOscuro(); cout << "||";
+	Posicion(x + 1, y + 4); ColorRojo(); cout << ".II.";
+}
+void DibujarPeterPorker(int x, int y) {
+	Posicion(x + 1, y); ColorRojo(); cout << "N_N";
+	Posicion(x, y + 1); ColorRojo();  cout << "(";
+	Posicion(x + 1, y + 1); ColorBlanco();  cout << "\\ /";
+	Posicion(x + 4, y + 1); ColorRojo();  cout << ")";
+	Posicion(x + 1, y + 2); ColorRojo();  cout << "O O";
+	Posicion(x, y + 3); ColorRojo();  cout << "“";
+	Posicion(x + 1, y + 3); ColorRojo();  cout << ".|.";
+	Posicion(x + 4, y + 3); ColorRojo();  cout << "”";
+}
+
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();
@@ -124,6 +164,15 @@ void DibujarHabilidadQ(bool color, int n) {
 		if (n > -1) {
 			Posicion(53, 4); cout << "Habilidad Q:    " << n << "  ";
 		}
+	}
+}
+void DibujarEfectoMiles(int n) {
+	ColorAzul();
+	if (n > -1) {
+		Posicion(73, 4); cout << "Invisibilidad:    " << n << "  ";
+	}
+	else {
+		Posicion(73, 4); cout << "                         ";
 	}
 }
 void DibujarMilesMoralesGrandeTitulo(int x, int y) {
@@ -341,7 +390,7 @@ void BorrarCamion(int x, int y) {
 	Posicion(x, y + 4); cout << "                    ";
 }
 void DibujarCarro(int x, int y) {
-	Posicion(x, y);     cout << "      __________";
+	Posicion(x, y); ColorAzul(); cout << "      __________";
 	Posicion(x, y + 1); cout << " _____|---|----|___";
 	Posicion(x, y + 2); cout << "(|       o    o    |";
 	Posicion(x, y + 3); cout << " l--(o)------(o)---J";
@@ -459,10 +508,327 @@ void DibujarOpcionPunk(int x, int y) {
 	Posicion(x, y + 26); cout << "=========================================";
 	DibujarPunk(x + 10, y + 10);
 }
-void DibujarNivelUno1() {
-	Posicion(0, 7); ColorAzul(); 
+void DibujarNivelUno1() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
+	Posicion(0, 7);  cout << "|================================================|                       |==================================================================================|                              |======|          |======|";
+	Posicion(0, 8);  cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 9);  cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 10); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 11); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 12); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 13); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 14); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 15); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 16); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 17); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 18); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 19); cout << "|=====================|               |==========|                       |                                                                                  |                              |                        |";
+	Posicion(0, 20); cout << "              |                            |                             |                                                                                  |                              |                        |";
+	Posicion(0, 21); cout << "              |                            |                             |                                                                                  |                              |                        |";
+	Posicion(0, 22); cout << "              |                            |                             |===================================|                                   |==========|                              |                        |";
+	Posicion(0, 23); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 24); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 25); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 26); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 27); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 28); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 29); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 30); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 31); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 32); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 33); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 34); cout << "              |                            |==================================================================                                   ===========================================                        |";
+	Posicion(0, 35); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 36); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 37); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 38); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 39); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 40); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 41); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 42); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 43); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 44); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 45); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 46); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 47); cout << "              |=====================================================================================================================================================================================================";
+}
+void DibujarNivelUno2() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
+	Posicion(0, 7);  cout << "======              ========                                                                                                                                                                                         ";
+	Posicion(0, 8);  cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 9);  cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 10); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 11); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 12); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 13); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 14); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 15); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 16); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 17); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 18); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 19); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 20); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 21); cout << "|                          |                                                                                                                                                                                         ";
+	Posicion(0, 22); cout << "|                          |========================================================================================================================================================================================|";
+	Posicion(0, 23); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 24); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 25); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 26); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 27); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 28); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 29); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 30); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 31); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 32); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 33); cout << "|=====================================================================================================================================================================================|                             |";
+	Posicion(0, 34); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 35); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 36); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 37); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 38); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 39); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 40); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 41); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 42); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 43); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 44); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 45); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 46); cout << "                                                                                                                                                                                      |                             |";
+	Posicion(0, 47); cout << "                                                                                                                                                                                      =========             ========";
+}
+void DibujarNivelUno3() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
+	Posicion(0, 7);  cout << "|===================================================================================================================================================================================================================|";
+	Posicion(0, 8);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 9);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 10); cout << "=                                                                                                                                                                                                                   |";
+	Posicion(0, 11); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 12); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 13); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 14); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 15); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 16); cout << "                                                                                                                                                                                                                    |";
+	Posicion(0, 17); cout << "=                                                                                                                                                                                                                   |";
+	Posicion(0, 18); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 19); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 20); cout << "|==========================================================-----------------------------------------------------------------------------------------------------------===============|                              |";
+	Posicion(0, 21); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 22); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 23); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 24); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 25); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 26); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 27); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 28); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 29); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 30); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 31); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 32); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 33); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 34); cout << "                                                       |                                                                                                                             |                              |";
+	Posicion(0, 35); cout << "                                                       |=============================================================================================================================|                              |";
+	Posicion(0, 36); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 37); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 38); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 39); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 40); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 41); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 42); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 43); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 44); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 45); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 46); cout << "                                                                                                                                                                                     |                              |";
+	Posicion(0, 47); cout << "                                                                                                                                                                                     |========|            |========";
+}
+void DibujarNivelUno4() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
+	Posicion(0, 7);  cout << "|===================================================================================================================================================================================================================|";
+	Posicion(0, 8);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 9);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 10); cout << "|                                                                                                                                                                                                                   =";
+	Posicion(0, 11); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 12); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 13); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 14); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 15); cout << "|                                                                                                                                                                                                                   =";
+	Posicion(0, 16); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 17); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 18); cout << "|                         |=---------------------------------------------------------------------------------------------------------------------------------------------|==========================================|";
+	Posicion(0, 19); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 20); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 21); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 22); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 23); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 24); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 25); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 26); cout << "|                         |                                 I                                                                                                            |                                          |";
+	Posicion(0, 27); cout << "|                         |                                 I                                            |===============================================================|                                          |";
+	Posicion(0, 28); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 29); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 30); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 31); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 32); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 33); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 34); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 35); cout << "|                         |                                                                              |                                                                                                          |";
+	Posicion(0, 36); cout << "|                         |=-----------------------------------------------------------------------------|==========================================================================================================|";
+	Posicion(0, 37); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 38); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 39); cout << "|                                                                                                                                                                                                                   =";
+	Posicion(0, 40); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 41); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 42); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 43); cout << "|                                                                                                                                                                                                                    ";
+	Posicion(0, 44); cout << "|                                                                                                                                                                                                                   =";
+	Posicion(0, 45); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 46); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 47); cout << "|===================================================================================================================================================================================================================";
+}
+void DibujarNivelUno5() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213,
+	Posicion(0, 7);  cout << "|================================================|                       |==================================================================================|                              |======|          |======|";
+	Posicion(0, 8);  cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 9);  cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 10); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 11); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 12); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 13); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 14); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 15); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 16); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 17); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 18); cout << "|                                                |                       |                                                                                  |                              |                        |";
+	Posicion(0, 19); cout << "|=====================|               |==========|                       |                                                                                  |                              |                        |";
+	Posicion(0, 20); cout << "              |                            |                             |                                                                                  |                              |                        |";
+	Posicion(0, 21); cout << "              |                            |                             |                                                                                  |                              |                        |";
+	Posicion(0, 22); cout << "              |                            |                             |===================================|                                   |==========|                              |                        |";
+	Posicion(0, 23); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 24); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 25); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 26); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 27); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 21); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 22); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 23); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 24); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 25); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 26); cout << "              |                            |                                                                 |                                   |                                         |                        |";
+	Posicion(0, 27); cout << "              |                            |==================================================================                                   ===========================================                        |";
+	Posicion(0, 28); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 29); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 30); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 31); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 32); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 33); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 34); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 35); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 36); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 37); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 38); cout << "              |                                                                                                                                                                                                     |";
+	Posicion(0, 39); cout << "              |=====================================================================================================================================================================================================|";
+}
+void DibujarNivelGeneral() {
+	Posicion(0, 7); ColorAzul();
 	cout << "=====================================================================================================================================================================================================================";
-	Posicion(0, 47); ColorAzul();
-	cout << "===================================================================================================================================================================================================================";
+	for (int i = 8; i < 47; i++) {
+		Posicion(0, i); cout << "|";  Posicion(212, i); cout << "|";
+	}
+	Posicion(0, 47);
+	cout << "====================================================================================================================================================================================================================";
 
 }
+void nose() {               //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213,
+	Posicion(0, 7);  cout << "=====================================================================================================================================================================================================================";
+	Posicion(0, 8);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 9);  cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 10); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 11); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 12); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 13); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 14); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 15); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 16); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 17); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 18); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 19); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 20); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 21); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 22); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 23); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 24); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 25); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 26); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 27); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 28); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 29); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 30); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 31); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 32); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 33); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 34); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 35); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 36); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 37); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 38); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 39); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 40); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 41); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 42); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 43); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 44); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 45); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 46); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 47); cout << "====================================================================================================================================================================================================================";
+}
+
+void DibujarMaquinaMargo(int x, int y) {
+	ColorMagentaOscuro();
+	Posicion(x, y);      cout << "   |\\      __________________      /|   ";
+	Posicion(x, y + 1);  cout << "   \\ \\    / ________________ \\    / /   ";
+	Posicion(x, y + 2);  cout << "    \\ \\  / /                \\ \\  / /    ";
+	Posicion(x, y + 3);  cout << "     \\ \\/ /                  \\ \\/ /     ";
+	Posicion(x, y + 4);  cout << "  |\\  \\/ /        -----       \\ \\/  /|  ";
+	Posicion(x, y + 5);  cout << "   \\\\ | |                      | | //   ";
+	Posicion(x, y + 6);  cout << "    \\\\| |                      | |//    ";
+	Posicion(x, y + 7);  cout << "     \\| |     |     -     |    | |/     ";
+	Posicion(x, y + 8);  cout << "      | |     |   | 0 |   |    | |      ";
+	Posicion(x, y + 9);  cout << "     /| |     |     -     |    | |\\     ";
+	Posicion(x, y + 10); cout << "    //| |                      | |\\\\    ";
+	Posicion(x, y + 11); cout << "   // | |                      | | \\\\   ";
+	Posicion(x, y + 12); cout << "  |/  /\\ \\        -----       / /\\  \\|  ";
+	Posicion(x, y + 13); cout << "     / /\\ \\                  / /\\ \\     ";
+	Posicion(x, y + 14); cout << "    / /  \\ \\________________/ /  \\ \\    ";
+	Posicion(x, y + 15); cout << "   / /    \\__________________/    \\ \\   ";
+	Posicion(x, y + 16); cout << "   |/                              \\|   ";
+}
+void DibujarEscritorioMargo(int x, int y) {
+	ColorRojo();
+	Posicion(x, y);      cout << "+----------------+";
+	Posicion(x, y + 1);  cout << "| _  0 0 0   === |";
+	Posicion(x, y + 2);  cout << "||_|+--------+   |";
+	Posicion(x, y + 3);  cout << "|...|        |() |";
+	Posicion(x, y + 4);  cout << "|...|        |() |";
+	Posicion(x, y + 5);  cout << "|...|        |() |";
+	Posicion(x, y + 6);  cout << "+---+        +---+";
+}
+void DibujarPlataforma(int x, int y) {
+	ColorRojo();
+	Posicion(x, y);      cout << "    ___________  ";
+	Posicion(x, y + 1);  cout << "   /___________\\  ";
+	Posicion(x, y + 2);  cout << "  //           \\\\ ";
+	Posicion(x, y + 3);  cout << " //             \\\\";
+	Posicion(x, y + 4);  cout << "||               ||";
+	Posicion(x, y + 5);  cout << "||               ||";
+	Posicion(x, y + 6);  cout << " \\\\             // ";
+	Posicion(x, y + 7);  cout << "  \\\\___________//  ";
+	Posicion(x, y + 8);  cout << "   \\___________/   ";
+}
+void DibujarArbol(int x, int y) {
+	ColorRojo();
+	Posicion(x + 1, y); ColorVerde(); cout << "0000 ";
+	Posicion(x, y + 1); ColorVerde();  cout << "00||/0";
+	Posicion(x + 2, y + 1); ColorAmarilloOscuro();  cout << "||/";
+	Posicion(x + 5, y + 1); ColorVerde();  cout << "0";
+	Posicion(x, y + 2); ColorVerde();  cout << "0";;
+	Posicion(x + 1, y + 2); ColorAmarilloOscuro(); cout << "\\||";;
+	Posicion(x + 4, y + 2); ColorVerde(); cout << "00";
+	Posicion(x + 1, y + 3); ColorVerde(); cout << "0";
+	Posicion(x + 2, y + 3); ColorAmarilloOscuro(); cout << " ||/ ";
+	Posicion(x + 2, y + 4);  cout << "||";
+}
+

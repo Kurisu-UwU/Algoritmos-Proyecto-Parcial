@@ -2,7 +2,6 @@
 #include "NivelRitmo.h"
 
 void Nivel1() {
-	int subnivel = 1;
 	booleanoGeneralParaNiveles4 = true;
 	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
 		booleanoGeneralParaNiveles = true;
@@ -64,19 +63,38 @@ void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
+	miles->Generarhabilidades();
+	miles->SetInvisibilidad(false);
+	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
+	enemigos1[0] = new PersonajeSecundario(170, 37, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	enemigos1[1] = new PersonajeSecundario(170, 42, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 	DibujarSpiderPunkGrandeTitulo(10, 10);
 	Console::Clear();
 	miles->SetVelocidady(1);
+	miles->SetPX(5); miles->SetPY(9);
+	int subnivel = 1; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
 	do {
 		switch (subnivel) {
 		case 1: {
+			nivel1->GenerarObstaculo(13);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 12);// muro extremo
+			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
-			miles->SetPX(30); miles->SetPY(30);
+			nivel1->AtributosObstaculo(4, 3, 19, 0, 12, 26);
+			nivel1->AtributosObstaculo(5, 44, 19, 0, 72 - 42, 35 - 19);
+			nivel1->AtributosObstaculo(6, 73, 22, 0, 109 - 73, 34 - 22);
+			nivel1->AtributosObstaculo(7, 49, 7, 0, 73 - 49, 19 - 7);
+			nivel1->AtributosObstaculo(8, 146, 22, 0, 156 - 145, 34 - 21);
+			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 156, 35-7);
+			//Puertas Abiertas
+			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
+			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
+			nivel1->AtributosObstaculo(12, 208, 7, 0, 8, 1);
 
-			nivel1->GenerarObstaculo(3);
-			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+			
+
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
@@ -84,18 +102,103 @@ void Nivel1() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
 				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel1, nivel1->PisandoItem(miles));
+				nivel1->EnemigoHaceGuardia(enemigos1[0]);
+				nivel1->EnemigoHaceGuardia(enemigos1[1]);
+				if (tecla == 'q' || tecla == 'Q') {
+					Posicion(0, 30); cout << "Habilidad Q activada";
+					miles->ControladorTiempoHabilidades(0);
 				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles	->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
+					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
+				}
+				else { booleanoGeneralParaNiveles3 = true; }
+				_sleep(1);
+				tecla = teclageneralbasura;
+				miles->DibujarHabilidades();
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		case 2: {
+			nivel1->GenerarObstaculo(8);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 6, 1); /* muro extremo*/ nivel1->AtributosObstaculo(6, 20, 7, 0, 7, 1);
+			nivel1->AtributosObstaculo(1, 182, 47, 0,9, 1);/*muro extremo */ nivel1->AtributosObstaculo(7, 104, 47, 0, 9, 1);
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
+			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
+
+			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
+			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
+
+			tecla = 'j';
+			DibujarNivelUno2();
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel1->GenerarMovimientoJugador(miles);
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
+					booleanoGeneralParaNiveles = false; subnivel = 1; miles->SetPX(194); miles->SetPY(9);
+				}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 5, 7, miles->GetAlto(), miles->GetAncho(), 1, 15)) {
+					booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(194); miles->SetPY(41);
+				}
+				_sleep(1);
+				tecla = teclageneralbasura;
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		case 3: {
+			nivel1->GenerarObstaculo(10);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
+			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
+
+			nivel1->AtributosObstaculo(4, 0, 20, 0, 55, 35-22);
+			nivel1->AtributosObstaculo(5, 55, 35, 0, 181-55, 47-35);
+			nivel1->AtributosObstaculo(6, 55, 20, 0, 181-55, 1);
+			nivel1->AtributosObstaculo(7, 181, 20, 0, 1, 35 -20);
+
+			tecla = 'j';
+			DibujarNivelUno3();
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel1->GenerarMovimientoJugador(miles);
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
+					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(9); miles->SetPY(9);
+				}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 0, 10, miles->GetAlto(), miles->GetAncho(), 7, 2)) {
+					booleanoGeneralParaNiveles = false; subnivel = 4; miles->SetPX(194); miles->SetPY(9);
+				}
+				_sleep(1);
+				tecla = teclageneralbasura;
+			} while (booleanoGeneralParaNiveles);
+			break;
+		}
+		case 4: {
+			nivel1->GenerarObstaculo(10);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
+			nivel1->AtributosObstaculo(3, 213, 16, 0, 1, 47 - 15); /* muro extremo */ nivel1->AtributosObstaculo(9, 213, 7, 0, 1, 2);
+
+			nivel1->AtributosObstaculo(4, 106, 27, 0, 213 - 105, 36-26);
+			nivel1->AtributosObstaculo(5, 170, 18, 0, 213-169, 27 - 17);
+			nivel1->AtributosObstaculo(6, 26, 18, 0, 1, 36 - 18);
+			nivel1->AtributosObstaculo(7, 26, 18, 0, 213 - 26, 1);
+			nivel1->AtributosObstaculo(8, 26, 36, 0, 213 - 26, 1);
+			tecla = 'j';
+			DibujarNivelUno4();
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel1->GenerarMovimientoJugador(miles);
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 39, miles->GetAlto(), miles->GetAncho(), 5, 1)) {
+					booleanoGeneralParaNiveles = false; subnivel = 5; miles->SetPX(9); miles->SetPY(9);
+				}
+				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 10, miles->GetAlto(), miles->GetAncho(), 5, 2)) {
+					booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(7); miles->SetPY(10);
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
@@ -103,21 +206,22 @@ void Nivel1() {
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
-		case 2: {
+		case 5: {
+			booleanoGeneralParaNiveles4 = false;
+			/*miles->SetPX(194); miles->SetPY(41);
+			nivel1->GenerarObstaculo(6);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
+			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
-			miles->SetPX(30); miles->SetPY(30);
+			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
+			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
 
-			nivel1->GenerarObstaculo(3);
-			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
-			DibujarEdificio(1, 7);//Dibuja obstaculo
-			DibujarEdificio(26, 7);
-			DibujarEdificio(51, 7);
-			DibujarEdificio(187, 32);
+			DibujarNivelUno2();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -131,77 +235,1459 @@ void Nivel1() {
 					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 208, 7, miles->GetAlto(), miles->GetAncho(), 30, 4)) {
 						booleanoGeneralParaNiveles = false;
-						subnivel = 1;
+						subnivel = 2;
 					}
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
-			} while (booleanoGeneralParaNiveles);
+			} while (booleanoGeneralParaNiveles);*/
 			break;
 		}
 		default: break;
 		}
+	Console::Clear();
+	booleanoGeneralParaNiveles = true;
 	} while (booleanoGeneralParaNiveles4);
 }
-//
-//
-//
-//
-//
-//
+
+
+
+
+
 void Nivel2() {
-	bool arriba = true, abajo = true, izquierda = true, derecha = true;
+	booleanoGeneralParaNiveles4 = false;
+	bool nivelcompleto = false;
+	int subnivel = 20;
+	bool subnivelcompleto1;
+	bool subnivelcompleto2;
+	bool subnivelcompleto3;
+	bool subnivelcompleto4;
+	bool subnivelcompleto5;
+	bool subnivelcompleto6;
+	bool subnivelcompleto7;
+	bool subnivelcompleto8;
+	bool subnivelcompleto9;
+	bool subnivelcompleto10;
+	bool subnivelcompleto11;
+	bool subnivelcompleto12;
+	bool subnivelcompleto13;
+	bool subnivelcompleto14;
+	bool subnivelcompleto15;
+	bool subnivelcompleto16;
+	bool subnivelcompleto17;
+	bool subnivelcompleto18;
+	bool subnivelcompleto19;
+	bool subnivelcompleto20;
+	bool subnivelcompleto21;
+	bool subnivelcompleto22;
+	bool subnivelcompleto23;
+	bool subnivelcompleto24;
+	bool subnivelcompleto25;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
-	int a = 0;
-	do {
-		a++;
-		TextMiguelIntro(a);
-	} while (a < 2);
+	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
+	AnimacionBorrar();
+	DibujarMaquinaMargo(150, 10);
+	DibujarEscritorioMargo(160, 30);
+	DibujarPlataforma(60, 10);
+	DibujarMiguel(67, 12);
+	DibujarGwen(60, 30);
+	DibujarMargoKees(167, 33);
+	DibujarSpiderWoman(74, 30);
+	for (int i = 0; i < 18 && booltexto; i++) { TextMiguel1(i); }
 	AnimacionBorrar();
 
-	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
-	Niveles* nivel2 = new Niveles();
-	nivel2->GenerarObstaculo(5);
-	DibujarEdificio(1, 7);
-	DibujarEdificio(26, 7);
-	DibujarEdificio(81, 7);
-	DibujarEdificio(106, 7);
-	DibujarEdificio(161, 7);
-	DibujarEdificio(186, 7);
+	Protagonista* Miguel = new Protagonista(50, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
+	
+	do {
+		switch (subnivel) {
+		case 1: {
+			subnivelcompleto1 = false;
+			Niveles* nivel2 = new Niveles();
 
-	DibujarEdificio(6, 32);
-	DibujarEdificio(31, 32);
-	DibujarEdificio(56, 32);
-	DibujarEdificio(81, 32);
-	DibujarEdificio(106, 32);
-	DibujarEdificio(131, 32);
-	DibujarEdificio(156, 32);
-	DibujarEdificio(181, 32);
+			nivel2->GenerarObstaculo(4);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(3, 136, 32, 0, 75, 16);
+			tecla = 'j';
 
-	nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-	nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-	nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-	nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-	nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel2->GenerarMovimientoJugador(Miguel);
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(0, 30); cout << "Habilidad Q activada";
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+				
+				tecla = teclageneralbasura;
+				_sleep(1);
+				
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto1 = true;
+					subnivel = 6;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto1 = true;
+					subnivel = 11;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto1 = true;
+					subnivel = 2;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto1);
+			delete nivel2;
+			break;
 		}
-		_sleep(1);
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
+		case 2: {
+			subnivelcompleto2 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(2);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto2 = true;
+					subnivel = 3;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto2 = true;
+					subnivel = 1;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto2);
+			delete nivel2;
+			break;
+		}
+		case 3: {
+			subnivelcompleto3 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarGrieta(180, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto3 = true;
+					subnivel = 2;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 180, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto3 = true;
+					subnivel = 21;
+					Miguel->SetPX(30);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto3);
+			delete nivel2;
+			break;
+		}
+		case 4: {
+			subnivelcompleto4 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto4 = true;
+					subnivel = 14;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto4 = true;
+					subnivel = 5;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto4);
+			delete nivel2;
+			break;
+		}
+		case 5: {
+			subnivelcompleto5 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto5 = true;
+					subnivel = 10;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto5 = true;
+					subnivel = 15;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto4 = true;
+					subnivel = 4;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto5);
+			delete nivel2;
+			break;
+		}
+		case 6: {
+			subnivelcompleto6 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto6 = true;
+					subnivel = 1;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+			} while (!subnivelcompleto6);
+			delete nivel2;
+			break;
+		}
+		case 7: {
+			subnivelcompleto7 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto7 = true;
+					subnivel = 8;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto7);
+			delete nivel2;
+			break;
+		}
+		case 8: {
+			subnivelcompleto8 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(6);
+			nivel2->AtributosObstaculo(0, 7, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 82, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 7, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(3, 107, 32, 0, 100, 16);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarGrieta(90, 37);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto8 = true;
+					subnivel = 9;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto8 = true;
+					subnivel = 7;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 90, 37, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto8 = true;
+					subnivel = 22;
+					Miguel->SetPX(173);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto8);
+			delete nivel2;
+			break;
+		}
+		case 9: {
+			subnivelcompleto9 = false;
+			Niveles* nivel2 = new Niveles();
+
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto9 = true;
+					subnivel = 8;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto9);
+			delete nivel2;
+			break;
+		}
+		case 10: {
+			subnivelcompleto10 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto10 = true;
+					subnivel = 5;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+			} while (!subnivelcompleto10);
+			delete nivel2;
+			break;
+		}
+		case 11: {
+			subnivelcompleto11 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto11 = true;
+					subnivel = 1;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+			} while (!subnivelcompleto11);
+			delete nivel2;
+			break;
+		}
+		case 12: {
+			subnivelcompleto12 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto12 = true;
+					subnivel = 13;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto12);
+			delete nivel2;
+			break;
+		}
+		case 13: {
+			subnivelcompleto13 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(2);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto13 = true;
+					subnivel = 14;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto13 = true;
+					subnivel = 12;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto13);
+			delete nivel2;
+			break;
+		}
+		case 14: {
+			subnivelcompleto14 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 136, 32, 0, 75, 16);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarGrieta(190, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 190, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto14 = true;
+					subnivel = 18;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto14 = true;
+					subnivel = 13;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto14 = true;
+					subnivel = 4;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+			} while (!subnivelcompleto14);
+			delete nivel2;
+			break;
+		}
+		case 15: {
+			subnivelcompleto15 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(183, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 183, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto15 = true;
+					subnivel = 19;
+					Miguel->SetPX(32);
+					Miguel->SetPY(24);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto15 = true;
+					subnivel = 5;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+			} while (!subnivelcompleto15);
+			delete nivel2;
+			break;
+		}
+		case 16: {
+			subnivelcompleto16 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto16 = true;
+					subnivel = 21;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto16 = true;
+					subnivel = 17;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto16);
+			delete nivel2;
+			break;
+		}
+		case 17: {
+			subnivelcompleto17 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			tecla = 'j';
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto17 = true;
+					subnivel = 22;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 16;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 18;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto17);
+			delete nivel2;
+			break;
+		}
+		case 18: {
+			subnivelcompleto18 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarGrieta(180, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto18 = true;
+					subnivel = 17;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 180, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto18 = true;
+					subnivel = 14;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto18);
+			delete nivel2;
+			break;
+		}
+		case 19: {
+			subnivelcompleto19 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(22, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto19 = true;
+					subnivel = 24;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto19 = true;
+					subnivel = 20;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 22, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto19 = true;
+					subnivel = 15;
+					Miguel->SetPX(173);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto19);
+			delete nivel2;
+			break;
+		}
+		case 20: {
+			subnivelcompleto20 = false;
+			Niveles* nivel2 = new Niveles();
+			Miguel->SetPX(10); Miguel->SetPY(25);
+
+			nivel2->GenerarObstaculo(4);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 190, 24, 0, 10, 8);
+			tecla = 'j';
+			DibujarEdificio(1, 7);
+			DibujarEdificio(26, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
+			DibujarEdificio(161, 7);
+			DibujarEdificio(186, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto20 = true;
+					subnivel = 25;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto20 = true;
+					subnivel = 19;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 18;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto20);
+			delete nivel2;
+			break;
+		}
+		case 21: {
+			subnivelcompleto21 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(22, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto21 = true;
+					subnivel = 16;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 22, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto21 = true;
+					subnivel = 3;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto21);
+			delete nivel2;
+			break;
+		}
+		case 22: {
+			subnivelcompleto22 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(183, 24);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 183, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto22 = true;
+					subnivel = 8;
+					Miguel->SetPX(90);
+					Miguel->SetPY(30);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto22 = true;
+					subnivel = 17;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+			} while (!subnivelcompleto22);
+			delete nivel2;
+			break;
+		}
+		case 23: {
+			subnivelcompleto23 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto23 = true;
+					subnivel = 24;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+			} while (!subnivelcompleto23);
+			delete nivel2;
+			break;
+		}
+		case 24: {
+			subnivelcompleto24 = false;
+			Niveles* nivel2 = new Niveles();
+
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 7, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
+			tecla = 'j';
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto24 = true;
+					subnivel = 23;
+					Miguel->SetPX(190);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto24 = true;
+					subnivel = 19;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+			} while (!subnivelcompleto24);
+			delete nivel2;
+			break;
+		}
+		case 25: {
+			subnivelcompleto25 = false;
+			Niveles* nivel2 = new Niveles();
+			DibujarMiles(50, 25);
+			nivel2->GenerarObstaculo(5);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
+			tecla = 'j';
+
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+			DibujarPanelDeControl();
+			do {  //Parte 1
+				if (_kbhit()) { tecla = getch(); }
+				DibujarPanelDeControl();
+				nivel2->GenerarMovimientoJugador(Miguel);
+
+				tecla = teclageneralbasura;
+				_sleep(1);
+
+			} while (!subnivelcompleto25);
+			delete nivel2;
+			break;
+		}
+		default: break;
+		}
+
+		booleanoGeneralParaNiveles4 = true;
+		AnimacionBorrar();
+	} while (!booleanoGeneralParaNiveles4);
 	delete Miguel;
 }
-//
-// 
-// 
-// 
-// 
-// 
+
+
+
 void Nivel3() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
@@ -446,9 +1932,9 @@ void NivelPrueba() {
 	Protagonista* punk = new Protagonista(20, 20,4,4,100, 1, 2, 10, 100, 2, "Punk", 2, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
-	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+	PersonajeSecundario** enemigo = new PersonajeSecundario * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel2 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
+	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new PersonajeSecundario(10, 7, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(10); //Atributos de los enemigos
 	enemigo[1]->SetEX(20);

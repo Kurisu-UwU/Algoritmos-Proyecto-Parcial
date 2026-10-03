@@ -119,7 +119,7 @@
     <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Carros.h" />
     <ClInclude Include="Clases.h" />
-    <ClInclude Include="Enemigos.h" />
+    <ClInclude Include="PersonajesSecundarios.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="Habilidades.h" />
     <ClInclude Include="Items.h" />
@@ -132,7 +132,7 @@
     <ClInclude Include="NivelPersecucionClase.h" />
     <ClInclude Include="NivelRitmo.h" />
     <ClInclude Include="NPCs.h" />
-    <ClInclude Include="Obstaculos.h" />
+    <ClInclude Include="Entidades.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
     <ClInclude Include="Spot.h" />

@@ -1,7 +1,7 @@
 #pragma once
-#include "Obstaculos.h"
+#include "Entidades.h"
 
-class Item: public Obstaculos
+class Item: public Entidad
 {
 protected:
 public:

@@ -1,13 +1,13 @@
 #pragma once
 #include "Protagonistas.h"
-class Obstaculos {
+class Entidad {
 protected:
 	int x, y, dx, anchura, altura;
 	bool existencia;
 public:
-	Obstaculos();
-	Obstaculos(int, int, int, int, int, bool);
-	virtual ~Obstaculos();
+	Entidad();
+	Entidad(int, int, int, int, int, bool);
+	virtual ~Entidad();
 	void Mover();
 	void Borrar();
 
@@ -24,7 +24,7 @@ public:
 	int GetAlto() { return altura; }
 	bool GetExistencia() { return existencia; }
 };
-Obstaculos::Obstaculos() { x = 10; y = 10; dx = 1; anchura = 5; altura = 1; }
-Obstaculos::Obstaculos(int x1, int y1, int dx1, int alto, int ancho, bool owo) { x = x1; y = y1; dx = dx1; existencia = owo; anchura = ancho; altura = alto; }
-Obstaculos::~Obstaculos() {}
-void Obstaculos::Borrar() { Posicion(x, y); cout << "     "; }
+Entidad::Entidad() { x = 10; y = 10; dx = 1; anchura = 5; altura = 1; }
+Entidad::Entidad(int x1, int y1, int dx1, int alto, int ancho, bool owo) { x = x1; y = y1; dx = dx1; existencia = owo; anchura = ancho; altura = alto; }
+Entidad::~Entidad() {}
+void Entidad::Borrar() { Posicion(x, y); cout << "     "; }
