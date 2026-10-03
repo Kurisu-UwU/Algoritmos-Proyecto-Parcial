@@ -24,7 +24,7 @@ public:
 	virtual void GenerarProyectil(char n);
 	void MostrarProyectil();
 	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
-	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*);
+	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*, bool);
 	void EnemigoMuere(PersonajeSecundario*);
 	void GenerarObstaculo(int);
 	void AtributosObstaculo(int, int, int, int, int, int);
@@ -119,20 +119,22 @@ public:
 			enemigo->SetVida(f);
 		}
 	}
-	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
+	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista, bool invisible) { // movimiento para que los enemigos se acerquen al prota
 		bool w, a, s, d = true;
 		int x = enemigo->GetEX();
 		int y = enemigo->GetEY();
 		int velx = enemigo->GetVelocidad();
 		if (enemigo->GetVivo()) {
 			enemigo->Borrar();
-			for (int i = 0; i < canObs; i++) {
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 0) == true) { w = false; }// arriba
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 2) == true) { s = false; }//abajo
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
+			if (!invisible) {
+				for (int i = 0; i < canObs; i++) {
+					if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 0) == true) { w = false; }// arriba
+					if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 2) == true) { s = false; }//abajo
+					if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
+					if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
+				}
+				enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY(), w, a, s, d);
 			}
-			enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY(), w, a, s, d);
 			enemigo->Dibujar();
 		}
 	}

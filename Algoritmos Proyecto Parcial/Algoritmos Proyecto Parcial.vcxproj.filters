@@ -128,9 +128,6 @@
     <ClInclude Include="Entidades.h">
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
-    <ClInclude Include="PersonajesSecundarios.h">
-      <Filter>Source Files\Funciones</Filter>
-    </ClInclude>
     <ClInclude Include="MiguelOhara.h">
       <Filter>Source Files\Clases\Herencia\Protagonistas</Filter>
     </ClInclude>
@@ -139,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="SpiderPunk.h">
       <Filter>Source Files\Clases\Herencia\Protagonistas</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonajesSecundarios.h">
+      <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

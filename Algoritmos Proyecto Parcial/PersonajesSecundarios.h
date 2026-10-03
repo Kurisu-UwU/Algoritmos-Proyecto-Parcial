@@ -71,7 +71,7 @@ PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, fl
 }
 PersonajeSecundario::~PersonajeSecundario() {if (listaP != nullptr) delete[]listaP;}
 void PersonajeSecundario::Dibujar() {DibujarEnemigo(ex, ey);}
-void PersonajeSecundario::Borrar() {BorrarSprite(ex, ey);}
+void PersonajeSecundario::Borrar() {BorrarEnemigo(ex, ey);}
 void PersonajeSecundario::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
 		if (tecla == 'L' || tecla == 'l') {

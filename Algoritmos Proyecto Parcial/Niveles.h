@@ -4,75 +4,83 @@
 void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
 	MilesMorales* miles = new MilesMorales(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
-		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = true;
-		booleanoGeneralParaNiveles5 = true;
-		booleanoGeneralParaNiveles6 = true;
-		DibujarMilesMoralesGrandeTitulo(10, 10);
-		for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
-		for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
-		booltexto = true;
+	booleanoGeneralParaNiveles = true;
+	booleanoGeneralParaNiveles3 = true;
+	booleanoGeneralParaNiveles5 = true;
+	booleanoGeneralParaNiveles6 = true;
+	DibujarMilesMoralesGrandeTitulo(10, 10);
+	for (int i = 0; i < 4 && booltexto; i++) { TextMilesIntro(i); }
+	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
+	booltexto = true;
 
-		/*DibujarMiles(100, 22);
-		DibujarMiguel(100, 26);
-		AnimacionBorrar();
-		miles->SetPX(100); miles->SetPY(22);
-		Persecucion* nivelpersecucion = new Persecucion();
+	/*DibujarMiles(100, 22);
+	DibujarMiguel(100, 26);
+	AnimacionBorrar();
+	miles->SetPX(100); miles->SetPY(22);
+	Persecucion* nivelpersecucion = new Persecucion();
 
-		nivelpersecucion->GenerarObstaculo(2);
-		nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
-		nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
+	nivelpersecucion->GenerarObstaculo(2);
+	nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
+	nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
 
-		nivelpersecucion->GenerarCarros(12);
-		nivelpersecucion->AtributosCarros();
+	nivelpersecucion->GenerarCarros(12);
+	nivelpersecucion->AtributosCarros();
+	DibujarPanelDeControl();
+	nivelpersecucion->GenerarMovimientoJugador(miles);
+	NivelPersecucion(nivelpersecucion);
+	nivelpersecucion->CarrosMovimiento(miles);
+	Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
+	Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+	tiempo = 0;
+	do {
+		if (tiempo == 0) {ColorAzul();} else if (tiempo == 1) {ColorAmarillo();}
+		DibujarW(100, 17);
+		Posicion(110, 18); cout << "Mover arriba";
+		if (tiempo == 0) { ColorAmarillo(); } else if (tiempo == 1) { ColorAzul(); }
+		DibujarS(100, 28);
+		Posicion(110, 27); cout << "Mover abajo";
+		_sleep(300);
+		tiempo++;
+		if (tiempo >= 2) { tiempo = 0; }
+	} while (!_kbhit());
+	BorrarTecla(100, 17);
+	BorrarTecla(100, 28);
+	Posicion(110, 18); cout << "            ";
+	Posicion(110, 27); cout << "            ";
+	tecla = teclageneralbasura;
+	do {  //Parte 1
+		if (_kbhit()) { tecla = getch(); }
 		DibujarPanelDeControl();
 		nivelpersecucion->GenerarMovimientoJugador(miles);
 		NivelPersecucion(nivelpersecucion);
 		nivelpersecucion->CarrosMovimiento(miles);
 		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
 		Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
-		tiempo = 0;
-		do {
-			if (tiempo == 0) {ColorAzul();} else if (tiempo == 1) {ColorAmarillo();}
-			DibujarW(100, 17);
-			Posicion(110, 18); cout << "Mover arriba";
-			if (tiempo == 0) { ColorAmarillo(); } else if (tiempo == 1) { ColorAzul(); }
-			DibujarS(100, 28);
-			Posicion(110, 27); cout << "Mover abajo";
-			_sleep(300);
-			tiempo++;
-			if (tiempo >= 2) { tiempo = 0; }
-		} while (!_kbhit());
-		BorrarTecla(100, 17);
-		BorrarTecla(100, 28);
-		Posicion(110, 18); cout << "            ";
-		Posicion(110, 27); cout << "            ";
+		_sleep(1);
 		tecla = teclageneralbasura;
-		do {  //Parte 1
-			if (_kbhit()) { tecla = getch(); }
-			DibujarPanelDeControl();
-			nivelpersecucion->GenerarMovimientoJugador(miles);
-			NivelPersecucion(nivelpersecucion);
-			nivelpersecucion->CarrosMovimiento(miles);
-			Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-			Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
-			_sleep(1);
-			tecla = teclageneralbasura;
-		} while (booleanoGeneralParaNiveles);
-	delete nivelpersecucion;*/
+	} while (booleanoGeneralParaNiveles);
+delete nivelpersecucion;*/
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
 	miles->Generarhabilidades();
 	miles->SetInvisibilidad(false);
 	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
-	enemigos1[0] = new PersonajeSecundario(170, 37, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
-	enemigos1[1] = new PersonajeSecundario(170, 42, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	enemigos1[0] = new PersonajeSecundario(170, 37, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	enemigos1[1] = new PersonajeSecundario(170, 42, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	PersonajeSecundario** enemigos2 = new PersonajeSecundario * [0];
+	enemigos2[0] = new PersonajeSecundario(100, 27, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	PersonajeSecundario** enemigos3 = new PersonajeSecundario * [0];
+	enemigos3[0] = new PersonajeSecundario(160, 25, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	bool booleanopuertanivel3 = true;
+	PersonajeSecundario** enemigos4 = new PersonajeSecundario * [0];
+	enemigos4[0] = new PersonajeSecundario(32, 22, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	bool booleanopuertanivel4 = true;
 	DibujarSpiderPunkGrandeTitulo(10, 10);
 	Console::Clear();
 	miles->SetVelocidady(1);
 	miles->SetPX(5); miles->SetPY(9);
-	int subnivel = 1; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
+	int subnivel = 3; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
 	do {
 		switch (subnivel) {
 		case 1: {
@@ -105,12 +113,12 @@ void Nivel1() {
 				nivel1->EnemigoHaceGuardia(enemigos1[0]);
 				nivel1->EnemigoHaceGuardia(enemigos1[1]);
 				if (tecla == 'q' || tecla == 'Q') {
-					Posicion(0, 30); cout << "Habilidad Q activada";
+					//Posicion(0, 30); cout << "Habilidad Q activada";
 					miles->ControladorTiempoHabilidades(0);
 				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
 					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
-				} else { booleanoGeneralParaNiveles3 = true; }
+				} 
 				_sleep(1);
 				tecla = teclageneralbasura;
 				miles->DibujarHabilidades();
@@ -132,7 +140,14 @@ void Nivel1() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				for (int i = 0; i < 1; i++) {
+					nivel1->EnemigoAcercaProta(enemigos2[i], miles, miles->GetInvisibilidad());
+				}
 				nivel1->GenerarMovimientoJugador(miles);
+				if (tecla == 'q' || tecla == 'Q') {
+					//Posicion(0, 30); cout << "Habilidad Q activada";
+					miles->ControladorTiempoHabilidades(0);
+				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
 					booleanoGeneralParaNiveles = false; subnivel = 1; miles->SetPX(194); miles->SetPY(9);
 				}
@@ -141,27 +156,44 @@ void Nivel1() {
 				}
 				_sleep(1);
 				tecla = teclageneralbasura;
+				miles->DibujarHabilidades();
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
 		case 3: {
-			nivel1->GenerarObstaculo(10);
+			nivel1->GenerarObstaculo(11);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
 			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
-			nivel1->AtributosObstaculo(4, 0, 20, 0, 55, 35-22);
+			nivel1->AtributosObstaculo(4, 0, 20, 0, 57, 35-22);
 			nivel1->AtributosObstaculo(5, 55, 35, 0, 181-55, 47-35);
 			nivel1->AtributosObstaculo(6, 55, 20, 0, 181-55, 1);
-			nivel1->AtributosObstaculo(7, 181, 20, 0, 1, 35 -20);
+			nivel1->AtributosObstaculo(7, 179, 20, 0, 3, 35 -20);
+			
+			nivel1->AtributosObstaculo(10, 35, 7, 0, 3, 35);
 
 			tecla = 'j';
 			DibujarNivelUno3();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				if (booleanopuertanivel3) { DibujarPuertaNivel1Escena3(29, 8); DibujarPlacaDePresion(61, 22);
+				} else { DibujarPlacaDePresionRoja(61, 22); }
+				for (int i = 0; i < 1; i++) {
+					nivel1->EnemigoAcercaProta(enemigos3[i], miles, miles->GetInvisibilidad());
+					if (CalcularColisiones(enemigos3[i]->GetEX(), enemigos3[i]->GetEY(), 61, 22, 4, 4, 5, 11)) {
+						booleanopuertanivel3 = false;
+						nivel1->AtributosObstaculo(10, 0, 0, 0, 0, 0);
+						BorrarPuertaNivelEscena3(29, 8);
+					}
+				}
 				nivel1->GenerarMovimientoJugador(miles);
+				if (tecla == 'q' || tecla == 'Q') {
+					//Posicion(0, 30); cout << "Habilidad Q activada";
+					miles->ControladorTiempoHabilidades(0);
+				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
 					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(9); miles->SetPY(9);
 				}
@@ -170,36 +202,55 @@ void Nivel1() {
 				}
 				_sleep(1);
 				tecla = teclageneralbasura;
+				miles->DibujarHabilidades();
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
 		case 4: {
-			nivel1->GenerarObstaculo(10);
+			nivel1->GenerarObstaculo(12);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
 			nivel1->AtributosObstaculo(3, 213, 16, 0, 1, 47 - 15); /* muro extremo */ nivel1->AtributosObstaculo(9, 213, 7, 0, 1, 2);
 
-			nivel1->AtributosObstaculo(4, 106, 27, 0, 213 - 105, 36-26);
+			nivel1->AtributosObstaculo(4, 104, 27, 0, 213 - 105, 36-26);
 			nivel1->AtributosObstaculo(5, 170, 18, 0, 213-169, 27 - 17);
-			nivel1->AtributosObstaculo(6, 26, 18, 0, 1, 36 - 18);
+			nivel1->AtributosObstaculo(6, 26, 18, 0, 2, 36 - 18);
 			nivel1->AtributosObstaculo(7, 26, 18, 0, 213 - 26, 1);
 			nivel1->AtributosObstaculo(8, 26, 36, 0, 213 - 26, 1);
+			nivel1->AtributosObstaculo(10, 60, 18, 0, 77-60, 27-18);
+
+			nivel1->AtributosObstaculo(11, 177, 37, 0, 3, 35);
 			tecla = 'j';
 			DibujarNivelUno4();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				if (booleanopuertanivel3) {
+					DibujarPuertaNivel1Escena4(177, 37); DibujarPlacaDePresion(156, 20);
+				}
+				else { DibujarPlacaDePresionRoja(156, 20); }
+				for (int i = 0; i < 1; i++) {
+					nivel1->EnemigoAcercaProta(enemigos4[i], miles, miles->GetInvisibilidad());
+					if (CalcularColisiones(enemigos4[i]->GetEX(), enemigos4[i]->GetEY(), 156, 20, 4, 4, 5, 11)) {
+						booleanopuertanivel3 = false;
+						nivel1->AtributosObstaculo(11, 0, 0, 0, 0, 0);
+						BorrarPuertaNivelEscena4(177, 37);
+					}
+				}
 				nivel1->GenerarMovimientoJugador(miles);
+				if (tecla == 'q' || tecla == 'Q') {
+					miles->ControladorTiempoHabilidades(0);
+				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 39, miles->GetAlto(), miles->GetAncho(), 5, 1)) {
 					booleanoGeneralParaNiveles = false; subnivel = 5; miles->SetPX(9); miles->SetPY(9);
 				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 10, miles->GetAlto(), miles->GetAncho(), 5, 2)) {
 					booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(7); miles->SetPY(10);
 				}
-				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
+				miles->DibujarHabilidades();
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
@@ -1940,7 +1991,7 @@ void NivelPrueba() {
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
 		for (int i = 0; i < cantenemigos; i++) {
-			nivel2->EnemigoAcercaProta(enemigo[i], punk);//Acerca al enemigo al protagonista
+			nivel2->EnemigoAcercaProta(enemigo[i], punk, false);//Acerca al enemigo al protagonista
 			nivel2->EnemigoMuere(enemigo[i]);
 		}
 		DibujarPanelDeControl();
