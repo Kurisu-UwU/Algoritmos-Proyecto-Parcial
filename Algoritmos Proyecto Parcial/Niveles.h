@@ -252,7 +252,7 @@ void Nivel1() {
 
 void Nivel2() {
 	bool nivelcompleto = false;
-	int subnivel = 1;
+	int subnivel = 20;
 	bool subnivelcompleto1;
 	bool subnivelcompleto2;
 	bool subnivelcompleto3;
@@ -292,7 +292,7 @@ void Nivel2() {
 	for (int i = 0; i < 18 && booltexto; i++) { TextMiguel1(i); }
 	AnimacionBorrar();
 
-	Protagonista* Miguel = new Protagonista(10, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
+	Protagonista* Miguel = new Protagonista(50, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	
 	do {
 		switch (subnivel) {
@@ -386,6 +386,12 @@ void Nivel2() {
 				tecla = teclageneralbasura;
 				_sleep(1);
 
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto2 = true;
+					subnivel = 3;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
 					subnivelcompleto2 = true;
 					subnivel = 1;
@@ -399,7 +405,6 @@ void Nivel2() {
 		case 3: {
 			subnivelcompleto3 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -437,6 +442,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto3 = true;
+					subnivel = 2;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 180, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto3 = true;
+					subnivel = 21;
+					Miguel->SetPX(30);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto3);
 			delete nivel2;
 			break;
@@ -444,7 +462,6 @@ void Nivel2() {
 		case 4: {
 			subnivelcompleto4 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -479,6 +496,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto4 = true;
+					subnivel = 14;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto4 = true;
+					subnivel = 5;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto4);
 			delete nivel2;
 			break;
@@ -486,7 +516,6 @@ void Nivel2() {
 		case 5: {
 			subnivelcompleto5 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -520,6 +549,25 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto5 = true;
+					subnivel = 10;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto5 = true;
+					subnivel = 15;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto4 = true;
+					subnivel = 4;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto5);
 			delete nivel2;
 			break;
@@ -580,7 +628,6 @@ void Nivel2() {
 		case 7: {
 			subnivelcompleto7 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -616,6 +663,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto7 = true;
+					subnivel = 8;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto7);
 			delete nivel2;
 			break;
@@ -623,7 +677,6 @@ void Nivel2() {
 		case 8: {
 			subnivelcompleto8 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(6);
 			nivel2->AtributosObstaculo(0, 7, 7, 0, 75, 16);
@@ -658,6 +711,25 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto8 = true;
+					subnivel = 9;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto8 = true;
+					subnivel = 7;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 90, 37, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto8 = true;
+					subnivel = 22;
+					Miguel->SetPX(173);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto8);
 			delete nivel2;
 			break;
@@ -665,7 +737,6 @@ void Nivel2() {
 		case 9: {
 			subnivelcompleto9 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 
 			nivel2->GenerarObstaculo(3);
@@ -703,6 +774,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto9 = true;
+					subnivel = 8;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto9);
 			delete nivel2;
 			break;
@@ -710,7 +788,6 @@ void Nivel2() {
 		case 10: {
 			subnivelcompleto10 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -750,6 +827,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto10 = true;
+					subnivel = 5;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
 			} while (!subnivelcompleto10);
 			delete nivel2;
 			break;
@@ -810,7 +894,6 @@ void Nivel2() {
 		case 12: {
 			subnivelcompleto12 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -846,6 +929,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto12 = true;
+					subnivel = 13;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto12);
 			delete nivel2;
 			break;
@@ -853,7 +943,6 @@ void Nivel2() {
 		case 13: {
 			subnivelcompleto13 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(2);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -885,6 +974,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto13 = true;
+					subnivel = 14;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto13 = true;
+					subnivel = 12;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto13);
 			delete nivel2;
 			break;
@@ -892,7 +994,6 @@ void Nivel2() {
 		case 14: {
 			subnivelcompleto14 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -925,6 +1026,25 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 190, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto14 = true;
+					subnivel = 18;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto14 = true;
+					subnivel = 13;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto14 = true;
+					subnivel = 4;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
 			} while (!subnivelcompleto14);
 			delete nivel2;
 			break;
@@ -932,7 +1052,6 @@ void Nivel2() {
 		case 15: {
 			subnivelcompleto15 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
@@ -974,6 +1093,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 183, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto15 = true;
+					subnivel = 19;
+					Miguel->SetPX(32);
+					Miguel->SetPY(24);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto15 = true;
+					subnivel = 5;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
 			} while (!subnivelcompleto15);
 			delete nivel2;
 			break;
@@ -981,7 +1113,6 @@ void Nivel2() {
 		case 16: {
 			subnivelcompleto16 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -1016,6 +1147,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto16 = true;
+					subnivel = 21;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto16 = true;
+					subnivel = 17;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto16);
 			delete nivel2;
 			break;
@@ -1023,7 +1167,6 @@ void Nivel2() {
 		case 17: {
 			subnivelcompleto17 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -1053,6 +1196,25 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto17 = true;
+					subnivel = 22;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 16;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 18;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto17);
 			delete nivel2;
 			break;
@@ -1060,7 +1222,6 @@ void Nivel2() {
 		case 18: {
 			subnivelcompleto18 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
@@ -1098,6 +1259,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto18 = true;
+					subnivel = 17;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 180, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto18 = true;
+					subnivel = 14;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto18);
 			delete nivel2;
 			break;
@@ -1105,7 +1279,6 @@ void Nivel2() {
 		case 19: {
 			subnivelcompleto19 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -1142,6 +1315,26 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto19 = true;
+					subnivel = 24;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto19 = true;
+					subnivel = 20;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 22, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto19 = true;
+					subnivel = 15;
+					Miguel->SetPX(173);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto19);
 			delete nivel2;
 			break;
@@ -1183,6 +1376,25 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto20 = true;
+					subnivel = 25;
+					Miguel->SetPX(100);
+					Miguel->SetPY(40);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto20 = true;
+					subnivel = 19;
+					Miguel->SetPX(200);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto17 = true;
+					subnivel = 18;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto20);
 			delete nivel2;
 			break;
@@ -1190,7 +1402,6 @@ void Nivel2() {
 		case 21: {
 			subnivelcompleto21 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
@@ -1232,6 +1443,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto21 = true;
+					subnivel = 16;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 22, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto21 = true;
+					subnivel = 3;
+					Miguel->SetPX(170);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto21);
 			delete nivel2;
 			break;
@@ -1239,7 +1463,6 @@ void Nivel2() {
 		case 22: {
 			subnivelcompleto22 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
@@ -1281,6 +1504,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 183, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
+					subnivelcompleto22 = true;
+					subnivel = 8;
+					Miguel->SetPX(90);
+					Miguel->SetPY(30);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto22 = true;
+					subnivel = 17;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
 			} while (!subnivelcompleto22);
 			delete nivel2;
 			break;
@@ -1288,32 +1524,33 @@ void Nivel2() {
 		case 23: {
 			subnivelcompleto23 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
-			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
-			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
-			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
-			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(51, 7);
-			DibujarEdificio(136, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(1, 32);
-			DibujarEdificio(26, 32);
-			DibujarEdificio(51, 32);
-			DibujarEdificio(136, 32);
-			DibujarEdificio(161, 32);
-			DibujarEdificio(186, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
 
-			DibujarCarro(190, 24);
-			DibujarCarro(190, 28);
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1322,6 +1559,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto23 = true;
+					subnivel = 24;
+					Miguel->SetPX(10);
+					Miguel->SetPY(25);
+				}
 			} while (!subnivelcompleto23);
 			delete nivel2;
 			break;
@@ -1329,7 +1573,6 @@ void Nivel2() {
 		case 24: {
 			subnivelcompleto24 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 7, 7, 0, 210, 16);
@@ -1365,6 +1608,19 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
+					subnivelcompleto24 = true;
+					subnivel = 23;
+					Miguel->SetPX(190);
+					Miguel->SetPY(25);
+				}
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
+					subnivelcompleto24 = true;
+					subnivel = 19;
+					Miguel->SetPX(100);
+					Miguel->SetPY(8);
+				}
 			} while (!subnivelcompleto24);
 			delete nivel2;
 			break;
@@ -1372,8 +1628,7 @@ void Nivel2() {
 		case 25: {
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(25); Miguel->SetPY(25);
-
+			DibujarMiles(25, 50);
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
