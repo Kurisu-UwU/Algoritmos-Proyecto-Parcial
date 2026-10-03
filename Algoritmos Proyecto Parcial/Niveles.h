@@ -425,6 +425,7 @@ void Nivel3() {
 		default: break;
 		}
 		AnimacionBorrar();
+		EscribirTextoAnimado("", 40, 20, 50);
 	} while (booleanoGeneralParaNiveles4);
 	delete punk;
 }
