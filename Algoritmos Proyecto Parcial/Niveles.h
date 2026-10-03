@@ -74,7 +74,7 @@ void Nivel1() {
 			miles->SetPX(30); miles->SetPY(30);
 
 			nivel1->GenerarObstaculo(3);
-			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel1->AtributosObstaculo(0, 0, 12, 0, 12, 26);
 			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
 			nivel1->GenerarCofres(1);
