@@ -28,6 +28,7 @@ void IniciarSeleccionPersonajes() {
                     opciniciarnivel = false;
                 }
                 if (tecla == 'x' || tecla == 'X') { opciniciarnivel = false; opFinal = 0; }
+				if (tecla == 'l' || tecla == 'L') { opFinal = 4; opciniciarnivel = false; }
             }
             _sleep(10);
         } while (opciniciarnivel);
@@ -43,7 +44,12 @@ void IniciarSeleccionPersonajes() {
         case 3:
             Nivel3();
             opciniciarnivel2 = false;
-			break;
+            break;
+        case 4:
+            NivelPregunta();
+            opciniciarnivel2 = false;
+            break;
+        default: break;
         }
     } while (opciniciarnivel2);
     AnimacionBorrar();

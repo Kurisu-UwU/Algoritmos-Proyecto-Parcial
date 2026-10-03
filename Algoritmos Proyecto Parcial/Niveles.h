@@ -1385,8 +1385,8 @@ void Nivel2() {
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
 					subnivelcompleto20 = true;
 					subnivel = 25;
-					Miguel->SetPX(100);
-					Miguel->SetPY(40);
+					Miguel->SetPX(90);
+					Miguel->SetPY(30);
 				}
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
 					subnivelcompleto20 = true;
@@ -1395,7 +1395,7 @@ void Nivel2() {
 					Miguel->SetPY(25);
 				}
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
-					subnivelcompleto17 = true;
+					subnivelcompleto20 = true;
 					subnivel = 18;
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
@@ -1631,6 +1631,7 @@ void Nivel2() {
 			break;
 		}
 		case 25: {
+			tecla = teclageneralbasura;
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
 			DibujarMiles(50, 25);
@@ -1679,8 +1680,6 @@ void Nivel2() {
 		}
 		default: break;
 		}
-
-		booleanoGeneralParaNiveles4 = true;
 		AnimacionBorrar();
 	} while (!booleanoGeneralParaNiveles4);
 	delete Miguel;
@@ -1985,4 +1984,8 @@ void NivelPrueba() {
 	} while (booleanoGeneralParaNiveles);
 	for (int i = 0; i < cantenemigos; i++) {delete enemigo[i];}
 	delete[]enemigo;
+}
+void NivelPregunta() {
+	//EscribirTextoAnimado();
+	Posicion(50, 20); cout << "aaaaa";
 }
