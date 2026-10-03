@@ -8,6 +8,13 @@ void DibujarMiles(int x, int y) {
 	Posicion(x + 2, y + 3); cout << "II";
 	Posicion(x + 2, y + 4); cout << "^^";
 }
+void DibujarMilesInvisible(int x, int y) {
+	Posicion(x + 2, y); ColorGris(); cout << "__";
+	Posicion(x + 1, y + 1); cout << "(";  cout << "\\/";  cout << ")";
+	Posicion(x, y + 2); cout << "o=";  cout << "||";  cout << "=o";
+	Posicion(x + 2, y + 3); cout << "II";
+	Posicion(x + 2, y + 4); cout << "^^";
+}
 void BorrarMiles(int x, int y) {
 	Posicion(x + 2, y); cout << "  ";
 	Posicion(x+1, y+1); cout << "    ";

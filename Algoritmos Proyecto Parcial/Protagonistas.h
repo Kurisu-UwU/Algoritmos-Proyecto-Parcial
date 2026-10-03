@@ -37,6 +37,7 @@ public:
 	void DibujarHabilidades();
 	void ControladorTiempoHabilidades(short);
 	bool SobreObjeto(int, int, int, int);
+	void MilesInvisible();
 
 	int GetPX() { return px; }  // getters
 	int GetPY() { return py; }
@@ -111,6 +112,13 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 	default: break;
 	}
 }
+void Protagonista::MilesInvisible() {
+	if (habilidades[0]->GetListo()) {
+		if (tecla == 'q' || tecla == 'Q') {
+		
+		}
+	}
+}
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
 	if (habilidades[tipodetecla]->GetListo() == true) {
 		time_t ahora = time(nullptr);
@@ -121,12 +129,18 @@ void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q
 void Protagonista::Generarhabilidades() {  // el protagonista guarda la información de las habilidades, este es el inicializador
 	time_t n = time(nullptr);
 	switch (tipo) {
-	case 1: break;
+	case 1: {
+		habilidades = new Habilidades * [1];
+		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true, 4);
+		habilidades[0] = Qhabilidad;
+		habilidades[0]->Dibujar();
+		break;
+	}
 	case 2: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1,2,n, true);
-		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true);
-		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true);
+		Habilidades* Qhabilidad = new Habilidades(1,2,n, true,1);
+		Habilidades* Ehabilidad = new Habilidades(2, 4,n,true,1);
+		Habilidades* Rhabilidad = new Habilidades(3,5 ,n,true,1);
 		habilidades[0] = Qhabilidad;
 		habilidades[1] = Ehabilidad;
 		habilidades[2] = Rhabilidad;
@@ -135,9 +149,9 @@ void Protagonista::Generarhabilidades() {  // el protagonista guarda la informac
 	}
 	case 3: {
 		habilidades = new Habilidades * [2];
-		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true);
-		Habilidades* Ehabilidad = new Habilidades(2, 4, n, true);
-		Habilidades* Rhabilidad = new Habilidades(3, 5, n, true);
+		Habilidades* Qhabilidad = new Habilidades(1, 2, n, true,1);
+		Habilidades* Ehabilidad = new Habilidades(2, 4, n, true,1);
+		Habilidades* Rhabilidad = new Habilidades(3, 5, n, true,1);
 		habilidades[0] = Qhabilidad;
 		habilidades[1] = Ehabilidad;
 		habilidades[2] = Rhabilidad;

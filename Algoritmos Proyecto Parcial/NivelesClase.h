@@ -149,9 +149,9 @@ public:
 				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
 				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
 			}
+			if (enemigo->GetTempo() >= enemigo->GetVelocidadTempo()) {
 			if (enemigo->GetEX() < 44) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
 			if (enemigo->GetEX() > 189) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
-			if (enemigo->GetTempo() == enemigo->GetVelocidadTempo()) {
 				enemigo->SetEX(enemigo->GetEX() + enemigo->GetVelocidad());
 				enemigo->SetTempo(0);
 			}

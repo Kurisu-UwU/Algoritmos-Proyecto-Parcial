@@ -63,9 +63,10 @@ void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
+	miles->Generarhabilidades();
 	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
-	enemigos1[0] = new PersonajeSecundario(170, 39, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
-	enemigos1[1] = new PersonajeSecundario(170, 41, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1);
+	enemigos1[0] = new PersonajeSecundario(170, 37, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	enemigos1[1] = new PersonajeSecundario(170, 42, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 	DibujarSpiderPunkGrandeTitulo(10, 10);
 	Console::Clear();
 	miles->SetVelocidady(1);
@@ -102,6 +103,9 @@ void Nivel1() {
 				DibujarPanelDeControl();
 				nivel1->DibujarCofre();
 				nivel1->GenerarMovimientoJugador(miles);
+				nivel1->EnemigoHaceGuardia(enemigos1[0]);
+				nivel1->EnemigoHaceGuardia(enemigos1[1]);
+				miles->ControladorTiempoHabilidades(0);
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
 					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
 				}
@@ -168,7 +172,6 @@ void Nivel1() {
 			break;
 		}
 		case 4: {
-			miles->SetPX(194); miles->SetPY(41);
 			nivel1->GenerarObstaculo(10);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo

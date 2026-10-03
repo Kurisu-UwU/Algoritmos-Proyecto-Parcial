@@ -9,9 +9,10 @@ private:
 	time_t cooldown;
 	bool listo;
 	int tiemporestante;
+	time_t tiempoefecto;
 public:
 	Habilidades();
-	Habilidades(int, int, time_t, bool);
+	Habilidades(int, int, time_t, bool, time_t);
 	~Habilidades();
 
 	void TiempoHabilidad();
@@ -35,11 +36,12 @@ public:
 	}
 };
 Habilidades::Habilidades() {}
-Habilidades::Habilidades(int ne, int cool, time_t t, bool lis) {
+Habilidades::Habilidades(int ne, int cool, time_t t, bool lis, time_t duracionDeHabilidad) {
 	n = ne;
 	cooldown = cool;
 	inicio = t;
 	listo = lis;
+	tiempoefecto = duracionDeHabilidad;
 }
 Habilidades::~Habilidades() {}
 
@@ -47,6 +49,6 @@ void Habilidades::TiempoHabilidad() { //inicialización de condicion para determi
 	inicio = time(nullptr);
 }
 void Habilidades::Dibujar() {  // Para dibujar las habilidades en rojo o verde dependiendo si están listas o no
-	int n = cooldown - (tiempoahora - inicio);
-	DibujarHabilidadQ(listo, n);
+	int e = cooldown - (tiempoahora - inicio);
+	DibujarHabilidadQ(listo, e);
 }
