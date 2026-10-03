@@ -3,7 +3,7 @@
 #include "Ayudantes.h"
 #include "Spot.h"
 #include "Mejoras.h"
-#include "Obstaculos.h"
+#include "Entidades.h"
 #include "Tambores.h"
 #include "Habilidades.h"
 #include "Carros.h"

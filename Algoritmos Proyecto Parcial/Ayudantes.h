@@ -1,6 +1,6 @@
 #pragma once
-#include "Enemigos.h"
-class Ayudantes: public Enemigos {
+#include "PersonajesSecundarios.h"
+class Ayudantes: public PersonajeSecundario {
 private:
 public:
 	Ayudantes();
@@ -17,7 +17,7 @@ public:
 	int GetY();
 	int GetFX();
 };
-Ayudantes::Ayudantes(): Enemigos() { ex = 10; ey = 10; velocidad = 1; }
+Ayudantes::Ayudantes(): PersonajeSecundario() { ex = 10; ey = 10; velocidad = 1; }
 Ayudantes::Ayudantes(int x1, int y1, int vel, bool vivo) { ex = x1; ey = y1; velocidad = vel; this->vivo = vivo; }
 Ayudantes::~Ayudantes() {}
 void Ayudantes::Borrar() { Posicion(ex, ey); cout << "     "; }

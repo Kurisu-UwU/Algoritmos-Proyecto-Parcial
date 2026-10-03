@@ -1,7 +1,7 @@
 #pragma once
 #include "ItemsConstruccion.h"
 
-class NPC : public Obstaculos {
+class NPC : public Entidad {
 protected:
 	int RadioAccion;
 public:

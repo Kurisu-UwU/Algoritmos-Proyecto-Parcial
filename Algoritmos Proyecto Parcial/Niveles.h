@@ -445,9 +445,9 @@ void NivelPrueba() {
 	Protagonista* punk = new Protagonista(20, 20,4,4,100, 1, 2, 10, 100, 2, "Punk", 2, 1, 3);
 	Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
 	int cantenemigos = 4;
-	Enemigos** enemigo = new Enemigos * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+	PersonajeSecundario** enemigo = new PersonajeSecundario * [cantenemigos];  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 	Niveles* nivel2 = new Niveles();
-	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new Enemigos(10, 7, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
+	for (int i = 0; i < cantenemigos; i++) { enemigo[i] = new PersonajeSecundario(10, 7, 2, 2, 1, 5, 1, 1, 1, "Enemigo1", true, 1); }
 
 	enemigo[0]->SetEX(10); //Atributos de los enemigos
 	enemigo[1]->SetEX(20);

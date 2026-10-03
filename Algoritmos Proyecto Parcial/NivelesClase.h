@@ -10,7 +10,7 @@ protected:
 	int canPro;
 	Mejoras** listaMejora;
 	int canMejora;
-	Obstaculos** listaObs;
+	Entidad** listaObs;
 	int canObs;
 	Cofre** listaCofre;
 	int canCofre;
@@ -23,9 +23,9 @@ public:
 
 	virtual void GenerarProyectil(char n);
 	void MostrarProyectil();
-	void AtacarEnemigos(Enemigos*, Protagonista*);
-	void EnemigoAcercaProta(Enemigos*, Protagonista*);
-	void EnemigoMuere(Enemigos*);
+	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
+	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*);
+	void EnemigoMuere(PersonajeSecundario*);
 	void GenerarObstaculo(int);
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void BorrarObjetos();
@@ -87,9 +87,9 @@ Niveles::Niveles() {
 	}
 	void Niveles::GenerarObstaculo(int n) { // inicializador de registro de obstáculos
 		canObs = n;
-		listaObs = new Obstaculos * [n];
+		listaObs = new Entidad * [n];
 		for (int i = 0; i < n; i++)
-			listaObs[i] = new Obstaculos(1, 1, 0, 1, 1, true);
+			listaObs[i] = new Entidad(1, 1, 0, 1, 1, true);
 	}
 	void Niveles::BorrarObjetos() {
 		//for (int i = 0; i < canObs; i++) {delete listaObs[i];}delete[]listaObs;
@@ -111,14 +111,14 @@ Niveles::Niveles() {
 			listaPro[i]->Dibujar();
 		}
 	}
-	void Niveles::AtacarEnemigos(Enemigos* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
+	void Niveles::AtacarEnemigos(PersonajeSecundario* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
 		if (enemigo->GetVivo()) {
 			float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
 			float f = enemigo->GetVida() + n;
 			enemigo->SetVida(f);
 		}
 	}
-	void Niveles::EnemigoAcercaProta(Enemigos* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
+	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista) { // movimiento para que los enemigos se acerquen al prota
 		bool w, a, s, d = true;
 		int x = enemigo->GetEX();
 		int y = enemigo->GetEY();
@@ -135,7 +135,7 @@ Niveles::Niveles() {
 			enemigo->Dibujar();
 		}
 	}
-	void Niveles::EnemigoMuere(Enemigos* enemigo) {  // cuando el enemigo muere
+	void Niveles::EnemigoMuere(PersonajeSecundario* enemigo) {  // cuando el enemigo muere
 		if (enemigo->GetVida() <= 0) {
 			enemigo->SetVivo(false);
 			enemigo->Borrar();
