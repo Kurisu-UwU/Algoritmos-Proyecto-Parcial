@@ -269,9 +269,11 @@ void Nivel1() {
 
 
 
+
+
 void Nivel2() {
 	bool nivelcompleto = false;
-	int subnivel = 3;
+	int subnivel = 25;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
@@ -372,29 +374,34 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarGrieta(180, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -410,31 +417,33 @@ void Nivel2() {
 		case 4: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -453,28 +462,29 @@ void Nivel2() {
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -490,31 +500,38 @@ void Nivel2() {
 		case 6: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -530,31 +547,34 @@ void Nivel2() {
 		case 7: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -572,29 +592,31 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(6);
+			nivel2->AtributosObstaculo(0, 7, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 82, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 7, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(3, 107, 32, 0, 100, 16);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarGrieta(90, 37);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -612,29 +634,34 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -650,31 +677,38 @@ void Nivel2() {
 		case 10: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -690,31 +724,38 @@ void Nivel2() {
 		case 11: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -730,31 +771,34 @@ void Nivel2() {
 		case 12: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -772,29 +816,28 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(2);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -812,29 +855,29 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 136, 32, 0, 75, 16);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarGrieta(190, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -850,31 +893,40 @@ void Nivel2() {
 		case 15: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(183, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -890,31 +942,33 @@ void Nivel2() {
 		case 16: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -932,29 +986,26 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
 			tecla = 'j';
-
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -972,29 +1023,34 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(3);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarGrieta(180, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1010,31 +1066,35 @@ void Nivel2() {
 		case 19: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(22, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1052,29 +1112,30 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->GenerarObstaculo(4);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 190, 24, 0, 10, 8);
 			tecla = 'j';
-
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 32);
+			DibujarEdificio(32, 32);
+			DibujarEdificio(57, 32);
+			DibujarEdificio(82, 32);
+			DibujarEdificio(107, 32);
+			DibujarEdificio(132, 32);
+			DibujarEdificio(157, 32);
+			DibujarEdificio(182, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1090,31 +1151,40 @@ void Nivel2() {
 		case 21: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(30); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(22, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1130,31 +1200,40 @@ void Nivel2() {
 		case 22: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
+
+			DibujarGrieta(183, 24);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1173,28 +1252,29 @@ void Nivel2() {
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
 			tecla = 'j';
 
 			DibujarEdificio(1, 7);
 			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
+			DibujarEdificio(51, 7);
+			DibujarEdificio(136, 7);
 			DibujarEdificio(161, 7);
 			DibujarEdificio(186, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1213,28 +1293,31 @@ void Nivel2() {
 			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 7, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
+			nivel2->AtributosObstaculo(3, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(4, 136, 32, 0, 75, 16);
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1250,31 +1333,38 @@ void Nivel2() {
 		case 25: {
 
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
+			Miguel->SetPX(25); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
-			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(1, 81, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(2, 161, 7, 0, 50, 16);
-			nivel2->AtributosObstaculo(3, 6, 32, 0, 200, 16);
-			nivel2->AtributosObstaculo(4, 30, 10, 0, 2, 10);
+			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
+			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
+			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+
 			tecla = 'j';
 
-			DibujarEdificio(1, 7);
-			DibujarEdificio(26, 7);
-			DibujarEdificio(81, 7);
-			DibujarEdificio(106, 7);
-			DibujarEdificio(161, 7);
-			DibujarEdificio(186, 7);
+			DibujarEdificio(1, 32);
+			DibujarEdificio(26, 32);
+			DibujarEdificio(51, 32);
+			DibujarEdificio(136, 32);
+			DibujarEdificio(161, 32);
+			DibujarEdificio(186, 32);
 
-			DibujarEdificio(6, 32);
-			DibujarEdificio(31, 32);
-			DibujarEdificio(56, 32);
-			DibujarEdificio(81, 32);
-			DibujarEdificio(106, 32);
-			DibujarEdificio(131, 32);
-			DibujarEdificio(156, 32);
-			DibujarEdificio(181, 32);
+			DibujarEdificio(7, 7);
+			DibujarEdificio(32, 7);
+			DibujarEdificio(57, 7);
+			DibujarEdificio(82, 7);
+			DibujarEdificio(107, 7);
+			DibujarEdificio(132, 7);
+			DibujarEdificio(157, 7);
+			DibujarEdificio(182, 7);
+
+			DibujarCarro(190, 24);
+			DibujarCarro(190, 28);
+
+			DibujarCarro(1, 24);
+			DibujarCarro(1, 28);
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
