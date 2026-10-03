@@ -261,6 +261,8 @@ void Nivel2() {
 	bool subnivelcompleto11, subnivelcompleto12, subnivelcompleto13, subnivelcompleto14, subnivelcompleto15;
 	bool subnivelcompleto16, subnivelcompleto17, subnivelcompleto18, subnivelcompleto19, subnivelcompleto20;
 	bool subnivelcompleto21, subnivelcompleto22, subnivelcompleto23, subnivelcompleto24, subnivelcompleto25;
+
+	bool dialogo1 = false;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
@@ -302,6 +304,10 @@ void Nivel2() {
 			DibujarEdificio(136, 32);
 			DibujarEdificio(161, 32);
 			DibujarEdificio(186, 32);
+
+			if (dialogo1 == false) {
+
+			}
 
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
@@ -1893,12 +1899,8 @@ void Nivel3() {
 	} while (booleanoGeneralParaNiveles4);
 	delete punk;
 }
-//
-//
-//
-//
-// 
-//
+
+
 void NivelPrueba() {
 	int a = 0;
 	do {
