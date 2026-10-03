@@ -202,7 +202,7 @@ void TextMiguel1(int n) {
 		break;
 	case 4:
 		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Eto es culpa tuya, tu lo trajiste aqui y lo dejaste huir", PosDerDIALOGO, 4, 50);
+		EscribirTextoAnimado("Esto es culpa tuya, tu lo trajiste aqui y lo dejaste huir", PosDerDIALOGO, 4, 50);
 		break;
 	case 5:
 		CuadroDeTexto("Gwen Stacy", 4, false);

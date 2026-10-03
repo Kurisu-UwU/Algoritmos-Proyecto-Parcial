@@ -148,7 +148,7 @@ void Nivel1() {
 
 
 void Nivel2() {
-	int subnivel = 1;
+	int subnivel = 0;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
 	do {
@@ -156,6 +156,16 @@ void Nivel2() {
 		TextMiguelIntro(a);
 	} while (a < 2);
 	AnimacionBorrar();
+
+	DibujarMaquinaMargo(150, 10);
+	DibujarEscritorioMargo(160, 30);
+	DibujarPlataforma(60, 10);
+	DibujarMiguel(67, 12);
+	DibujarGwen(60, 30);
+	DibujarMargoKees(167, 33);
+	DibujarSpiderWoman(74, 30);
+
+
 	a = 0;
 	do {
 		a++;
@@ -163,26 +173,10 @@ void Nivel2() {
 	} while (a < 18);
 	AnimacionBorrar();
 
-
 	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();
 	
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel2->GenerarMovimientoJugador(Miguel);
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(0, 30); cout << "Habilidad Q activada";
-		}
-		_sleep(1);
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
-	delete Miguel;
 	do {
-		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = true;
-		booleanoGeneralParaNiveles5 = true;
-		booleanoGeneralParaNiveles6 = true;
 		switch (subnivel) {
 		case 1: {
 			DibujarSpiderPunkGrandeTitulo(10, 10);

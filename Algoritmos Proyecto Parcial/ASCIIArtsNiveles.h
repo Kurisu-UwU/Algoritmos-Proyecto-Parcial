@@ -760,3 +760,46 @@ void nose() {
 	Posicion(0, 47); cout << "====================================================================================================================================================================================================================";
 }
 
+void DibujarMaquinaMargo(int x, int y) {
+	ColorMagentaOscuro();
+	Posicion(x, y);      cout << "   |\\      __________________      /|   ";
+	Posicion(x, y + 1);  cout << "   \\ \\    / ________________ \\    / /   ";
+	Posicion(x, y + 2);  cout << "    \\ \\  / /                \\ \\  / /    ";
+	Posicion(x, y + 3);  cout << "     \\ \\/ /                  \\ \\/ /     ";
+	Posicion(x, y + 4);  cout << "  |\\  \\/ /        -----       \\ \\/  /|  ";
+	Posicion(x, y + 5);  cout << "   \\\\ | |                      | | //   ";
+	Posicion(x, y + 6);  cout << "    \\\\| |                      | |//    ";
+	Posicion(x, y + 7);  cout << "     \\| |     |     -     |    | |/     ";
+	Posicion(x, y + 8);  cout << "      | |     |   | 0 |   |    | |      ";
+	Posicion(x, y + 9);  cout << "     /| |     |     -     |    | |\\     ";
+	Posicion(x, y + 10); cout << "    //| |                      | |\\\\    ";
+	Posicion(x, y + 11); cout << "   // | |                      | | \\\\   ";
+	Posicion(x, y + 12); cout << "  |/  /\\ \\        -----       / /\\  \\|  ";
+	Posicion(x, y + 13); cout << "     / /\\ \\                  / /\\ \\     ";
+	Posicion(x, y + 14); cout << "    / /  \\ \\________________/ /  \\ \\    ";
+	Posicion(x, y + 15); cout << "   / /    \\__________________/    \\ \\   ";
+	Posicion(x, y + 16); cout << "   |/                              \\|   ";
+}
+void DibujarEscritorioMargo(int x, int y) {
+	ColorRojo();
+	Posicion(x, y);      cout << "+----------------+";
+	Posicion(x, y + 1);  cout << "| _  0 0 0   === |";
+	Posicion(x, y + 2);  cout << "||_|+--------+   |";
+	Posicion(x, y + 3);  cout << "|...|        |() |";
+	Posicion(x, y + 4);  cout << "|...|        |() |";
+	Posicion(x, y + 5);  cout << "|...|        |() |";
+	Posicion(x, y + 6);  cout << "+---+        +---+";
+}
+void DibujarPlataforma(int x, int y) {
+	ColorRojo();
+	Posicion(x, y);      cout << "    ___________  ";
+	Posicion(x, y + 1);  cout << "   /___________\\  ";
+	Posicion(x, y + 2);  cout << "  //           \\\\ ";
+	Posicion(x, y + 3);  cout << " //             \\\\";
+	Posicion(x, y + 4);  cout << "||               ||";
+	Posicion(x, y + 5);  cout << "||               ||";
+	Posicion(x, y + 6);  cout << " \\\\             // ";
+	Posicion(x, y + 7);  cout << "  \\\\___________//  ";
+	Posicion(x, y + 8);  cout << "   \\___________/   ";
+}
+
