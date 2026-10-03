@@ -283,6 +283,7 @@ void TextPunk1(int n) {
 	default:break;
 	}
 }
+
 void TextPunkSpot(int n) {
 	switch (n) {
 	case 1:
