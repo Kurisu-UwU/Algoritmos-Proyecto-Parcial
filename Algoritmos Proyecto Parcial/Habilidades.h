@@ -58,6 +58,5 @@ void Habilidades::Dibujar() {  // Para dibujar las habilidades en rojo o verde d
 	DibujarHabilidadQ(listo, e);
 }
 void Habilidades::DibujarMiles(int f) {
-	int e = tiempoefecto - f;
-	DibujarEfectoMiles(e);
+	DibujarEfectoMiles(f);
 }

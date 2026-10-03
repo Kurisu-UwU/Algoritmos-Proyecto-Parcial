@@ -13,11 +13,11 @@ void Nivel1() {
 		for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
 		booltexto = true;
 
-		DibujarMiles(100, 22);
+		/*DibujarMiles(100, 22);
 		DibujarMiguel(100, 26);
 		AnimacionBorrar();
 		miles->SetPX(100); miles->SetPY(22);
-		/*Persecucion* nivelpersecucion = new Persecucion();
+		Persecucion* nivelpersecucion = new Persecucion();
 
 		nivelpersecucion->GenerarObstaculo(2);
 		nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
@@ -112,8 +112,7 @@ void Nivel1() {
 				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
 					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
-				}
-				else { booleanoGeneralParaNiveles3 = true; }
+				} else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
 				miles->DibujarHabilidades();
@@ -259,31 +258,11 @@ void Nivel2() {
 	booleanoGeneralParaNiveles4 = false;
 	bool nivelcompleto = false;
 	int subnivel = 20;
-	bool subnivelcompleto1;
-	bool subnivelcompleto2;
-	bool subnivelcompleto3;
-	bool subnivelcompleto4;
-	bool subnivelcompleto5;
-	bool subnivelcompleto6;
-	bool subnivelcompleto7;
-	bool subnivelcompleto8;
-	bool subnivelcompleto9;
-	bool subnivelcompleto10;
-	bool subnivelcompleto11;
-	bool subnivelcompleto12;
-	bool subnivelcompleto13;
-	bool subnivelcompleto14;
-	bool subnivelcompleto15;
-	bool subnivelcompleto16;
-	bool subnivelcompleto17;
-	bool subnivelcompleto18;
-	bool subnivelcompleto19;
-	bool subnivelcompleto20;
-	bool subnivelcompleto21;
-	bool subnivelcompleto22;
-	bool subnivelcompleto23;
-	bool subnivelcompleto24;
-	bool subnivelcompleto25;
+	bool subnivelcompleto1, subnivelcompleto2, subnivelcompleto3, subnivelcompleto4, subnivelcompleto5;
+	bool subnivelcompleto6, subnivelcompleto7, subnivelcompleto8, subnivelcompleto9, subnivelcompleto10;
+	bool subnivelcompleto11, subnivelcompleto12, subnivelcompleto13, subnivelcompleto14, subnivelcompleto15;
+	bool subnivelcompleto16, subnivelcompleto17, subnivelcompleto18, subnivelcompleto19, subnivelcompleto20;
+	bool subnivelcompleto21, subnivelcompleto22, subnivelcompleto23, subnivelcompleto24, subnivelcompleto25;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();

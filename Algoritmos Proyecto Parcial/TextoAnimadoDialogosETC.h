@@ -390,7 +390,7 @@ void TextMiguelFinal(int n) {
 		EscribirTextoAnimado("Ese no es el punto, pones en riesgo todo el spider verso", PosDerDIALOGO, 4, 50);
 		break;
 	case 5:
-		CuadroDeTexto("Gwen Stacy", 4, false);
+		CuadroDeTexto("Miguel O'hara", 2, false);
 		EscribirTextoAnimado("Ahora que te tengo, por fin, todos estan a salvo", PosDerDIALOGO, 4, 50);
 		break;
 	case 6: AnimacionBorrar(); break;

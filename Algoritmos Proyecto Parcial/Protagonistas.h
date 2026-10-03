@@ -68,7 +68,7 @@ void Protagonista::Dibujar() {
 		if (invisibilidad) {
 			DibujarMilesInvisible(px, py);
 		}
-		else {
+		else if (!invisibilidad) {
 			DibujarMiles(px, py);
 		}
 		break;
@@ -125,15 +125,9 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
 	time_t ahora = time(nullptr);
 	if (habilidades[tipodetecla]->GetListo() == true) {
+		if (tipo == 1) { invisibilidad = true;}
 		habilidades[tipodetecla]->SetInicio(ahora);
 		habilidades[tipodetecla]->SetListo(false);
-	}
-	if (tipo == 1) {
-		habilidades[tipodetecla]->SetTiempoRestante(habilidades[tipodetecla]->GetTiempoEfecto() - ahora);
-		if (habilidades[tipodetecla]->GetTiempoRestante() >= 0) {
-			invisibilidad = true;
-		}
-		else { invisibilidad = false; }
 	}
 }
 void Protagonista::Generarhabilidades() {  // el protagonista guarda la información de las habilidades, este es el inicializador
@@ -144,7 +138,7 @@ void Protagonista::Generarhabilidades() {  // el protagonista guarda la informac
 		Habilidades* Qhabilidad = new Habilidades(1, 10, n, true, 4);
 		habilidades[0] = Qhabilidad;
 		habilidades[0]->Dibujar();
-		habilidades[0]->SetTiempoRestante(0);
+		habilidades[0]->SetTiempoRestante(-1);
 		break;
 	}
 	case 2: {
@@ -174,7 +168,7 @@ void Protagonista::Generarhabilidades() {  // el protagonista guarda la informac
 void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo de la tecla
 	time_t ahora = time(nullptr);
 	bool n = habilidades[0]->GetListo();
-	if (n==false) {
+	if (!n) {
 		habilidades[0]->SetTiempoAhora(ahora);
 		time_t diferencia = ahora - (habilidades[0]->GetInicio());
 		habilidades[0]->Dibujar();
@@ -183,9 +177,14 @@ void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo 
 			habilidades[0]->Dibujar();
 		}
 		if (tipo == 1) {
-			habilidades[0]->DibujarMiles(diferencia);
+			habilidades[0]->SetTiempoRestante(habilidades[0]->GetTiempoEfecto() - diferencia);
+			habilidades[0]->DibujarMiles(habilidades[0]->GetTiempoRestante());
 		}
 	}
+	if (habilidades[0]->GetTiempoRestante() >= 0) {
+		invisibilidad = true;
+	}
+	else { invisibilidad = false; }
 }
 
 bool Protagonista::SobreObjeto(int x, int y, int altura, int anchura) {
