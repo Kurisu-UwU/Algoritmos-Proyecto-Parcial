@@ -256,6 +256,7 @@ void Nivel1() {
 
 
 void Nivel2() {
+	booleanoGeneralParaNiveles4 = false;
 	bool nivelcompleto = false;
 	int subnivel = 20;
 	bool subnivelcompleto1;
@@ -284,7 +285,6 @@ void Nivel2() {
 	bool subnivelcompleto24;
 	bool subnivelcompleto25;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
-	int a = 0;
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
 	DibujarMaquinaMargo(150, 10);
@@ -1633,7 +1633,7 @@ void Nivel2() {
 		case 25: {
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
-			DibujarMiles(25, 50);
+			DibujarMiles(50, 25);
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
@@ -1664,7 +1664,7 @@ void Nivel2() {
 
 			DibujarCarro(1, 24);
 			DibujarCarro(1, 28);
-
+			DibujarPanelDeControl();
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -1672,14 +1672,17 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
 			} while (!subnivelcompleto25);
 			delete nivel2;
 			break;
 		}
 		default: break;
 		}
+
+		booleanoGeneralParaNiveles4 = true;
 		AnimacionBorrar();
-	} while (booleanoGeneralParaNiveles4);
+	} while (!booleanoGeneralParaNiveles4);
 	delete Miguel;
 }
 

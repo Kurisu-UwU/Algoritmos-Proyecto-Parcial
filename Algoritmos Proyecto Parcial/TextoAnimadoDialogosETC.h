@@ -370,3 +370,30 @@ void TextPunkSpot(int n) {
 	default:break;
 	}
 }
+
+void TextMiguelFinal(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Por fin, después de tonta te encuentro", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("No tienes idea de la cantidad de problemas que me has dado hoy", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Intentar rescatar a un ser querido es un crimen?", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Ese no es el punto, pones en riesgo todo el spider verso", PosDerDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Ahora que te tengo, por fin, todos estan a salvo", PosDerDIALOGO, 4, 50);
+		break;
+	case 6: AnimacionBorrar(); break;
+	default:break;
+	}
+}
