@@ -161,12 +161,8 @@ void Nivel2() {
 	int subnivel = 1;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
-	do {
-		a++;
-		TextMiguelIntro(a);
-	} while (a < 2);
+	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
-
 	DibujarMaquinaMargo(150, 10);
 	DibujarEscritorioMargo(160, 30);
 	DibujarPlataforma(60, 10);
@@ -174,13 +170,8 @@ void Nivel2() {
 	DibujarGwen(60, 30);
 	DibujarMargoKees(167, 33);
 	DibujarSpiderWoman(74, 30);
-
-
-	a = 0;
-	do {
-		a++;
-		TextMiguel1(a);
-	} while (a < 18);
+	for (int i = 0; i < 18 && booltexto; i++) { TextMiguel1(i); }
+	AnimacionBorrar();
 
 	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();
@@ -221,6 +212,7 @@ void Nivel2() {
 				nivel2->GenerarMovimientoJugador(Miguel);
 				
 				tecla = teclageneralbasura;
+				_sleep(1);
 			} while (nivelcompleto == false);
 			break;
 		}
