@@ -65,9 +65,6 @@
     <ClInclude Include="TextoAnimadoDialogosETC.h">
       <Filter>Source Files\AnimacionesYASCIIArts</Filter>
     </ClInclude>
-    <ClInclude Include="Enemigos.h">
-      <Filter>Source Files\Clases\Padres</Filter>
-    </ClInclude>
     <ClInclude Include="Habilidades.h">
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
@@ -78,9 +75,6 @@
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
     <ClInclude Include="NivelesClase.h">
-      <Filter>Source Files\Clases\Padres</Filter>
-    </ClInclude>
-    <ClInclude Include="Obstaculos.h">
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
     <ClInclude Include="Protagonistas.h">
@@ -127,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="Clases.h">
       <Filter>Source Files\Clases\Libreria</Filter>
+    </ClInclude>
+    <ClInclude Include="Entidades.h">
+      <Filter>Source Files\Clases\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonajesSecundarios.h">
+      <Filter>Source Files\Funciones</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
