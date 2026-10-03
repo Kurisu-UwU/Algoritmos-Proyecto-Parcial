@@ -70,13 +70,24 @@ void Nivel1() {
 	do {
 		switch (subnivel) {
 		case 1: {
-
 			miles->SetPX(30); miles->SetPY(30);
+			nivel1->GenerarObstaculo(13);
+			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
+			nivel1->AtributosObstaculo(1, 15, 47, 0, 179, 1);// muro extremo
+			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 12);// muro extremo
+			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
-			nivel1->GenerarObstaculo(3);
-			nivel1->AtributosObstaculo(0, 0, 12, 0, 12, 26);
-			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
-			nivel1->AtributosObstaculo(2, 30, 10, 0, 2, 10);
+			nivel1->AtributosObstaculo(4, 3, 19, 0, 12, 26);
+			nivel1->AtributosObstaculo(5, 44, 19, 0, 72-42, 35-19);
+			nivel1->AtributosObstaculo(6, 73, 22, 0, 109-73, 34-22);
+			nivel1->AtributosObstaculo(7, 49, 7, 0, 73-49, 19 -7);
+			nivel1->AtributosObstaculo(8, 146, 22, 0, 156 - 145, 34 - 21);
+			nivel1->AtributosObstaculo(9, 156, 0, 0, 187 - 156, 35);
+			//Puertas Abiertas
+			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
+			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
+			nivel1->AtributosObstaculo(12, 205, 0, 0, 8, 1);
+
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
@@ -104,9 +115,7 @@ void Nivel1() {
 			break;
 		}
 		case 2: {
-
 			miles->SetPX(30); miles->SetPY(30);
-
 			nivel1->GenerarObstaculo(3);
 			nivel1->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel1->AtributosObstaculo(1, 137, 32, 0, 75, 16);
