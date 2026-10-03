@@ -1631,6 +1631,7 @@ void Nivel2() {
 			break;
 		}
 		case 25: {
+			booltexto = true;
 			tecla = teclageneralbasura;
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
@@ -1666,6 +1667,7 @@ void Nivel2() {
 			DibujarCarro(1, 24);
 			DibujarCarro(1, 28);
 			DibujarPanelDeControl();
+			for (int i = 0; i < 7 && booltexto; i++) { TextMiguelFinal(i); }
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -1986,6 +1988,32 @@ void NivelPrueba() {
 	delete[]enemigo;
 }
 void NivelPregunta() {
-	//EscribirTextoAnimado();
-	Posicion(50, 20); cout << "aaaaa";
+	AnimacionBorrar();
+	CuadroDeTexto("", 0, false);
+	EscribirTextoAnimado("Luego de vivir la experiencia desde el punto de vista de los 3 personajes...      ", PosIzDIALOGO, 4, 40);
+	CuadroDeTexto("", 0, false);
+	EscribirTextoAnimado("Con cual de los 3 personajes te identificas mas?      ", PosIzDIALOGO, 4, 40);
+	int booleanoaqui = true;
+	int opciniciarnivel = 0;
+	
+	do {
+		ImprimirA(83, 40); ImprimirD(122, 40);
+		DibujarOpcionMiles(10, 10);
+		DibujarOpcionMiguel(85, 10);
+		DibujarOpcionPunk(160, 10);
+		DibujarZ(195, 40); Posicion(166, 42); cout << "Presione Z para seleccionar";
+		if (kbhit()) {
+			tecla = getch();
+			ImprimirA(83, 40); ImprimirD(122, 40);
+			if (tecla == 'a' || tecla == 'A') { opMenu--; if (opMenu < 1) opMenu = 3; }
+			if (tecla == 'd' || tecla == 'D') { opMenu++; if (opMenu > 3) opMenu = 1; }
+			if (tecla == 'z' || tecla == 'Z') {
+				AnimacionBorrar();
+				opFinal = opMenu;  // saber que opción eligió
+				opciniciarnivel = false;
+			}
+			if (tecla == 'x' || tecla == 'X') { opciniciarnivel = false; opFinal = 0; }
+			if (tecla == 'l' || tecla == 'L') { opFinal = 4; opciniciarnivel = false; }
+		}
+	} while (booleanoaqui);
 }
