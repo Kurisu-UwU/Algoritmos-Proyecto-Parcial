@@ -105,6 +105,7 @@ public:
 		listaObs[numero]->SetAncho(ancho);
 		listaObs[numero]->SetAlto(alto);
 	}
+
 	void Niveles::MostrarProyectil() { // muestra proyectil :V
 		for (int i = 0; i < canPro; i++) {
 			listaPro[i]->Borrar();

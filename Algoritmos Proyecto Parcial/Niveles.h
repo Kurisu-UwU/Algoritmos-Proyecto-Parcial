@@ -255,7 +255,7 @@ void Nivel1() {
 void Nivel2() {
 	booleanoGeneralParaNiveles4 = false;
 	bool nivelcompleto = false;
-	int subnivel = 20;
+	int subnivel = 1;
 	bool subnivelcompleto1, subnivelcompleto2, subnivelcompleto3, subnivelcompleto4, subnivelcompleto5;
 	bool subnivelcompleto6, subnivelcompleto7, subnivelcompleto8, subnivelcompleto9, subnivelcompleto10;
 	bool subnivelcompleto11, subnivelcompleto12, subnivelcompleto13, subnivelcompleto14, subnivelcompleto15;
@@ -306,7 +306,9 @@ void Nivel2() {
 			DibujarEdificio(186, 32);
 
 			if (dialogo1 == false) {
-
+				for (int i = 0; i < 2 && booltexto; i++) { TextMiguel2(i);
+				dialogo1 = true;
+				}
 			}
 
 			do {  //Parte 1

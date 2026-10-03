@@ -396,7 +396,11 @@ void TextMiguel2(int n) {
 		CuadroDeTexto("Miguel O'hara", 2, false);
 		EscribirTextoAnimado("También he activado un rastreador que te indicará tu distancia a Miles", PosDerDIALOGO, 4, 50);
 		break;
-	case 6: AnimacionBorrar(); break;
+	case 6:
+		CuadroDeTexto("Miguel O'hara", 2, false);
+		EscribirTextoAnimado("Yo buscaré por otra zona, mucha suerte", PosDerDIALOGO, 4, 50);
+		break;
+	case 7: AnimacionBorrar(); break;
 	default:break;
 	}
 }
