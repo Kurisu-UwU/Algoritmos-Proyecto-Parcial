@@ -166,6 +166,15 @@ void DibujarHabilidadQ(bool color, int n) {
 		}
 	}
 }
+void DibujarEfectoMiles(int n) {
+	ColorAzul();
+	if (n > -1) {
+		Posicion(73, 4); cout << "Invisibilidad:    " << n << "  ";
+	}
+	else {
+		Posicion(73, 4); cout << "                         ";
+	}
+}
 void DibujarMilesMoralesGrandeTitulo(int x, int y) {
 	ColorMorado();
 	Posicion(x, y);     cout << ".___  ___.  __   __       _______     _______.   .___  ___.   ______   .______          ___       __       _______     _______.";

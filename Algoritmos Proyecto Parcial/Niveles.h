@@ -64,6 +64,7 @@ void Nivel1() {
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
 	miles->Generarhabilidades();
+	miles->SetInvisibilidad(false);
 	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
 	enemigos1[0] = new PersonajeSecundario(170, 37, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 	enemigos1[1] = new PersonajeSecundario(170, 42, 2, 2, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
@@ -105,13 +106,17 @@ void Nivel1() {
 				nivel1->GenerarMovimientoJugador(miles);
 				nivel1->EnemigoHaceGuardia(enemigos1[0]);
 				nivel1->EnemigoHaceGuardia(enemigos1[1]);
-				miles->ControladorTiempoHabilidades(0);
+				if (tecla == 'q' || tecla == 'Q') {
+					Posicion(0, 30); cout << "Habilidad Q activada";
+					miles->ControladorTiempoHabilidades(0);
+				}
 				if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
 					booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
 				}
 				else { booleanoGeneralParaNiveles3 = true; }
 				_sleep(1);
 				tecla = teclageneralbasura;
+				miles->DibujarHabilidades();
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
