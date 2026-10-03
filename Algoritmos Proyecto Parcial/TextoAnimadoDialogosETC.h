@@ -19,6 +19,8 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 4:DibujarGwen(n, 2); break;
 	case 5:DibujarSpot(n, 2); break;
 	case 6:DibujarMargoKees(n, 2); break;
+	case 7:DibujarSpiderWoman(n, 2); break;
+	case 9:DibujarPeterPorker(n, 2); break;
 
 	default: break;
 	}

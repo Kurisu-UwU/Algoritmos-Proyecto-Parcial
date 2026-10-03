@@ -123,6 +123,29 @@ void DibujarMargoKees(int x, int y) {
 	Posicion(x + 2, y + 3); ColorMagentaOscuro(); cout << "||";
 	Posicion(x + 2, y + 4); ColorMagentaOscuro(); cout << "UU";
 }
+void DibujarSpiderWoman(int x, int y) {
+	Posicion(x + 1, y); ColorAzulOscuro(); cout << "oOOo";
+	Posicion(x + 1, y + 1); ColorRojo();  cout << "(";
+	Posicion(x + 1, y + 1); ColorAmarillo();  cout << "\\/";
+	Posicion(x + 1, y + 1); ColorRojo();  cout << ")";
+	Posicion(x, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 1, y + 2); ColorAzulOscuro(); cout << "=";
+	Posicion(x + 2, y + 2); ColorRojo(); cout << "qp";
+	Posicion(x + 4, y + 2); ColorAzulOscuro(); cout << "=";
+	Posicion(x + 5, y + 2); ColorRojo(); cout << "o";
+	Posicion(x + 2, y + 3); ColorAzulOscuro(); cout << "||";
+	Posicion(x + 1, y + 4); ColorRojo(); cout << ".II.";
+}
+void DibujarPeterPorker(int x, int y) {
+	Posicion(x + 1, y); ColorRojo(); cout << "N_N";
+	Posicion(x, y + 1); ColorRojo();  cout << "(";
+	Posicion(x + 1, y + 1); ColorBlanco();  cout << "\\ /";
+	Posicion(x + 4, y + 1); ColorRojo();  cout << ")";
+	Posicion(x + 1, y + 2); ColorRojo();  cout << "O O";
+	Posicion(x, y + 3); ColorRojo();  cout << "“";
+	Posicion(x + 1, y + 3); ColorRojo();  cout << ".|.";
+	Posicion(x + 4, y + 3); ColorRojo();  cout << "”";
+}
 
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
