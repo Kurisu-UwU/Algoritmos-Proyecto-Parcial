@@ -114,6 +114,16 @@ void BorrarSprite(int x, int y) {
 	Posicion(x + 1, y); y++; cout << "        ";
 	Posicion(x + 1, y); y++; cout << "        ";
 }
+void DibujarMargoKees(int x, int y) {
+	Posicion(x + 1, y); ColorAzul(); cout << "__";
+	Posicion(x, y + 1); ColorAzul();  cout << "o";
+	Posicion(x, y + 1); ColorMagentaOscuro(); cout << "\\/";
+	Posicion(x, y + 1); ColorAzul(); cout << "o";
+	Posicion(x, y + 2); ColorMagentaOscuro(); cout << "/()\\";
+	Posicion(x + 2, y + 3); ColorMagentaOscuro(); cout << "||";
+	Posicion(x + 2, y + 4); ColorMagentaOscuro(); cout << "UU";
+}
+
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();

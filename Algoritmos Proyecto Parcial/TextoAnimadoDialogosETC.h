@@ -18,6 +18,8 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 3:DibujarPunk(n, 2);break;
 	case 4:DibujarGwen(n, 2); break;
 	case 5:DibujarSpot(n, 2); break;
+	case 6:DibujarMargoKees(n, 2); break;
+
 	default: break;
 	}
 	Posicion(n+10, 3); cout << nombre;
