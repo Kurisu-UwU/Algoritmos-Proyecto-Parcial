@@ -144,15 +144,11 @@ void Nivel1() {
 		}
 	} while (booleanoGeneralParaNiveles4);
 }
-//
-//
-//
-//
-//
-//
+
+
+
 void Nivel2() {
 	int subnivel = 1;
-	bool arriba = true, abajo = true, izquierda = true, derecha = true;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
 	do {
@@ -160,6 +156,13 @@ void Nivel2() {
 		TextMiguelIntro(a);
 	} while (a < 2);
 	AnimacionBorrar();
+	a = 0;
+	do {
+		a++;
+		TextMiguel1(a);
+	} while (a < 18);
+	AnimacionBorrar();
+
 
 	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();

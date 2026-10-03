@@ -117,17 +117,17 @@ void BorrarSprite(int x, int y) {
 void DibujarMargoKees(int x, int y) {
 	Posicion(x + 1, y); ColorAzul(); cout << "__";
 	Posicion(x, y + 1); ColorAzul();  cout << "o";
-	Posicion(x, y + 1); ColorMagentaOscuro(); cout << "\\/";
-	Posicion(x, y + 1); ColorAzul(); cout << "o";
+	Posicion(x + 1, y + 1); ColorMagentaOscuro(); cout << "\\/";
+	Posicion(x + 3, y + 1); ColorAzul(); cout << "o";
 	Posicion(x, y + 2); ColorMagentaOscuro(); cout << "/()\\";
-	Posicion(x + 2, y + 3); ColorMagentaOscuro(); cout << "||";
-	Posicion(x + 2, y + 4); ColorMagentaOscuro(); cout << "UU";
+	Posicion(x + 1, y + 3); ColorMagentaOscuro(); cout << "||";
+	Posicion(x + 1, y + 4); ColorMagentaOscuro(); cout << "UU";
 }
 void DibujarSpiderWoman(int x, int y) {
 	Posicion(x + 1, y); ColorAzulOscuro(); cout << "oOOo";
 	Posicion(x + 1, y + 1); ColorRojo();  cout << "(";
-	Posicion(x + 1, y + 1); ColorAmarillo();  cout << "\\/";
-	Posicion(x + 1, y + 1); ColorRojo();  cout << ")";
+	Posicion(x + 2, y + 1); ColorAmarillo();  cout << "\\/";
+	Posicion(x + 4, y + 1); ColorRojo();  cout << ")";
 	Posicion(x, y + 2); ColorRojo(); cout << "o";
 	Posicion(x + 1, y + 2); ColorAzulOscuro(); cout << "=";
 	Posicion(x + 2, y + 2); ColorRojo(); cout << "qp";
