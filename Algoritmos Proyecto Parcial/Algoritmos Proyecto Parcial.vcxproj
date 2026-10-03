@@ -119,6 +119,8 @@
     <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Carros.h" />
     <ClInclude Include="Clases.h" />
+    <ClInclude Include="MiguelOhara.h" />
+    <ClInclude Include="MilesMorales.h" />
     <ClInclude Include="PersonajesSecundarios.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="Habilidades.h" />
@@ -135,6 +137,7 @@
     <ClInclude Include="Entidades.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
+    <ClInclude Include="SpiderPunk.h" />
     <ClInclude Include="Spot.h" />
     <ClInclude Include="Tambores.h" />
     <ClInclude Include="TextoAnimadoDialogosETC.h">

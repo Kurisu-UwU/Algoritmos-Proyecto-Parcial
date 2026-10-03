@@ -3,7 +3,7 @@
 
 void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
-	Protagonista* miles = new Protagonista(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
+	MilesMorales* miles = new MilesMorales(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
 		booleanoGeneralParaNiveles = true;
 		booleanoGeneralParaNiveles3 = true;
 		booleanoGeneralParaNiveles5 = true;
@@ -92,8 +92,6 @@ void Nivel1() {
 			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
 			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
 			nivel1->AtributosObstaculo(12, 208, 7, 0, 8, 1);
-
-			
 
 			nivel1->GenerarCofres(1);
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
@@ -276,7 +274,7 @@ void Nivel2() {
 	for (int i = 0; i < 18 && booltexto; i++) { TextMiguel1(i); }
 	AnimacionBorrar();
 
-	Protagonista* Miguel = new Protagonista(50, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
+	MiguelOhara* Miguel = new MiguelOhara(50, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	
 	do {
 		switch (subnivel) {
@@ -1671,7 +1669,7 @@ void Nivel2() {
 void Nivel3() {
 	int uwu = 1;
 	booleanoGeneralParaNiveles4 = true;
-	Protagonista* punk = new Protagonista(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
+	SpiderPunk* punk = new SpiderPunk(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
 		booleanoGeneralParaNiveles = true;
 		booleanoGeneralParaNiveles3 = true;

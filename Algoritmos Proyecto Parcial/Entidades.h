@@ -1,5 +1,8 @@
 #pragma once
 #include "Protagonistas.h"
+#include "MilesMorales.h"
+#include "MiguelOhara.h"
+#include "SpiderPunk.h"
 class Entidad {
 protected:
 	int x, y, dx, anchura, altura;

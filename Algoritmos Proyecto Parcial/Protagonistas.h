@@ -4,7 +4,7 @@
 
 
 class Protagonista {
-private:
+protected:
 	int px, py, ancho, alto;
 	float energia, velocidadx, velocidady, ataque, vida, carga;
 	string nombre;
@@ -12,15 +12,14 @@ private:
 	short direccionMirada; // W 1 / a 2 / s 3 / d4
 	Habilidades** habilidades;
 	short cantidadhabilidades;
-	bool invisibilidad;
 
 public:
 	Protagonista();
 	Protagonista(int, int, int, int, float, float, float, float, float, float, string, short, short, short);
-	~Protagonista();
+	virtual ~Protagonista();
 
-	void Dibujar();
-	void Borrar();
+	virtual void Dibujar();
+	virtual void Borrar();
 	void Mover(bool, bool, bool, bool);
 	void SetPX(int x1) { px = x1; }  //setters
 	void SetPY(int y1) { py = y1; }
@@ -32,14 +31,12 @@ public:
 	void SetCarga(float c1) { carga = c1; }
 	void SetNombre(string n1) { nombre = n1; }
 	void SetMirada(short mira) { direccionMirada = mira; }
-	void SetInvisibilidad(bool inv) { invisibilidad = inv; }
 
-	void Generarhabilidades();
+	virtual void Generarhabilidades();
 	float AtacarEnemigos(int, int);
 	void DibujarHabilidades();
-	void ControladorTiempoHabilidades(short);
+	virtual void ControladorTiempoHabilidades(short);
 	bool SobreObjeto(int, int, int, int);
-	void MilesInvisible();
 
 	int GetPX() { return px; }  // getters
 	int GetPY() { return py; }
@@ -53,7 +50,6 @@ public:
 	float GetCarga() { return carga; }
 	string GetNombre() { return nombre; }
 	short GetMirada();
-	bool GetInvisibilidad() { return invisibilidad; }
 };
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidadx = 1; velocidady = 2; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;
@@ -63,7 +59,7 @@ Protagonista::Protagonista(int x1, int y1,int anch, int alt, float e1, float vx1
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
-	switch (tipo) {
+	/*switch (tipo) {
 	case 1: 
 		if (invisibilidad) {
 			DibujarMilesInvisible(px, py);
@@ -74,7 +70,7 @@ void Protagonista::Dibujar() {
 		break;
 	case 2: DibujarMiguel(px, py); break;
 	case 3: DibujarPunk(px, py); break;
-	}
+	}*/
 }
 void Protagonista::Borrar() {
 	switch (tipo) {
@@ -125,7 +121,7 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
 	time_t ahora = time(nullptr);
 	if (habilidades[tipodetecla]->GetListo() == true) {
-		if (tipo == 1) { invisibilidad = true;}
+		//if (tipo == 1) { invisibilidad = true;}
 		habilidades[tipodetecla]->SetInicio(ahora);
 		habilidades[tipodetecla]->SetListo(false);
 	}
@@ -181,10 +177,10 @@ void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo 
 			habilidades[0]->DibujarMiles(habilidades[0]->GetTiempoRestante());
 		}
 	}
-	if (habilidades[0]->GetTiempoRestante() >= 0) {
+	/*if (habilidades[0]->GetTiempoRestante() >= 0) {
 		invisibilidad = true;
 	}
-	else { invisibilidad = false; }
+	else { invisibilidad = false; }*/
 }
 
 bool Protagonista::SobreObjeto(int x, int y, int altura, int anchura) {

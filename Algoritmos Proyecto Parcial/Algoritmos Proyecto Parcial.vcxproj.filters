@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Clases\Libreria">
       <UniqueIdentifier>{51d792f1-b844-485e-bcbb-ad772ceffef6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Protagonistas">
+      <UniqueIdentifier>{e4a40904-9ffb-4942-b7a2-771e92db639d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp">
@@ -127,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="PersonajesSecundarios.h">
       <Filter>Source Files\Funciones</Filter>
+    </ClInclude>
+    <ClInclude Include="MiguelOhara.h">
+      <Filter>Source Files\Clases\Herencia\Protagonistas</Filter>
+    </ClInclude>
+    <ClInclude Include="MilesMorales.h">
+      <Filter>Source Files\Clases\Herencia\Protagonistas</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiderPunk.h">
+      <Filter>Source Files\Clases\Herencia\Protagonistas</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

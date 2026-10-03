@@ -1,0 +1,65 @@
+#pragma once
+#include "Protagonistas.h"
+
+
+class MiguelOhara : public Protagonista {
+private:
+public:
+	MiguelOhara(int, int, int, int, float, float, float, float, float, float, string, short, short, short);
+	~MiguelOhara();
+
+	void Dibujar() override;
+	void Borrar() override;
+
+	void Generarhabilidades() override;
+	float AtacarEnemigos(int, int);
+	void DibujarHabilidades();
+	void ControladorTiempoHabilidades(short) override;
+	bool SobreObjeto(int, int, int, int);
+};
+MiguelOhara::MiguelOhara(int x1, int y1, int anch, int alt, float e1, float vx1, float vy1, float a1, float vi1, float car, string n1, short tip, short mira, short cantHabilidades) : Protagonista() {
+	px = x1; py = y1; energia = e1; velocidadx = vx1; velocidady = vy1; ataque = a1; vida = vi1; carga = car; nombre = n1; tipo = tip; direccionMirada = mira; cantidadhabilidades = cantHabilidades; ancho = anch; alto = alt;
+}
+MiguelOhara::~MiguelOhara() {}
+void MiguelOhara::Dibujar() {
+	DibujarMiguel(px, py);
+}
+void MiguelOhara::Borrar() {
+	BorrarMiguel(px, py);
+}
+void MiguelOhara::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
+	time_t ahora = time(nullptr);
+	if (habilidades[tipodetecla]->GetListo() == true) {
+		//if (tipo == 1) { invisibilidad = true;}
+		habilidades[tipodetecla]->SetInicio(ahora);
+		habilidades[tipodetecla]->SetListo(false);
+	}
+}
+void MiguelOhara::Generarhabilidades() {  // el MiguelOhara guarda la información de las habilidades, este es el inicializador
+	time_t n = time(nullptr);
+	habilidades = new Habilidades * [2];
+	Habilidades* Qhabilidad = new Habilidades(1, 2, n, true, 1);
+	Habilidades* Ehabilidad = new Habilidades(2, 4, n, true, 1);
+	Habilidades* Rhabilidad = new Habilidades(3, 5, n, true, 1);
+	habilidades[0] = Qhabilidad;
+	habilidades[1] = Ehabilidad;
+	habilidades[2] = Rhabilidad;
+	habilidades[0]->Dibujar();
+}
+void MiguelOhara::DibujarHabilidades() { // dibuja las habilidades dependiendo de la tecla
+	time_t ahora = time(nullptr);
+	bool n = habilidades[0]->GetListo();
+	if (!n) {
+		habilidades[0]->SetTiempoAhora(ahora);
+		time_t diferencia = ahora - (habilidades[0]->GetInicio());
+		habilidades[0]->Dibujar();
+		if ((time_t)diferencia > (time_t)habilidades[0]->GetCooldownTime()) {
+			habilidades[0]->SetListo(true);
+			habilidades[0]->Dibujar();
+		}
+		if (tipo == 1) {
+			habilidades[0]->SetTiempoRestante(habilidades[0]->GetTiempoEfecto() - diferencia);
+			habilidades[0]->DibujarMiles(habilidades[0]->GetTiempoRestante());
+		}
+	}
+}
