@@ -374,7 +374,7 @@ void BorrarCamion(int x, int y) {
 	Posicion(x, y + 4); cout << "                    ";
 }
 void DibujarCarro(int x, int y) {
-	Posicion(x, y);     cout << "      __________";
+	Posicion(x, y); ColorAzul(); cout << "      __________";
 	Posicion(x, y + 1); cout << " _____|---|----|___";
 	Posicion(x, y + 2); cout << "(|       o    o    |";
 	Posicion(x, y + 3); cout << " l--(o)------(o)---J";
@@ -801,5 +801,18 @@ void DibujarPlataforma(int x, int y) {
 	Posicion(x, y + 6);  cout << " \\\\             // ";
 	Posicion(x, y + 7);  cout << "  \\\\___________//  ";
 	Posicion(x, y + 8);  cout << "   \\___________/   ";
+}
+void DibujarArbol(int x, int y) {
+	ColorRojo();
+	Posicion(x + 1, y); ColorVerde(); cout << "0000 ";
+	Posicion(x, y + 1); ColorVerde();  cout << "00||/0";
+	Posicion(x + 2, y + 1); ColorAmarilloOscuro();  cout << "||/";
+	Posicion(x + 5, y + 1); ColorVerde();  cout << "0";
+	Posicion(x, y + 2); ColorVerde();  cout << "0";;
+	Posicion(x + 1, y + 2); ColorAmarilloOscuro(); cout << "\\||";;
+	Posicion(x + 4, y + 2); ColorVerde(); cout << "00";
+	Posicion(x + 1, y + 3); ColorVerde(); cout << "0";
+	Posicion(x + 2, y + 3); ColorAmarilloOscuro(); cout << " ||/ ";
+	Posicion(x + 2, y + 4);  cout << "||";
 }
 
