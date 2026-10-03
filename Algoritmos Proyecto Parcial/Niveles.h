@@ -157,6 +157,7 @@ void Nivel1() {
 
 
 void Nivel2() {
+	bool nivelcompleto = false;
 	int subnivel = 1;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	int a = 0;
@@ -165,41 +166,30 @@ void Nivel2() {
 		TextMiguelIntro(a);
 	} while (a < 2);
 	AnimacionBorrar();
+
+	DibujarMaquinaMargo(150, 10);
+	DibujarEscritorioMargo(160, 30);
+	DibujarPlataforma(60, 10);
+	DibujarMiguel(67, 12);
+	DibujarGwen(60, 30);
+	DibujarMargoKees(167, 33);
+	DibujarSpiderWoman(74, 30);
+
+
 	a = 0;
 	do {
 		a++;
 		TextMiguel1(a);
 	} while (a < 18);
-	AnimacionBorrar();
-
 
 	Protagonista* Miguel = new Protagonista(25, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	Niveles* nivel2 = new Niveles();
 	
-	do {  //Parte 1
-		if (_kbhit()) { tecla = getch(); }
-		DibujarPanelDeControl();
-		nivel2->GenerarMovimientoJugador(Miguel);
-		if (tecla == 'q' || tecla == 'Q') {
-			Posicion(0, 30); cout << "Habilidad Q activada";
-		}
-		_sleep(1);
-		tecla = 'j';
-	} while (booleanoGeneralParaNiveles);
-	delete Miguel;
 	do {
-		booleanoGeneralParaNiveles = true;
-		booleanoGeneralParaNiveles3 = true;
-		booleanoGeneralParaNiveles5 = true;
-		booleanoGeneralParaNiveles6 = true;
 		switch (subnivel) {
 		case 1: {
-			DibujarSpiderPunkGrandeTitulo(10, 10);
-			for (int i = 0; i < 4 && booltexto; i++) { TextPunkIntro(i); }
-			for (int i = 0; i < 11 && booltexto; i++) { TextPunk1(i); }  // dialogo punk 1
 
-			Miguel->SetPX(30); Miguel->SetPY(30);
-			Niveles* nivel3 = new Niveles();
+			Miguel->SetPX(10); Miguel->SetPY(25);
 
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 50, 16);
@@ -228,23 +218,10 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
-				nivel3->DibujarCofre();
-				nivel3->GenerarMovimientoJugador(Miguel);
-				if (booleanoGeneralParaNiveles3) {
-					NivelesRitmo1(nivel3, nivel3->PisandoItem(Miguel));
-				}
-				if (!booleanoGeneralParaNiveles3) {
-					Posicion(160, 20); ColorVerde(); cout << "Ve a buscar mas cofres ------>";
-					if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 208, 7, Miguel->GetAlto(), Miguel->GetAncho(), 30, 4)) {
-						booleanoGeneralParaNiveles = false;
-						subnivel = 2;
-					}
-				}
-				else { booleanoGeneralParaNiveles3 = true; }
-				_sleep(1);
+				nivel2->GenerarMovimientoJugador(Miguel);
+				
 				tecla = teclageneralbasura;
-			} while (booleanoGeneralParaNiveles);
+			} while (nivelcompleto == false);
 			break;
 		}
 		case 2: {  ///////// PARTE 2 ///////////////////////
