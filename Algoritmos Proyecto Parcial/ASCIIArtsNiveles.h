@@ -394,7 +394,7 @@ void borrarmargokees(int x, int y) {
 	Posicion(x, y + 4); cout << "           ";
 	Posicion(x, y + 5); cout << "           ";
 }
-void dibujarPavitr(int x, int y) {
+void DibujarPavitr(int x, int y) {
 	Posicion(x + 2, y); ColorAzulOscuro(); cout << "__";
 	Posicion(x + 1, y + 1); ColorRojo; cout << "(";
 	Posicion(x + 2, y + 1); ColorBlanco(); cout << "\\";

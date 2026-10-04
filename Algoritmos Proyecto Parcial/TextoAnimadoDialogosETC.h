@@ -21,7 +21,8 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 6:DibujarMargoKees(n, 2); break;
 	case 7:DibujarSpiderWoman(n, 2); break;
 	case 9:DibujarPeterPorker(n, 2); break;
-	case 10:break;
+	case 10:DibujarPavitr(n, 2); break;
+	case 11:break;
 
 	default: break;
 	}
@@ -377,7 +378,7 @@ void TextMiguel1(int n) {
 void TextMiguel2(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Spider Woman", 10, true);
+		CuadroDeTexto("Spider Woman", 11, true);
 		EscribirTextoAnimado("Llamada entrante", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
@@ -443,10 +444,33 @@ void TextPeterPorker(int n) {
 		EscribirTextoAnimado("Sabes de que estaba hablando?", PosDerDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Spider Woman", 1, true);
+		CuadroDeTexto("Peter Porker", 9, false);
 		EscribirTextoAnimado("Como sea, encontrarlo no sera dificil, por donde pasa deja glitches", PosIzDIALOGO, 4, 50);
 		break;
 	case 4: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void TextPavitr(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Pavitr Prabhakar", 10, false);
+		EscribirTextoAnimado("Estas grietas aparecieron repentinamente", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Pavitr Prabhakar", 10, false);
+		EscribirTextoAnimado("Algunas sirven como transporte eficiente", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Pavitr Prabhakar", 10, false);
+		EscribirTextoAnimado("Otras te llevan a callejones sin salida", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Pavitr Prabhakar", 10, false);
+		EscribirTextoAnimado("Esta por ejemplo no te lleva a ningun lugar, no creo que Miles la haya tomado", PosIzDIALOGO, 4, 50);
+		break;
+	case 5: AnimacionBorrar(); break;
 	default:break;
 	}
 }
