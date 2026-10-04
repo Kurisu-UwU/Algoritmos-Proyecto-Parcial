@@ -240,6 +240,14 @@ void DibujarPanelDeControl() {
 	Posicion(0, 6); cout << "=====================================================================================================================================================================================================================";
 }
 
+void BorrarPanelDeControlInterno() {
+	Posicion(1, 1); cout << "                                                                                                                                                                                                                   ";
+	Posicion(1, 2); cout << "                                                                                                                                                                                                                   ";
+	Posicion(1, 3); cout << "                                                                                                                                                                                                                   ";
+	Posicion(1, 4); cout << "                                                                                                                                                                                                                   ";
+	Posicion(1, 5); cout << "                                                                                                                                                                                                                   ";
+}
+
 void DibujarEdificio(int x, int y) {
 	ColorAmarillo();
 	Posicion(x, y); ColorGris(); cout << "_________________________";

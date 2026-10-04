@@ -482,6 +482,7 @@ void Nivel2() {
 			if (dialogo1 == false) {
 				for (int i = 0; i < 7 && booltexto; i++) {
 					TextMiguel2(i);
+					BorrarPanelDeControlInterno();
 				}
 				booltexto = true;
 				dialogo1 = true;
@@ -1053,8 +1054,8 @@ void Nivel2() {
 
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 108, 23, Miguel->GetAlto(), Miguel->GetAncho(), 6, 9)) {
 					if (NPC11 == false) {
-
 						for (int i = 0; i < 4 && booltexto; i++) { TextPeterPorker(i); }
+						BorrarPanelDeControlInterno();
 						NPC11 = true;
 						booltexto = true;
 					}
@@ -1116,6 +1117,7 @@ void Nivel2() {
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 23, 23, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
 					if (NPC12 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextNoir(i); }
+						BorrarPanelDeControlInterno();
 						NPC12 = true;
 						booltexto = true;
 					}
@@ -1292,6 +1294,7 @@ void Nivel2() {
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 23, 23, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
 					if (NPC15 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextWoman(i); }
+						BorrarPanelDeControlInterno();
 						NPC15 = true;
 						booltexto = true;
 					}
@@ -1584,6 +1587,7 @@ void Nivel2() {
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 33, 24, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
 					if (Escape == false) {
 						for (int i = 0; i < 7 && booltexto; i++) { TextSpotScape(i); }
+						BorrarPanelDeControlInterno();
 						_sleep(300);
 						DibujarGrieta(35, 25);
 						_sleep(300);
@@ -1734,6 +1738,7 @@ void Nivel2() {
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 23, 23, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
 					if (NPC22 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextPavitr(i); }
+						BorrarPanelDeControlInterno();
 						NPC22 = true;
 						booltexto = true;
 					}
@@ -1902,8 +1907,8 @@ void Nivel2() {
 			for (int i = 0; i < 7 && booltexto; i++) {
 				TextMiguelFinal(i); 
 				booltexto = true;
+				BorrarPanelDeControlInterno();
 			}
-			
 			delete nivel2;
 			break;
 		}
