@@ -1922,7 +1922,7 @@ void Nivel2() {
 
 
 void Nivel3() {
-	int uwu = 1;
+	int uwu = 4;
 	booleanoGeneralParaNiveles4 = true;
 	SpiderPunk* punk = new SpiderPunk(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
@@ -2093,6 +2093,8 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
 			nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
 			nivel3->GenerarLasers(2);
+			
+			nivel3->GenerarNotadeMusica(6);
 
 			punk->Generarhabilidades();
 			DibujarPanelDeControl();
@@ -2129,6 +2131,7 @@ void Nivel3() {
 					Posicion(53, 5); cout << "Habilidad Q activada";
 					nivel3->AtacarEnemigos(Jefe, punk);
 					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
+					nivel3->RevivirNotaDeMusica(1, punk);
 				}
 				punk->DibujarHabilidades();
 				if (Jefe->GetVida() < 1) {

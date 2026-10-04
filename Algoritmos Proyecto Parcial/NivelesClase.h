@@ -48,7 +48,7 @@ public:
 	void LasersMover(Protagonista*);
 	void EnemigoHaceGuardia(PersonajeSecundario*);
 	void GenerarNotadeMusica(int);
-	void RevivirNotaDeMusica(short, short);
+	void RevivirNotaDeMusica(short, Protagonista*);
 
 		int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 		int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -132,20 +132,13 @@ public:
 		for (int i = 0; i < cantidad; i++)
 			listaNotas[i] = new Notas();
 	}
-	void Niveles::RevivirNotaDeMusica(short tipo, short nivel) {
+	void Niveles::RevivirNotaDeMusica(short tipo, Protagonista* prota) {
 		bool n = true;
 		int i = 0;
-		int y;
-		switch (nivel) {
-		case 0: y = 18; break;
-		case 1: y = 25; break;
-		case 2: y = 32; break;
-		default: break;
-		}
 		do {
 			if (listaNotas[i]->GetVivo() == false) {
 				listaNotas[i]->SetX(180);
-				listaNotas[i]->SetY(y);
+				listaNotas[i]->SetY(prota->GetPY()+1);
 				listaNotas[i]->SetTipo(tipo);
 				listaNotas[i]->SetVivo(true);
 				n = false;
