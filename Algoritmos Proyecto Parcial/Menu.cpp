@@ -17,6 +17,7 @@ int main() {
             ColorMorado();
             Dibujartitulo();
             DibujarSpiderman(20, 20);
+            DibujarAraña(90, 10);
             DibujarZ(160, 39); Posicion(130, 41); ColorAzul(); cout << "Para Seleccionar presione: ";
             laser1->Mover();
             laser3->Mover();

@@ -137,7 +137,40 @@ void DibujarDerrotaTambores() {
         _sleep(10);
     } while (!_kbhit());
 }
-void DibujarCreditos() {
+
+void DibujarAraña(int x, int y) {
+    Posicion(x, y); ColorRojoOscuro(); cout << "           ;               ,           "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "         ,;                 '.         "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "        ;:                   :;        "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "       ::                     ::       "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "       ::                     ::       "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "       ':                     :        "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "        :.                    :        "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "     ;' ::                   ::  '     "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "    .'  ';                   ;'  '.    "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   ::    :;                 ;:    ::   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   ;      :;.             ,;:     ::   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   :;      :;:           ,;\"      ::   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   ::.      ':;  ..,.;  ;:'     ,.;:   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "    \"'\"...   '::, :::::; : .; .; \"\"'    "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "        '\"\"\"....; :::::; , ; .; \"\"\"         "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "    .:::.....'\"':::::::'\",...;::::;.   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   ;:' '\"\"'\"\";.,;:::::;.'\"\"\"\"\"\"  ':;   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "  ::'         ;::;:::;::..         :;  "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << " ::         ,;:::::::::::;:..       :: "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << " ;'     ,;;:;::::::::::::::;\"; ..    ':."; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "::     ;:\"  ::::::\"\"\"'::::::  \":     ::"; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << " :.    ::   ::::::;  :::::::   :     ; "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "  ;    ::   :::::::  :::::::   :    ;  "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "   '   ::   ::::::....:::::'  ,:   '   "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "    '  ::    :::::::::::::\"   ::       "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "       ::     ':::::::::\"'    ::       "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "       ':       \"\"\"\"\"\"\"'      ::       "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "        ::                   ;:        "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "        ':;                 ;:\"        "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "          ';              ,;'          "; y++;
+    Posicion(x, y); ColorRojoOscuro(); cout << "            \"'           '\"            "; y++;
+}void DibujarCreditos() {
     Posicion(10, 10); cout << "Creado por: ";
 
     Posicion(10, 12); cout << " - Christian Santiago Helldorff González";
