@@ -168,22 +168,22 @@ void DibujarPeterPorker(int x, int y) {
 void DibujarHabilidadQ(bool color, int n) {
 	if (color) {
 		ColorVerde();
-		Posicion(53, 4); cout << "Habilidad Q: Lista";
+		Posicion(30, 2); cout << "Habilidad Q: Lista";
 	}
 	else if (!color) {
 		ColorRojo();
 		if (n > -1) {
-			Posicion(53, 4); cout << "Habilidad Q:    " << n << "  ";
+			Posicion(30, 2); cout << "Habilidad Q:    " << n << "  ";
 		}
 	}
 }
 void DibujarEfectoMiles(int n) {
 	ColorAzul();
 	if (n > -1) {
-		Posicion(73, 4); cout << "Invisibilidad:    " << n << "  ";
+		Posicion(30, 4); cout << "Invisibilidad:    " << n << "  ";
 	}
 	else {
-		Posicion(73, 4); cout << "                         ";
+		Posicion(30, 4); cout << "                         ";
 	}
 }
 void DibujarMilesMoralesGrandeTitulo(int x, int y) {

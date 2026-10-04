@@ -3,7 +3,7 @@
 
 void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
-	MilesMorales* miles = new MilesMorales(30, 30, 8, 5, 100, 2, 2, 10, 100, 2, "Miles Morales", 1, 1, 3);
+	MilesMorales* miles = new MilesMorales(30, 30, 8, 5, 100, 2, 2, 10, 5, 2, "Miles Morales", 1, 1, 3);
 	booleanoGeneralParaNiveles = true;
 	booleanoGeneralParaNiveles3 = true;
 	booleanoGeneralParaNiveles5 = true;
@@ -80,7 +80,7 @@ delete nivelpersecucion;*/
 	Console::Clear();
 	miles->SetVelocidady(1);
 	miles->SetPX(5); miles->SetPY(9);
-	int subnivel = 3; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
+	int subnivel = 1; ////////////////////////////////// ATENTO CON ESTO, CAMBIAR EL SUBNIVEL PARA PROBAR OTRO NIVEL
 	do {
 		switch (subnivel) {
 		case 1: {
@@ -95,7 +95,7 @@ delete nivelpersecucion;*/
 			nivel1->AtributosObstaculo(6, 73, 22, 0, 109 - 73, 34 - 22);
 			nivel1->AtributosObstaculo(7, 49, 7, 0, 73 - 49, 19 - 7);
 			nivel1->AtributosObstaculo(8, 146, 22, 0, 156 - 145, 34 - 21);
-			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 156, 35-7);
+			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 156, 35 - 7);
 			//Puertas Abiertas
 			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
 			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
@@ -105,13 +105,28 @@ delete nivelpersecucion;*/
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
 			DibujarNivelUno1();
+			Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+			Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
+			bool cositoraro = true;
+			int tiempodano = 0;
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				nivel1->DibujarCofre();
-				nivel1->GenerarMovimientoJugador(miles);
+				Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 				nivel1->EnemigoHaceGuardia(enemigos1[0]);
 				nivel1->EnemigoHaceGuardia(enemigos1[1]);
+				for (int i = 0; i < 2; i++) {
+					if (tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos1[i]->GetEX(), enemigos1[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
+						cositoraro = false; 
+						miles->SetVida(miles->GetVida() - 1); 
+						tiempodano = 20;
+						BorrarMiles(miles->GetPX(), miles->GetPY());
+						miles->SetPX(5);
+						miles->SetPY(9);
+					}
+				}
+				nivel1->GenerarMovimientoJugador(miles);
+				cositoraro = true;
 				if (tecla == 'q' || tecla == 'Q') {
 					//Posicion(0, 30); cout << "Habilidad Q activada";
 					miles->ControladorTiempoHabilidades(0);
@@ -122,6 +137,7 @@ delete nivelpersecucion;*/
 				_sleep(1);
 				tecla = teclageneralbasura;
 				miles->DibujarHabilidades();
+				if (tiempodano > 0) { tiempodano--; }
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
@@ -137,12 +153,26 @@ delete nivelpersecucion;*/
 
 			tecla = 'j';
 			DibujarNivelUno2();
+			Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+			Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
+			bool cositoraro = true;
+			int tiempodano = 0;
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 				for (int i = 0; i < 1; i++) {
 					nivel1->EnemigoAcercaProta(enemigos2[i], miles, miles->GetInvisibilidad());
+					if (tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos1[i]->GetEX(), enemigos1[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
+						cositoraro = false;
+						miles->SetVida(miles->GetVida() - 1);
+						tiempodano = 20;
+						BorrarMiles(miles->GetPX(), miles->GetPY());
+						miles->SetPX(5);
+						miles->SetPY(9);
+					}
 				}
+				cositoraro = true;
 				nivel1->GenerarMovimientoJugador(miles);
 				if (tecla == 'q' || tecla == 'Q') {
 					//Posicion(0, 30); cout << "Habilidad Q activada";
@@ -161,7 +191,7 @@ delete nivelpersecucion;*/
 			break;
 		}
 		case 3: {
-			nivel1->GenerarObstaculo(11);
+			nivel1->GenerarObstaculo(11,0);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
@@ -176,6 +206,8 @@ delete nivelpersecucion;*/
 
 			tecla = 'j';
 			DibujarNivelUno3();
+			Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+			Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -207,7 +239,7 @@ delete nivelpersecucion;*/
 			break;
 		}
 		case 4: {
-			nivel1->GenerarObstaculo(12);
+			nivel1->GenerarObstaculo(12,0);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
@@ -223,10 +255,12 @@ delete nivelpersecucion;*/
 			nivel1->AtributosObstaculo(11, 177, 37, 0, 3, 35);
 			tecla = 'j';
 			DibujarNivelUno4();
+			Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+			Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
-				if (booleanopuertanivel3) {
+				if (booleanopuertanivel4) {
 					DibujarPuertaNivel1Escena4(177, 37); DibujarPlacaDePresion(156, 20);
 				}
 				else { DibujarPlacaDePresionRoja(156, 20); }
@@ -270,6 +304,8 @@ delete nivelpersecucion;*/
 			nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 			tecla = 'j';
 			DibujarNivelUno2();
+			Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+			Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
