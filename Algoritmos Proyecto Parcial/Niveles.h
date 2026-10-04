@@ -966,7 +966,7 @@ void Nivel2() {
 
 				if (NPC11 == false) {
 					if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 108, 23, Miguel->GetAlto(), Miguel->GetAncho(), 6, 9)) {
-						for (int i = 0; i < 2 && booltexto; i++) { TextPeterPorker(i); }
+						for (int i = 0; i < 4 && booltexto; i++) { TextPeterPorker(i); }
 					}
 					NPC11 = true;
 				}
