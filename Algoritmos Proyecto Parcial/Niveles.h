@@ -14,7 +14,7 @@ void Nivel1() {
 	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
 	booltexto = true;
 
-	DibujarMiles(100, 22);
+	/*DibujarMiles(100, 22);
 	DibujarMiguel(100, 26);
 	AnimacionBorrar();
 	miles->SetPX(100); miles->SetPY(22);
@@ -79,7 +79,7 @@ void Nivel1() {
 		if (carretera < 0) { carretera = 6; }
 	} while (booleanoGeneralParaNiveles);
 	AnimacionBorrar();
-	delete nivelpersecucion;
+	delete nivelpersecucion;*/
 	if (!boolmiguelatrapa) {
 		booleanoGeneralParaNiveles4 = true;
 		booleanoGeneralParaNiveles = true;
@@ -159,7 +159,7 @@ void Nivel1() {
 					tecla = teclageneralbasura;
 					miles->DibujarHabilidades();
 					if (tiempodano > 0) { tiempodano--; }
-				} while (booleanoGeneralParaNiveles);
+				} while (booleanoGeneralParaNiveles && miles->GetVida() >= 0);
 				break;
 			}
 			case 2: {
@@ -209,11 +209,11 @@ void Nivel1() {
 					tecla = teclageneralbasura;
 					miles->DibujarHabilidades();
 					if (tiempodano > 0) { tiempodano--; }
-				} while (booleanoGeneralParaNiveles);
+				} while (booleanoGeneralParaNiveles && miles->GetVida() >=0);
 				break;
 			}
 			case 3: {
-				nivel1->GenerarObstaculo(10);
+				nivel1->GenerarObstaculo(11);
 				nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
 				nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
 				nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
@@ -259,11 +259,11 @@ void Nivel1() {
 					_sleep(1);
 					tecla = teclageneralbasura;
 					miles->DibujarHabilidades();
-				} while (booleanoGeneralParaNiveles);
+				} while (booleanoGeneralParaNiveles && miles->GetVida() >= 0);
 				break;
 			}
 			case 4: {
-				nivel1->GenerarObstaculo(10);
+				nivel1->GenerarObstaculo(12);
 				nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 				nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
 				nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
@@ -313,7 +313,7 @@ void Nivel1() {
 					_sleep(1);
 					tecla = teclageneralbasura;
 					miles->DibujarHabilidades();
-				} while (booleanoGeneralParaNiveles);
+				} while (booleanoGeneralParaNiveles && miles->GetVida() >= 0);
 				break;
 			}
 			case 5: {
@@ -360,9 +360,9 @@ void Nivel1() {
 			}
 			Console::Clear();
 			booleanoGeneralParaNiveles = true;
-		} while (booleanoGeneralParaNiveles4);
+		} while (booleanoGeneralParaNiveles4 && miles->GetVida() >= 0);
 	}
-	if (boolmiguelatrapa) {
+	if (boolmiguelatrapa || miles->GetVida() <= 0) {
 		DibujarDerrota();
 	}
 }
