@@ -2411,10 +2411,10 @@ void Nivel3() {
 			DibujarPanelDeControl();
 			DibujarEdificio(1, 10);
 			DibujarEdificio(26, 10);
-			DibujarEdificio(51, 10);
-			DibujarEdificio(76, 10);
-			DibujarEdificio(101, 10);
-			DibujarEdificio(126, 10);
+			DibujarCarro(52, 21);
+			DibujarCarro(77, 21);
+			DibujarCarro(102, 21);
+			DibujarCarro(128, 21);
 			DibujarEdificio(151, 10);
 			DibujarEdificio(176, 10);
 
@@ -2430,7 +2430,14 @@ void Nivel3() {
 				if (_kbhit()) { tecla = getch(); }
 
 				DibujarPanelDeControl();
-
+				DibujarGrieta(2, 28);
+				DibujarGrieta(2, 38);
+				DibujarGrieta(200, 28);
+				DibujarGrieta(200, 38);
+				DibujarCarro(52, 21);
+				DibujarCarro(77, 21);
+				DibujarCarro(102, 21);
+				DibujarCarro(128, 21);
 				nivel3->GenerarMovimientoJugador(punk);
 				nivel3->NotasMovimiento();
 				nivel3->LasersMover(punk);

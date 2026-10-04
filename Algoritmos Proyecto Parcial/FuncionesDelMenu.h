@@ -35,12 +35,10 @@ void IniciarSeleccionPersonajes() {
         switch (opFinal) {
         case 1:
             Nivel1();
-            opciniciarnivel2 = false;
-            break;
+            AnimacionBorrar();
         case 2:
             Nivel2();
-            opciniciarnivel2 = false;
-            break;
+            AnimacionBorrar();
         case 3:
             Nivel3();
             opciniciarnivel2 = false;
@@ -52,5 +50,4 @@ void IniciarSeleccionPersonajes() {
         default: break;
         }
     } while (opciniciarnivel2);
-    AnimacionBorrar();
 }

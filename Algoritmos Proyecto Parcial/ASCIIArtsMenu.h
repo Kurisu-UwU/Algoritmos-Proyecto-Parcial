@@ -218,7 +218,7 @@ void DibujarAraña(int x, int y) {
 }
 void DibujarVictoriaMiles() {
 	Console::Clear();
-    _sleep(1000);
+    _sleep(2000);
     do {
         if (tempanimaciontitulo == 20) {
             ColorAzul(); tempanimaciontitulo = 0;
