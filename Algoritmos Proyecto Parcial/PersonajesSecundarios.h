@@ -33,8 +33,8 @@ public:
 	void SetAlto(int alt) { altura = alt; }
 	void SetAncho(int anch) { anchura = anch; }
 	//obtiene y devuelve los datos de los enemigos los get
-	int GetEX() { return ex; }
-	int GetEY() { return ey; }
+	virtual int GetEX() { return ex; }
+	virtual int GetEY() { return ey; }
 	float GetAtaque() { return cantidaddeataque; }
 	float GetVida() { return cantidaddevida; }
 	float GetVelocidad() { return velocidad; }
@@ -60,6 +60,7 @@ public:
 		}
 		tempo++;
 	}*/
+	//virtual void ColisionesObjetos(int ox, int oy, int ancho, int alto)
 	void AtacarProtagonista(int, int);
 };
 PersonajeSecundario::PersonajeSecundario() {

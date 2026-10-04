@@ -5,9 +5,11 @@ private:
 public:
 	Enemigos(int, int, int, int, float, float, float, float, float, string, bool, float);
 	~Enemigos();
-	void Borrar()override;
+	int GetEX() override { return ex; }
+	int GetEY() override { return ey; }
+	void Borrar() override;
 	void Dibujar() override;
-	void PerseguirProta(int, int, bool, bool, bool, bool);
+	void PerseguirProta(int, int, bool, bool, bool, bool) override;
 };
 Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1, float vel1temp, float velatk, string t1, bool vi, float temp) : PersonajeSecundario() {
 	this->ex = x1; this->ey = y1;

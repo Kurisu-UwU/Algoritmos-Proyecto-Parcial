@@ -193,9 +193,6 @@ void Nivel1() {
 					if (_kbhit()) { tecla = getch(); }
 					DibujarPanelDeControl();
 					Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
-					if (GwenPersigue) {
-						nivel1->EnemigoAcercaProta(gwen, miles, false);
-					}
 					nivel1->EnemigoAcercaProta(enemigo2, miles, miles->GetInvisibilidad());
 					if (!miles->GetInvisibilidad() && tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigo2->GetEX(), enemigo2->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
 						cositoraro = false;
@@ -204,6 +201,9 @@ void Nivel1() {
 						BorrarMiles(miles->GetPX(), miles->GetPY());
 						miles->SetPX(194);
 						miles->SetPY(41);
+					}
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
 					}
 					nivel1->GenerarMovimientoJugador(miles);
 					cositoraro = true;
@@ -323,9 +323,6 @@ void Nivel1() {
 						DibujarPuertaNivel1Escena4(177, 37); DibujarPlacaDePresion(156, 20);
 					}
 					else { DibujarPlacaDePresionVerde(156, 20); }
-					if (GwenPersigue) {
-						nivel1->EnemigoAcercaProta(gwen, miles, false);
-					}
 					for (int i = 0; i < 1; i++) {
 						nivel1->EnemigoAcercaProta(enemigos4[i], miles, miles->GetInvisibilidad());
 						if (CalcularColisiones(enemigos4[i]->GetEX(), enemigos4[i]->GetEY(), 156, 20, 4, 4, 5, 11)) {
@@ -337,6 +334,9 @@ void Nivel1() {
 							booleanopuertanivel4 = true;
 							nivel1->AtributosObstaculo(11, 177, 37, 0, 3, 35);
 						}
+					}
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
 					}
 					nivel1->GenerarMovimientoJugador(miles);
 					if (tecla == 'q' || tecla == 'Q') {
