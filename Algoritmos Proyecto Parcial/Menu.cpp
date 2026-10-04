@@ -17,6 +17,7 @@ int main() {
             ColorMorado();
             Dibujartitulo();
             DibujarSpiderman(20, 20);
+            DibujarAraña(90, 10);
             laser1->Mover();
             laser3->Mover();
             laser2->Mover();
