@@ -80,7 +80,13 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 140: nivel3->RevivirTambor(1, 0); break;
 			case 170: nivel3->RevivirTambor(1, 0); break;
 			case 180: nivel3->RevivirTambor(0, 1); break;
-			case 380: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles3 = false; cantidaddeherramientas++; break;
+			case 380: booleanoGeneralParaNiveles2 = false; 
+				if (puntaje >= 10) {
+					booleanoGeneralParaNiveles3 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); }
+				break;
 			default: break;
 			}
 			tiempo++;

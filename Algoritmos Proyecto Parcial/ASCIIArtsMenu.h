@@ -124,3 +124,28 @@ void DibujarPersonajesLetras(int x, int y) {
     Posicion(x, y + 6); cout << "                                                           _/ |";
     Posicion(x, y + 7); cout << "                                                          |__/";
 }
+void DibujarDerrotaTambores() {
+    do {
+        if (tempanimaciontitulo == 20) {
+            ColorAzul(); tempanimaciontitulo = 0;
+        }
+        if (tempanimaciontitulo == 10) {
+            ColorVerde();
+        }
+        Posicion(10, 10);     cout << " ______    _ _              _                  _   _ _       ";
+        Posicion(10, 11);     cout << "|  ____|  | | |            | |                | | (_) |      ";
+        Posicion(10, 12);     cout << "| |__ __ _| | |_ __ _    __| | ___    ___  ___| |_ _| | ___  ";
+        Posicion(10, 13);     cout << "|  __/ _` | | __/ _` |  / _` |/ _ \\  / _ \\/ __| __| | |/ _ \\ ";
+        Posicion(10, 14);     cout << "| | | (_| | | || (_| | | (_| |  __/ |  __/\\__ \\ |_| | | (_) |";
+        Posicion(10, 15);     cout << "|_|  \\__,_|_|\\__\\__,_|  \\__,_|\\___|  \\___||___/\\__|_|_|\\___/ ";
+
+        Posicion(10, 17);     cout << " _____       _    __       _        _             _                                     ";
+        Posicion(10, 18);     cout << "|_   _|     | |  /_/      | |      | |           | |                                    ";
+        Posicion(10, 19);     cout << "  | |  _ __ | |_ ___ _ __ | |_ __ _| | ___     __| | ___    _ __  _   _  _____   _____  ";
+        Posicion(10, 20);     cout << "  | | | '_ \\| __/ _ \\ '_ \\| __/ _` | |/ _ \\   / _` |/ _ \\  | '_ \\| | | |/ _ \\ \\ / / _ \\ ";
+        Posicion(10, 21);     cout << " _| |_| | | | ||  __/ | | | || (_| | | (_) | | (_| |  __/  | | | | |_| |  __/\\ V / (_) |";
+        Posicion(10, 22);     cout << "|_____|_| |_|\\__\\___|_| |_|\\__\\__,_|_|\\___/   \\__,_|\\___|  |_| |_|\\__,_|\\___| \\_/ \\___/ ";
+        tempanimaciontitulo++;
+        _sleep(10);
+    } while (!_kbhit());
+}

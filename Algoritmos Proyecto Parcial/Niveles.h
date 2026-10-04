@@ -1935,6 +1935,7 @@ void Nivel3() {
 			DibujarSpiderPunkGrandeTitulo(10,10);
 			for (int i = 0; i < 4 && booltexto; i++) { TextPunkIntro(i); }
 			for (int i = 0; i < 11 && booltexto; i++) { TextPunk1(i); }  // dialogo punk 1
+			AnimacionBorrar();
 
 			punk->SetPX(30); punk->SetPY(30);
 			Niveles* nivel3 = new Niveles();
