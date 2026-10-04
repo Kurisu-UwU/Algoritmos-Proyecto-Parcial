@@ -161,7 +161,7 @@ void DibujarPeterPorker(int x, int y) {
 	Posicion(x + 4, y + 1); ColorRojo();  cout << ")";
 	Posicion(x + 1, y + 2); ColorRojo();  cout << "O O";
 	Posicion(x, y + 3); ColorRojo();  cout << "“";
-	Posicion(x + 1, y + 3); ColorRojo();  cout << ".|.";
+	Posicion(x + 1, y + 3); ColorAzul();  cout << ".|.";
 	Posicion(x + 4, y + 3); ColorRojo();  cout << "”";
 }
 
