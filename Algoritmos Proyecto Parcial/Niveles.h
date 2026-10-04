@@ -384,6 +384,7 @@ void Nivel2() {
 	bool dialogo1 = false;
 	bool NPC11 = false;
 	bool NPC22 = false;
+	bool NPC12 = false;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
@@ -675,7 +676,7 @@ void Nivel2() {
 					Miguel->SetPY(40);
 				}
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 2, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
-					subnivelcompleto4 = true;
+					subnivelcompleto5 = true;
 					subnivel = 4;
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
@@ -1016,14 +1017,18 @@ void Nivel2() {
 			break;
 		}
 		case 12: {
+			NPC12 = false;
 			subnivelcompleto12 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3);
+			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(3, 25, 24, 0, 6, 5);
 			tecla = 'j';
+
+			DibujarNoir(25, 24);
 
 			DibujarEdificio(7, 7);
 			DibujarEdificio(32, 7);
@@ -1053,6 +1058,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 23, 23, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
+					if (NPC12 == false) {
+						for (int i = 0; i < 5 && booltexto; i++) { TextNoir(i); }
+						NPC12 = true;
+					}
+				}
 
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
 					subnivelcompleto12 = true;

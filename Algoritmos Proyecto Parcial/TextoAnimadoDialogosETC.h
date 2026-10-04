@@ -22,7 +22,8 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	case 7:DibujarSpiderWoman(n, 2); break;
 	case 9:DibujarPeterPorker(n, 2); break;
 	case 10:DibujarPavitr(n, 2); break;
-	case 11:break;
+	case 11:DibujarNoir(n, 2); break;
+	case 12:break;
 
 	default: break;
 	}
@@ -387,7 +388,7 @@ void TextMiguel2(int n) {
 		break;
 	case 3:
 		CuadroDeTexto("Spider Woman", 7, true);
-		EscribirTextoAnimado("Paseandome por este lugar me di cuenta de que Miles esta dejando glitches por algunas zonas", PosIzDIALOGO, 4, 58);
+		EscribirTextoAnimado("Paseandome por este lugar me di cuenta de que Miles esta dejando glitches por algunas zonas", PosDerDIALOGO, 4, 58);
 		break;
 	case 4:
 		CuadroDeTexto("Spider Woman", 7, false);
@@ -418,7 +419,7 @@ void TextMiguelFinal(int n) {
 		break;
 	case 3:
 		CuadroDeTexto("Miles Morales", 1, true);
-		EscribirTextoAnimado("Intentar rescatar a un ser querido es un crimen?", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Intentar rescatar a un ser querido es un crimen?", PosDerDIALOGO, 4, 50);
 		break;
 	case 4:
 		CuadroDeTexto("Miguel O'hara", 2, false);
@@ -445,7 +446,7 @@ void TextPeterPorker(int n) {
 		break;
 	case 3:
 		CuadroDeTexto("Peter Porker", 9, false);
-		EscribirTextoAnimado("Como sea, encontrarlo no sera dificil, por donde pasa deja glitches", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Como sea, encontrarlo no sera dificil, por donde pasa deja glitches", PosDerDIALOGO, 4, 50);
 		break;
 	case 4: AnimacionBorrar(); break;
 	default:break;
@@ -464,11 +465,34 @@ void TextPavitr(int n) {
 		break;
 	case 3:
 		CuadroDeTexto("Pavitr Prabhakar", 10, false);
-		EscribirTextoAnimado("Otras te llevan a callejones sin salida", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Otras te llevan a callejones sin salida", PosDerDIALOGO, 4, 50);
 		break;
 	case 4:
 		CuadroDeTexto("Pavitr Prabhakar", 10, false);
-		EscribirTextoAnimado("Esta por ejemplo no te lleva a ningun lugar, no creo que Miles la haya tomado", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Esta por ejemplo no te lleva a ningun lugar, no creo que Miles la haya tomado", PosDerDIALOGO, 4, 50);
+		break;
+	case 5: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void TextNoir(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spider Man Noir", 11, false);
+		EscribirTextoAnimado("¿Que dice?", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Spider Man Noir", 11, false);
+		EscribirTextoAnimado("Si, vi a Miles", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Man Noir", 11, false);
+		EscribirTextoAnimado("No, no paso por qui", PosDerDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Spider Man Noir", 11, false);
+		EscribirTextoAnimado("Estaba hasta un estremo de la ciudad, dijo que tuvo que tomar 3 manchas para llegar", PosDerDIALOGO, 4, 50);
 		break;
 	case 5: AnimacionBorrar(); break;
 	default:break;
