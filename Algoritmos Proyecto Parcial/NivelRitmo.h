@@ -163,7 +163,12 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 380: nivel3->RevivirTambor(1, 1); break;
 			case 410: nivel3->RevivirTambor(1, 1); break;
 			case 420: nivel3->RevivirTambor(0, 1); break;
-			case 620: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles3 = false; cantidaddeherramientas++; break;
+			case 620: booleanoGeneralParaNiveles2 = false;
+				if (puntaje >= 18) {
+					booleanoGeneralParaNiveles3 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
 			default: break;
 			}
 			tiempo++;
@@ -252,7 +257,12 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 450: nivel3->RevivirTambor(1, 1); break;
 			case 460: nivel3->RevivirTambor(0, 1); break;
 			case 465: nivel3->RevivirTambor(1, 1); break;
-			case 666: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles5 = false; cantidaddeherramientas++; break;
+			case 666: booleanoGeneralParaNiveles2 = false;
+				if (puntaje >= 24) {
+					booleanoGeneralParaNiveles5 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
 			default: break;
 			}
 			tiempo++;
@@ -349,7 +359,12 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles3 = false; cantidaddeherramientas++; break;
+			case 950: booleanoGeneralParaNiveles2 = false;
+				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles3 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
 			default: break;
 			}
 			tiempo++;
@@ -359,12 +374,20 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		} while (booleanoGeneralParaNiveles2 && vida > 1);
 		AnimacionBorrar();
 		DibujarPanelDeControl();
-		DibujarEdificio(1, 7);//Dibuja obstaculo
+		DibujarEdificio(1, 32);
+		DibujarEdificio(26, 32);
+		DibujarEdificio(51, 32);
+		DibujarEdificio(76, 32);
+		DibujarEdificio(101, 32);
+		DibujarEdificio(126, 32);
+		DibujarEdificio(151, 32);
+		DibujarEdificio(176, 32);
+		DibujarEdificio(187, 7);
+		DibujarEdificio(162, 7);
+		DibujarEdificio(137, 7);
+		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
-		DibujarEdificio(187, 32);
-		DibujarEdificio(162, 32);
-		DibujarEdificio(137, 32);
 		break;
 	}
 	case 5: {
@@ -438,7 +461,12 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles5 = false; cantidaddeherramientas++; break;
+			case 950: booleanoGeneralParaNiveles2 = false;
+				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles5 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
 			default: break;
 			}
 			tiempo++;
@@ -448,12 +476,20 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		} while (booleanoGeneralParaNiveles2 && vida > 1);
 		AnimacionBorrar();
 		DibujarPanelDeControl();
-		DibujarEdificio(1, 7);//Dibuja obstaculo
+		DibujarEdificio(1, 32);
+		DibujarEdificio(26, 32);
+		DibujarEdificio(51, 32);
+		DibujarEdificio(76, 32);
+		DibujarEdificio(101, 32);
+		DibujarEdificio(126, 32);
+		DibujarEdificio(151, 32);
+		DibujarEdificio(176, 32);
+		DibujarEdificio(187, 7);
+		DibujarEdificio(162, 7);
+		DibujarEdificio(137, 7);
+		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
-		DibujarEdificio(187, 32);
-		DibujarEdificio(162, 32);
-		DibujarEdificio(137, 32);
 		break;
 	}
 	case 6: {
@@ -527,7 +563,12 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false; booleanoGeneralParaNiveles6 = false; cantidaddeherramientas++; break;
+			case 950: booleanoGeneralParaNiveles2 = false;
+				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles6 = false;
+					cantidaddeherramientas++;
+				}
+				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
 			default: break;
 			}
 			tiempo++;
@@ -537,12 +578,20 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		} while (booleanoGeneralParaNiveles2 && vida > 1);
 		AnimacionBorrar();
 		DibujarPanelDeControl();
-		DibujarEdificio(1, 7);//Dibuja obstaculo
+		DibujarEdificio(1, 32);
+		DibujarEdificio(26, 32);
+		DibujarEdificio(51, 32);
+		DibujarEdificio(76, 32);
+		DibujarEdificio(101, 32);
+		DibujarEdificio(126, 32);
+		DibujarEdificio(151, 32);
+		DibujarEdificio(176, 32);
+		DibujarEdificio(187, 7);
+		DibujarEdificio(162, 7);
+		DibujarEdificio(137, 7);
+		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
-		DibujarEdificio(187, 32);
-		DibujarEdificio(162, 32);
-		DibujarEdificio(137, 32);
 		break;
 	}
 	default: break;
