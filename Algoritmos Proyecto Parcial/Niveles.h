@@ -977,11 +977,12 @@ void Nivel2() {
 				tecla = teclageneralbasura;
 				_sleep(1);
 
-				if (NPC11 == false) {
-					if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 108, 23, Miguel->GetAlto(), Miguel->GetAncho(), 6, 9)) {
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 108, 23, Miguel->GetAlto(), Miguel->GetAncho(), 6, 9)) {
+					if (NPC11 == false) {
+
 						for (int i = 0; i < 4 && booltexto; i++) { TextPeterPorker(i); }
+						NPC11 = true;
 					}
-					NPC11 = true;
 				}
 
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
