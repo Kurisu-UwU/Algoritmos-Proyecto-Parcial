@@ -92,7 +92,7 @@ delete nivelpersecucion;
 	do {
 		switch (subnivel) {
 		case 1: {
-			nivel1->GenerarObstaculo(13, 0);
+			nivel1->GenerarObstaculo(13);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 194, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 12);// muro extremo
@@ -150,7 +150,7 @@ delete nivelpersecucion;
 			break;
 		}
 		case 2: {
-			nivel1->GenerarObstaculo(8, 0);
+			nivel1->GenerarObstaculo(8);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 6, 1); /* muro extremo*/ nivel1->AtributosObstaculo(6, 20, 7, 0, 7, 1);
 			nivel1->AtributosObstaculo(1, 182, 47, 0,9, 1);/*muro extremo */ nivel1->AtributosObstaculo(7, 104, 47, 0, 9, 1);
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 24);// muro extremo
@@ -200,7 +200,7 @@ delete nivelpersecucion;
 			break;
 		}
 		case 3: {
-			nivel1->GenerarObstaculo(11,0);
+			nivel1->GenerarObstaculo(10);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 203, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 182, 47, 0, 9, 1);/*muro extremo */ nivel1->AtributosObstaculo(8, 104, 47, 0, 9, 1);
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 3);/*muro extremo */ nivel1->AtributosObstaculo(9, 0, 17, 0, 1, 3);
@@ -248,7 +248,7 @@ delete nivelpersecucion;
 			break;
 		}
 		case 4: {
-			nivel1->GenerarObstaculo(12,0);
+			nivel1->GenerarObstaculo(10);
 			nivel1->AtributosObstaculo(0, 0, 7, 0, 213, 1); // muro extremo
 			nivel1->AtributosObstaculo(1, 15, 47, 0, 213 - 15, 1);// muro extremo
 			nivel1->AtributosObstaculo(2, 0, 7, 0, 1, 47);// muro extremo
@@ -363,6 +363,7 @@ void Nivel2() {
 	bool subnivelcompleto21, subnivelcompleto22, subnivelcompleto23, subnivelcompleto24, subnivelcompleto25;
 
 	bool dialogo1 = false;
+	bool NPC11 = false;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
@@ -384,7 +385,7 @@ void Nivel2() {
 			subnivelcompleto1 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(4, 0);
+			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 75, 16);
@@ -406,9 +407,10 @@ void Nivel2() {
 			DibujarEdificio(186, 32);
 
 			if (dialogo1 == false) {
-				for (int i = 0; i < 2 && booltexto; i++) { TextMiguel2(i);
-				dialogo1 = true;
+				for (int i = 0; i < 7 && booltexto; i++) {
+					TextMiguel2(i);
 				}
+				dialogo1 = true;
 			}
 
 			do {  //Parte 1
@@ -445,7 +447,7 @@ void Nivel2() {
 			subnivelcompleto2 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(2, 0);
+			nivel2->GenerarObstaculo(2);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			tecla = 'j';
@@ -496,7 +498,7 @@ void Nivel2() {
 			subnivelcompleto3 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
@@ -553,7 +555,7 @@ void Nivel2() {
 			subnivelcompleto4 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -607,7 +609,7 @@ void Nivel2() {
 			subnivelcompleto5 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
@@ -666,7 +668,7 @@ void Nivel2() {
 			subnivelcompleto6 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -719,7 +721,7 @@ void Nivel2() {
 			subnivelcompleto7 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
@@ -768,7 +770,7 @@ void Nivel2() {
 			subnivelcompleto8 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(6, 0);
+			nivel2->GenerarObstaculo(6);
 			nivel2->AtributosObstaculo(0, 7, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 82, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 7, 32, 0, 75, 16);
@@ -829,7 +831,7 @@ void Nivel2() {
 			Niveles* nivel2 = new Niveles();
 
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
@@ -879,7 +881,7 @@ void Nivel2() {
 			subnivelcompleto10 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -929,17 +931,21 @@ void Nivel2() {
 			break;
 		}
 		case 11: {
+			NPC11 = false;
 			subnivelcompleto11 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(6);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
 			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(5, 110, 24, 0, 5, 4);
 
 			tecla = 'j';
+
+			DibujarPeterPorker(110, 24);
 
 			DibujarEdificio(1, 32);
 			DibujarEdificio(26, 32);
@@ -971,6 +977,13 @@ void Nivel2() {
 				tecla = teclageneralbasura;
 				_sleep(1);
 
+				if (NPC11 == false) {
+					if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 108, 23, Miguel->GetAlto(), Miguel->GetAncho(), 6, 9)) {
+						for (int i = 0; i < 4 && booltexto; i++) { TextPeterPorker(i); }
+					}
+					NPC11 = true;
+				}
+
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 46, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
 					subnivelcompleto11 = true;
 					subnivel = 1;
@@ -985,7 +998,7 @@ void Nivel2() {
 			subnivelcompleto12 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
@@ -1034,7 +1047,7 @@ void Nivel2() {
 			subnivelcompleto13 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(2, 0);
+			nivel2->GenerarObstaculo(2);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			tecla = 'j';
@@ -1085,7 +1098,7 @@ void Nivel2() {
 			subnivelcompleto14 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 136, 32, 0, 75, 16);
@@ -1143,7 +1156,7 @@ void Nivel2() {
 			subnivelcompleto15 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
@@ -1204,7 +1217,7 @@ void Nivel2() {
 			subnivelcompleto16 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -1258,7 +1271,7 @@ void Nivel2() {
 			subnivelcompleto17 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -1313,7 +1326,7 @@ void Nivel2() {
 			subnivelcompleto18 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
@@ -1370,7 +1383,7 @@ void Nivel2() {
 			subnivelcompleto19 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -1432,9 +1445,8 @@ void Nivel2() {
 		case 20: {
 			subnivelcompleto20 = false;
 			Niveles* nivel2 = new Niveles();
-			Miguel->SetPX(10); Miguel->SetPY(25);
 
-			nivel2->GenerarObstaculo(4, 0);
+			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 32, 0, 210, 16);
@@ -1493,7 +1505,7 @@ void Nivel2() {
 			subnivelcompleto21 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
@@ -1554,7 +1566,7 @@ void Nivel2() {
 			subnivelcompleto22 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
@@ -1615,7 +1627,7 @@ void Nivel2() {
 			subnivelcompleto23 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(3, 0);
+			nivel2->GenerarObstaculo(3);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 1, 32, 0, 210, 16);
 			nivel2->AtributosObstaculo(2, 1, 24, 0, 20, 8);
@@ -1664,7 +1676,7 @@ void Nivel2() {
 			subnivelcompleto24 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 7, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 190, 24, 0, 10, 8);
@@ -1721,7 +1733,7 @@ void Nivel2() {
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
 			DibujarMiles(50, 25);
-			nivel2->GenerarObstaculo(5, 0);
+			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
@@ -1792,7 +1804,7 @@ void Nivel3() {
 			punk->SetPX(30); punk->SetPY(30);
 			Niveles* nivel3 = new Niveles();
 
-			nivel3->GenerarObstaculo(3, 0);
+			nivel3->GenerarObstaculo(3);
 			nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 			nivel3->AtributosObstaculo(2, 30, 10, 0, 2, 10);
@@ -1832,7 +1844,7 @@ void Nivel3() {
 			punk->SetPX(25); punk->SetPY(25);
 			Niveles* nivel3 = new Niveles();
 
-			nivel3->GenerarObstaculo(4, 0);
+			nivel3->GenerarObstaculo(4);
 			nivel3->AtributosObstaculo(0, 1, 7, 0, 200, 16);
 			nivel3->AtributosObstaculo(1, 137, 32, 0, 75, 16);
 			nivel3->AtributosObstaculo(2, 1, 32, 0, 75, 16);
@@ -1882,7 +1894,7 @@ void Nivel3() {
 			punk->SetPX(25); punk->SetPY(25);
 			Niveles* nivel3 = new Niveles();
 
-			nivel3->GenerarObstaculo(5, 0);
+			nivel3->GenerarObstaculo(5);
 			nivel3->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel3->AtributosObstaculo(1, 137, 7, 0, 75, 16);
 			nivel3->AtributosObstaculo(2, 1, 32, 0, 200, 16);
@@ -1939,7 +1951,7 @@ void Nivel3() {
 			Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 			Niveles* nivel3 = new Niveles();
 
-			nivel3->GenerarObstaculo(4, 0);
+			nivel3->GenerarObstaculo(4);
 			nivel3->AtributosObstaculo(0, 0, 10, 0, 213, 16);
 			nivel3->AtributosObstaculo(1, 0, 47, 0, 213, 2);
 			nivel3->AtributosObstaculo(2, 2, 26, 0, 5, 25);
@@ -2035,7 +2047,7 @@ void NivelPrueba() {
 	enemigo[2]->SetVida(5);
 	enemigo[3]->SetVida(5);
 
-	nivel2->GenerarObstaculo(3, 0);
+	nivel2->GenerarObstaculo(3);
 	nivel2->AtributosObstaculo(0, 10, 10, 0, 2, 10);
 	nivel2->AtributosObstaculo(1, 20, 10, 0, 2, 10);
 	nivel2->AtributosObstaculo(2, 30, 10, 0, 2, 10);

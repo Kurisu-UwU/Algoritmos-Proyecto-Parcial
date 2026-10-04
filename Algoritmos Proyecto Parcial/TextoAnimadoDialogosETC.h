@@ -377,28 +377,28 @@ void TextMiguel1(int n) {
 void TextMiguel2(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Spider Woman", 10, false);
+		CuadroDeTexto("Spider Woman", 10, true);
 		EscribirTextoAnimado("Llamada entrante", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("Spider Woman", 2, false);
+		CuadroDeTexto("Spider Woman", 7, true);
 		EscribirTextoAnimado("Hola Miguel, me escuchas?", PosDerDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Spider Woman", 1, true);
-		EscribirTextoAnimado("Paseandome por este lugar me di cuenta de que Miles está dejando glitches por algunas zonas", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Woman", 7, true);
+		EscribirTextoAnimado("Paseandome por este lugar me di cuenta de que Miles esta dejando glitches por algunas zonas", PosIzDIALOGO, 4, 58);
 		break;
 	case 4:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Puedes usar esa información para localizarlo", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Puedes usar esa informacion para localizarlo", PosDerDIALOGO, 4, 50);
 		break;
 	case 5:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("También he activado un rastreador que te indicará tu distancia a Miles", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Tambien he activado un rastreador que te indicara tu distancia a Miles", PosDerDIALOGO, 4, 50);
 		break;
 	case 6:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Yo buscaré por otra zona, mucha suerte", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Yo buscare por otra zona, mucha suerte", PosDerDIALOGO, 4, 50);
 		break;
 	case 7: AnimacionBorrar(); break;
 	default:break;
@@ -432,3 +432,21 @@ void TextMiguelFinal(int n) {
 	}
 }
 
+void TextPeterPorker(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Peter Porker", 9, false);
+		EscribirTextoAnimado("Estas buscando a Miles, lo vi hace raro por la pista de abajo, dijo algo sobre una grieta", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Peter Porker", 9, false);
+		EscribirTextoAnimado("Sabes de que estaba hablando?", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Woman", 1, true);
+		EscribirTextoAnimado("Como sea, encontrarlo no sera dificil, por donde pasa deja glitches", PosIzDIALOGO, 4, 50);
+		break;
+	case 4: AnimacionBorrar(); break;
+	default:break;
+	}
+}

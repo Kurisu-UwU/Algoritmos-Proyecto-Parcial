@@ -26,7 +26,7 @@ public:
 	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
 	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*, bool);
 	void EnemigoMuere(PersonajeSecundario*);
-	void GenerarObstaculo(int, int);
+	void GenerarObstaculo(int);
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void AtributosNPC(int, int, int, int, int, int, int);
 	void BorrarObjetos();
@@ -87,14 +87,11 @@ public:
 			}
 		}
 	}
-	void Niveles::GenerarObstaculo(int n, int m) { // inicializador de registro de obstáculos
-		canObs = n + m;
+	void Niveles::GenerarObstaculo(int n) { // inicializador de registro de obstáculos
+		canObs = n;
 		listaObs = new Entidad * [n];
 		for (int i = 0; i < n; i++) {
 			listaObs[i] = new Entidad(1, 1, 0, 1, 1, true);
-		}
-		for (int i = 0; i < m; i++) {
-			listaObs[i + n] = new NPC(1, 1, 0, 1, 1, true, 1);
 		}
 	}
 	void Niveles::BorrarObjetos() {
@@ -105,12 +102,6 @@ public:
 		//for (int i = 0; i < canEne; i++) { delete listaEne[i]; }delete[]listaEne;		
 	}
 	void Niveles::AtributosObstaculo(int numero, int x, int y, int velocidad, int ancho, int alto) {  // asignación de atributos a los obstáculos
-		listaObs[numero]->SetX(x);
-		listaObs[numero]->SetY(y);
-		listaObs[numero]->SetAncho(ancho);
-		listaObs[numero]->SetAlto(alto);
-	}
-	void Niveles::AtributosNPC(int numero, int x, int y, int velocidad, int ancho, int alto, int radio) {  // asignación de atributos a los obstáculos
 		listaObs[numero]->SetX(x);
 		listaObs[numero]->SetY(y);
 		listaObs[numero]->SetAncho(ancho);
