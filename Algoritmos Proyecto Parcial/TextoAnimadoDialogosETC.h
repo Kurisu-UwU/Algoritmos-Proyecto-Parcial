@@ -472,7 +472,7 @@ void TextMiguelFinal(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Miguel O'hara", 2, true);
-		EscribirTextoAnimado("Por fin, después de tonta te encuentro", PosIzDIALOGO, 4, 40);
+		EscribirTextoAnimado("Por fin, después de tanto te encuentro", PosIzDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Miguel O'hara", 2, true);

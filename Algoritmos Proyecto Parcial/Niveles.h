@@ -586,6 +586,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 250 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 				
 				tecla = teclageneralbasura;
@@ -647,8 +649,31 @@ void Nivel2() {
 			DibujarEdificio(182, 32);
 
 			do {  //Parte 1
+
+				ColorRojoOscuro(); Posicion(190, 23); cout << "XXXXXXXXX";
+				ColorMagenta(); Posicion(190, 23); cout << "101010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "010101010";
+
+				ColorRojoOscuro(); Posicion(188, 25); cout << "XXXXXXX";
+				ColorMagenta(); Posicion(188, 25); cout << "1010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "0101010";
+
+				ColorRojoOscuro(); Posicion(197, 28); cout << "XXXX";
+				ColorMagenta(); Posicion(197, 28); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(197, 28); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(199, 26); cout << "XXXX";
+				ColorMagenta(); Posicion(199, 26); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(199, 26); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(198, 29); cout << "XXXXXX";
+				ColorMagenta(); Posicion(198, 29); cout << "101010";
+				ColorAmarilloOscuro(); Posicion(198, 29); cout << "010101";
+
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 210 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -712,6 +737,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 180 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -766,8 +793,31 @@ void Nivel2() {
 			DibujarCarro(1, 28);
 
 			do {  //Parte 1
+
+				ColorRojoOscuro(); Posicion(190, 23); cout << "XXXXXXXXX";
+				ColorMagenta(); Posicion(190, 23); cout << "101010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "010101010";
+
+				ColorRojoOscuro(); Posicion(188, 25); cout << "XXXXXXX";
+				ColorMagenta(); Posicion(188, 25); cout << "1010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "0101010";
+
+				ColorRojoOscuro(); Posicion(197, 28); cout << "XXXX";
+				ColorMagenta(); Posicion(197, 28); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(197, 28); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(199, 26); cout << "XXXX";
+				ColorMagenta(); Posicion(199, 26); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(199, 26); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(198, 29); cout << "XXXXXX";
+				ColorMagenta(); Posicion(198, 29); cout << "101010";
+				ColorAmarilloOscuro(); Posicion(198, 29); cout << "010101";
+
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 155 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -823,6 +873,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 150 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -890,6 +942,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 280 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -941,6 +995,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 250 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -991,6 +1047,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 220 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1056,6 +1114,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 205 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1111,6 +1171,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 200 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1170,6 +1232,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 220 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1234,6 +1298,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 180 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1290,6 +1356,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 140 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1344,6 +1412,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 110 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1417,6 +1487,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 100 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1480,8 +1552,31 @@ void Nivel2() {
 			DibujarCarro(1, 28);
 
 			do {  //Parte 1
+
+				ColorRojoOscuro(); Posicion(190, 23); cout << "XXXXXXXXX";
+				ColorMagenta(); Posicion(190, 23); cout << "101010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "010101010";
+
+				ColorRojoOscuro(); Posicion(188, 25); cout << "XXXXXXX";
+				ColorMagenta(); Posicion(188, 25); cout << "1010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "0101010";
+
+				ColorRojoOscuro(); Posicion(197, 28); cout << "XXXX";
+				ColorMagenta(); Posicion(197, 28); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(197, 28); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(199, 26); cout << "XXXX";
+				ColorMagenta(); Posicion(199, 26); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(199, 26); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(198, 29); cout << "XXXXXX";
+				ColorMagenta(); Posicion(198, 29); cout << "101010";
+				ColorAmarilloOscuro(); Posicion(198, 29); cout << "010101";
+
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 205 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1533,6 +1628,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 155 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1598,6 +1695,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 110 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1654,8 +1753,30 @@ void Nivel2() {
 			DibujarGrieta(22, 24);
 
 			do {  //Parte 1
+				ColorRojoOscuro(); Posicion(190, 23); cout << "XXXXXXXXX";
+				ColorMagenta(); Posicion(190, 23); cout << "101010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "010101010";
+
+				ColorRojoOscuro(); Posicion(188, 25); cout << "XXXXXXX";
+				ColorMagenta(); Posicion(188, 25); cout << "1010101";
+				ColorAmarilloOscuro(); Posicion(190, 23); cout << "0101010";
+
+				ColorRojoOscuro(); Posicion(197, 28); cout << "XXXX";
+				ColorMagenta(); Posicion(197, 28); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(197, 28); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(199, 26); cout << "XXXX";
+				ColorMagenta(); Posicion(199, 26); cout << "1010";
+				ColorAmarilloOscuro(); Posicion(199, 26); cout << "0101";
+
+				ColorRojoOscuro(); Posicion(198, 29); cout << "XXXXXX";
+				ColorMagenta(); Posicion(198, 29); cout << "101010";
+				ColorAmarilloOscuro(); Posicion(198, 29); cout << "010101";
+
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 70 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1720,6 +1841,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 50 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1812,6 +1935,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 200 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1883,6 +2008,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 150 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -1953,6 +2080,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 100 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -2008,6 +2137,8 @@ void Nivel2() {
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
+				Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+				Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 50 metros";
 				nivel2->GenerarMovimientoJugador(Miguel);
 
 				tecla = teclageneralbasura;
@@ -2075,6 +2206,8 @@ void Nivel2() {
 			DibujarCarro(1, 24);
 			DibujarCarro(1, 28);
 			DibujarPanelDeControl();
+			Posicion(4, 2); ColorAzulOscuro(); cout << "Nombre: Miguel O'hara";
+			Posicion(4, 4); ColorAzulOscuro(); cout << "Lejania a Miles: 0 metros";
 			for (int i = 0; i < 7 && booltexto; i++) {
 				TextMiguelFinal(i); 
 				booltexto = true;
