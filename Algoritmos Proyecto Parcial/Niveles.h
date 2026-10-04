@@ -13,13 +13,13 @@ void Nivel1() {
 	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
 	booltexto = true;
 
-	/*DibujarMiles(100, 22);
+	DibujarMiles(100, 22);
 	DibujarMiguel(100, 26);
 	AnimacionBorrar();
 	miles->SetPX(100); miles->SetPY(22);
 	Persecucion* nivelpersecucion = new Persecucion();
 
-	nivelpersecucion->GenerarObstaculo(2);
+	nivelpersecucion->GenerarObstaculo(2,0);
 	nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
 	nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
 
@@ -31,6 +31,7 @@ void Nivel1() {
 	nivelpersecucion->CarrosMovimiento(miles);
 	Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
 	Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+	DibujarCarretera();
 	tiempo = 0;
 	do {
 		if (tiempo == 0) {ColorAzul();} else if (tiempo == 1) {ColorAmarillo();}
@@ -47,9 +48,13 @@ void Nivel1() {
 	BorrarTecla(100, 28);
 	Posicion(110, 18); cout << "            ";
 	Posicion(110, 27); cout << "            ";
+	DibujarCarretera();
 	tecla = teclageneralbasura;
+	int tempoo = 0;
+	int carretera = 6;
 	do {  //Parte 1
 		if (_kbhit()) { tecla = getch(); }
+		DibujarLineaDeCarretera(carretera);
 		DibujarPanelDeControl();
 		nivelpersecucion->GenerarMovimientoJugador(miles);
 		NivelPersecucion(nivelpersecucion);
@@ -58,8 +63,11 @@ void Nivel1() {
 		Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 		_sleep(1);
 		tecla = teclageneralbasura;
+		tempoo++;
+		if (tempoo >= 3) { carretera--; tempoo = 0; }
+		if (carretera < 0) { carretera = 6; }
 	} while (booleanoGeneralParaNiveles);
-delete nivelpersecucion;*/
+delete nivelpersecucion;
 	booleanoGeneralParaNiveles4 = true;
 	booleanoGeneralParaNiveles = true;
 	Niveles* nivel1 = new Niveles();
@@ -67,7 +75,7 @@ delete nivelpersecucion;*/
 	miles->SetInvisibilidad(false);
 	PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
 	enemigos1[0] = new PersonajeSecundario(170, 37, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
-	enemigos1[1] = new PersonajeSecundario(170, 42, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+	enemigos1[1] = new PersonajeSecundario(170, 42, 4, 4, 1, 5, 1, 3, 1, "Enemigo1", true, 1);
 	PersonajeSecundario** enemigos2 = new PersonajeSecundario * [0];
 	enemigos2[0] = new PersonajeSecundario(100, 27, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 	PersonajeSecundario** enemigos3 = new PersonajeSecundario * [0];
@@ -92,10 +100,10 @@ delete nivelpersecucion;*/
 
 			nivel1->AtributosObstaculo(4, 3, 19, 0, 12, 26);
 			nivel1->AtributosObstaculo(5, 44, 19, 0, 72 - 42, 35 - 19);
-			nivel1->AtributosObstaculo(6, 73, 22, 0, 109 - 73, 34 - 22);
-			nivel1->AtributosObstaculo(7, 49, 7, 0, 73 - 49, 19 - 7);
+			nivel1->AtributosObstaculo(6, 73, 22, 0, 109 - 72, 34 - 21);
+			nivel1->AtributosObstaculo(7, 49, 7, 0, 73 - 48, 19 - 7);
 			nivel1->AtributosObstaculo(8, 146, 22, 0, 156 - 145, 34 - 21);
-			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 156, 35 - 7);
+			nivel1->AtributosObstaculo(9, 156, 7, 0, 187 - 155, 35 - 7);
 			//Puertas Abiertas
 			nivel1->AtributosObstaculo(10, 14, 19, 0, 9, 1);
 			nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
@@ -149,7 +157,7 @@ delete nivelpersecucion;*/
 			nivel1->AtributosObstaculo(3, 212, 10, 0, 1, 47);// muro extremo
 
 			nivel1->AtributosObstaculo(4, 28, 7, 0, 213 - 27, 22 - 6);
-			nivel1->AtributosObstaculo(5, 0, 33, 0, 182, 47 - 33);
+			nivel1->AtributosObstaculo(5, 0, 33, 0, 183, 47 - 33);
 
 			tecla = 'j';
 			DibujarNivelUno2();
@@ -163,13 +171,13 @@ delete nivelpersecucion;*/
 				Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 				for (int i = 0; i < 1; i++) {
 					nivel1->EnemigoAcercaProta(enemigos2[i], miles, miles->GetInvisibilidad());
-					if (tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos1[i]->GetEX(), enemigos1[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
+					if (!miles->GetInvisibilidad() && tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos2[i]->GetEX(), enemigos2[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
 						cositoraro = false;
 						miles->SetVida(miles->GetVida() - 1);
 						tiempodano = 20;
 						BorrarMiles(miles->GetPX(), miles->GetPY());
-						miles->SetPX(5);
-						miles->SetPY(9);
+						miles->SetPX(194); 
+						miles->SetPY(41);
 					}
 				}
 				cositoraro = true;
@@ -187,6 +195,7 @@ delete nivelpersecucion;*/
 				_sleep(1);
 				tecla = teclageneralbasura;
 				miles->DibujarHabilidades();
+				if (tiempodano > 0) { tiempodano--; }
 			} while (booleanoGeneralParaNiveles);
 			break;
 		}
@@ -263,13 +272,17 @@ delete nivelpersecucion;*/
 				if (booleanopuertanivel4) {
 					DibujarPuertaNivel1Escena4(177, 37); DibujarPlacaDePresion(156, 20);
 				}
-				else { DibujarPlacaDePresionRoja(156, 20); }
+				else { DibujarPlacaDePresionVerde(156, 20); }
 				for (int i = 0; i < 1; i++) {
 					nivel1->EnemigoAcercaProta(enemigos4[i], miles, miles->GetInvisibilidad());
 					if (CalcularColisiones(enemigos4[i]->GetEX(), enemigos4[i]->GetEY(), 156, 20, 4, 4, 5, 11)) {
-						booleanopuertanivel3 = false;
+						booleanopuertanivel4 = false;
 						nivel1->AtributosObstaculo(11, 0, 0, 0, 0, 0);
 						BorrarPuertaNivelEscena4(177, 37);
+					}
+					else {
+						booleanopuertanivel4 = true;
+						nivel1->AtributosObstaculo(11, 177, 37, 0, 3, 35);
 					}
 				}
 				nivel1->GenerarMovimientoJugador(miles);
