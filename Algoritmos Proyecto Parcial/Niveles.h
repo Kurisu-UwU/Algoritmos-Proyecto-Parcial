@@ -19,7 +19,7 @@ void Nivel1() {
 	miles->SetPX(100); miles->SetPY(22);
 	Persecucion* nivelpersecucion = new Persecucion();
 
-	nivelpersecucion->GenerarObstaculo(2,0);
+	nivelpersecucion->GenerarObstaculo(2);
 	nivelpersecucion->AtributosObstaculo(0, 1, 14, 0, 200, 4);
 	nivelpersecucion->AtributosObstaculo(1, 1, 34, 0, 200, 4);
 
