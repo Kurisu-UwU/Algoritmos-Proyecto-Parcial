@@ -2154,6 +2154,54 @@ void Nivel3() {
 void NivelPregunta() {
 
 	AnimacionBorrar();
+
+	DibujarMiles(30, 24);
+	DibujarMiguel(40, 24);
+	DibujarEdificio(1, 32);
+	DibujarEdificio(26, 32);
+	DibujarEdificio(51, 32);
+	DibujarEdificio(136, 32);
+	DibujarEdificio(161, 32);
+	DibujarEdificio(186, 32);
+	DibujarEdificio(7, 7);
+	DibujarEdificio(32, 7);
+	DibujarEdificio(57, 7);
+	DibujarEdificio(82, 7);
+	DibujarEdificio(107, 7);
+	DibujarEdificio(132, 7);
+	DibujarEdificio(157, 7);
+	DibujarEdificio(182, 7);
+	DibujarCarro(190, 24);
+	DibujarCarro(190, 28);
+	DibujarCarro(1, 24);
+	DibujarCarro(1, 28);
+
+	DibujarGrieta3(55, 24);
+	DibujarGrieta3(63, 24);
+	_sleep(300);
+	DibujarGrieta2(55, 24);
+	DibujarGrieta2(63, 24);
+	_sleep(300);
+	DibujarGrieta(55, 24);
+	DibujarGrieta(63, 24);
+	_sleep(300);
+	BorrarGrieta(55, 24);
+	BorrarGrieta(63, 24);
+	DibujarPunk(55, 24);
+	DibujarGwen(63, 24);
+	for (int i = 0; i < 23; i++) {
+		TextFinal(i);
+	}
+
+
+
+
+
+	_sleep(1000);
+
+
+
+	AnimacionBorrar();
 	CuadroDeTexto("", 0, false);
 	EscribirTextoAnimado("Luego de vivir la experiencia desde el punto de vista de los 3 personajes...      ", PosIzDIALOGO, 4, 40);
 	CuadroDeTexto("", 0, false);

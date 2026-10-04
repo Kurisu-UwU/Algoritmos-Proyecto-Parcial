@@ -84,6 +84,7 @@ void TextMilesIntro(int n) {
 	default:break;
 	}
 }
+
 void TextMiles1(int n) {
 	int a;
 	switch (n) {
@@ -209,6 +210,7 @@ void TextMiles1(int n) {
 	default:break;
 	}
 }
+
 void TextMilesConGwen(int n) {
 	switch (n){ 
 	case 1: 
@@ -238,11 +240,7 @@ void TextMilesConGwen(int n) {
 		BorrarTexto(); 
 	}
 }
-//		
-//
-//
-// 
-//
+
 void TextMiguelIntro(int n) {
 	switch (n) {
 	case 1:
@@ -258,11 +256,6 @@ void TextMiguelIntro(int n) {
 	}
 }
 
-//
-//
-//
-//
-//
 void TextPunkIntro(int n) {
 	switch (n) {
 	case 1:
@@ -373,7 +366,7 @@ void TextMiguel1(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Miguel O'hara", 2, true);
-		EscribirTextoAnimado("¡Que acaba de pasar!", PosIzDIALOGO, 4, 40);
+		EscribirTextoAnimado("Que acaba de pasar!", PosIzDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Miguel O'hara", 2, true);
@@ -413,7 +406,7 @@ void TextMiguel1(int n) {
 		break;
 	case 11:
 		CuadroDeTexto("Miguel O'hara", 2, true);
-		EscribirTextoAnimado("¡Silencio!, tu solo estas aqui para manejar la maquina transportadora", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Silencio!, tu solo estas aqui para manejar la maquina transportadora", PosIzDIALOGO, 4, 50);
 		break;
 	case 12:
 		CuadroDeTexto("Miguel O'hara", 2, true);
@@ -571,7 +564,7 @@ void TextWoman(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Spider Woman", 7, false);
-		EscribirTextoAnimado("¿Tambien llegaste aqui?", PosDerDIALOGO, 4, 40);
+		EscribirTextoAnimado("Tambien llegaste aqui?", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Spider Woman", 7, false);
@@ -602,7 +595,7 @@ void TextSpotScape(int n) {
 		break;
 	case 3:
 		CuadroDeTexto("Miguel O'hara", 2, true);
-		EscribirTextoAnimado("¿Que haces aqui?", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Que haces aqui?", PosIzDIALOGO, 4, 50);
 		break;
 	case 4:
 		CuadroDeTexto("Spot", 5, false);
@@ -617,6 +610,102 @@ void TextSpotScape(int n) {
 		EscribirTextoAnimado("Como sea, me voy a causar estragos en otro multiverso, ahi te ves", PosDerDIALOGO, 4, 50);
 		break;
 	case 7: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+
+void TextFinal(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Que singnifica esto?", PosIzDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Que hacen aqui?", PosIzDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Gwen te prohibi venir a este multiverso", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Gwen Stacy", 4, true);
+		EscribirTextoAnimado("Hemos llegado a detenerte", PosIzDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Miguel, tienes que reconsiderarlo, puede haber otra forma", PosIzDIALOGO, 4, 40);
+		break;
+	case 6:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Otra forma, de que hablan? Lo que se requiere es aceptar el evento canonico", PosIzDIALOGO, 4, 40);
+		break;
+	case 7:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Miguel no los va a escuchar, ya intente razonar", PosIzDIALOGO, 4, 50);
+		break;
+	case 8:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("...", PosIzDIALOGO, 4, 300);
+		break;
+	case 9:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Bien, los oigo, pero sera mejor que tengan una buena propuesta", PosIzDIALOGO, 4, 40);
+		break;
+	case 10:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("No vamos a romper el evento canonico", PosIzDIALOGO, 4, 40);
+		break;
+	case 11:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Pero necesitamos que hables con tu padre y renuncie a su puesto", PosIzDIALOGO, 4, 50);
+		break;
+	case 12:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Claro, de esa manera lo salvaremos y no romperemos el evento canonico", PosIzDIALOGO, 4, 50);
+		break;
+	case 13:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("No confio en ustedes, como se que haran eso, como se que no fracasaran", PosIzDIALOGO, 4, 40);
+		break;
+	case 14:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Todo el spider verso estaria en peligro", PosIzDIALOGO, 4, 40);
+		break;
+	case 15:
+		CuadroDeTexto("Gwen Stacy", 4, true);
+		EscribirTextoAnimado("Miles revelara su identidad", PosIzDIALOGO, 4, 50);
+		break;
+	case 16:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Que yo que?", PosIzDIALOGO, 4, 50);
+		break;
+	case 17:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Miles, no sera tan malo como piensas, claro sera incomodo", PosIzDIALOGO, 4, 40);
+		break;
+	case 18:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Esto es para salvar a tu padre, que pase lo que deba pasar", PosIzDIALOGO, 4, 40);
+		break;
+	case 19:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("De esta manera podran slavarlo y el spider verso estara a salvo", PosIzDIALOGO, 4, 50);
+		break;
+	case 20:
+		CuadroDeTexto("Gwen Stacy", 4, true);
+		EscribirTextoAnimado("No tenemos que sacrificar algo o alguien por un bien mayor", PosIzDIALOGO, 4, 50);
+		break;
+	case 21:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Siempre podemos llegar a un acuerdo", PosIzDIALOGO, 4, 40);
+		break;
+	case 22:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Bien, confio en ustedes", PosIzDIALOGO, 4, 40);
+		break;
+	case 23: AnimacionBorrar(); break;
 	default:break;
 	}
 }
