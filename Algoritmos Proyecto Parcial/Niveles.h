@@ -374,7 +374,7 @@ void Nivel1() {
 void Nivel2() {
 	booleanoGeneralParaNiveles4 = false;
 	bool nivelcompleto = false;
-	int subnivel = 1;
+	int subnivel = 20;
 	bool subnivelcompleto1, subnivelcompleto2, subnivelcompleto3, subnivelcompleto4, subnivelcompleto5;
 	bool subnivelcompleto6, subnivelcompleto7, subnivelcompleto8, subnivelcompleto9, subnivelcompleto10;
 	bool subnivelcompleto11, subnivelcompleto12, subnivelcompleto13, subnivelcompleto14, subnivelcompleto15;
@@ -385,6 +385,7 @@ void Nivel2() {
 	bool NPC11 = false;
 	bool NPC22 = false;
 	bool NPC12 = false;
+	bool NPC15 = false;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
@@ -1186,17 +1187,21 @@ void Nivel2() {
 			break;
 		}
 		case 15: {
+			NPC15 = false;
 			subnivelcompleto15 = false;
 			Niveles* nivel2 = new Niveles();
 
-			nivel2->GenerarObstaculo(5);
+			nivel2->GenerarObstaculo(6);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(2, 1, 7, 0, 210, 16);
 			nivel2->AtributosObstaculo(3, 1, 24, 0, 20, 8);
 			nivel2->AtributosObstaculo(4, 190, 24, 0, 20, 8);
+			nivel2->AtributosObstaculo(5, 25, 24, 0, 6, 5);
 
 			tecla = 'j';
+
+			DibujarSpiderWoman(25, 24);
 
 			DibujarEdificio(1, 32);
 			DibujarEdificio(26, 32);
@@ -1229,6 +1234,13 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 23, 23, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
+					if (NPC15 == false) {
+						for (int i = 0; i < 5 && booltexto; i++) { TextWoman(i); }
+						NPC15 = true;
+					}
+				}
 
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 183, 24, Miguel->GetAlto(), Miguel->GetAncho(), 8, 5)) {
 					subnivelcompleto15 = true;
@@ -1444,6 +1456,11 @@ void Nivel2() {
 
 			DibujarGrieta(22, 24);
 
+			if (NPC15 == false) {
+				for (int i = 0; i < 5 && booltexto; i++) { TextSpotScape(i); }
+				NPC15 = true;
+			}
+
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -1478,6 +1495,8 @@ void Nivel2() {
 		case 20: {
 			subnivelcompleto20 = false;
 			Niveles* nivel2 = new Niveles();
+
+
 
 			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -1809,15 +1828,7 @@ void Nivel2() {
 			DibujarCarro(1, 28);
 			DibujarPanelDeControl();
 			for (int i = 0; i < 7 && booltexto; i++) { TextMiguelFinal(i); }
-			do {  //Parte 1
-				if (_kbhit()) { tecla = getch(); }
-				DibujarPanelDeControl();
-				nivel2->GenerarMovimientoJugador(Miguel);
-
-				tecla = teclageneralbasura;
-				_sleep(1);
-
-			} while (!subnivelcompleto25);
+			
 			delete nivel2;
 			break;
 		}

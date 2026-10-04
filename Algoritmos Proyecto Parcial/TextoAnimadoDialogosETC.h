@@ -304,20 +304,20 @@ void TextPunkSpot(int n) {
 void TextMiguel1(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("¡Que acaba de pasar!", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("¡Que acaba de pasar!", PosIzDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Como permitieron que Miles escapara, puede romper el canon y destruir el spider verso", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Como permitieron que Miles escapara, puede romper el canon y destruir el spider verso", PosIzDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Gwen Stacy", 4, true);
-		EscribirTextoAnimado("Pues no se, tal vez no le gritaste con suficiente fuerza", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("Pues no se, tal vez no le gritaste con suficiente fuerza", PosDerDIALOGO, 4, 50);
 		break;
 	case 4:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Esto es culpa tuya, tu lo trajiste aqui y lo dejaste huir", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Esto es culpa tuya, tu lo trajiste aqui y lo dejaste huir", PosIzDIALOGO, 4, 50);
 		break;
 	case 5:
 		CuadroDeTexto("Gwen Stacy", 4, false);
@@ -328,8 +328,8 @@ void TextMiguel1(int n) {
 		EscribirTextoAnimado("No, ya nos has estorvado suficiente, te prohibo seguirnos a la dimension de Miles", PosIzDIALOGO, 4, 50);
 		break;
 	case 7:
-		CuadroDeTexto("Gwen Stacy", 4, true);
-		EscribirTextoAnimado("No puedes hacer eso, Spider Woman dile que se equivoca", PosIzDIALOGO, 4, 50);
+		CuadroDeTexto("Gwen Stacy", 4, false);
+		EscribirTextoAnimado("No puedes hacer eso, Spider Woman dile que se equivoca", PosDerDIALOGO, 4, 50);
 		break;
 	case 8:
 		CuadroDeTexto("Spider Woman", 7, false);
@@ -344,12 +344,12 @@ void TextMiguel1(int n) {
 		EscribirTextoAnimado("Gwen tiene razon, Miles no sabe lo que esta haciendo", PosDerDIALOGO, 4, 50);
 		break;
 	case 11:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("¡Silencio!, tu solo estas aqui para manejar la maquina transportadora", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("¡Silencio!, tu solo estas aqui para manejar la maquina transportadora", PosIzDIALOGO, 4, 50);
 		break;
 	case 12:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Y controlar el sistema de seguridad", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Y controlar el sistema de seguridad", PosIzDIALOGO, 4, 50);
 		break;
 	case 13:
 		CuadroDeTexto("Margo Kees", 6, false);
@@ -360,12 +360,12 @@ void TextMiguel1(int n) {
 		EscribirTextoAnimado("Veamos que tan facilmente lo encuentras con tu propio sistema de seguridad en tu contra", PosDerDIALOGO, 4, 50);
 		break;
 	case 15:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("No tengo tiempo para esto, debo ir tras Miles, tu has lo que quieras", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("No tengo tiempo para esto, debo ir tras Miles, tu has lo que quieras", PosIzDIALOGO, 4, 50);
 		break;
 	case 16:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Spider Woman, vamonos, tu me ayudaras en la busqueda", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Spider Woman, vamonos, tu me ayudaras en la busqueda", PosIzDIALOGO, 4, 50);
 		break;
 	case 17:
 		CuadroDeTexto("Spider Woman", 7, false);
@@ -379,15 +379,15 @@ void TextMiguel1(int n) {
 void TextMiguel2(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Spider Woman", 11, true);
+		CuadroDeTexto("Spider Woman", 12, false);
 		EscribirTextoAnimado("Llamada entrante", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("Spider Woman", 7, true);
+		CuadroDeTexto("Spider Woman", 7, false);
 		EscribirTextoAnimado("Hola Miguel, me escuchas?", PosDerDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Spider Woman", 7, true);
+		CuadroDeTexto("Spider Woman", 7, false);
 		EscribirTextoAnimado("Paseandome por este lugar me di cuenta de que Miles esta dejando glitches por algunas zonas", PosDerDIALOGO, 4, 58);
 		break;
 	case 4:
@@ -410,24 +410,24 @@ void TextMiguel2(int n) {
 void TextMiguelFinal(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Por fin, después de tonta te encuentro", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Por fin, después de tonta te encuentro", PosIzDIALOGO, 4, 40);
 		break;
 	case 2:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("No tienes idea de la cantidad de problemas que me has dado hoy", PosDerDIALOGO, 4, 40);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("No tienes idea de la cantidad de problemas que me has dado hoy", PosIzDIALOGO, 4, 40);
 		break;
 	case 3:
-		CuadroDeTexto("Miles Morales", 1, true);
+		CuadroDeTexto("Miles Morales", 1, false);
 		EscribirTextoAnimado("Intentar rescatar a un ser querido es un crimen?", PosDerDIALOGO, 4, 50);
 		break;
 	case 4:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Ese no es el punto, pones en riesgo todo el spider verso", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Ese no es el punto, pones en riesgo todo el spider verso", PosIzDIALOGO, 4, 50);
 		break;
 	case 5:
-		CuadroDeTexto("Miguel O'hara", 2, false);
-		EscribirTextoAnimado("Ahora que te tengo, por fin, todos estan a salvo", PosDerDIALOGO, 4, 50);
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Ahora que te tengo, por fin, todos estan a salvo", PosIzDIALOGO, 4, 50);
 		break;
 	case 6: AnimacionBorrar(); break;
 	default:break;
@@ -438,7 +438,7 @@ void TextPeterPorker(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Peter Porker", 9, false);
-		EscribirTextoAnimado("Estas buscando a Miles, lo vi hace raro por la pista de abajo, dijo algo sobre una grieta", PosDerDIALOGO, 4, 40);
+		EscribirTextoAnimado("Estas buscando a Miles, lo vi hace rato por la pista de abajo, dijo algo sobre unas manchas", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Peter Porker", 9, false);
@@ -457,7 +457,7 @@ void TextPavitr(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Pavitr Prabhakar", 10, false);
-		EscribirTextoAnimado("Estas grietas aparecieron repentinamente", PosDerDIALOGO, 4, 40);
+		EscribirTextoAnimado("Estas manchas aparecieron repentinamente", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Pavitr Prabhakar", 10, false);
@@ -495,6 +495,60 @@ void TextNoir(int n) {
 		EscribirTextoAnimado("Estaba hasta un estremo de la ciudad, dijo que tuvo que tomar 3 manchas para llegar", PosDerDIALOGO, 4, 50);
 		break;
 	case 5: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void TextWoman(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("¿Tambien llegaste aqui?", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Siento que ya nos acercamos a Miles", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Adelantate y ten cuidado", PosDerDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Spider Woman", 7, false);
+		EscribirTextoAnimado("Creo que oi a alguien del otro lado de la mancha", PosDerDIALOGO, 4, 50);
+		break;
+	case 5: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void TextSpotScape(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spot", 5, false);
+		EscribirTextoAnimado("O ya llegaste", PosDerDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Fuiste tu quien dejo tus manchas por la ciudad", PosIzDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("¿Que haces aqui?", PosIzDIALOGO, 4, 50);
+		break;
+	case 4:
+		CuadroDeTexto("Spot", 7, false);
+		EscribirTextoAnimado("Vine para vengarme de Miles, pero contigo aqui no creo que sea posible", PosDerDIALOGO, 4, 50);
+		break;
+	case 5:
+		CuadroDeTexto("Spot", 7, false);
+		EscribirTextoAnimado("Se que no puedo vencerte y mi venganza puede esperar", PosDerDIALOGO, 4, 50);
+		break;
+	case 6:
+		CuadroDeTexto("Spot", 7, false);
+		EscribirTextoAnimado("Como sea, me voy a causar estragos en otro multiverso, ahi te ves", PosDerDIALOGO, 4, 50);
+		break;
+	case 7: AnimacionBorrar(); break;
 	default:break;
 	}
 }
