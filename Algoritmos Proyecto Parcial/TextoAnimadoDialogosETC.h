@@ -602,15 +602,15 @@ void TextSpotScape(int n) {
 		EscribirTextoAnimado("¿Que haces aqui?", PosIzDIALOGO, 4, 50);
 		break;
 	case 4:
-		CuadroDeTexto("Spot", 7, false);
+		CuadroDeTexto("Spot", 5, false);
 		EscribirTextoAnimado("Vine para vengarme de Miles, pero contigo aqui no creo que sea posible", PosDerDIALOGO, 4, 50);
 		break;
 	case 5:
-		CuadroDeTexto("Spot", 7, false);
+		CuadroDeTexto("Spot", 5, false);
 		EscribirTextoAnimado("Se que no puedo vencerte y mi venganza puede esperar", PosDerDIALOGO, 4, 50);
 		break;
 	case 6:
-		CuadroDeTexto("Spot", 7, false);
+		CuadroDeTexto("Spot", 5, false);
 		EscribirTextoAnimado("Como sea, me voy a causar estragos en otro multiverso, ahi te ves", PosDerDIALOGO, 4, 50);
 		break;
 	case 7: AnimacionBorrar(); break;

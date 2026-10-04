@@ -422,7 +422,7 @@ void Nivel1() {
 void Nivel2() {
 	booleanoGeneralParaNiveles4 = false;
 	bool nivelcompleto = false;
-	int subnivel = 20;
+	int subnivel = 1;
 	bool subnivelcompleto1, subnivelcompleto2, subnivelcompleto3, subnivelcompleto4, subnivelcompleto5;
 	bool subnivelcompleto6, subnivelcompleto7, subnivelcompleto8, subnivelcompleto9, subnivelcompleto10;
 	bool subnivelcompleto11, subnivelcompleto12, subnivelcompleto13, subnivelcompleto14, subnivelcompleto15;
@@ -434,6 +434,7 @@ void Nivel2() {
 	bool NPC22 = false;
 	bool NPC12 = false;
 	bool NPC15 = false;
+	bool Escape = false;
 	DibujarMiguelOharaGrandeTitulo(10, 10);
 	for (int i = 0; i < 2 && booltexto; i++) { TextMiguelIntro(i); }
 	AnimacionBorrar();
@@ -454,6 +455,8 @@ void Nivel2() {
 		case 1: {
 			subnivelcompleto1 = false;
 			Niveles* nivel2 = new Niveles();
+
+			DibujarMiguel(Miguel->GetPX(), Miguel->GetPY());
 
 			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
@@ -1504,11 +1507,6 @@ void Nivel2() {
 
 			DibujarGrieta(22, 24);
 
-			if (NPC15 == false) {
-				for (int i = 0; i < 5 && booltexto; i++) { TextSpotScape(i); }
-				NPC15 = true;
-			}
-
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -1544,8 +1542,6 @@ void Nivel2() {
 			subnivelcompleto20 = false;
 			Niveles* nivel2 = new Niveles();
 
-
-
 			nivel2->GenerarObstaculo(4);
 			nivel2->AtributosObstaculo(0, 1, 7, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 7, 0, 75, 16);
@@ -1571,6 +1567,8 @@ void Nivel2() {
 			DibujarCarro(190, 24);
 			DibujarCarro(190, 28);
 
+			DibujarSpot(35, 25);
+
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
@@ -1578,6 +1576,23 @@ void Nivel2() {
 
 				tecla = teclageneralbasura;
 				_sleep(1);
+
+				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 33, 24, Miguel->GetAlto(), Miguel->GetAncho(), 7, 10)) {
+					if (Escape == false) {
+						for (int i = 0; i < 7 && booltexto; i++) { TextSpotScape(i); }
+						_sleep(300);
+						DibujarGrieta(35, 25);
+						_sleep(300);
+						DibujarGrieta2(35, 25);
+						_sleep(300);
+						DibujarGrieta3(35, 25);
+						_sleep(300);
+						BorrarSpot(35, 25);
+						BorrarGrieta(35, 25);
+
+					}
+					Escape = true;
+				}
 
 				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 10, 7, Miguel->GetAlto(), Miguel->GetAncho(), 1, 180)) {
 					subnivelcompleto20 = true;
@@ -1844,6 +1859,9 @@ void Nivel2() {
 			subnivelcompleto25 = false;
 			Niveles* nivel2 = new Niveles();
 			DibujarMiles(50, 25);
+
+			DibujarMiguel(Miguel->GetPX(), Miguel->GetPY());
+
 			nivel2->GenerarObstaculo(5);
 			nivel2->AtributosObstaculo(0, 1, 32, 0, 75, 16);
 			nivel2->AtributosObstaculo(1, 136, 32, 0, 75, 16);

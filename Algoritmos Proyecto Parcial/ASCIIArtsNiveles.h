@@ -347,14 +347,44 @@ void DibujarCofre(int x, int y) {
 }
 
 void DibujarGrieta(int x, int y) {
-	Posicion(x + 1, y);     ColorBlanco(); cout << "|";
-	Posicion(x + 1, y + 1); ColorBlanco(); cout << "||";
-	Posicion(x, y + 2); ColorBlanco(); cout << "|||";
-	Posicion(x, y + 3); ColorBlanco(); cout << "||||";
-	Posicion(x + 1, y + 4); ColorBlanco(); cout << "||||";
-	Posicion(x, y + 5); ColorBlanco(); cout << "|||||";
-	Posicion(x + 1, y + 6); ColorBlanco(); cout << "||| ";
-	Posicion(x + 2, y + 7); ColorBlanco(); cout << "|";
+	Posicion(x + 1, y);     ColorBlanco(); cout <<  "|";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout <<  "||";
+	Posicion(x, y + 2); ColorBlanco(); cout <<     "|||";
+	Posicion(x, y + 3); ColorBlanco(); cout <<     "||||";
+	Posicion(x + 1, y + 4); ColorBlanco(); cout <<  "||||";
+	Posicion(x, y + 5); ColorBlanco(); cout <<     "|||||";
+	Posicion(x + 1, y + 6); ColorBlanco(); cout <<  "||| ";
+	Posicion(x + 2, y + 7); ColorBlanco(); cout <<   "|";
+}
+void BorrarGrieta(int x, int y) {
+	Posicion(x + 1, y);     ColorBlanco(); cout << " ";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout << " ";
+	Posicion(x, y + 2); ColorBlanco(); cout << "   ";
+	Posicion(x, y + 3); ColorBlanco(); cout << "    ";
+	Posicion(x + 1, y + 4); ColorBlanco(); cout << "    ";
+	Posicion(x, y + 5); ColorBlanco(); cout << "     ";
+	Posicion(x + 1, y + 6); ColorBlanco(); cout << "    ";
+	Posicion(x + 2, y + 7); ColorBlanco(); cout << " ";
+}
+void DibujarGrieta2(int x, int y) {
+	Posicion(x + 1, y);     ColorBlanco(); cout <<  " ";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout <<  "| ";
+	Posicion(x, y + 2); ColorBlanco(); cout <<     " ||";
+	Posicion(x, y + 3); ColorBlanco(); cout <<     " || ";
+	Posicion(x + 1, y + 4); ColorBlanco(); cout <<  " || ";
+	Posicion(x, y + 5); ColorBlanco(); cout <<     " ||  ";
+	Posicion(x + 1, y + 6); ColorBlanco(); cout <<  " |  ";
+	Posicion(x + 2, y + 7); ColorBlanco(); cout <<   " ";
+}
+void DibujarGrieta3(int x, int y) {
+	Posicion(x + 1, y);     ColorBlanco(); cout <<  " ";
+	Posicion(x + 1, y + 1); ColorBlanco(); cout <<  "  ";
+	Posicion(x, y + 2); ColorBlanco(); cout <<     "  |";
+	Posicion(x, y + 3); ColorBlanco(); cout <<     " || ";
+	Posicion(x + 1, y + 4); ColorBlanco(); cout <<  " || ";
+	Posicion(x, y + 5); ColorBlanco(); cout <<     "  |  ";
+	Posicion(x + 1, y + 6); ColorBlanco(); cout <<  "    ";
+	Posicion(x + 2, y + 7); ColorBlanco(); cout <<   " ";
 }
 void Dibujaarbol(int x, int y) {
 	Posicion(x, y); ColorVerde(); cout << "  ^  ";
