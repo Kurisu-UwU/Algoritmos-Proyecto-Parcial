@@ -447,7 +447,7 @@ void Nivel2() {
 	DibujarSpiderWoman(74, 30);
 	for (int i = 0; i < 18 && booltexto; i++) { TextMiguel1(i); }
 	AnimacionBorrar();
-
+	booltexto = true;
 	MiguelOhara* Miguel = new MiguelOhara(50, 25,6,5, 100, 2, 1, 10, 100, 1, "Miguel O'hara", 2, 1, 3);
 	
 	do {
@@ -483,6 +483,7 @@ void Nivel2() {
 				for (int i = 0; i < 7 && booltexto; i++) {
 					TextMiguel2(i);
 				}
+				booltexto = true;
 				dialogo1 = true;
 			}
 
@@ -1055,6 +1056,7 @@ void Nivel2() {
 
 						for (int i = 0; i < 4 && booltexto; i++) { TextPeterPorker(i); }
 						NPC11 = true;
+						booltexto = true;
 					}
 				}
 
@@ -1115,6 +1117,7 @@ void Nivel2() {
 					if (NPC12 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextNoir(i); }
 						NPC12 = true;
+						booltexto = true;
 					}
 				}
 
@@ -1290,6 +1293,7 @@ void Nivel2() {
 					if (NPC15 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextWoman(i); }
 						NPC15 = true;
+						booltexto = true;
 					}
 				}
 
@@ -1589,6 +1593,7 @@ void Nivel2() {
 						_sleep(300);
 						BorrarSpot(35, 25);
 						BorrarGrieta(35, 25);
+						booltexto = true;
 
 					}
 					Escape = true;
@@ -1730,6 +1735,7 @@ void Nivel2() {
 					if (NPC22 == false) {
 						for (int i = 0; i < 5 && booltexto; i++) { TextPavitr(i); }
 						NPC22 = true;
+						booltexto = true;
 					}
 				}
 
@@ -1893,7 +1899,10 @@ void Nivel2() {
 			DibujarCarro(1, 24);
 			DibujarCarro(1, 28);
 			DibujarPanelDeControl();
-			for (int i = 0; i < 7 && booltexto; i++) { TextMiguelFinal(i); }
+			for (int i = 0; i < 7 && booltexto; i++) {
+				TextMiguelFinal(i); 
+				booltexto = true;
+			}
 			
 			delete nivel2;
 			break;

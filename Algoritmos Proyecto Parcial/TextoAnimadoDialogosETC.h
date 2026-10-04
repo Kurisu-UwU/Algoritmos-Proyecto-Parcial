@@ -275,7 +275,7 @@ void TextPunkIntro(int n) {
 void TextPunk1(int n) {
 	switch (n) {
 	case 1:
-		CuadroDeTexto("Spider Punk", 3, true);
+		("Spider Punk", 3, true);
 		EscribirTextoAnimado("...     Que....    problematico     ", PosIzDIALOGO, 4, 25);
 		break;
 	case 2:
