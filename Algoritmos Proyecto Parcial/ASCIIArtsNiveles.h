@@ -557,52 +557,54 @@ void DibujarOpcionPunk(int x, int y) {
 	DibujarPunk(x + 10, y + 10);
 }
 void DibujarPuertaNivel1Escena3(int x, int y) {
-	Posicion(x, y);     ColorGris(); cout << " _______";
-	Posicion(x, y + 1); ColorGris(); cout << "|       |";
-	Posicion(x, y + 2); ColorGris(); cout << "|       |";
-	Posicion(x, y + 3); ColorGris(); cout << "|       |";
-	Posicion(x, y + 4); ColorGris(); cout << "|       |";
-	Posicion(x, y + 5); ColorGris(); cout << "|       |";
-	Posicion(x, y + 6); ColorGris(); cout << "|       |";
-	Posicion(x, y + 7); ColorGris(); cout << "|       |";
-	Posicion(x, y + 8); ColorGris(); cout << "|       |";
-	Posicion(x, y + 9); ColorGris(); cout << "|       |";
-	Posicion(x, y + 10); ColorGris();cout << "|_______|";
+	ColorRojo();
+	Posicion(x, y);      cout << " _______";
+	Posicion(x, y + 1);  cout << "|       |";
+	Posicion(x, y + 2);  cout << "|       |";
+	Posicion(x, y + 3);  cout << "|       |";
+	Posicion(x, y + 4);  cout << "|       |";
+	Posicion(x, y + 5);  cout << "|       |";
+	Posicion(x, y + 6);  cout << "|       |";
+	Posicion(x, y + 7);  cout << "|       |";
+	Posicion(x, y + 8);  cout << "|       |";
+	Posicion(x, y + 9);  cout << "|       |";
+	Posicion(x, y + 10); cout << "|_______|";
 }
 void BorrarPuertaNivelEscena3(int x, int y) {
-	Posicion(x, y);     ColorGris(); cout << "          ";
-	Posicion(x, y + 1); ColorGris(); cout << "          ";
-	Posicion(x, y + 2); ColorGris(); cout << "          ";
-	Posicion(x, y + 3); ColorGris(); cout << "          ";
-	Posicion(x, y + 4); ColorGris(); cout << "          ";
-	Posicion(x, y + 5); ColorGris(); cout << "          ";
-	Posicion(x, y + 6); ColorGris(); cout << "          ";
-	Posicion(x, y + 7); ColorGris(); cout << "          ";
-	Posicion(x, y + 8); ColorGris(); cout << "          ";
-	Posicion(x, y + 9); ColorGris(); cout << "          ";
-	Posicion(x, y + 10); ColorGris(); cout << "          ";
+	Posicion(x, y);     cout << "          ";
+	Posicion(x, y + 1); cout << "          ";
+	Posicion(x, y + 2); cout << "          ";
+	Posicion(x, y + 3); cout << "          ";
+	Posicion(x, y + 4); cout << "          ";
+	Posicion(x, y + 5); cout << "          ";
+	Posicion(x, y + 6); cout << "          ";
+	Posicion(x, y + 7); cout << "          ";
+	Posicion(x, y + 8); cout << "          ";
+	Posicion(x, y + 9); cout << "          ";
+	Posicion(x, y + 10); cout << "          ";
 }
 void DibujarPuertaNivel1Escena4(int x, int y) {
-	Posicion(x, y);     ColorGris(); cout << " _______";
-	Posicion(x, y + 1); ColorGris(); cout << "|       |";
-	Posicion(x, y + 2); ColorGris(); cout << "|       |";
-	Posicion(x, y + 3); ColorGris(); cout << "|       |";
-	Posicion(x, y + 4); ColorGris(); cout << "|       |";
-	Posicion(x, y + 5); ColorGris(); cout << "|       |";
-	Posicion(x, y + 6); ColorGris(); cout << "|       |";
-	Posicion(x, y + 7); ColorGris(); cout << "|       |";
-	Posicion(x, y + 8); ColorGris(); cout << "|_______|";
+	ColorRojo();
+	Posicion(x, y);     cout << " _______";
+	Posicion(x, y + 1); cout << "|       |";
+	Posicion(x, y + 2); cout << "|       |";
+	Posicion(x, y + 3); cout << "|       |";
+	Posicion(x, y + 4); cout << "|       |";
+	Posicion(x, y + 5); cout << "|       |";
+	Posicion(x, y + 6); cout << "|       |";
+	Posicion(x, y + 7); cout << "|       |";
+	Posicion(x, y + 8); cout << "|_______|";
 }
 void BorrarPuertaNivelEscena4(int x, int y) {
-	Posicion(x, y);     ColorGris(); cout << "          ";
-	Posicion(x, y + 1); ColorGris(); cout << "          ";
-	Posicion(x, y + 2); ColorGris(); cout << "          ";
-	Posicion(x, y + 3); ColorGris(); cout << "          ";
-	Posicion(x, y + 4); ColorGris(); cout << "          ";
-	Posicion(x, y + 5); ColorGris(); cout << "          ";
-	Posicion(x, y + 6); ColorGris(); cout << "          ";
-	Posicion(x, y + 7); ColorGris(); cout << "          ";
-	Posicion(x, y + 8); ColorGris(); cout << "          ";
+	Posicion(x, y);     cout << "          ";
+	Posicion(x, y + 1); cout << "          ";
+	Posicion(x, y + 2); cout << "          ";
+	Posicion(x, y + 3); cout << "          ";
+	Posicion(x, y + 4); cout << "          ";
+	Posicion(x, y + 5); cout << "          ";
+	Posicion(x, y + 6); cout << "          ";
+	Posicion(x, y + 7); cout << "          ";
+	Posicion(x, y + 8); cout << "          ";
 }
 void DibujarCarretera() {
 	ColorGris();
@@ -659,10 +661,12 @@ void DibujarNivelUno1() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 45); cout << "              |                                                                                                                                                                                                     |";
 	Posicion(0, 46); cout << "              |                                                                                                                                                                                                     |";
 	Posicion(0, 47); cout << "              |=====================================================================================================================================================================================================";
+
+	ColorRojo();  Posicion(194, 7);  cout << "|          |";
 }
 void DibujarNivelUno2() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
 	ColorAzul();
-	Posicion(0, 7);  cout << "======              ========                                                                                                                                                                                         ";
+	Posicion(0, 7);  cout << "=====|              |=======                                                                                                                                                                                         ";
 	Posicion(0, 8);  cout << "|                          |                                                                                                                                                                                         ";
 	Posicion(0, 9);  cout << "|                          |                                                                                                                                                                                         ";
 	Posicion(0, 10); cout << "|                          |                                                                                                                                                                                         ";
@@ -702,7 +706,10 @@ void DibujarNivelUno2() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 44); cout << "                                                                                                                                                                                      |                             |";
 	Posicion(0, 45); cout << "                                                                                                                                                                                      |                             |";
 	Posicion(0, 46); cout << "                                                                                                                                                                                      |                             |";
-	Posicion(0, 47); cout << "                                                                                                                                                                                      =========             ========";
+	Posicion(0, 47); cout << "                                                                                                                                                                                      ========|            |=======0";
+
+	ColorRojo();  Posicion(5, 7);  cout << "|              |";
+	ColorRojo();  Posicion(190, 47);  cout << "|            |";
 }
 void DibujarNivelUno3() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
 	ColorAzul();
@@ -747,6 +754,11 @@ void DibujarNivelUno3() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 45); cout << "                                                                                                                                                                                     |                              |";
 	Posicion(0, 46); cout << "                                                                                                                                                                                     |                              |";
 	Posicion(0, 47); cout << "                                                                                                                                                                                     |========|            |========";
+	Posicion(59, 20); ColorAmarillo(); cout << "-----------------------------------------------------------------------------------------------------------";
+	Posicion(0, 10); ColorRojo(); cout << "=";
+	Posicion(0, 17); cout << "=";
+	Posicion(190, 47); cout << "|            |";
+
 }
 void DibujarNivelUno4() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
 	ColorAzul();
@@ -761,25 +773,25 @@ void DibujarNivelUno4() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 15); cout << "|                                                                                                                                                                                                                   =";
 	Posicion(0, 16); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 17); cout << "|                                                                                                                                                                                                                   |";
-	Posicion(0, 18); cout << "|                         |=---------------------------------------------------------------------------------------------------------------------------------------------|==========================================|";
-	Posicion(0, 19); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 20); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 21); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 22); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 23); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 24); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 25); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 26); cout << "|                         |                                 I                I                                                                                           |                                          |";
-	Posicion(0, 27); cout << "|                         |                                 I----------------I                           |===============================================================|                                          |";
-	Posicion(0, 28); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 29); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 30); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 31); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 32); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 33); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 34); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 35); cout << "|                         |                                                                              |                                                                                                          |";
-	Posicion(0, 36); cout << "|                         |=-----------------------------------------------------------------------------|==========================================================================================================|";
+	Posicion(0, 18); cout << "|                         I=---------------------------------------------------------------------------------------------------------------------------------------------|==========================================|";
+	Posicion(0, 19); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 20); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 21); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 22); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 23); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 24); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 25); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 26); cout << "|                         I                                 I                I                                                                                           |                                          |";
+	Posicion(0, 27); cout << "|                         I                                 I----------------I                           |===============================================================|                                          |";
+	Posicion(0, 28); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 29); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 30); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 31); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 32); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 33); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 34); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 35); cout << "|                         I                                                                              |                                                                                                          |";
+	Posicion(0, 36); cout << "|                         I=-----------------------------------------------------------------------------|==========================================================================================================|";
 	Posicion(0, 37); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 38); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 39); cout << "|                                                                                                                                                                                                                   =";
@@ -791,6 +803,32 @@ void DibujarNivelUno4() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 45); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 46); cout << "|                                                                                                                                                                                                                   |";
 	Posicion(0, 47); cout << "|===================================================================================================================================================================================================================";
+
+	ColorAmarillo();
+	Posicion(26, 18); cout << "I=---------------------------------------------------------------------------------------------------------------------------------------------";
+	Posicion(26, 19); cout << "I                                 I                I";
+	Posicion(26, 20); cout << "I                                 I                I";
+	Posicion(26, 21); cout << "I                                 I                I";
+	Posicion(26, 22); cout << "I                                 I                I";
+	Posicion(26, 23); cout << "I                                 I                I";
+	Posicion(26, 24); cout << "I                                 I                I";
+	Posicion(26, 25); cout << "I                                 I                I";
+	Posicion(26, 26); cout << "I                                 I                I";
+	Posicion(26, 27); cout << "I                                 I----------------I";
+	Posicion(26, 28); cout << "I";
+	Posicion(26, 29); cout << "I";
+	Posicion(26, 30); cout << "I";
+	Posicion(26, 31); cout << "I";
+	Posicion(26, 32); cout << "I";
+	Posicion(26, 33); cout << "I";
+	Posicion(26, 34); cout << "I";
+	Posicion(26, 35); cout << "I";
+	Posicion(26, 36); cout << "I=-----------------------------------------------------------------------------";
+
+	Posicion(212, 10); ColorRojo(); cout << "=";
+	Posicion(212, 15); cout << "=";
+	Posicion(212, 39); cout << "=";
+	Posicion(212, 44); cout << "=";
 }
 void DibujarNivelUno5() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213,
 	ColorAzul();
