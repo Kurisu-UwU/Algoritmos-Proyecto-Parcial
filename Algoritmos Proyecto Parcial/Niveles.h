@@ -2210,7 +2210,6 @@ void NivelPregunta() {
 	CuadroDeTexto("", 0, false);
 	EscribirTextoAnimado("Con cual de los 3 personajes te identificas mas?      ", PosIzDIALOGO, 4, 40);
 	int booleanoaqui = true;
-	int opciniciarnivel = 0;
 	
 	do {
 		ImprimirA(83, 40); ImprimirD(122, 40);
@@ -2226,10 +2225,26 @@ void NivelPregunta() {
 			if (tecla == 'z' || tecla == 'Z') {
 				AnimacionBorrar();
 				opFinal = opMenu;  // saber que opción eligió
-				opciniciarnivel = false;
+				booleanoaqui = false;
 			}
-			if (tecla == 'x' || tecla == 'X') { opciniciarnivel = false; opFinal = 0; }
-			if (tecla == 'l' || tecla == 'L') { opFinal = 4; opciniciarnivel = false; }
 		}
 	} while (booleanoaqui);
+
+	switch (opFinal) {
+	case 1: 
+		for (int i = 0; i < 6; i++) {
+			FinalMiles(i);
+		}
+		break;
+	case 2:
+		for (int i = 0; i < 6; i++) {
+			FinalMiguel(i);
+		}
+		break;
+	case 3:
+		for (int i = 0; i < 6; i++) {
+			FinalPunk(i);
+		}
+		break;
+	}
 }

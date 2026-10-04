@@ -541,7 +541,7 @@ void TextNoir(int n) {
 	switch (n) {
 	case 1:
 		CuadroDeTexto("Spider Man Noir", 11, false);
-		EscribirTextoAnimado("¿Que dice?", PosDerDIALOGO, 4, 40);
+		EscribirTextoAnimado("Que dice?", PosDerDIALOGO, 4, 40);
 		break;
 	case 2:
 		CuadroDeTexto("Spider Man Noir", 11, false);
@@ -675,11 +675,11 @@ void TextFinal(int n) {
 		break;
 	case 15:
 		CuadroDeTexto("Gwen Stacy", 4, true);
-		EscribirTextoAnimado("Miles revelara su identidad", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Miles revelara su identidad", PosIzDIALOGO, 4, 40);
 		break;
 	case 16:
 		CuadroDeTexto("Miles Morales", 1, true);
-		EscribirTextoAnimado("Que yo que?", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("Que yo que?", PosIzDIALOGO, 4, 40);
 		break;
 	case 17:
 		CuadroDeTexto("Spider Punk", 3, true);
@@ -691,11 +691,11 @@ void TextFinal(int n) {
 		break;
 	case 19:
 		CuadroDeTexto("Miguel O'hara", 2, true);
-		EscribirTextoAnimado("De esta manera podran slavarlo y el spider verso estara a salvo", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("De esta manera podran salvarlo y el spider verso estara a salvo", PosIzDIALOGO, 4, 40);
 		break;
 	case 20:
 		CuadroDeTexto("Gwen Stacy", 4, true);
-		EscribirTextoAnimado("No tenemos que sacrificar algo o alguien por un bien mayor", PosIzDIALOGO, 4, 50);
+		EscribirTextoAnimado("No tenemos que sacrificar algo o alguien por un bien mayor", PosIzDIALOGO, 4, 40);
 		break;
 	case 21:
 		CuadroDeTexto("Spider Punk", 3, true);
@@ -706,6 +706,87 @@ void TextFinal(int n) {
 		EscribirTextoAnimado("Bien, confio en ustedes", PosIzDIALOGO, 4, 40);
 		break;
 	case 23: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void FinalMiles(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Elegiste a Miles Morales", PosIzDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Te sentiste mas identificado con su historia", PosIzDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Te preocupas mucho por los demas", PosIzDIALOGO, 4, 40);
+		break;
+	case 4:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Sientes que hay varias formas de resolver un problema", PosIzDIALOGO, 4, 40);
+		break;
+	case 5:
+		CuadroDeTexto("Miles Morales", 1, true);
+		EscribirTextoAnimado("Y no le daras la espalda a un ser querido", PosIzDIALOGO, 4, 40);
+		break;
+	case 6: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void FinalMiguel(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Elegiste a Miguel O'hara", PosIzDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Te sentiste mas identificado con su historia", PosIzDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Te gusta tener el control sobre tus problemas y diversas situaciones", PosIzDIALOGO, 4, 40);
+		break;
+	case 4:
+		CuadroDeTexto("Miguel O´hara", 2, true);
+		EscribirTextoAnimado("Cuando algo se vuelve complicado no asumes riesgos importantes", PosIzDIALOGO, 4, 40);
+		break;
+	case 5:
+		CuadroDeTexto("Miguel O'hara", 2, true);
+		EscribirTextoAnimado("Eres precavido y siempre buscas lo mejor para todos", PosIzDIALOGO, 4, 40);
+		break;
+	case 6: AnimacionBorrar(); break;
+	default:break;
+	}
+}
+
+void FinalPunk(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Elegiste a Spider Punk", PosIzDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Te sentiste mas identificado con su historia", PosIzDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Te tomas las cosas con calma y eres de mente abierta", PosIzDIALOGO, 4, 40);
+		break;
+	case 4:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("No calificas a las personas como buena o mala y buscas entenderlas antes de juzgar", PosIzDIALOGO, 4, 40);
+		break;
+	case 5:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Eres una persona con espiritu rebelde y buscas varias soluciones ante un problema", PosIzDIALOGO, 4, 40);
+		break;
+	case 6: AnimacionBorrar(); break;
 	default:break;
 	}
 }
