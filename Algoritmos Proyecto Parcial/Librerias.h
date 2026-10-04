@@ -31,6 +31,7 @@ bool booleanoGeneralParaNiveles5 = true;
 bool booleanoGeneralParaNiveles6 = true;
 bool booltexto = true;
 int cantidaddeherramientas = 0;
+bool boolmiguelatrapa = false;
 
 char teclageneralbasura = 'j';
 
