@@ -80,12 +80,17 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 140: nivel3->RevivirTambor(1, 0); break;
 			case 170: nivel3->RevivirTambor(1, 0); break;
 			case 180: nivel3->RevivirTambor(0, 1); break;
-			case 380: booleanoGeneralParaNiveles2 = false; 
+			case 380:
 				if (puntaje >= 10) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles3 = false;
 					cantidaddeherramientas++;
+				} else { 
+					AnimacionBorrar();
+					DibujarDerrotaTambores();
+					AnimacionBorrar();
+					tiempo = 0;
 				}
-				else { AnimacionBorrar(); DibujarDerrotaTambores(); }
 				break;
 			default: break;
 			}
@@ -163,8 +168,9 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 380: nivel3->RevivirTambor(1, 1); break;
 			case 410: nivel3->RevivirTambor(1, 1); break;
 			case 420: nivel3->RevivirTambor(0, 1); break;
-			case 620: booleanoGeneralParaNiveles2 = false;
+			case 620: 
 				if (puntaje >= 18) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles3 = false;
 					cantidaddeherramientas++;
 				}
@@ -257,8 +263,9 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 450: nivel3->RevivirTambor(1, 1); break;
 			case 460: nivel3->RevivirTambor(0, 1); break;
 			case 465: nivel3->RevivirTambor(1, 1); break;
-			case 666: booleanoGeneralParaNiveles2 = false;
+			case 666: 
 				if (puntaje >= 24) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles5 = false;
 					cantidaddeherramientas++;
 				}
@@ -359,8 +366,9 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false;
+			case 950:
 				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles3 = false;
 					cantidaddeherramientas++;
 				}
@@ -461,8 +469,9 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false;
+			case 950: 
 				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles5 = false;
 					cantidaddeherramientas++;
 				}
@@ -563,12 +572,17 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 			case 710: nivel3->RevivirTambor(1, 1); break;
 			case 740: nivel3->RevivirTambor(1, 1); break;
 			case 750: nivel3->RevivirTambor(0, 1); break;
-			case 950: booleanoGeneralParaNiveles2 = false;
+			case 950: 
 				if (puntaje >= 33) {
+					booleanoGeneralParaNiveles2 = false;
 					booleanoGeneralParaNiveles6 = false;
 					cantidaddeherramientas++;
-				}
-				else { AnimacionBorrar(); DibujarDerrotaTambores(); } break;
+				} else {
+					AnimacionBorrar();
+					DibujarDerrotaTambores();
+					AnimacionBorrar();
+					tiempo = 0;
+				} break;
 			default: break;
 			}
 			tiempo++;

@@ -123,6 +123,7 @@
     <ClInclude Include="Gwen.h" />
     <ClInclude Include="MiguelOhara.h" />
     <ClInclude Include="MilesMorales.h" />
+    <ClInclude Include="NotasDeMusica.h" />
     <ClInclude Include="PersonajesSecundarios.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="Habilidades.h" />

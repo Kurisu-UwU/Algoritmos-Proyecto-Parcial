@@ -36,13 +36,9 @@ void SpiderPunk::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 
 }
 void SpiderPunk::Generarhabilidades() {  // el SpiderPunk guarda la información de las habilidades, este es el inicializador
 	time_t n = time(nullptr);
-	habilidades = new Habilidades * [2];
+	habilidades = new Habilidades * [0];
 	Habilidades* Qhabilidad = new Habilidades(1, 2, n, true, 1);
-	Habilidades* Ehabilidad = new Habilidades(2, 4, n, true, 1);
-	Habilidades* Rhabilidad = new Habilidades(3, 5, n, true, 1);
 	habilidades[0] = Qhabilidad;
-	habilidades[1] = Ehabilidad;
-	habilidades[2] = Rhabilidad;
 	habilidades[0]->Dibujar();
 }
 void SpiderPunk::DibujarHabilidades() { // dibuja las habilidades dependiendo de la tecla

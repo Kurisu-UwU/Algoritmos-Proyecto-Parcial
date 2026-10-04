@@ -146,6 +146,9 @@
     <ClInclude Include="Enemigos.h">
       <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
     </ClInclude>
+    <ClInclude Include="NotasDeMusica.h">
+      <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Sonidos\pam.wav">

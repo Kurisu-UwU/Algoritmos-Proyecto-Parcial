@@ -17,6 +17,8 @@ protected:
 	bool MostrarPreguntaCofre;
 	LasersMenu** listaLasers;
 	int canLasers;
+	Notas** listaNotas;
+	int canNotas;
 public:
 	Niveles();
 	virtual ~Niveles();
@@ -45,6 +47,8 @@ public:
 	void GenerarLasers(int);
 	void LasersMover(Protagonista*);
 	void EnemigoHaceGuardia(PersonajeSecundario*);
+	void GenerarNotadeMusica(int);
+	void RevivirNotaDeMusica(short, short);
 
 		int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 		int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -121,6 +125,34 @@ public:
 			float f = enemigo->GetVida() + n;
 			enemigo->SetVida(f);
 		}
+	}
+	void Niveles::GenerarNotadeMusica(int cantidad) { 
+		canNotas = cantidad;
+		listaNotas = new Notas * [cantidad];
+		for (int i = 0; i < cantidad; i++)
+			listaNotas[i] = new Notas();
+	}
+	void Niveles::RevivirNotaDeMusica(short tipo, short nivel) {
+		bool n = true;
+		int i = 0;
+		int y;
+		switch (nivel) {
+		case 0: y = 18; break;
+		case 1: y = 25; break;
+		case 2: y = 32; break;
+		default: break;
+		}
+		do {
+			if (listaNotas[i]->GetVivo() == false) {
+				listaNotas[i]->SetX(180);
+				listaNotas[i]->SetY(y);
+				listaNotas[i]->SetTipo(tipo);
+				listaNotas[i]->SetVivo(true);
+				n = false;
+				listaNotas[i]->Dibujar();
+			}
+			if (i < canNotas) { i++; }
+		} while (n);
 	}
 	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista, bool invisible) { // movimiento para que los enemigos se acerquen al prota
 		bool w, a, s, d = true;

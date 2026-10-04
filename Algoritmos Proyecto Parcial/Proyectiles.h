@@ -7,7 +7,7 @@ protected:
 public:
 	Proyectiles();
 	virtual ~Proyectiles();
-	void Mover();
+	virtual void Mover();
 	void Borrar();
 	void Dibujar();
 	void SetX(int x1) { x = x1; }
