@@ -81,6 +81,7 @@ void DibujarPlacaDePresion(int x, int y) {
 	Posicion(x, y + 2);  cout << "|  |##|  |";
 	Posicion(x, y + 3);  cout << "|   --   |";
 	Posicion(x, y + 4); cout <<  "----------";
+	Posicion(x + 4, y + 2); ColorVerde(); cout << "##";
 }
 void DibujarPlacaDePresionRoja(int x, int y) {
 	ColorRojo();
@@ -745,8 +746,11 @@ void DibujarNivelUno2() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,
 	Posicion(0, 46); cout << "                                                                                                                                                                                      |                             |";
 	Posicion(0, 47); cout << "                                                                                                                                                                                      ========|            |=======0";
 
-	ColorRojo();  Posicion(5, 7);  cout << "|              |";
-	ColorRojo();  Posicion(190, 47);  cout << "|            |";
+	ColorRojo();  
+	Posicion(5, 7);  cout << "|              |";
+	Posicion(190, 47);  cout << "|            |";
+	ColorAmarillo();
+	Posicion(89, 19);  cout << "Presiona Q Para activar tu Habilidad";
 }
 void DibujarNivelUno3() {   //01,3,5,7,9,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,95,98,101,105,109,113,117,121,125,129,133,137,141,145,149,153,157,161,165,169,173,177,181,185,189,193,197,201,205,209,213
 	ColorAzul();

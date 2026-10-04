@@ -89,10 +89,30 @@ void Derrota(int x, int y) {
     Posicion(x, y + 4); cout << "| |/ /  __/ |  | | | (_) | || (_| |";
     Posicion(x, y + 5); cout << "|___/ \\___|_|  |_|  \\___/ \\__\\__,_|";
 }
+void Voctoria2(int x, int y){
+Posicion(x, y); 	cout << "     __      ___      _             _       ";
+Posicion(x, y + 1);	cout << "     \\ \\    / (_)    | |           (_)      ";
+Posicion(x, y + 2); cout << "      \\ \\  / / _  ___| |_ ___  _ __ _  __ _ ";
+Posicion(x, y + 3); cout << "       \\ \\/ / | |/ __| __/ _ \\| '__| |/ _` |";
+Posicion(x, y + 4); cout << "        \\  /  | | (__| || (_) | |  | | (_| |";
+Posicion(x, y + 5); cout << "         \\/   |_|\\___|\\__\\___/|_|  |_|\\__,_|";
+}
 void DibujarDerrota() {
     bool elwhile1 = true;
     bool uwu = true;
     Derrota(100, 18);
+    do {
+        if (_kbhit()) {
+            tecla = _getch();
+            if (tecla == 'Z' || tecla == 'z') elwhile1 = false;
+            if (tecla == 'X' || tecla == 'x') uwu = false;
+        }
+    } while (uwu && elwhile1);
+}
+void DibujarVictoria2() {
+    bool elwhile1 = true;
+    bool uwu = true;
+    Victoria(100, 18);
     do {
         if (_kbhit()) {
             tecla = _getch();
@@ -113,6 +133,7 @@ void DibujarPersonajesLetras(int x, int y) {
     Posicion(x, y + 7); cout << "                                                          |__/";
 }
 void DibujarDerrotaTambores() {
+    Console::Clear();
     do {
         if (tempanimaciontitulo == 20) {
             ColorAzul(); tempanimaciontitulo = 0;
@@ -196,6 +217,8 @@ void DibujarAraña(int x, int y) {
     AnimacionBorrar();
 }
 void DibujarVictoriaMiles() {
+	Console::Clear();
+    _sleep(1000);
     do {
         if (tempanimaciontitulo == 20) {
             ColorAzul(); tempanimaciontitulo = 0;
@@ -206,17 +229,39 @@ void DibujarVictoriaMiles() {
         Posicion(10, 10);     cout << "      _                               _            ";
         Posicion(10, 11);     cout << "     | |                             | |                 ";
         Posicion(10, 12);     cout << "     | |     ___   __ _ _ __ __ _ ___| |_ ___                 ";
-        Posicion(10, 13);     cout << "     | |    / _ \ / _` | '__/ _` / __| __/ _ \                ";
-        Posicion(10, 14);     cout << "     | |___| (_) | (_| | | | (_| \__ \ ||  __/                ";
-        Posicion(10, 15);     cout << "     |______\___/ \__, |_|__\__,_|___/\__\___|                ";
+        Posicion(10, 13);     cout << "     | |    / _ \\ / _` | '__/ _` / __| __/ _ \\                ";
+        Posicion(10, 14);     cout << "     | |___| (_) | (_| | | | (_| \\__ \\ ||  __/                ";
+        Posicion(10, 15);     cout << "     |______\\___/ \\__, |_|__\\__,_|___/\\__\\___|                ";
         Posicion(10, 16);     cout << "                   __/ |  ____|                               ";
         Posicion(10, 17);     cout << "                  |___/| |__   ___  ___ __ _ _ __   __ _ _ __ ";
-        Posicion(10, 18);     cout << "                       |  __| / __|/ __/ _` | '_ \ / _` | '__|";
-        Posicion(10, 19);     cout << "                       | |____\__ \ (_| (_| | |_) | (_| | |   ";
-        Posicion(10, 20);     cout << "                       |______|___/\___\__,_| .__/ \__,_|_|   ";
+        Posicion(10, 18);     cout << "                       |  __| / __|/ __/ _` | '_ \\ / _` | '__|";
+        Posicion(10, 19);     cout << "                       | |____\\__ \\ (_| (_| | |_) | (_| | |   ";
+        Posicion(10, 20);     cout << "                       |______|___/\\___\\__,_| .__/ \\__,_|_|   ";
         Posicion(10, 21);     cout << "                                            | |               ";
         Posicion(10, 22);     cout << "                                            |_|  ";
         tempanimaciontitulo++;
         _sleep(10);
     } while (!_kbhit());
+}
+void DibujarSpidermanAranaFreddy(int x, int y) {
+    Posicion(x, y);      cout << "     *  *          #  #     ";
+    Posicion(x, y + 1);  cout << "    # .#*          #. *#    ";
+    Posicion(x, y + 2);  cout << "   ## ##           *#  ##   ";
+    Posicion(x, y + 3);  cout << "  .# ##            *#*  ##.  ";
+    Posicion(x, y + 4);  cout << "  ## ## ## : :: : ####  ##  ";
+    Posicion(x, y + 5);  cout << " .#   ######*##*######  *#. ";
+    Posicion(x, y + 6);  cout << " *###*#*############*#*###* ";
+    Posicion(x, y + 7);  cout << "  **. .##*########*##. .**  ";
+    Posicion(x, y + 8);  cout << "    *##**##########**##*    ";
+    Posicion(x, y + 9);  cout << "**###.  ###*####*###  .###**";
+    Posicion(x, y + 10); cout << "##*     ## *####* ##     *##";
+    Posicion(x, y + 11); cout << "##      ##  *##*  ##      ##";
+    Posicion(x, y + 12); cout << "*#.     ##   ##   ##     .#*";
+    Posicion(x, y + 13); cout << ".#*     *#        #*     *#.";
+    Posicion(x, y + 14); cout << " *#     .#        #.     #* ";
+    Posicion(x, y + 15); cout << "  #*     #        #     *#  ";
+    Posicion(x, y + 16); cout << "  .#     #*      *#     #.  ";
+    Posicion(x, y + 17); cout << "   .*    .#      #.    *.   ";
+    Posicion(x, y + 18); cout << "          **    **          ";
+    Posicion(x, y + 19); cout << "           *.  .*           ";
 }

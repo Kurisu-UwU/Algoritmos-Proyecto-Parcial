@@ -1,6 +1,98 @@
 #pragma once
 #include "NivelRitmo.h"
+void NivelPregunta() {
 
+	AnimacionBorrar();
+
+	DibujarMiles(30, 24);
+	DibujarMiguel(40, 24);
+	DibujarEdificio(1, 32);
+	DibujarEdificio(26, 32);
+	DibujarEdificio(51, 32);
+	DibujarEdificio(136, 32);
+	DibujarEdificio(161, 32);
+	DibujarEdificio(186, 32);
+	DibujarEdificio(7, 7);
+	DibujarEdificio(32, 7);
+	DibujarEdificio(57, 7);
+	DibujarEdificio(82, 7);
+	DibujarEdificio(107, 7);
+	DibujarEdificio(132, 7);
+	DibujarEdificio(157, 7);
+	DibujarEdificio(182, 7);
+	DibujarCarro(190, 24);
+	DibujarCarro(190, 28);
+	DibujarCarro(1, 24);
+	DibujarCarro(1, 28);
+
+	DibujarGrieta3(55, 24);
+	DibujarGrieta3(63, 24);
+	_sleep(300);
+	DibujarGrieta2(55, 24);
+	DibujarGrieta2(63, 24);
+	_sleep(300);
+	DibujarGrieta(55, 24);
+	DibujarGrieta(63, 24);
+	_sleep(300);
+	BorrarGrieta(55, 24);
+	BorrarGrieta(63, 24);
+	DibujarPunk(55, 24);
+	DibujarGwen(63, 24);
+	for (int i = 0; i < 23; i++) {
+		TextFinal(i);
+	}
+
+
+
+	_sleep(1000);
+
+
+
+	AnimacionBorrar();
+	CuadroDeTexto("", 0, false);
+	EscribirTextoAnimado("Luego de vivir la experiencia desde el punto de vista de los 3 personajes...      ", PosIzDIALOGO, 4, 40);
+	CuadroDeTexto("", 0, false);
+	EscribirTextoAnimado("Con cual de los 3 personajes te identificas mas?      ", PosIzDIALOGO, 4, 40);
+	int booleanoaqui = true;
+	
+	do {
+
+		ImprimirA(83, 40); ImprimirD(122, 40);
+		DibujarOpcionMiles(10, 10);
+		DibujarOpcionMiguel(85, 10);
+		DibujarOpcionPunk(160, 10);
+		DibujarZ(195, 40); Posicion(166, 42); cout << "Presione Z para seleccionar";
+		if (kbhit()) {
+			tecla = getch();
+			ImprimirA(83, 40); ImprimirD(122, 40);
+			if (tecla == 'a' || tecla == 'A') { opMenu--; if (opMenu < 1) opMenu = 3; }
+			if (tecla == 'd' || tecla == 'D') { opMenu++; if (opMenu > 3) opMenu = 1; }
+			if (tecla == 'z' || tecla == 'Z') {
+				AnimacionBorrar();
+				opFinal = opMenu;  // saber que opción eligió
+				booleanoaqui = false;
+			}
+		}
+	} while (booleanoaqui);
+
+	switch (opFinal) {
+	case 1: 
+		for (int i = 0; i < 6; i++) {
+			FinalMiles(i);
+		}
+		break;
+	case 2:
+		for (int i = 0; i < 6; i++) {
+			FinalMiguel(i);
+		}
+		break;
+	case 3:
+		for (int i = 0; i < 6; i++) {
+			FinalPunk(i);
+		}
+		break;
+	}
+}
 void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
 	MilesMorales* miles = new MilesMorales(30, 30, 8, 5, 100, 2, 2, 10, 5, 2, "Miles Morales", 1, 1, 3);
@@ -413,6 +505,8 @@ void Nivel1() {
 	if (boolmiguelatrapa || miles->GetVida() <= 0) {
 		DibujarDerrota();
 	}
+	else { DibujarVictoriaMiles(); AnimacionBorrar(); }
+	delete miles;
 }
 
 
@@ -449,6 +543,7 @@ void Nivel2() {
 	AnimacionBorrar();
 	booltexto = true;
 	MiguelOhara* Miguel = new MiguelOhara(50, 25,6,5, 100, 2, 1, 10, 10, 1, "Miguel O'hara", 2, 1, 3);
+	contadortiempomiguel = 10001;
 	
 	do {
 		switch (subnivel) {
@@ -514,6 +609,12 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto1 = true;
+					subnivel = 99;
+				}
 			} while (!subnivelcompleto1);
 			delete nivel2;
 			break;
@@ -564,6 +665,12 @@ void Nivel2() {
 					subnivel = 1;
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
+				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto1 = true;
+					subnivel = 99;
 				}
 			} while (!subnivelcompleto2);
 			delete nivel2;
@@ -622,6 +729,8 @@ void Nivel2() {
 					Miguel->SetPX(30);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto3);
 			delete nivel2;
 			break;
@@ -676,6 +785,8 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto4);
 			delete nivel2;
 			break;
@@ -735,6 +846,8 @@ void Nivel2() {
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto5);
 			delete nivel2;
 			break;
@@ -788,6 +901,8 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(40);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto6);
 			delete nivel2;
 			break;
@@ -837,6 +952,8 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto7);
 			delete nivel2;
 			break;
@@ -897,6 +1014,8 @@ void Nivel2() {
 					Miguel->SetPX(173);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto8);
 			delete nivel2;
 			break;
@@ -948,6 +1067,8 @@ void Nivel2() {
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto9);
 			delete nivel2;
 			break;
@@ -1001,6 +1122,8 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(40);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto10);
 			delete nivel2;
 			break;
@@ -1067,6 +1190,8 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(8);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto11);
 			delete nivel2;
 			break;
@@ -1129,6 +1254,8 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto12);
 			delete nivel2;
 			break;
@@ -1180,6 +1307,8 @@ void Nivel2() {
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto13);
 			delete nivel2;
 			break;
@@ -1238,6 +1367,8 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(8);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto14);
 			delete nivel2;
 			break;
@@ -1312,6 +1443,8 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(8);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto15);
 			delete nivel2;
 			break;
@@ -1366,6 +1499,8 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto16);
 			delete nivel2;
 			break;
@@ -1421,6 +1556,8 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto17);
 			delete nivel2;
 			break;
@@ -1478,6 +1615,8 @@ void Nivel2() {
 					Miguel->SetPX(170);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto18);
 			delete nivel2;
 			break;
@@ -1541,6 +1680,8 @@ void Nivel2() {
 					Miguel->SetPX(173);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 			} while (!subnivelcompleto19);
 			delete nivel2;
 			break;
@@ -1621,6 +1762,12 @@ void Nivel2() {
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto20 = true;
+					subnivel = 99;
+				}
 			} while (!subnivelcompleto20);
 			delete nivel2;
 			break;
@@ -1681,6 +1828,12 @@ void Nivel2() {
 					subnivel = 3;
 					Miguel->SetPX(170);
 					Miguel->SetPY(25);
+				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto21 = true;
+					subnivel = 99;
 				}
 			} while (!subnivelcompleto21);
 			delete nivel2;
@@ -1756,6 +1909,12 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(8);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto22 = true;
+					subnivel = 99;
+				}
 			} while (!subnivelcompleto22);
 			delete nivel2;
 			break;
@@ -1804,6 +1963,12 @@ void Nivel2() {
 					subnivel = 24;
 					Miguel->SetPX(10);
 					Miguel->SetPY(25);
+				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto23 = true;
+					subnivel = 99;
 				}
 			} while (!subnivelcompleto23);
 			delete nivel2;
@@ -1860,6 +2025,12 @@ void Nivel2() {
 					Miguel->SetPX(100);
 					Miguel->SetPY(8);
 				}
+				contadortiempomiguel--;
+				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
+				if (contadortiempomiguel <= 0) {
+					subnivelcompleto24 = true;
+					subnivel = 99;
+				}
 			} while (!subnivelcompleto24);
 			delete nivel2;
 			break;
@@ -1909,13 +2080,18 @@ void Nivel2() {
 				booltexto = true;
 				BorrarPanelDeControlInterno();
 			}
+			booleanoGeneralParaNiveles4 = true;
 			delete nivel2;
 			break;
 		}
 		default: break;
 		}
 		AnimacionBorrar();
-	} while (!booleanoGeneralParaNiveles4);
+	} while (!booleanoGeneralParaNiveles4 && contadortiempomiguel>0);
+	if (contadortiempomiguel <= 0) {
+		DibujarDerrota();
+	}
+	else { DibujarVictoria(); }
 	delete Miguel;
 }
 
@@ -1923,6 +2099,7 @@ void Nivel2() {
 
 void Nivel3() {
 	int uwu = 4;
+	bool SpotMuerto = true;
 	booleanoGeneralParaNiveles4 = true;
 	SpiderPunk* punk = new SpiderPunk(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);
 	do {
@@ -2084,7 +2261,7 @@ void Nivel3() {
 			punk->SetPX(20); punk->SetPY(30);
 			punk->SetVida(30);
 			Proyectiles* proyectil; //Inicialización de proyectiles para la clase enemigos
-			Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 0, 0, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
+			Spot* Jefe = new Spot(8, 30, 6, 5, 5, 10, 1, 1, 0, "Spot", true, 0);  // inicialización automática de los enemigos en la función nivel /// PD no se inicializa de igual manera dentro de una clase
 			Niveles* nivel3 = new Niveles();
 
 			nivel3->GenerarObstaculo(4);
@@ -2140,15 +2317,14 @@ void Nivel3() {
 				}
 				punk->DibujarHabilidades();
 				if (Jefe->GetVida() < 1) {
-					AnimacionBorrar();
-					DibujarVictoria(); booleanoGeneralParaNiveles = false; booleanoGeneralParaNiveles4=false;
+					SpotMuerto = true;
+					booleanoGeneralParaNiveles = false; booleanoGeneralParaNiveles4=false;
 				}
-				if (punk->GetVida() < 1) { AnimacionBorrar(); DibujarDerrota(); }
+				if (punk->GetVida() < 1) { SpotMuerto = false; }
 				_sleep(1);
 				tecla = 'j';
 				contador++;
 			} while (booleanoGeneralParaNiveles);
-			delete Jefe;
 			break; }
 		default: break;
 		}
@@ -2156,99 +2332,8 @@ void Nivel3() {
 		EscribirTextoAnimado("", 40, 20, 50);
 	} while (booleanoGeneralParaNiveles4);
 	delete punk;
-}
-
-
-void NivelPregunta() {
-
-	AnimacionBorrar();
-
-	DibujarMiles(30, 24);
-	DibujarMiguel(40, 24);
-	DibujarEdificio(1, 32);
-	DibujarEdificio(26, 32);
-	DibujarEdificio(51, 32);
-	DibujarEdificio(136, 32);
-	DibujarEdificio(161, 32);
-	DibujarEdificio(186, 32);
-	DibujarEdificio(7, 7);
-	DibujarEdificio(32, 7);
-	DibujarEdificio(57, 7);
-	DibujarEdificio(82, 7);
-	DibujarEdificio(107, 7);
-	DibujarEdificio(132, 7);
-	DibujarEdificio(157, 7);
-	DibujarEdificio(182, 7);
-	DibujarCarro(190, 24);
-	DibujarCarro(190, 28);
-	DibujarCarro(1, 24);
-	DibujarCarro(1, 28);
-
-	DibujarGrieta3(55, 24);
-	DibujarGrieta3(63, 24);
-	_sleep(300);
-	DibujarGrieta2(55, 24);
-	DibujarGrieta2(63, 24);
-	_sleep(300);
-	DibujarGrieta(55, 24);
-	DibujarGrieta(63, 24);
-	_sleep(300);
-	BorrarGrieta(55, 24);
-	BorrarGrieta(63, 24);
-	DibujarPunk(55, 24);
-	DibujarGwen(63, 24);
-	for (int i = 0; i < 23; i++) {
-		TextFinal(i);
+	if (SpotMuerto) {
+		DibujarVictoria(); NivelPregunta();
 	}
-
-
-
-	_sleep(1000);
-
-
-
-	AnimacionBorrar();
-	CuadroDeTexto("", 0, false);
-	EscribirTextoAnimado("Luego de vivir la experiencia desde el punto de vista de los 3 personajes...      ", PosIzDIALOGO, 4, 40);
-	CuadroDeTexto("", 0, false);
-	EscribirTextoAnimado("Con cual de los 3 personajes te identificas mas?      ", PosIzDIALOGO, 4, 40);
-	int booleanoaqui = true;
-	
-	do {
-
-		ImprimirA(83, 40); ImprimirD(122, 40);
-		DibujarOpcionMiles(10, 10);
-		DibujarOpcionMiguel(85, 10);
-		DibujarOpcionPunk(160, 10);
-		DibujarZ(195, 40); Posicion(166, 42); cout << "Presione Z para seleccionar";
-		if (kbhit()) {
-			tecla = getch();
-			ImprimirA(83, 40); ImprimirD(122, 40);
-			if (tecla == 'a' || tecla == 'A') { opMenu--; if (opMenu < 1) opMenu = 3; }
-			if (tecla == 'd' || tecla == 'D') { opMenu++; if (opMenu > 3) opMenu = 1; }
-			if (tecla == 'z' || tecla == 'Z') {
-				AnimacionBorrar();
-				opFinal = opMenu;  // saber que opción eligió
-				booleanoaqui = false;
-			}
-		}
-	} while (booleanoaqui);
-
-	switch (opFinal) {
-	case 1: 
-		for (int i = 0; i < 6; i++) {
-			FinalMiles(i);
-		}
-		break;
-	case 2:
-		for (int i = 0; i < 6; i++) {
-			FinalMiguel(i);
-		}
-		break;
-	case 3:
-		for (int i = 0; i < 6; i++) {
-			FinalPunk(i);
-		}
-		break;
-	}
+	else DibujarDerrota();
 }
