@@ -29,10 +29,11 @@ void Nivel1() {
 	nivelpersecucion->GenerarMovimientoJugador(miles);
 	NivelPersecucion(nivelpersecucion);
 	nivelpersecucion->CarrosMovimiento(miles);
-	Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-	Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 	DibujarCarretera();
 	tiempo = 0;
+	Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+	Posicion(20, 4); ColorAzul(); cout << "Tiempo: " << tiempo;
+	Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 	do {
 		if (tiempo == 0) {ColorAzul();} else if (tiempo == 1) {ColorAmarillo();}
 		DibujarW(100, 17);
@@ -59,12 +60,12 @@ void Nivel1() {
 		nivelpersecucion->GenerarMovimientoJugador(miles);
 		NivelPersecucion(nivelpersecucion);
 		nivelpersecucion->CarrosMovimiento(miles);
-		Posicion(20, 10); ColorAzul(); cout << "Tiempo: " << tiempo;
-		Posicion(60, 10); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
+		Posicion(20, 4); ColorAzul(); cout << "Tiempo: " << tiempo;
+		Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 		_sleep(1);
 		tecla = teclageneralbasura;
 		tempoo++;
-		if (tempoo >= 3) { carretera--; tempoo = 0; }
+		if (tempoo >= 2) { carretera--; tempoo = 0; }
 		if (carretera < 0) { carretera = 6; }
 	} while (booleanoGeneralParaNiveles);
 delete nivelpersecucion;

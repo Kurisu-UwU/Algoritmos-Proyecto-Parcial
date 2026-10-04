@@ -395,6 +395,7 @@ void borrarmargokees(int x, int y) {
 	Posicion(x, y + 5); cout << "           ";
 }
 void DibujarCamion(int x, int y) {
+	ColorGrisClaro();
 	Posicion(x, y);     cout << "     _______________";
 	Posicion(x, y + 1); cout << "     |   |         |";
 	Posicion(x, y + 2); cout << " ____|---|         |";
@@ -409,7 +410,8 @@ void BorrarCamion(int x, int y) {
 	Posicion(x, y + 4); cout << "                    ";
 }
 void DibujarCarro(int x, int y) {
-	Posicion(x, y); ColorAzul(); cout << "      __________";
+	ColorRojo();
+	Posicion(x, y); cout << "      __________";
 	Posicion(x, y + 1); cout << " _____|---|----|___";
 	Posicion(x, y + 2); cout << "(|       o    o    |";
 	Posicion(x, y + 3); cout << " l--(o)------(o)---J";
@@ -421,6 +423,7 @@ void BorrarCarro(int x, int y) {
 	Posicion(x, y + 3); cout << "                    ";
 }
 void DibujarBici(int x, int y) {
+	ColorAmarillo();
 	Posicion(x, y);     cout << " o   O   _";
 	Posicion(x, y + 1); cout << "  \\__|_/";
 	Posicion(x, y + 2); cout << "(o)    (o)";
