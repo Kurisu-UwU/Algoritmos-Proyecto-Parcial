@@ -98,9 +98,6 @@
     <ClInclude Include="Items.h">
       <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
     </ClInclude>
-    <ClInclude Include="ItemsConstruccion.h">
-      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
-    </ClInclude>
     <ClInclude Include="NivelPersecucionClase.h">
       <Filter>Source Files\Clases\Herencia\Niveles</Filter>
     </ClInclude>

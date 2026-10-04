@@ -48,7 +48,11 @@ public:
 	void LasersMover(Protagonista*);
 	void EnemigoHaceGuardia(PersonajeSecundario*);
 	void GenerarNotadeMusica(int);
-	void RevivirNotaDeMusica(short, Protagonista*);
+	void RevivirNotaDeMusica(short, SpiderPunk*);
+	void NotasMovimiento();
+	void AtributosNotas();
+	void AtacarEnemigoNotas(PersonajeSecundario*  );
+	void AtacarProtaNotas(Protagonista*);
 
 		int GetObjX(int obj) { return listaObs[obj]->GetX(); }
 		int GetObjY(int obj) { return listaObs[obj]->GetY(); }
@@ -132,20 +136,89 @@ public:
 		for (int i = 0; i < cantidad; i++)
 			listaNotas[i] = new Notas();
 	}
-	void Niveles::RevivirNotaDeMusica(short tipo, Protagonista* prota) {
+	void Niveles::AtributosNotas() {
+		for (int i = 0; i < canNotas; i++) 	listaNotas[i]->SetVivo(false);
+	}
+	void Niveles::AtacarEnemigoNotas(PersonajeSecundario* enemigo) { // ataque del protagonista a los enemigos, Q E R
+		for (int i = 0; i < canNotas; i++) {
+			if (CalcularColisiones(enemigo->GetEX(), enemigo->GetEY(), listaNotas[i]->GetX(), listaNotas[i]->GetY(), enemigo->GetAncho(), enemigo->GetAlto(), 3, 3) && listaNotas[i]->GetVivo() && listaNotas[i]->GetTipo() == 0) {
+				listaNotas[i]->SetVivo(false);
+				listaNotas[i]->Borrar();
+				enemigo->SetVida(enemigo->GetVida() - 1);
+			}
+		}
+	}
+	void Niveles::AtacarProtaNotas(Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
+		for (int i = 0; i < canNotas; i++) {
+			if (CalcularColisiones(protagonista->GetPX(), protagonista->GetPY(), listaNotas[i]->GetX(), listaNotas[i]->GetY(), protagonista->GetAncho(), protagonista->GetAlto(), 3, 3) && listaNotas[i]->GetVivo() && listaNotas[i]->GetTipo() == 1) {
+				listaNotas[i]->SetVivo(false);
+				listaNotas[i]->Borrar();
+				protagonista->SetVida(protagonista->GetVida() - 1);
+			}
+		}
+	}
+	void Niveles::RevivirNotaDeMusica(short tipo, SpiderPunk* prota) {
 		bool n = true;
 		int i = 0;
 		do {
 			if (listaNotas[i]->GetVivo() == false) {
-				listaNotas[i]->SetX(180);
+				listaNotas[i]->SetX(prota->GetPX());
 				listaNotas[i]->SetY(prota->GetPY()+1);
 				listaNotas[i]->SetTipo(tipo);
 				listaNotas[i]->SetVivo(true);
+				if (prota->GetMirada() == 1 || prota->GetMirada() == 2) {listaNotas[i]->SetVelocidad(-1);}
+				if (prota->GetMirada() == 3 || prota->GetMirada() == 4) { listaNotas[i]->SetVelocidad(1); }
 				n = false;
 				listaNotas[i]->Dibujar();
 			}
 			if (i < canNotas) { i++; }
 		} while (n);
+	}
+	void Niveles::NotasMovimiento() {
+		int random = rand() % 102;
+		for (int i = 0; i < canNotas; i++) {
+			if (listaNotas[i]->GetTipo() == 0) {
+				if (listaNotas[i]->GetVivo() == true) {
+					if (listaNotas[i]->GetVivo() == true) { listaNotas[i]->Borrar(); }
+					if (listaNotas[i]->GetVelocidad() == -1) {
+						if (listaNotas[i]->GetX() > 5) {
+							listaNotas[i]->SetX(listaNotas[i]->GetX() + listaNotas[i]->GetVelocidad());
+							if (listaNotas[i]->GetX() < 6 && listaNotas[i]->GetVivo()) {
+								listaNotas[i]->Borrar();
+								listaNotas[i]->SetTipo(1);
+								listaNotas[i]->SetY(10);
+								listaNotas[i]->SetX(random+50);
+							}
+						}
+					}
+					else {
+						if (listaNotas[i]->GetX() < 200) {
+							listaNotas[i]->SetX(listaNotas[i]->GetX() + listaNotas[i]->GetVelocidad());
+							if (listaNotas[i]->GetX() > 199 && listaNotas[i]->GetVivo()) {
+								listaNotas[i]->Borrar();
+								listaNotas[i]->SetTipo(1);
+								listaNotas[i]->SetY(10);
+								listaNotas[i]->SetX(random + 50);
+							}
+						}
+					}
+					if (listaNotas[i]->GetVivo() == true) { listaNotas[i]->Dibujar(); }
+				}
+			}
+			if (listaNotas[i]->GetTipo() ==1) {
+				if (listaNotas[i]->GetVivo() == true) {
+					if (listaNotas[i]->GetVivo() == true) { listaNotas[i]->Borrar(); }
+					if (listaNotas[i]->GetY() < 45) {
+						listaNotas[i]->SetY(listaNotas[i]->GetY() + 1);
+						if (listaNotas[i]->GetY() > 44 && listaNotas[i]->GetVivo()) {
+							listaNotas[i]->SetVivo(false);
+							listaNotas[i]->Borrar();
+						}
+					}
+					if (listaNotas[i]->GetVivo() == true) { listaNotas[i]->Dibujar(); }
+				}
+			}
+		}
 	}
 	void Niveles::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista, bool invisible) { // movimiento para que los enemigos se acerquen al prota
 		bool w, a, s, d = true;

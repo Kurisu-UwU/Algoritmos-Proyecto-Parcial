@@ -24,9 +24,9 @@ int main() {
             if (kbhit()){
                 char tecla = getch();
                 DibujarWASD(180, 39);
-                if (tecla == 'w' || tecla == 'W') { opMenu--; if (opMenu < 1) opMenu = 5; AnimacionWASD(180, 39,1);}
+                if (tecla == 'w' || tecla == 'W') { opMenu--; if (opMenu < 1) opMenu = 3; AnimacionWASD(180, 39,1);}
                 if (tecla == 'a' || tecla == 'A') { AnimacionWASD(180, 39, 2); }
-                if (tecla == 's' || tecla == 'S') { opMenu++; if (opMenu > 5) opMenu = 1; AnimacionWASD(180, 39, 3);}
+                if (tecla == 's' || tecla == 'S') { opMenu++; if (opMenu > 3) opMenu = 1; AnimacionWASD(180, 39, 3);}
                 if (tecla == 'd' || tecla == 'D') { AnimacionWASD(180, 39, 4); }
                 if (tecla == 'z' || tecla == 'Z'){
                     AnimacionBorrar();
@@ -39,7 +39,9 @@ int main() {
         switch (opFinal) { //registrar opcion menu
         case 1:
 			IniciarSeleccionPersonajes(); break; //Iniciar seleccion de personajes
-        case 5: 
+        case 2:
+            DibujarCreditos(); break;
+        case 3: 
 			Condicion1 = false; break; // Salir del juego
         }
     } while (Condicion1);

@@ -5,6 +5,7 @@ class Notas : public Proyectiles {
 private:
 	short tipo;
 	bool vivo;
+	int velocidad;
 public:
 	Notas();
 	~Notas();
@@ -15,7 +16,7 @@ public:
 	//void SetDY(int dy1) { dx = dy1; }
 	void SetVivo(bool viv) { vivo = viv; }
 	void SetTipo(short tip) { tipo = tip; }
-
+	void SetVelocidad(int vel) { velocidad = vel; }
 	void Dibujar();
 	void Borrar();
 
@@ -23,6 +24,7 @@ public:
 
 	int GetX() { return x; }
 	int GetY() { return y; }
+	int GetVelocidad() { return velocidad; }
 	//int GetDX() { return dx; }
 	//int GetDY() { return dy; }
 	bool GetVivo() { return vivo; }

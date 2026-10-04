@@ -49,7 +49,8 @@ public:
 	float GetVida() { return vida; }
 	float GetCarga() { return carga; }
 	string GetNombre() { return nombre; }
-	short GetMirada();
+	short GetMirada() { return direccionMirada; }
+	bool GetHabilidadLista() { return habilidades[0]->GetListo(); }
 };
 Protagonista::Protagonista() {
 	px = 10; py = 10; energia = 100; velocidadx = 1; velocidady = 2; ataque = 10; vida = 100; carga = 1; nombre = "Sin nombre"; tipo = 1;

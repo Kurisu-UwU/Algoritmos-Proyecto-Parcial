@@ -309,7 +309,6 @@ void DibujarEdificio(int x, int y) {
 	Posicion(x + 15, y + 15); ColorGris(); cout << "_________";
 	Posicion(x + 24, y + 15); ColorGris(); cout << "|";
 }
-
 void DibujarTornillos(int x, int y) {
 	Posicion(x, y); ColorGris(); cout << "_";
 	Posicion(x, y + 1); cout << "|";

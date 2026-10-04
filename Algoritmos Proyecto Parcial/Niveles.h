@@ -2094,7 +2094,8 @@ void Nivel3() {
 			nivel3->AtributosObstaculo(3, 200, 26, 0, 5, 25);
 			nivel3->GenerarLasers(2);
 			
-			nivel3->GenerarNotadeMusica(6);
+			nivel3->GenerarNotadeMusica(40);
+			nivel3->AtributosNotas();
 
 			punk->Generarhabilidades();
 			DibujarPanelDeControl();
@@ -2121,6 +2122,7 @@ void Nivel3() {
 				DibujarPanelDeControl();
 
 				nivel3->GenerarMovimientoJugador(punk);
+				nivel3->NotasMovimiento();
 				nivel3->LasersMover(punk);
 				if (contador % 150 == 0) {
 					Jefe->MoverSpot(8, 30, 190, 40);
@@ -2128,10 +2130,13 @@ void Nivel3() {
 				Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
 				Posicion(20, 1); cout << "Vida: " << punk->GetVida() << " ";
 				if (tecla == 'q' || tecla == 'Q') {
+					//if (punk->GetHabilidadLista()) { nivel3->RevivirNotaDeMusica(0, punk); }
+					nivel3->RevivirNotaDeMusica(0, punk);
 					Posicion(53, 5); cout << "Habilidad Q activada";
-					nivel3->AtacarEnemigos(Jefe, punk);
+					//nivel3->AtacarEnemigos(Jefe, punk);
 					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
-					nivel3->RevivirNotaDeMusica(1, punk);
+					nivel3->AtacarEnemigoNotas(Jefe);
+					nivel3->AtacarProtaNotas(punk);
 				}
 				punk->DibujarHabilidades();
 				if (Jefe->GetVida() < 1) {
@@ -2198,8 +2203,6 @@ void NivelPregunta() {
 
 
 
-
-
 	_sleep(1000);
 
 
@@ -2213,6 +2216,7 @@ void NivelPregunta() {
 	int opciniciarnivel = 0;
 	
 	do {
+
 		ImprimirA(83, 40); ImprimirD(122, 40);
 		DibujarOpcionMiles(10, 10);
 		DibujarOpcionMiguel(85, 10);

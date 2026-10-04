@@ -12,28 +12,28 @@ void DibujarMenu() {
     Posicion(equiz - equiz2, 8); cout << "          \\__/ \\__/ \\__> /~~\\ |  \\          ";
     ColorBlanco();
     equiz2 = 0;
-    if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
-    Posicion(equiz - equiz2, 13); cout << "           __   __   __     __        ___  __          "; 
-    Posicion(equiz - equiz2, 14); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
-    Posicion(equiz - equiz2, 15); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
-    ColorBlanco();
-    equiz2 = 0;
+    //if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
+    //Posicion(equiz - equiz2, 13); cout << "           __   __   __     __        ___  __          "; 
+   // Posicion(equiz - equiz2, 14); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
+   // Posicion(equiz - equiz2, 15); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
+   // ColorBlanco();
+   // equiz2 = 0;
+  // if (opMenu == 3) { ColorAmarillo(); equiz2 = 10; }
+  //  Posicion(equiz - equiz2, 20); cout << "           __   ___  __   __   __                  ___  __           ";
+  //  Posicion(equiz - equiz2, 21); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
+  //  Posicion(equiz - equiz2, 22); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
+  //  ColorBlanco();
+  //  equiz2 = 0;
+   if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
+  Posicion(equiz - equiz2, 13); cout << "           __   __   ___  __    ___  __   __          ";
+   Posicion(equiz - equiz2, 14); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
+  Posicion(equiz - equiz2, 15); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
+  ColorBlanco();
+  equiz2 = 0;
     if (opMenu == 3) { ColorAmarillo(); equiz2 = 10; }
-    Posicion(equiz - equiz2, 20); cout << "           __   ___  __   __   __                  ___  __           ";
-    Posicion(equiz - equiz2, 21); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
-    Posicion(equiz - equiz2, 22); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
-    ColorBlanco();
-    equiz2 = 0;
-    if (opMenu == 4) { ColorAmarillo(); equiz2 = 10; }
-    Posicion(equiz - equiz2, 27); cout << "           __   __   ___  __    ___  __   __          ";
-    Posicion(equiz - equiz2, 28); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
-    Posicion(equiz - equiz2, 29); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
-    ColorBlanco();
-    equiz2 = 0;
-    if (opMenu == 5) { ColorAmarillo(); equiz2 = 10; }
-    Posicion(equiz - equiz2, 34); cout << "           __               __          ";
-    Posicion(equiz - equiz2, 35); cout << "          /__`  /\\  |    | |__)          ";
-    Posicion(equiz - equiz2, 36); cout << "          .__/ /~~\\ |___ | |  \\          ";
+    Posicion(equiz - equiz2, 20); cout << "           __               __          ";
+    Posicion(equiz - equiz2, 21); cout << "          /__`  /\\  |    | |__)          ";
+    Posicion(equiz - equiz2, 22); cout << "          .__/ /~~\\ |___ | |  \\          ";
     ColorBlanco();
 }
 void Dibujartitulo() {
@@ -148,4 +148,20 @@ void DibujarDerrotaTambores() {
         tempanimaciontitulo++;
         _sleep(10);
     } while (!_kbhit());
+}
+void DibujarCreditos() {
+    Posicion(10, 10); cout << "Creado por: ";
+    Posicion(10, 11); cout << " - Juan Pablo Rojas";
+    Posicion(10, 12); cout << " - Juan David Rojas";
+    Posicion(10, 13); cout << " - Juan Camilo Rojas";
+    Posicion(10, 14); cout << " - Juan Sebastian Rojas";
+    Posicion(10, 15); cout << " - Juan Esteban Rojas";
+    Posicion(10, 16); cout << " - Juan Felipe Rojas";
+    Posicion(10, 17); cout << " - Juan Andres Rojas";
+    Posicion(10, 18); cout << " - Juan Carlos Rojas";
+    Posicion(10, 19); cout << " - Juan Manuel Rojas";
+    Posicion(10, 20); cout << " - Juan David Rojas";
+    do {
+
+    } while (_kbhit());
 }
