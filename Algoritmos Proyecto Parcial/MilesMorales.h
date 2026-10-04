@@ -111,9 +111,3 @@ bool MilesMorales::SobreObjeto(int x, int y, int altura, int anchura) {
 	}
 	return colision;
 }
-/*for (int i = 0; i < cantidadhabilidades; i++) {
-	if (habilidades[i]->GetListo() == false) {
-		habilidades[i]->SetTiempoAhora(ahora);
-		if (habilidades[i]->GetTiempoAhora() - habilidades[i]->GetInicio() >= habilidades[i]->GetCooldown()) {
-			habilidades[i]->SetListo(true);
-			habilidades[i]->Dibujar();*/

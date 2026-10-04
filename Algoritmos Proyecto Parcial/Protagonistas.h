@@ -60,18 +60,7 @@ Protagonista::Protagonista(int x1, int y1,int anch, int alt, float e1, float vx1
 }
 Protagonista::~Protagonista() {}
 void Protagonista::Dibujar() {
-	/*switch (tipo) {
-	case 1: 
-		if (invisibilidad) {
-			DibujarMilesInvisible(px, py);
-		}
-		else if (!invisibilidad) {
-			DibujarMiles(px, py);
-		}
-		break;
-	case 2: DibujarMiguel(px, py); break;
-	case 3: DibujarPunk(px, py); break;
-	}*/
+
 }
 void Protagonista::Borrar() {
 	switch (tipo) {
@@ -122,7 +111,6 @@ float Protagonista::AtacarEnemigos(int ex, int ey) {		// Colosiones  //if ((ex -
 void Protagonista::ControladorTiempoHabilidades(short tipodetecla) { // 0 para q, 1 para e, 2 para r
 	time_t ahora = time(nullptr);
 	if (habilidades[tipodetecla]->GetListo() == true) {
-		//if (tipo == 1) { invisibilidad = true;}
 		habilidades[tipodetecla]->SetInicio(ahora);
 		habilidades[tipodetecla]->SetListo(false);
 	}
@@ -178,10 +166,7 @@ void Protagonista::DibujarHabilidades() { // dibuja las habilidades dependiendo 
 			habilidades[0]->DibujarMiles(habilidades[0]->GetTiempoRestante());
 		}
 	}
-	/*if (habilidades[0]->GetTiempoRestante() >= 0) {
-		invisibilidad = true;
-	}
-	else { invisibilidad = false; }*/
+
 }
 
 bool Protagonista::SobreObjeto(int x, int y, int altura, int anchura) {
@@ -194,9 +179,3 @@ bool Protagonista::SobreObjeto(int x, int y, int altura, int anchura) {
 	}
 	return colision;
 }
-/*for (int i = 0; i < cantidadhabilidades; i++) {
-	if (habilidades[i]->GetListo() == false) {
-		habilidades[i]->SetTiempoAhora(ahora);
-		if (habilidades[i]->GetTiempoAhora() - habilidades[i]->GetInicio() >= habilidades[i]->GetCooldown()) {
-			habilidades[i]->SetListo(true);
-			habilidades[i]->Dibujar();*/

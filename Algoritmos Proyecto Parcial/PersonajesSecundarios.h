@@ -48,19 +48,9 @@ public:
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
-	//virtual void PerseguirProta(int, int, bool, bool, bool, bool) {}
+
 	virtual void PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {}
-	/*virtual void PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
-		if (tempo > 20 / velocidadtempo) {
-			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
-			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda
-			if (py > ey && S) { ey += velocidad; } // Mover hacia abajo
-			else if (py < ey && W) { ey -= velocidad; }// Mover hacia arriba
-			tempo = 0; // Reiniciar el temporizador
-		}
-		tempo++;
-	}*/
-	//virtual void ColisionesObjetos(int ox, int oy, int ancho, int alto)
+
 	void AtacarProtagonista(int, int);
 };
 PersonajeSecundario::PersonajeSecundario() {
@@ -108,15 +98,3 @@ void PersonajeSecundario::MostrarProyectil() {
 		listaP[i]->Dibujar();
 	}
 }
-/*void PersonajeSecundario::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
-		if (tempo > 20 / velocidadtempo) {
-			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
-			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda
-			if (py > ey && S) { ey += velocidad; } // Mover hacia abajo
-			else if (py < ey && W) { ey -= velocidad; }// Mover hacia arriba
-			tempo = 0; // Reiniciar el temporizador
-		}
-		tempo++;
-}*/
-//void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
-//}

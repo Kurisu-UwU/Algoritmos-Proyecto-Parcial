@@ -17,12 +17,13 @@ int main() {
             ColorMorado();
             Dibujartitulo();
             DibujarSpiderman(20, 20);
+            DibujarZ(160, 39); Posicion(130, 41); ColorAzul(); cout << "Para Seleccionar presione: ";
             laser1->Mover();
             laser3->Mover();
             laser2->Mover();
             laser4->Mover();
             if (kbhit()){
-                char tecla = getch();
+                char tecla = _getch();
                 DibujarWASD(180, 39);
                 if (tecla == 'w' || tecla == 'W') { opMenu--; if (opMenu < 1) opMenu = 3; AnimacionWASD(180, 39,1);}
                 if (tecla == 'a' || tecla == 'A') { AnimacionWASD(180, 39, 2); }

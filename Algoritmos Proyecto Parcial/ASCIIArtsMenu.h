@@ -12,24 +12,12 @@ void DibujarMenu() {
     Posicion(equiz - equiz2, 8); cout << "          \\__/ \\__/ \\__> /~~\\ |  \\          ";
     ColorBlanco();
     equiz2 = 0;
-    //if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
-    //Posicion(equiz - equiz2, 13); cout << "           __   __   __     __        ___  __          "; 
-   // Posicion(equiz - equiz2, 14); cout << "          /  \\ |__) /  ` | /  \\ |\\ | |__  /__`          ";
-   // Posicion(equiz - equiz2, 15); cout << "          \\__/ |    \\__, | \\__/ | \\| |___ .__/          ";
-   // ColorBlanco();
-   // equiz2 = 0;
-  // if (opMenu == 3) { ColorAmarillo(); equiz2 = 10; }
-  //  Posicion(equiz - equiz2, 20); cout << "           __   ___  __   __   __                  ___  __           ";
-  //  Posicion(equiz - equiz2, 21); cout << "          |__) |__  |__) /__` /  \\ |\\ |  /\\     | |__  /__`          ";
-  //  Posicion(equiz - equiz2, 22); cout << "          |    |___ |  \\ .__/ \\__/ | \\| /~~\\ \\__/ |___ .__/          ";
-  //  ColorBlanco();
-  //  equiz2 = 0;
-   if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
-  Posicion(equiz - equiz2, 13); cout << "           __   __   ___  __    ___  __   __          ";
-   Posicion(equiz - equiz2, 14); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
-  Posicion(equiz - equiz2, 15); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
-  ColorBlanco();
-  equiz2 = 0;
+    if (opMenu == 2) { ColorAmarillo(); equiz2 = 10; }
+    Posicion(equiz - equiz2, 13); cout << "           __   __   ___  __    ___  __   __          ";
+    Posicion(equiz - equiz2, 14); cout << "          /  ` |__) |__  |  \\ |  |  /  \\ /__`          ";
+    Posicion(equiz - equiz2, 15); cout << "          \\__, |  \\ |___ |__/ |  |  \\__/ .__/          ";
+    ColorBlanco();
+    equiz2 = 0;
     if (opMenu == 3) { ColorAmarillo(); equiz2 = 10; }
     Posicion(equiz - equiz2, 20); cout << "           __               __          ";
     Posicion(equiz - equiz2, 21); cout << "          /__`  /\\  |    | |__)          ";
@@ -151,17 +139,51 @@ void DibujarDerrotaTambores() {
 }
 void DibujarCreditos() {
     Posicion(10, 10); cout << "Creado por: ";
-    Posicion(10, 11); cout << " - Juan Pablo Rojas";
-    Posicion(10, 12); cout << " - Juan David Rojas";
-    Posicion(10, 13); cout << " - Juan Camilo Rojas";
-    Posicion(10, 14); cout << " - Juan Sebastian Rojas";
-    Posicion(10, 15); cout << " - Juan Esteban Rojas";
-    Posicion(10, 16); cout << " - Juan Felipe Rojas";
-    Posicion(10, 17); cout << " - Juan Andres Rojas";
-    Posicion(10, 18); cout << " - Juan Carlos Rojas";
-    Posicion(10, 19); cout << " - Juan Manuel Rojas";
-    Posicion(10, 20); cout << " - Juan David Rojas";
-    do {
 
-    } while (_kbhit());
+    Posicion(10, 12); cout << " - Christian Santiago Helldorff González";
+    Posicion(10, 13); cout << " - Freddy Alexander Villantoy Pasiche ";
+    Posicion(10, 14); cout << " - Deivid Piero Sequeiros Lancho";
+
+	Posicion(10, 17); cout << "Docente: ";
+
+    Posicion(10, 19); cout << " - Luis Alberto Raymundo Chacaltana";
+
+    _sleep(100);
+    tecla = teclageneralbasura;
+    bool estewhile = true;
+    do {
+        if(_kbhit()) {
+            tecla = _getch();
+            estewhile = false;
+            if (tecla == 'x' || tecla == 'X') {
+                estewhile = false;
+            }
+		}
+    } while (estewhile);
+    AnimacionBorrar();
+}
+void DibujarVictoriaMiles() {
+    do {
+        if (tempanimaciontitulo == 20) {
+            ColorAzul(); tempanimaciontitulo = 0;
+        }
+        if (tempanimaciontitulo == 10) {
+            ColorVerde();
+        }
+        Posicion(10, 10);     cout << "      _                               _            ";
+        Posicion(10, 11);     cout << "     | |                             | |                 ";
+        Posicion(10, 12);     cout << "     | |     ___   __ _ _ __ __ _ ___| |_ ___                 ";
+        Posicion(10, 13);     cout << "     | |    / _ \ / _` | '__/ _` / __| __/ _ \                ";
+        Posicion(10, 14);     cout << "     | |___| (_) | (_| | | | (_| \__ \ ||  __/                ";
+        Posicion(10, 15);     cout << "     |______\___/ \__, |_|__\__,_|___/\__\___|                ";
+        Posicion(10, 16);     cout << "                   __/ |  ____|                               ";
+        Posicion(10, 17);     cout << "                  |___/| |__   ___  ___ __ _ _ __   __ _ _ __ ";
+        Posicion(10, 18);     cout << "                       |  __| / __|/ __/ _` | '_ \ / _` | '__|";
+        Posicion(10, 19);     cout << "                       | |____\__ \ (_| (_| | |_) | (_| | |   ";
+        Posicion(10, 20);     cout << "                       |______|___/\___\__,_| .__/ \__,_|_|   ";
+        Posicion(10, 21);     cout << "                                            | |               ";
+        Posicion(10, 22);     cout << "                                            |_|  ";
+        tempanimaciontitulo++;
+        _sleep(10);
+    } while (!_kbhit());
 }

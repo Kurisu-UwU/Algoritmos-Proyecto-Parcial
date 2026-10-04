@@ -2,8 +2,6 @@
 #include "clases.h"
 class Niveles {
 protected:
-	//Enemigos** listaEne;
-		//int canEne;
 	Tambores** listaTamb;
 	int canTamb;
 	Proyectiles** listaPro;
@@ -66,9 +64,6 @@ public:
 		MostrarPreguntaCofre = true;
 	}
 	Niveles::~Niveles() {  // eliminador
-		//if (listaEne != nullptr) delete[]listaEne;
-		//if (listaPro != nullptr) delete[]listaPro;
-		//if (listaMejora != nullptr) delete[]listaMejora;
 		if (listaObs != nullptr) delete[]listaObs;
 	}
 	void Niveles::GenerarProyectil(char n) {  // sin usar de momento, ignorar
@@ -104,11 +99,6 @@ public:
 		}
 	}
 	void Niveles::BorrarObjetos() {
-		//for (int i = 0; i < canObs; i++) {delete listaObs[i];}delete[]listaObs;
-		//for (int i = 0; i < canProta; i++) { delete listaProta[i]; }delete[]listaProta;
-		//for (int i = 0; i < canMejora; i++) { delete listaMejora[i]; }delete[]listaMejora;
-		//for (int i = 0; i < canPro; i++) { delete listaPro[i]; }delete[]listaPro;
-		//for (int i = 0; i < canEne; i++) { delete listaEne[i]; }delete[]listaEne;		
 	}
 	void Niveles::AtributosObstaculo(int numero, int x, int y, int velocidad, int ancho, int alto) {  // asignación de atributos a los obstáculos
 		listaObs[numero]->SetX(x);
