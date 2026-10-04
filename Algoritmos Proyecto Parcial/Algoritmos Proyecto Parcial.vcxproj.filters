@@ -31,9 +31,6 @@
     <Filter Include="Source Files\Clases\Herencia\Proyectiles">
       <UniqueIdentifier>{d96b96ba-a40f-4270-84c9-95e81971c452}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Clases\Herencia\Enemigos">
-      <UniqueIdentifier>{e83ad3f6-707b-4d6c-b539-838964bb8340}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Clases\Herencia\Obstaculos">
       <UniqueIdentifier>{4da04039-f154-4a4a-a625-c5bc44ea1aea}</UniqueIdentifier>
     </Filter>
@@ -51,6 +48,9 @@
     </Filter>
     <Filter Include="Source Files\Clases\Herencia\Protagonistas">
       <UniqueIdentifier>{e4a40904-9ffb-4942-b7a2-771e92db639d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Personaje Secundario">
+      <UniqueIdentifier>{e83ad3f6-707b-4d6c-b539-838964bb8340}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +93,7 @@
       <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
     </ClInclude>
     <ClInclude Include="Ayudantes.h">
-      <Filter>Source Files\Clases\Herencia\Enemigos</Filter>
+      <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
     </ClInclude>
     <ClInclude Include="Items.h">
       <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
@@ -108,7 +108,7 @@
       <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
     </ClInclude>
     <ClInclude Include="Spot.h">
-      <Filter>Source Files\Clases\Herencia\Enemigos</Filter>
+      <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
     </ClInclude>
     <ClInclude Include="Niveles.h">
       <Filter>Source Files\Niveles</Filter>
@@ -139,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="PersonajesSecundarios.h">
       <Filter>Source Files\Clases\Padres</Filter>
+    </ClInclude>
+    <ClInclude Include="Gwen.h">
+      <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemigos.h">
+      <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

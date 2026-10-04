@@ -18,8 +18,8 @@ public:
 	PersonajeSecundario(int, int, int, int, float, float, float,float,float, string, bool, float);
 	virtual ~PersonajeSecundario();
 
-	void Dibujar();
-	void Borrar();
+	virtual void Dibujar();
+	virtual void Borrar();
 	//coloca y cambia los datos de los enemigos los set
 	void SetEX(int x1) { ex = x1; }
 	void SetEY(int y1) { ey = y1; }
@@ -30,6 +30,8 @@ public:
 	void SetVivo(bool vi) { vivo = vi; }
 	void SetVelocidadTempo(float v1) { velocidadtempo = v1; }
 	void SetTempo(float temp) { tempo = temp; }
+	void SetAlto(int alt) { altura = alt; }
+	void SetAncho(int anch) { anchura = anch; }
 	//obtiene y devuelve los datos de los enemigos los get
 	int GetEX() { return ex; }
 	int GetEY() { return ey; }
@@ -41,10 +43,23 @@ public:
 	bool GetVivo() { return vivo; }
 	int GetCantDeProyectiles() {return cantdeproyectiles;}
 	float GetTempo() { return tempo; }
+	int GetAlto() { return altura; }
+	int GetAncho() { return anchura; }
 
 	void GenerarProyectil(char);
 	void MostrarProyectil();
-	void PerseguirProta(int, int,bool,bool,bool,bool);
+	//virtual void PerseguirProta(int, int, bool, bool, bool, bool) {}
+	virtual void PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {}
+	/*virtual void PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
+		if (tempo > 20 / velocidadtempo) {
+			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
+			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda
+			if (py > ey && S) { ey += velocidad; } // Mover hacia abajo
+			else if (py < ey && W) { ey -= velocidad; }// Mover hacia arriba
+			tempo = 0; // Reiniciar el temporizador
+		}
+		tempo++;
+	}*/
 	void AtacarProtagonista(int, int);
 };
 PersonajeSecundario::PersonajeSecundario() {
@@ -56,8 +71,8 @@ PersonajeSecundario::PersonajeSecundario() {
 }
 PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
 	ex = x1; ey = y1;
-	this->anchura = ancho;
-	this->altura = alto;
+	anchura = ancho;
+	altura = alto;
 	cantidaddeataque = a1;
 	cantidaddevida = v1;
 	velocidad = vel1;
@@ -92,7 +107,7 @@ void PersonajeSecundario::MostrarProyectil() {
 		listaP[i]->Dibujar();
 	}
 }
-void PersonajeSecundario::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
+/*void PersonajeSecundario::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
 		if (tempo > 20 / velocidadtempo) {
 			if (px > ex && D) { ex += velocidad * 2; } // Mover hacia la derecha
 			else if (px < ex && A) { ex -= velocidad * 2; } // Mover hacia la izquierda
@@ -101,6 +116,6 @@ void PersonajeSecundario::PerseguirProta(int px, int py, bool W, bool A, bool S,
 			tempo = 0; // Reiniciar el temporizador
 		}
 		tempo++;
-}
+}*/
 //void Enemigos::AtacarProtagonista(Protagonista* prota) { // Implementación de la lógica para atacar al protagonista
 //}

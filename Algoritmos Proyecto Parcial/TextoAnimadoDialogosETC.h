@@ -27,6 +27,42 @@ void CuadroDeTexto(string nombre, int perfil, bool direccion) {
 	}
 	Posicion(n+10, 3); cout << nombre;
 }
+void CuadroDeTextoParaNiveles(string nombre, int perfil, bool direccion) {
+	ColorVerde();
+	int n; if (direccion == true) { n = 6; }
+	else { n = 102; }
+	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
+	Posicion(0, 1); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 2); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 3); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 4); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 5); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 6); cout << "=====================================================================================================================================================================================================================";
+	switch (perfil) {
+	case 1:DibujarMiles(n, 1); break;
+	case 2:DibujarMiguel(n, 1); break;
+	case 3:DibujarPunk(n, 1); break;
+	case 4:DibujarGwen(n, 1); break;
+	case 5:DibujarSpot(n, 1); break;
+	case 6:DibujarMargoKees(n, 1); break;
+	case 7:DibujarSpiderWoman(n, 1); break;
+	case 9:DibujarPeterPorker(n, 1); break;
+	case 10:break;
+
+	default: break;
+	}
+	Posicion(n + 10, 3); cout << nombre;
+}
+void BorrarTexto() {
+	ColorVerde();
+	Posicion(0, 0); cout << "=====================================================================================================================================================================================================================";
+	Posicion(0, 1); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 2); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 3); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 4); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 5); cout << "|                                                                                                                                                                                                                   |";
+	Posicion(0, 6); cout << "=====================================================================================================================================================================================================================";
+}
 //
 //
 //
@@ -169,6 +205,35 @@ void TextMiles1(int n) {
 		break;
 	case 29: AnimacionBorrar(); break;
 	default:break;
+	}
+}
+void TextMilesConGwen(int n) {
+	switch (n){ 
+	case 1: 
+		CuadroDeTextoParaNiveles("[Gwen Stacy]", 4, true);
+		EscribirTextoAnimado("MILES!     ", PosIzDIALOGO, 4, 25);
+		break;
+	case 2:
+		CuadroDeTextoParaNiveles("[Gwen Stacy]", 4, true);
+		EscribirTextoAnimado("No espere encontrarte por aca            ", PosIzDIALOGO, 4, 25);
+		break;
+	case 3:
+		CuadroDeTextoParaNiveles("[Gwen Stacy]", 4, true);
+		EscribirTextoAnimado("Y Miguel? aun sigue persiguiendote?             ", PosIzDIALOGO, 4, 25);
+		break;
+	case 4:
+		CuadroDeTextoParaNiveles("[Gwen Stacy]", 4, true);
+		EscribirTextoAnimado("Ya veo....           ", PosIzDIALOGO, 4, 25);
+		break;
+	case 5:
+		CuadroDeTextoParaNiveles("[Gwen Stacy]", 4, true);
+		EscribirTextoAnimado("Rapido, hay que irnos         ", PosIzDIALOGO, 4, 25);
+		break;
+	case 6: BorrarTexto(); break;
+	default: break;
+	}
+	if (tecla == 'x' || tecla == 'X') { 
+		BorrarTexto(); 
 	}
 }
 //		

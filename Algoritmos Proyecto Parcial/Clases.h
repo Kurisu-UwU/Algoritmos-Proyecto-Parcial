@@ -7,3 +7,5 @@
 #include "Tambores.h"
 #include "Habilidades.h"
 #include "Carros.h"
+#include "Gwen.h"
+#include "Enemigos.h"

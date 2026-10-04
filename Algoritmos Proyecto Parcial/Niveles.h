@@ -86,17 +86,17 @@ void Nivel1() {
 		Niveles* nivel1 = new Niveles();
 		miles->Generarhabilidades();
 		miles->SetInvisibilidad(false);
-		PersonajeSecundario** enemigos1 = new PersonajeSecundario * [1];
-		enemigos1[0] = new PersonajeSecundario(170, 37, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
-		enemigos1[1] = new PersonajeSecundario(170, 42, 4, 4, 1, 5, 1, 3, 1, "Enemigo1", true, 1);
-		PersonajeSecundario** enemigos2 = new PersonajeSecundario * [0];
-		enemigos2[0] = new PersonajeSecundario(100, 27, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
-		PersonajeSecundario** enemigos3 = new PersonajeSecundario * [0];
-		enemigos3[0] = new PersonajeSecundario(160, 25, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+		Enemigos** enemigos1 = new Enemigos * [1];
+		enemigos1[0] = new Enemigos(170, 37, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+		enemigos1[1] = new Enemigos(170, 42, 4, 4, 1, 5, 1, 3, 1, "Enemigo1", true, 1);
+		Enemigos* enemigo2 = new Enemigos(100, 27, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+		Enemigos* enemigos3 = new Enemigos(160, 25, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 		bool booleanopuertanivel3 = true;
-		PersonajeSecundario** enemigos4 = new PersonajeSecundario * [0];
-		enemigos4[0] = new PersonajeSecundario(32, 22, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
+		Enemigos** enemigos4 = new Enemigos * [0];
+		enemigos4[0] = new Enemigos(32, 22, 4, 4, 1, 5, 1, 2, 1, "Enemigo1", true, 1);
 		bool booleanopuertanivel4 = true;
+		Gwen* gwen = new Gwen(129, 10, 6, 5, 1, 5, 1, 5, 1, "Gwen", true, 1);
+		bool GwenPersigue = false;
 		DibujarSpiderPunkGrandeTitulo(10, 10);
 		Console::Clear();
 		miles->SetVelocidady(1);
@@ -122,8 +122,6 @@ void Nivel1() {
 				nivel1->AtributosObstaculo(11, 38, 19, 0, 11, 1);
 				nivel1->AtributosObstaculo(12, 208, 7, 0, 8, 1);
 
-				nivel1->GenerarCofres(1);
-				nivel1->AtributosCofres(0, 100, 10, 7, 3, 1);
 				tecla = 'j';
 				DibujarNivelUno1();
 				Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
@@ -136,6 +134,14 @@ void Nivel1() {
 					Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
 					nivel1->EnemigoHaceGuardia(enemigos1[0]);
 					nivel1->EnemigoHaceGuardia(enemigos1[1]);
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
+					}else {gwen->Dibujar();}
+					if (!GwenPersigue && CalcularColisiones(miles->GetPX(), miles->GetPY(), gwen->GetEX(), gwen->GetEY(), miles->GetAlto(), miles->GetAncho(), gwen->GetAlto(), gwen->GetAncho())) {
+						for (int i = 0; i < 7 && booltexto; i++) { TextMilesConGwen(i); }
+						GwenPersigue = true;
+						Posicion(10, 2); ColorAzul(); cout << "[Miles Morales]";
+					}
 					for (int i = 0; i < 2; i++) {
 						if (tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos1[i]->GetEX(), enemigos1[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
 							cositoraro = false;
@@ -153,7 +159,12 @@ void Nivel1() {
 						miles->ControladorTiempoHabilidades(0);
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 194, 7, miles->GetAlto(), miles->GetAncho(), 1, 12)) {
-						booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(194); miles->SetPY(41);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 2;
+						miles->SetPX(194); miles->SetPY(41); 
+						if (GwenPersigue) {
+							gwen->SetEX(194); gwen->SetEY(41);
+						}
 					}
 					_sleep(1);
 					tecla = teclageneralbasura;
@@ -178,32 +189,43 @@ void Nivel1() {
 				Posicion(30, 2); ColorVerde(); cout << "Habilidad Q: Lista";
 				bool cositoraro = true;
 				int tiempodano = 0;
-				do {  //Parte 1
+				do {
 					if (_kbhit()) { tecla = getch(); }
 					DibujarPanelDeControl();
 					Posicion(10, 4); ColorRojo(); cout << "Vida: " << miles->GetVida() << " ";
-					for (int i = 0; i < 1; i++) {
-						nivel1->EnemigoAcercaProta(enemigos2[i], miles, miles->GetInvisibilidad());
-						if (!miles->GetInvisibilidad() && tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigos2[i]->GetEX(), enemigos2[i]->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
-							cositoraro = false;
-							miles->SetVida(miles->GetVida() - 1);
-							tiempodano = 20;
-							BorrarMiles(miles->GetPX(), miles->GetPY());
-							miles->SetPX(194);
-							miles->SetPY(41);
-						}
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
 					}
-					cositoraro = true;
+					nivel1->EnemigoAcercaProta(enemigo2, miles, miles->GetInvisibilidad());
+					if (!miles->GetInvisibilidad() && tiempodano == 0 && cositoraro && CalcularColisiones(miles->GetPX(), miles->GetPY(), enemigo2->GetEX(), enemigo2->GetEY(), miles->GetAlto(), miles->GetAncho(), 4, 4)) {
+						cositoraro = false;
+						miles->SetVida(miles->GetVida() - 1);
+						tiempodano = 20;
+						BorrarMiles(miles->GetPX(), miles->GetPY());
+						miles->SetPX(194);
+						miles->SetPY(41);
+					}
 					nivel1->GenerarMovimientoJugador(miles);
+					cositoraro = true;
 					if (tecla == 'q' || tecla == 'Q') {
 						//Posicion(0, 30); cout << "Habilidad Q activada";
 						miles->ControladorTiempoHabilidades(0);
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
-						booleanoGeneralParaNiveles = false; subnivel = 1; miles->SetPX(194); miles->SetPY(9);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 1; 
+						miles->SetPX(194);miles->SetPY(9); 
+						if (GwenPersigue) {
+							gwen->SetEX(194); gwen->SetEY(9);
+						}
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 5, 7, miles->GetAlto(), miles->GetAncho(), 1, 15)) {
-						booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(194); miles->SetPY(41);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 3;
+						miles->SetPX(194); miles->SetPY(41);
+						if (GwenPersigue) {
+							gwen->SetEX(194); gwen->SetEY(41);
+						}
 					}
 					_sleep(1);
 					tecla = teclageneralbasura;
@@ -238,12 +260,15 @@ void Nivel1() {
 					}
 					else { DibujarPlacaDePresionRoja(61, 22); }
 					for (int i = 0; i < 1; i++) {
-						nivel1->EnemigoAcercaProta(enemigos3[i], miles, miles->GetInvisibilidad());
-						if (CalcularColisiones(enemigos3[i]->GetEX(), enemigos3[i]->GetEY(), 61, 22, 4, 4, 5, 11)) {
+						nivel1->EnemigoAcercaProta(enemigos3, miles, miles->GetInvisibilidad());
+						if (CalcularColisiones(enemigos3->GetEX(), enemigos3->GetEY(), 61, 22, 4, 4, 5, 11)) {
 							booleanopuertanivel3 = false;
 							nivel1->AtributosObstaculo(10, 0, 0, 0, 0, 0);
 							BorrarPuertaNivelEscena3(29, 8);
 						}
+					}
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
 					}
 					nivel1->GenerarMovimientoJugador(miles);
 					if (tecla == 'q' || tecla == 'Q') {
@@ -251,10 +276,20 @@ void Nivel1() {
 						miles->ControladorTiempoHabilidades(0);
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 189, 47, miles->GetAlto(), miles->GetAncho(), 3, 18)) {
-						booleanoGeneralParaNiveles = false; subnivel = 2; miles->SetPX(9); miles->SetPY(9);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 2;
+						miles->SetPX(9); miles->SetPY(9);
+						if (GwenPersigue) {
+							gwen->SetEX(9); gwen->SetEY(9);
+						}
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 0, 10, miles->GetAlto(), miles->GetAncho(), 7, 2)) {
-						booleanoGeneralParaNiveles = false; subnivel = 4; miles->SetPX(194); miles->SetPY(9);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 4;
+						miles->SetPX(194); miles->SetPY(9);
+						if (GwenPersigue) {
+							gwen->SetEX(194); gwen->SetEY(9);
+						}
 					}
 					_sleep(1);
 					tecla = teclageneralbasura;
@@ -288,6 +323,9 @@ void Nivel1() {
 						DibujarPuertaNivel1Escena4(177, 37); DibujarPlacaDePresion(156, 20);
 					}
 					else { DibujarPlacaDePresionVerde(156, 20); }
+					if (GwenPersigue) {
+						nivel1->EnemigoAcercaProta(gwen, miles, false);
+					}
 					for (int i = 0; i < 1; i++) {
 						nivel1->EnemigoAcercaProta(enemigos4[i], miles, miles->GetInvisibilidad());
 						if (CalcularColisiones(enemigos4[i]->GetEX(), enemigos4[i]->GetEY(), 156, 20, 4, 4, 5, 11)) {
@@ -305,10 +343,20 @@ void Nivel1() {
 						miles->ControladorTiempoHabilidades(0);
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 39, miles->GetAlto(), miles->GetAncho(), 5, 1)) {
-						booleanoGeneralParaNiveles = false; subnivel = 5; miles->SetPX(9); miles->SetPY(9);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 5;
+						miles->SetPX(9); miles->SetPY(9);
+						if (GwenPersigue) {
+							gwen->SetEX(9); gwen->SetEY(9);
+						}
 					}
 					if (CalcularColisiones(miles->GetPX(), miles->GetPY(), 210, 10, miles->GetAlto(), miles->GetAncho(), 5, 2)) {
-						booleanoGeneralParaNiveles = false; subnivel = 3; miles->SetPX(7); miles->SetPY(10);
+						booleanoGeneralParaNiveles = false;
+						subnivel = 3;
+						miles->SetPX(7); miles->SetPY(10);
+						if (GwenPersigue) {
+							gwen->SetEX(7); gwen->SetEY(10);
+						}
 					}
 					_sleep(1);
 					tecla = teclageneralbasura;

@@ -119,6 +119,8 @@
     <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Carros.h" />
     <ClInclude Include="Clases.h" />
+    <ClInclude Include="Enemigos.h" />
+    <ClInclude Include="Gwen.h" />
     <ClInclude Include="MiguelOhara.h" />
     <ClInclude Include="MilesMorales.h" />
     <ClInclude Include="PersonajesSecundarios.h" />
