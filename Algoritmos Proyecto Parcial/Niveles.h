@@ -14,7 +14,7 @@ void Nivel1() {
 	for (int i = 0; i < 40 && booltexto; i++) { TextMiles1(i); }
 	booltexto = true;
 
-	/*DibujarMiles(100, 22);
+	DibujarMiles(100, 22);
 	DibujarMiguel(100, 26);
 	AnimacionBorrar();
 	miles->SetPX(100); miles->SetPY(22);
@@ -79,7 +79,7 @@ void Nivel1() {
 		if (carretera < 0) { carretera = 6; }
 	} while (booleanoGeneralParaNiveles);
 	AnimacionBorrar();
-	delete nivelpersecucion;*/
+	delete nivelpersecucion;
 	if (!boolmiguelatrapa) {
 		booleanoGeneralParaNiveles4 = true;
 		booleanoGeneralParaNiveles = true;

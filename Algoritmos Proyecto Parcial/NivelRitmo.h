@@ -17,7 +17,15 @@ void NivelPersecucion(Persecucion* nivelpersecucion){
 		case 260: nivelpersecucion->RevivirCarro(t, n); break;
 		case 300: nivelpersecucion->RevivirCarro(t, n); break;
 		case 340: nivelpersecucion->RevivirCarro(t, n); break;
-		case 380: booleanoGeneralParaNiveles = false; break;
+		case 380: nivelpersecucion->RevivirCarro(t, n); break;
+		case 400: nivelpersecucion->RevivirCarro(t, n); break;
+		case 450: nivelpersecucion->RevivirCarro(t, n); break;
+		case 451: nivelpersecucion->RevivirCarro(t, n); break;
+		case 500: nivelpersecucion->RevivirCarro(t, n); break;
+		case 600: nivelpersecucion->RevivirCarro(t, n); break;
+		case 620: nivelpersecucion->RevivirCarro(t, n); break;
+		case 660: nivelpersecucion->RevivirCarro(t, n); break;
+		case 1000: booleanoGeneralParaNiveles = false; break;
 		default: break;
 		}
 		tiempo++;

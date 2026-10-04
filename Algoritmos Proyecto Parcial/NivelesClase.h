@@ -26,6 +26,7 @@ public:
 	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
 	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*, bool);
 	void EnemigoMuere(PersonajeSecundario*);
+	void EnemigoAtacaProta(PersonajeSecundario*, Protagonista*);
 	void GenerarObstaculo(int);
 	void AtributosObstaculo(int, int, int, int, int, int);
 	void AtributosNPC(int, int, int, int, int, int, int);
@@ -144,12 +145,6 @@ public:
 		int velx = enemigo->GetVelocidad();
 		if (enemigo->GetVivo()) {
 			enemigo->Borrar();
-			for (int i = 0; i < canObs; i++) {
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 0) == true) { w = false; }// arriba
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 2) == true) { s = false; }//abajo
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 1) == true) { a = false; }// izquierda
-				if (CalcularColisionesDireccionales(x, y, listaObs[i]->GetX(), listaObs[i]->GetY(), 4, 4, listaObs[i]->GetAncho(), listaObs[i]->GetAlto(), velx, velx * 2, 3) == true) { d = false; }//derecha
-			}
 			if (enemigo->GetTempo() >= enemigo->GetVelocidadTempo()) {
 			if (enemigo->GetEX() < 44) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);
 			if (enemigo->GetEX() > 189) enemigo->SetVelocidad(enemigo->GetVelocidad() * -1);

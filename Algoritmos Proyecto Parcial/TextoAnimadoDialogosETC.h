@@ -251,6 +251,9 @@ void TextMiguelIntro(int n) {
 	case 2:
 		EscribirTextoAnimado("Salvemos el spider verso!", 10, 22, 50);
 		break;
+	case 3: 		
+		AnimacionBorrar();
+		break;
 	default:break;
 	}
 }
@@ -275,7 +278,7 @@ void TextPunkIntro(int n) {
 void TextPunk1(int n) {
 	switch (n) {
 	case 1:
-		("Spider Punk", 3, true);
+		CuadroDeTexto("Spider Punk", 3, true);
 		EscribirTextoAnimado("...     Que....    problematico     ", PosIzDIALOGO, 4, 25);
 		break;
 	case 2:
