@@ -2270,6 +2270,7 @@ void Nivel3() {
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
 				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				Posicion(138, 3); ColorAmarillo();  cout << "Puntuacion: " << puntuaciontotal << " ";
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3) {
@@ -2321,6 +2322,7 @@ void Nivel3() {
 				if (_kbhit()) { tecla = getch(); }
 				DibujarPanelDeControl();
 				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				Posicion(138, 3); ColorAmarillo();  cout << "Puntuacion: " << puntuaciontotal << " ";
 				nivel3->DibujarCofre();
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5) {
@@ -2374,6 +2376,7 @@ void Nivel3() {
 				DibujarPanelDeControl();
 				nivel3->DibujarCofre();
 				DibujarTornillos(158, 2); Posicion(160, 3); ColorAzul(); cout << cantidaddeherramientas;
+				Posicion(138, 3); ColorAmarillo();  cout << "Puntuacion: " << puntuaciontotal << " ";
 				nivel3->GenerarMovimientoJugador(punk);
 				if (booleanoGeneralParaNiveles3 || booleanoGeneralParaNiveles5 || booleanoGeneralParaNiveles6) {
 					NivelesRitmo1(nivel3, nivel3->PisandoItem(punk));
