@@ -6,8 +6,6 @@ protected:
 	int canTamb;
 	Proyectiles** listaPro;
 	int canPro;
-	Mejoras** listaMejora;
-	int canMejora;
 	Entidad** listaObs;
 	int canObs;
 	Cofre** listaCofre;
@@ -60,7 +58,7 @@ public:
 		//listaEne = nullptr;
 		canPro = 0;
 		listaPro = nullptr;
-		canMejora = 0;
+		//canMejora = 0;
 		MostrarPreguntaCofre = true;
 	}
 	Niveles::~Niveles() {  // eliminador

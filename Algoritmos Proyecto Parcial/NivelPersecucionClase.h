@@ -18,7 +18,7 @@ Persecucion::Persecucion():Niveles() {
 	//listaEne = nullptr;
 	canPro = 0;
 	listaPro = nullptr;
-	canMejora = 0;
+	//canMejora = 0;
 	MostrarPreguntaCofre = true;
 }
 Persecucion::~Persecucion() {

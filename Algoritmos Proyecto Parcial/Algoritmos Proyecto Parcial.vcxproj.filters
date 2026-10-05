@@ -74,9 +74,6 @@
     <ClInclude Include="LasersMenu.h">
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>
-    <ClInclude Include="Mejoras.h">
-      <Filter>Source Files\Clases\Padres</Filter>
-    </ClInclude>
     <ClInclude Include="NivelesClase.h">
       <Filter>Source Files\Clases\Padres</Filter>
     </ClInclude>

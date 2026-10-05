@@ -129,7 +129,6 @@
     <ClInclude Include="Items.h" />
     <ClInclude Include="LasersMenu.h" />
     <ClInclude Include="Librerias.h" />
-    <ClInclude Include="Mejoras.h" />
     <ClInclude Include="Niveles.h" />
     <ClInclude Include="NivelesClase.h" />
     <ClInclude Include="NivelPersecucionClase.h" />
