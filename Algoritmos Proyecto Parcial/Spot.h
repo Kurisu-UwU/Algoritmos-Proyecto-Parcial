@@ -54,5 +54,13 @@ void Spot::Dibujar() {
 	DibujarSpot(ex, ey);
 }
 void Spot::Borrar() {
+	_sleep(300);
+	DibujarGrieta(ex + 1, ey - 1);
+	_sleep(300);
+	DibujarGrieta2(ex + 1, ey - 1);
+	_sleep(300);
+	DibujarGrieta3(ex + 1, ey - 1);
+	_sleep(300);
 	BorrarSpot(ex, ey);
+	BorrarGrieta(ex + 1, ey - 1);
 }
