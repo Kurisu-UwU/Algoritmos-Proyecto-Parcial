@@ -116,7 +116,6 @@
   <ItemGroup>
     <ClInclude Include="ASCIIArtsMenu.h" />
     <ClInclude Include="ASCIIArtsNiveles.h" />
-    <ClInclude Include="Ayudantes.h" />
     <ClInclude Include="Carros.h" />
     <ClInclude Include="Clases.h" />
     <ClInclude Include="Enemigos.h" />

@@ -171,6 +171,7 @@ void Nivel1() {
 		if (tempoo >= 2) { carretera--; tempoo = 0; }
 		if (carretera < 0) { carretera = 6; }
 	} while (booleanoGeneralParaNiveles && miles->GetVida()>0);
+	puntuaciontotal *= tiempo / 10;
 	AnimacionBorrar();
 	delete nivelpersecucion;
 	if (!boolmiguelatrapa && miles->GetVida() > 0) {
@@ -2233,7 +2234,7 @@ void Nivel2() {
 
 
 void Nivel3() {
-	int uwu = 4;
+	int uwu = 1;
 	bool SpotMuerto = true;
 	booleanoGeneralParaNiveles4 = true;
 	SpiderPunk* punk = new SpiderPunk(30, 30, 8, 5, 100, 2, 1, 10, 100, 2, "Punk", 3, 1, 3);

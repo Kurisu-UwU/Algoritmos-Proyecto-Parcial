@@ -92,9 +92,6 @@
     <ClInclude Include="Tambores.h">
       <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
     </ClInclude>
-    <ClInclude Include="Ayudantes.h">
-      <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
-    </ClInclude>
     <ClInclude Include="Items.h">
       <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
     </ClInclude>
