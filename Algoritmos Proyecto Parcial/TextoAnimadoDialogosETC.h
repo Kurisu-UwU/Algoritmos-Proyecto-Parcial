@@ -790,3 +790,37 @@ void FinalPunk(int n) {
 	default:break;
 	}
 }
+
+void FinalNivel3(int n) {
+	switch (n) {
+	case 1:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("Te he vencido spot, no tienes escapatoria", PosIzDIALOGO, 4, 40);
+		break;
+	case 2:
+		CuadroDeTexto("Spot", 5, false);
+		EscribirTextoAnimado("Tal vez ganaste esta vez, pero eso no evitara mis planes, matare al padre de Miles para vengarme", PosDerDIALOGO, 4, 40);
+		break;
+	case 3:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("No lo haras, yo ayudare a Miles, protegere a su padre", PosIzDIALOGO, 4, 40);
+		break;
+	case 4:
+		CuadroDeTexto("Spot", 5, true);
+		EscribirTextoAnimado("Romperas el canon? pondras en riesgo todo el spider verso", PosIzDIALOGO, 4, 40);
+		break;
+	case 5:
+		CuadroDeTexto("Spider Punk", 3, true);
+		EscribirTextoAnimado("No, me encargare de que su padre renuncie a su puesto de oficial, asi no se rompera el evento canonico", PosIzDIALOGO, 4, 40);
+		break;
+	case 6:
+		CuadroDeTexto("Spot", 3, true);
+		EscribirTextoAnimado("No se me hubiese ocurrido antes, una solucion tan simple", PosIzDIALOGO, 4, 40);
+		break;
+	case 7:
+		CuadroDeTexto("Spot", 3, true);
+		EscribirTextoAnimado("Bueno, supongo que es todo, ya no tengo nada mas que hacer", PosIzDIALOGO, 4, 40);
+		break;
+	default:break;
+	}
+}
