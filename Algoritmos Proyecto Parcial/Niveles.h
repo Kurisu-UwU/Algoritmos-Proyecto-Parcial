@@ -2426,9 +2426,10 @@ void Nivel3() {
 			int contador = 0;
 
 			tecla = teclageneralbasura;
+			Jefe->SetEX(8); Jefe->SetEX(30);
 			do {  //Parte 1
 				if (_kbhit()) { tecla = getch(); }
-
+				int random = rand() % 3;
 				DibujarPanelDeControl();
 				DibujarGrieta(2, 28);
 				DibujarGrieta(2, 38);
@@ -2442,16 +2443,25 @@ void Nivel3() {
 				nivel3->NotasMovimiento();
 				nivel3->LasersMover(punk);
 				if (contador % 150 == 0) {
-					Jefe->MoverSpot(8, 30, 190, 40);
+					Jefe->Borrar();
+					switch (random) {
+					case 0:Jefe->SetEX(8); Jefe->SetEY(30); break;
+					case 1:Jefe->SetEX(8); Jefe->SetEY(40); break;
+					case 2:Jefe->SetEX(190); Jefe->SetEY(30); break;
+					case 3:Jefe->SetEX(190); Jefe->SetEY(40); break;
+					default: break;
+					}
+					//Jefe->MoverSpot(8, 30, 190, 40);
 				}
+				Jefe->Dibujar();
 				Posicion(100, 2); cout << "Vida: " << Jefe->GetVida() << " ";//Muestra vida de enemigo
 				Posicion(20, 1); cout << "Vida: " << punk->GetVida() << " ";
 				if (tecla == 'q' || tecla == 'Q') {
 					//if (punk->GetHabilidadLista()) { nivel3->RevivirNotaDeMusica(0, punk); }
 					nivel3->RevivirNotaDeMusica(0, punk);
-					Posicion(53, 5); cout << "Habilidad Q activada";
+					//Posicion(53, 5); cout << "Habilidad Q activada";
 					//nivel3->AtacarEnemigos(Jefe, punk);
-					punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
+					//punk->ControladorTiempoHabilidades(0);  //Controlador de tiempo de habilidades
 					nivel3->AtacarEnemigoNotas(Jefe);
 					nivel3->AtacarProtaNotas(punk);
 				}

@@ -7,6 +7,8 @@ protected:
 public:
 	Spot(int, int, int, int, float, float, float, float, float, string, bool, float);
 	~Spot() override;
+	void Dibujar();
+	void Borrar();
 	bool ColisionSpot(Protagonista*);
 	void ImprimirSpot(int, int);
 	void MoverSpot(int, int, int, int);
@@ -47,4 +49,10 @@ void Spot::MoverSpot(int xi, int ys, int xd, int yi) {
 	}
 	ImprimirSpot(ex, ey);
 	_sleep(1);
+}
+void Spot::Dibujar() {
+	DibujarSpot(ex, ey);
+}
+void Spot::Borrar() {
+	BorrarSpot(ex, ey);
 }
