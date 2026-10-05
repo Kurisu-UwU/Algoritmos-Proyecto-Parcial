@@ -2485,7 +2485,10 @@ void Nivel3() {
 	} while (booleanoGeneralParaNiveles4);
 	delete punk;
 	if (SpotMuerto) {
-		DibujarVictoria(); NivelPregunta();
+		for (int i = 0; i < 9; i++) {
+			FinalNivel3(i);
+		}
+		DibujarVictoria();NivelPregunta();
 	}
 	else DibujarDerrota();
 }
