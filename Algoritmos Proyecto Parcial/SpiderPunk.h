@@ -7,7 +7,7 @@ public:
 	SpiderPunk(int, int, int, int, float, float, float, float, float, float, string, short, short, short);
 	~SpiderPunk();
 
-	virtual void Dibujar();
+	void Dibujar();
 	void Borrar()override;
 
 	void Generarhabilidades()override;

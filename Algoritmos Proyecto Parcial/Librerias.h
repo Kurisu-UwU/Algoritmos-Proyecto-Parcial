@@ -39,6 +39,8 @@ int tempanimaciontitulo = 0;
 
 int contadortiempomiguel = 0;
 
+int puntuaciontotal = 0;
+
 void ConsolayOjetos() {
 	Console::SetWindowSize(213, 48);
 	Console::SetBufferSize(213, 48);// Establece el tamaño del área de almacenamiento

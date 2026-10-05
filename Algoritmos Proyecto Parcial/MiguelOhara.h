@@ -1,7 +1,6 @@
 #pragma once
 #include "Protagonistas.h"
 
-
 class MiguelOhara : public Protagonista {
 private:
 public:

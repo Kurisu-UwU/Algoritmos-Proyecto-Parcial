@@ -108,6 +108,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(187, 32);
 		DibujarEdificio(162, 32);
 		DibujarEdificio(137, 32);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	case 2: {
@@ -198,6 +199,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(1, 32);
 		DibujarEdificio(26, 32);
 		DibujarEdificio(51, 32);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	case 3: {
@@ -293,6 +295,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(1, 32);
 		DibujarEdificio(26, 32);
 		DibujarEdificio(51, 32);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	case 4: {
@@ -396,6 +399,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	case 5: {
@@ -499,6 +503,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	case 6: {
@@ -606,6 +611,7 @@ void NivelesRitmo1(Niveles* nivel3, int n) {
 		DibujarEdificio(1, 7);
 		DibujarEdificio(26, 7);
 		DibujarEdificio(51, 7);
+		puntuaciontotal += puntaje;
 		break;
 	}
 	default: break;

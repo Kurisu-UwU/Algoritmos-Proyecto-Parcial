@@ -8,7 +8,7 @@ public:
 	MilesMorales(int, int, int, int, float, float, float, float, float, float, string, short, short, short);
 	~MilesMorales();
 
-	virtual void Dibujar();
+	void Dibujar();
 	void Borrar()override;
 	void SetInvisibilidad(bool inv) { invisibilidad = inv; }
 

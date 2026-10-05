@@ -54,7 +54,7 @@ void NivelPregunta() {
 	CuadroDeTexto("", 0, false);
 	EscribirTextoAnimado("Con cual de los 3 personajes te identificas mas?      ", PosIzDIALOGO, 4, 40);
 	int booleanoaqui = true;
-	
+
 	do {
 
 		ImprimirA(83, 40); ImprimirD(122, 40);
@@ -76,7 +76,7 @@ void NivelPregunta() {
 	} while (booleanoaqui);
 
 	switch (opFinal) {
-	case 1: 
+	case 1:
 		for (int i = 0; i < 6; i++) {
 			FinalMiles(i);
 		}
@@ -92,6 +92,7 @@ void NivelPregunta() {
 		}
 		break;
 	}
+	Posicion(50, 20); cout << "Puntuacion final: " << puntuaciontotal;
 }
 void Nivel1() {
 	booleanoGeneralParaNiveles4 = true;
@@ -2225,6 +2226,7 @@ void Nivel2() {
 		DibujarDerrota();
 	}
 	else { DibujarVictoria(); }
+	puntuaciontotal += contadortiempomiguel / 100;
 	delete Miguel;
 }
 
