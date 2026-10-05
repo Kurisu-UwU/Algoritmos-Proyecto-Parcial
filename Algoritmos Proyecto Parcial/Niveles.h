@@ -2493,6 +2493,7 @@ void Nivel3() {
 			FinalNivel3(i);
 		}
 		DibujarVictoria();NivelPregunta();
+		AnimacionBorrar();
 	}
 	else DibujarDerrota();
 }
