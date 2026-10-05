@@ -101,9 +101,6 @@
     <ClInclude Include="NivelPersecucionClase.h">
       <Filter>Source Files\Clases\Herencia\Niveles</Filter>
     </ClInclude>
-    <ClInclude Include="NPCs.h">
-      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
-    </ClInclude>
     <ClInclude Include="Spot.h">
       <Filter>Source Files\Clases\Herencia\Personaje Secundario</Filter>
     </ClInclude>

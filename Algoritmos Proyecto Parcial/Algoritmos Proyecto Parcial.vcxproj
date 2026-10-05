@@ -135,7 +135,6 @@
     <ClInclude Include="NivelesClase.h" />
     <ClInclude Include="NivelPersecucionClase.h" />
     <ClInclude Include="NivelRitmo.h" />
-    <ClInclude Include="NPCs.h" />
     <ClInclude Include="Entidades.h" />
     <ClInclude Include="Protagonistas.h" />
     <ClInclude Include="Proyectiles.h" />
