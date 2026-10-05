@@ -58,7 +58,6 @@ public:
 		//listaEne = nullptr;
 		canPro = 0;
 		listaPro = nullptr;
-		//canMejora = 0;
 		MostrarPreguntaCofre = true;
 	}
 	Niveles::~Niveles() {  // eliminador
