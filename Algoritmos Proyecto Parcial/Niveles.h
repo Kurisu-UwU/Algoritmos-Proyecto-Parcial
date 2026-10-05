@@ -169,10 +169,10 @@ void Nivel1() {
 		tempoo++;
 		if (tempoo >= 2) { carretera--; tempoo = 0; }
 		if (carretera < 0) { carretera = 6; }
-	} while (booleanoGeneralParaNiveles);
+	} while (booleanoGeneralParaNiveles && miles->GetVida()>0);
 	AnimacionBorrar();
 	delete nivelpersecucion;
-	if (!boolmiguelatrapa) {
+	if (!boolmiguelatrapa && miles->GetVida() > 0) {
 		booleanoGeneralParaNiveles4 = true;
 		booleanoGeneralParaNiveles = true;
 		Niveles* nivel1 = new Niveles();

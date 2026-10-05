@@ -34,11 +34,14 @@ void IniciarSeleccionPersonajes() {
         } while (opciniciarnivel);
         switch (opFinal) {
         case 1:
+            boolmiguelatrapa = false;
             Nivel1();
-            AnimacionBorrar();
+            AnimacionBorrar(); 
+            if (boolmiguelatrapa) { break; }
         case 2:
             Nivel2();
             AnimacionBorrar();
+            if (contadortiempomiguel<=0) { break; }
         case 3:
             Nivel3();
             opciniciarnivel2 = false;
