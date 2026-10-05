@@ -819,7 +819,15 @@ void FinalNivel3(int n) {
 		break;
 	case 7:
 		CuadroDeTexto("Spot", 3, true);
-		EscribirTextoAnimado("Bueno, supongo que es todo, ya no tengo nada mas que hacer", PosIzDIALOGO, 4, 40);
+		EscribirTextoAnimado("Y como piensas llegar a su multiverso", PosIzDIALOGO, 4, 40);
+		break;
+	case 8:
+		CuadroDeTexto("Spot", 3, true);
+		EscribirTextoAnimado("Con las piezas que recolecte, arme mi herramienta para cambiar de multiverso", PosIzDIALOGO, 4, 40);
+		break;
+	case 9:
+		CuadroDeTexto("Spot", 3, true);
+		EscribirTextoAnimado("Bueno, supongo que eso es todo, ya no tengo nada más que hacer", PosIzDIALOGO, 4, 40);
 		break;
 	default:break;
 	}
