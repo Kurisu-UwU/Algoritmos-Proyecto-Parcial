@@ -1881,12 +1881,6 @@ void Nivel2() {
 					Miguel->SetPX(200);
 					Miguel->SetPY(25);
 				}
-				if (CalcularColisiones(Miguel->GetPX(), Miguel->GetPY(), 210, 7, Miguel->GetAlto(), Miguel->GetAncho(), 35, 1)) {
-					subnivelcompleto20 = true;
-					subnivel = 18;
-					Miguel->SetPX(10);
-					Miguel->SetPY(25);
-				}
 				contadortiempomiguel--;
 				Posicion(40, 2); ColorAzul(); cout << "Tiempo Restante: " << contadortiempomiguel << " ";
 				if (contadortiempomiguel <= 0) {

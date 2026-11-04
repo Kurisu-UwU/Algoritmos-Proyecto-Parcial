@@ -41,11 +41,11 @@ bool Tambores::PresionarTambores(int x2) {
 	SoundPlayer^ pa = pam;
 	switch (tipo) {
 	case 0: if ((tecla == 'Z' || tecla == 'z') && tipo == 0) {
-		if (pu != nullptr) { pu->Play(); }
+		if (pum != nullptr) { pum->Play(); }
 		else { SystemSounds::Beep->Play(); }; return true; }
 		  else { return false; } break;
 	case 1: if ((tecla == 'X' || tecla == 'x') && tipo == 1) {
-		if (pa != nullptr) { pa->Play(); }
+		if (pam != nullptr) { pam->Play(); }
 		else { SystemSounds::Beep->Play(); }; return true; }
 		  else { return false; } break;
 	default: break;
