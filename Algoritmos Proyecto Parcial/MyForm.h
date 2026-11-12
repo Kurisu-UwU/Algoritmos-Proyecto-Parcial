@@ -34,12 +34,15 @@ namespace AlgoritmosProyectoParcial {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Timer^ timerPantalla;
+	protected:
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,12 +51,29 @@ namespace AlgoritmosProyectoParcial {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->components = (gcnew System::ComponentModel::Container());
+			this->timerPantalla = (gcnew System::Windows::Forms::Timer(this->components));
+			this->SuspendLayout();
+			// 
+			// timerPantalla
+			// 
+			this->timerPantalla->Tick += gcnew System::EventHandler(this, &MyForm::timerPantalla_Tick);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1365, 431);
+			this->Name = L"MyForm";
+			this->Text = L"MyForm";
+			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void timerPantalla_Tick(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
