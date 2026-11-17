@@ -115,6 +115,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NivelMiguel.cpp" />
+    <ClCompile Include="NivelMiles.cpp" />
+    <ClCompile Include="NivelPunk.cpp" />
     <ClCompile Include="PantallaPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +129,15 @@
     <ClInclude Include="Gwen.h" />
     <ClInclude Include="MiguelOhara.h" />
     <ClInclude Include="MilesMorales.h" />
+    <ClInclude Include="NivelMiguel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NivelMiles.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="NivelPunk.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="NotasDeMusica.h" />
     <ClInclude Include="PantallaPrincipal.h">
       <FileType>CppForm</FileType>
@@ -162,6 +174,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="NivelMiguel.resx">
+      <DependentUpon>NivelMiguel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NivelMiles.resx">
+      <DependentUpon>NivelMiles.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NivelPunk.resx">
+      <DependentUpon>NivelPunk.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PantallaPrincipal.resx">
       <DependentUpon>PantallaPrincipal.h</DependentUpon>
     </EmbeddedResource>

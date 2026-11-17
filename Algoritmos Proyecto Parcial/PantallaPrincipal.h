@@ -1,4 +1,7 @@
 #pragma once
+#include "NivelPunk.h"
+#include "NivelMiguel.h"
+#include "NivelMiles.h"
 
 namespace AlgoritmosProyectoFinal {
 
@@ -153,7 +156,7 @@ namespace AlgoritmosProyectoFinal {
 			this->pnlPersonaje->Controls->Add(this->btnPunk);
 			this->pnlPersonaje->Location = System::Drawing::Point(13, 12);
 			this->pnlPersonaje->Name = L"pnlPersonaje";
-			this->pnlPersonaje->Size = System::Drawing::Size(1406, 405);
+			this->pnlPersonaje->Size = System::Drawing::Size(1406, 417);
 			this->pnlPersonaje->TabIndex = 5;
 			this->pnlPersonaje->Visible = false;
 			// 
@@ -201,12 +204,13 @@ namespace AlgoritmosProyectoFinal {
 			this->btnPunk->TabIndex = 2;
 			this->btnPunk->Text = L"SPIDER PUNK";
 			this->btnPunk->UseVisualStyleBackColor = true;
+			this->btnPunk->Click += gcnew System::EventHandler(this, &PantallaPrincipal::btnPunk_Click);
 			// 
 			// PantallaPrincipal
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1441, 430);
+			this->ClientSize = System::Drawing::Size(1441, 441);
 			this->Controls->Add(this->pnlPersonaje);
 			this->Controls->Add(this->pnlPrincipal);
 			this->Name = L"PantallaPrincipal";
@@ -227,6 +231,10 @@ private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btnAtras_Click(System::Object^ sender, System::EventArgs^ e) {
 	pnlPrincipal->Visible = true;
 	pnlPersonaje->Visible = false;
+}
+private: System::Void btnPunk_Click(System::Object^ sender, System::EventArgs^ e) {
+	NivelPunk^ frm = gcnew NivelPunk();
+	frm->ShowDialog();
 }
 };
 }
