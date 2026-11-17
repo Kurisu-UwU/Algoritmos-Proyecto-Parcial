@@ -84,14 +84,14 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->pnlDeControl->Location = System::Drawing::Point(12, 12);
 			this->pnlDeControl->Name = L"pnlDeControl";
-			this->pnlDeControl->Size = System::Drawing::Size(1412, 80);
+			this->pnlDeControl->Size = System::Drawing::Size(1300, 80);
 			this->pnlDeControl->TabIndex = 0;
 			// 
 			// pnlJuego
 			// 
 			this->pnlJuego->Location = System::Drawing::Point(12, 98);
 			this->pnlJuego->Name = L"pnlJuego";
-			this->pnlJuego->Size = System::Drawing::Size(1412, 338);
+			this->pnlJuego->Size = System::Drawing::Size(1300, 720);
 			this->pnlJuego->TabIndex = 1;
 			// 
 			// timerJuego
@@ -103,7 +103,7 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1436, 442);
+			this->ClientSize = System::Drawing::Size(1326, 837);
 			this->Controls->Add(this->pnlJuego);
 			this->Controls->Add(this->pnlDeControl);
 			this->Name = L"NivelPunk";
@@ -119,7 +119,7 @@ namespace AlgoritmosProyectoFinal {
 	private: System::Void timerJuego_Tick(System::Object^ sender, System::EventArgs^ e) {
 
 
-		buffer->Graphics->DrawImage(bmpMapa1, 0, 0, bmpMapa1->Width * 1.0, bmpMapa1->Height * 1.0);
+		buffer->Graphics->DrawImage(bmpMapa1, 0, 0, pnlJuego->Width * 1.0, pnlJuego->Height * 1.0);
 
 
 
