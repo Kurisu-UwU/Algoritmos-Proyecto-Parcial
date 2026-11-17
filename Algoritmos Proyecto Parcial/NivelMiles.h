@@ -1,5 +1,4 @@
 #pragma once
-
 namespace AlgoritmosProyectoFinal {
 
 	using namespace System;
@@ -21,6 +20,7 @@ namespace AlgoritmosProyectoFinal {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			fondo = gcnew Bitmap(gcnew System::String("Imagenes/MilesMapa1.png"));
 		}
 
 	protected:
@@ -34,12 +34,16 @@ namespace AlgoritmosProyectoFinal {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Timer^ timer1;
+	protected:
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		Bitmap^ fondo;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -48,13 +52,21 @@ namespace AlgoritmosProyectoFinal {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->SuspendLayout();
+			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Tick += gcnew System::EventHandler(this, &NivelMiles::timer1_Tick);
 			// 
 			// NivelMiles
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(282, 253);
+			this->ClientSize = System::Drawing::Size(811, 501);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"NivelMiles";
 			this->Text = L"NivelMiles";
 			this->Load += gcnew System::EventHandler(this, &NivelMiles::NivelMiles_Load);
@@ -63,6 +75,18 @@ namespace AlgoritmosProyectoFinal {
 		}
 #pragma endregion
 	private: System::Void NivelMiles_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+		//Rectangle sectionshow = Rectangle(idX * width, idY * height, width, height);
+		//Rectangle zoom = Rectangle(x, y, width * 1.0, height * 1.0);
+		Graphics^ canvas = this->CreateGraphics();
+		BufferedGraphicsContext^ espaciobuffer = BufferedGraphicsManager::Current;
+		BufferedGraphics^ buffer = espaciobuffer->Allocate(canvas, this->ClientRectangle);
+		buffer->Graphics->DrawImage(fondo, 0, 0, System::Drawing::Rectangle(0, 0, 1000, 500), GraphicsUnit::Pixel);
+		buffer->Render(canvas);
+		delete buffer;
+		delete espaciobuffer;
+		delete canvas;
 	}
 	};
 }

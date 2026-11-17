@@ -98,18 +98,20 @@ namespace AlgoritmosProyectoFinal {
 			this->pnlPrincipal->Controls->Add(this->btnCreditos);
 			this->pnlPrincipal->Controls->Add(this->btnOpciones);
 			this->pnlPrincipal->Cursor = System::Windows::Forms::Cursors::Default;
-			this->pnlPrincipal->Location = System::Drawing::Point(13, 13);
+			this->pnlPrincipal->Location = System::Drawing::Point(10, 11);
+			this->pnlPrincipal->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pnlPrincipal->Name = L"pnlPrincipal";
-			this->pnlPrincipal->Size = System::Drawing::Size(1406, 405);
+			this->pnlPrincipal->Size = System::Drawing::Size(1054, 329);
 			this->pnlPrincipal->TabIndex = 4;
 			// 
 			// btnJugar
 			// 
 			this->btnJugar->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnJugar->Location = System::Drawing::Point(1053, 35);
+			this->btnJugar->Location = System::Drawing::Point(790, 28);
+			this->btnJugar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnJugar->Name = L"btnJugar";
-			this->btnJugar->Size = System::Drawing::Size(268, 61);
+			this->btnJugar->Size = System::Drawing::Size(201, 50);
 			this->btnJugar->TabIndex = 0;
 			this->btnJugar->Text = L"JUGAR";
 			this->btnJugar->UseVisualStyleBackColor = true;
@@ -119,9 +121,10 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnSalir->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSalir->Location = System::Drawing::Point(1053, 305);
+			this->btnSalir->Location = System::Drawing::Point(790, 248);
+			this->btnSalir->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSalir->Name = L"btnSalir";
-			this->btnSalir->Size = System::Drawing::Size(268, 61);
+			this->btnSalir->Size = System::Drawing::Size(201, 50);
 			this->btnSalir->TabIndex = 3;
 			this->btnSalir->Text = L"SALIR";
 			this->btnSalir->UseVisualStyleBackColor = true;
@@ -130,9 +133,10 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnCreditos->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCreditos->Location = System::Drawing::Point(1053, 125);
+			this->btnCreditos->Location = System::Drawing::Point(790, 102);
+			this->btnCreditos->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCreditos->Name = L"btnCreditos";
-			this->btnCreditos->Size = System::Drawing::Size(268, 61);
+			this->btnCreditos->Size = System::Drawing::Size(201, 50);
 			this->btnCreditos->TabIndex = 1;
 			this->btnCreditos->Text = L"CRÉDITOS";
 			this->btnCreditos->UseVisualStyleBackColor = true;
@@ -141,9 +145,10 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnOpciones->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnOpciones->Location = System::Drawing::Point(1053, 215);
+			this->btnOpciones->Location = System::Drawing::Point(790, 175);
+			this->btnOpciones->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnOpciones->Name = L"btnOpciones";
-			this->btnOpciones->Size = System::Drawing::Size(268, 61);
+			this->btnOpciones->Size = System::Drawing::Size(201, 50);
 			this->btnOpciones->TabIndex = 2;
 			this->btnOpciones->Text = L"OPCIONES";
 			this->btnOpciones->UseVisualStyleBackColor = true;
@@ -154,9 +159,10 @@ namespace AlgoritmosProyectoFinal {
 			this->pnlPersonaje->Controls->Add(this->btnAtras);
 			this->pnlPersonaje->Controls->Add(this->btnMiguel);
 			this->pnlPersonaje->Controls->Add(this->btnPunk);
-			this->pnlPersonaje->Location = System::Drawing::Point(13, 12);
+			this->pnlPersonaje->Location = System::Drawing::Point(10, 10);
+			this->pnlPersonaje->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pnlPersonaje->Name = L"pnlPersonaje";
-			this->pnlPersonaje->Size = System::Drawing::Size(1406, 417);
+			this->pnlPersonaje->Size = System::Drawing::Size(1054, 339);
 			this->pnlPersonaje->TabIndex = 5;
 			this->pnlPersonaje->Visible = false;
 			// 
@@ -164,20 +170,23 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnMiles->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnMiles->Location = System::Drawing::Point(100, 300);
+			this->btnMiles->Location = System::Drawing::Point(75, 244);
+			this->btnMiles->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnMiles->Name = L"btnMiles";
-			this->btnMiles->Size = System::Drawing::Size(268, 61);
+			this->btnMiles->Size = System::Drawing::Size(201, 50);
 			this->btnMiles->TabIndex = 0;
 			this->btnMiles->Text = L"MILES MORALES";
 			this->btnMiles->UseVisualStyleBackColor = true;
+			this->btnMiles->Click += gcnew System::EventHandler(this, &PantallaPrincipal::btnMiles_Click);
 			// 
 			// btnAtras
 			// 
 			this->btnAtras->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAtras->Location = System::Drawing::Point(1200, 300);
+			this->btnAtras->Location = System::Drawing::Point(900, 244);
+			this->btnAtras->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnAtras->Name = L"btnAtras";
-			this->btnAtras->Size = System::Drawing::Size(167, 61);
+			this->btnAtras->Size = System::Drawing::Size(125, 50);
 			this->btnAtras->TabIndex = 3;
 			this->btnAtras->Text = L"ATRÁS";
 			this->btnAtras->UseVisualStyleBackColor = true;
@@ -187,9 +196,10 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnMiguel->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnMiguel->Location = System::Drawing::Point(450, 300);
+			this->btnMiguel->Location = System::Drawing::Point(338, 244);
+			this->btnMiguel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnMiguel->Name = L"btnMiguel";
-			this->btnMiguel->Size = System::Drawing::Size(268, 61);
+			this->btnMiguel->Size = System::Drawing::Size(201, 50);
 			this->btnMiguel->TabIndex = 1;
 			this->btnMiguel->Text = L"MIGUEL O\'HARA";
 			this->btnMiguel->UseVisualStyleBackColor = true;
@@ -198,9 +208,10 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			this->btnPunk->Font = (gcnew System::Drawing::Font(L"Comic Sans MS", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnPunk->Location = System::Drawing::Point(800, 300);
+			this->btnPunk->Location = System::Drawing::Point(600, 244);
+			this->btnPunk->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnPunk->Name = L"btnPunk";
-			this->btnPunk->Size = System::Drawing::Size(268, 61);
+			this->btnPunk->Size = System::Drawing::Size(201, 50);
 			this->btnPunk->TabIndex = 2;
 			this->btnPunk->Text = L"SPIDER PUNK";
 			this->btnPunk->UseVisualStyleBackColor = true;
@@ -208,11 +219,12 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			// PantallaPrincipal
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1441, 441);
+			this->ClientSize = System::Drawing::Size(1081, 358);
 			this->Controls->Add(this->pnlPersonaje);
 			this->Controls->Add(this->pnlPrincipal);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"PantallaPrincipal";
 			this->Text = L"PantallaPrincipal";
 			this->Load += gcnew System::EventHandler(this, &PantallaPrincipal::PantallaPrincipal_Load);
@@ -234,6 +246,10 @@ private: System::Void btnAtras_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void btnPunk_Click(System::Object^ sender, System::EventArgs^ e) {
 	NivelPunk^ frm = gcnew NivelPunk();
+	frm->ShowDialog();
+}
+private: System::Void btnMiles_Click(System::Object^ sender, System::EventArgs^ e) {
+	NivelMiles^ frm = gcnew NivelMiles();
 	frm->ShowDialog();
 }
 };
