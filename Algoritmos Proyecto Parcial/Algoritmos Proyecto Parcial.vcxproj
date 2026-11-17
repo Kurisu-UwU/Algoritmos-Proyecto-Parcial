@@ -82,6 +82,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -113,7 +115,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="PantallaPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ASCIIArtsMenu.h" />
@@ -124,10 +126,10 @@
     <ClInclude Include="Gwen.h" />
     <ClInclude Include="MiguelOhara.h" />
     <ClInclude Include="MilesMorales.h" />
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="NotasDeMusica.h" />
+    <ClInclude Include="PantallaPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="NotasDeMusica.h" />
     <ClInclude Include="PersonajesSecundarios.h" />
     <ClInclude Include="FuncionesDelMenu.h" />
     <ClInclude Include="Habilidades.h" />
@@ -160,8 +162,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
+    <EmbeddedResource Include="PantallaPrincipal.resx">
+      <DependentUpon>PantallaPrincipal.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,16 +1,17 @@
 #include "FuncionesDelMenu.h"
 
+/*
 int main() {
     srand(time(0));
     ConsolayOjetos();
     LasersMenu* laser1; laser1 = new LasersMenu(); // lasers menu
     LasersMenu* laser2; laser2 = new LasersMenu();
     LasersMenu* laser3; laser3 = new LasersMenu();
-	LasersMenu* laser4; laser4 = new LasersMenu();
+    LasersMenu* laser4; laser4 = new LasersMenu();
     opMenu = 1;
     DibujarWASD(180, 39);
     do {
-        do {//para mantener el menu en pantalla 
+        do {//para mantener el menu en pantalla
             int random; random = rand() % 4;
             Condicion2 = true;
             DibujarMenu();
@@ -40,12 +41,14 @@ int main() {
         } while (Condicion2);
         switch (opFinal) { //registrar opcion menu
         case 1:
-			IniciarSeleccionPersonajes(); break; //Iniciar seleccion de personajes
+            IniciarSeleccionPersonajes(); break; //Iniciar seleccion de personajes
         case 2:
             DibujarCreditos(); break;
-        case 3: 
-			Condicion1 = false; break; // Salir del juego
+        case 3:
+            Condicion1 = false; break; // Salir del juego
         }
     } while (Condicion1);
     delete laser1; delete laser2; delete laser3; delete laser4; return 0;
 }
+*/
+
