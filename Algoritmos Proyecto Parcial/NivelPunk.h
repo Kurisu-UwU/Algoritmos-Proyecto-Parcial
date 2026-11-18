@@ -1,4 +1,5 @@
 #pragma once
+#include "Protagonistas.h"
 
 namespace AlgoritmosProyectoFinal {
 
@@ -21,12 +22,6 @@ namespace AlgoritmosProyectoFinal {
 			//
 			//TODO: agregar código de constructor aquí
 			//
-
-			gr = pnlJuego->CreateGraphics();
-			space = BufferedGraphicsManager::Current;
-			buffer = space->Allocate(gr, pnlJuego->ClientRectangle);
-
-			bmpMapa1 = gcnew Bitmap("Imagenes/PunkMapa1.png");
 
 		}
 
@@ -62,7 +57,8 @@ namespace AlgoritmosProyectoFinal {
 		BufferedGraphicsContext^ space;
 		BufferedGraphics^ buffer;
 		Bitmap^ bmpMapa1;
-
+		Bitmap^ bmpPunk;
+		Protagonista* punk;
 
 
 
@@ -110,29 +106,49 @@ namespace AlgoritmosProyectoFinal {
 			this->Text = L"NivelPunk";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &NivelPunk::NivelPunk_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &NivelPunk::NivelPunk_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &NivelPunk::NivelPunk_KeyDown);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	private: System::Void NivelPunk_Load(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void timerJuego_Tick(System::Object^ sender, System::EventArgs^ e) {
+		System::Void NivelPunk_Load(System::Object^ sender, System::EventArgs^ e) {
+			// 1. Inicializamos los gráficos cuando el panel ya tiene un tamaño real (1300x720)
+			gr = pnlJuego->CreateGraphics();
+			space = BufferedGraphicsManager::Current;
+			buffer = space->Allocate(gr, pnlJuego->ClientRectangle);
 
+			// 2. Cargamos las imágenes con seguridad
+			bmpMapa1 = gcnew Bitmap("Imagenes/PunkMapa1.png");
+			bmpPunk = gcnew Bitmap("Imagenes/SpiderPunk.png");
+
+			// 3. Creamos el objeto protagonista aquí para asegurarnos de que todo está listo
+			punk = new Protagonista(100, 100, 64, 64, 100, 2, 2, 100, 100, 0, "Punk", 'S', 0, 0);
+		}
+
+	private: System::Void timerJuego_Tick(System::Object^ sender, System::EventArgs^ e) {
 
 		buffer->Graphics->DrawImage(bmpMapa1, 0, 0, pnlJuego->Width * 1.0, pnlJuego->Height * 1.0);
 
+		punk->Dibujar(buffer->Graphics, bmpPunk);
 
-
-
-
-
-
-		if (gr != nullptr) {
-			buffer->Render(gr);
-		}
+		buffer->Render(gr);
 	}
+
 private: System::Void NivelPunk_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 	timerJuego->Enabled = false;
+}
+private: System::Void NivelPunk_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+	switch (e->KeyCode) {
+	case Keys::A:
+		punk->move(buffer->Graphics, 'A'); break;
+	case Keys::D:
+		punk->move(buffer->Graphics, 'D'); break;
+	case Keys::S:
+		punk->move(buffer->Graphics, 'S'); break;
+	case Keys::W:
+		punk->move(buffer->Graphics, 'W'); break;
+	}
+
 }
 };
 }

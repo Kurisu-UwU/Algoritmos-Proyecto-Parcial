@@ -1,5 +1,7 @@
 #pragma once
+#include "string"
 
+using namespace std;
 using namespace System::Drawing;
 
 class Protagonista {
@@ -69,35 +71,35 @@ public:
 		switch (i) {
 		case 'A':
 			if (x > 0) {
-				idY = 1;
+				idY = 7;
 				x -= dx;
 				direccion = 'A';
 			}
 			break;
 		case 'D':
 			if (x + ancho * 1.0 < g->VisibleClipBounds.Width) {
-				idY = 2;
+				idY = 6;
 				x += dx;
 				direccion = 'D';
 			}
 			break;
 		case 'W':
 			if (y > 0) {
-				idY = 3;
+				idY = 5;
 				y -= dy;
 				direccion = 'W';
 			}
 			break;
 		case 'S':
 			if (y + alto * 1.0 < g->VisibleClipBounds.Height) {
-				idY = 0;
+				idY = 4;
 				y += dy;
 				direccion = 'S';
 			}
 			break;
 		}
 		idX++;
-		if (idX > 3)idX = 0;
+		if (idX > 15)idX = 0;
 	}
 
 
