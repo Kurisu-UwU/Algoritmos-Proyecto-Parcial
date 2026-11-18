@@ -2,10 +2,15 @@
 #include "ASCIIArtsNiveles.h"
 #include "Proyectiles.h"
 #include "NPCs.h"
+#include "string"
+
+using namespace std;
+using namespace System::Drawing;
 class PersonajeSecundario
 {
 protected:
 	int ex, ey, anchura, altura;
+	int idX, idY;
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
 	string tipo;
 	bool vivo;
@@ -13,13 +18,22 @@ protected:
 	int cantdeproyectiles;
 	Proyectiles* obproye;// Puntero utilizado para crear un nuevo proyectil.
 	float tempo = 0;
+	bool esvisible;
 public:
 	PersonajeSecundario();
-	PersonajeSecundario(int, int, int, int, float, float, float,float,float, string, bool, float);
+	PersonajeSecundario(int, int, int, int, float, float, float,float,float, string, bool, float, bool);
 	virtual ~PersonajeSecundario();
 
-	virtual void Dibujar();
+	virtual void Dibujar(Graphics^ g, Bitmap^ bmp) {
+		System::Drawing::Rectangle sectionshow = System::Drawing::Rectangle(idX * anchura, idY * altura, anchura, altura);
+		System::Drawing::Rectangle zoom = System::Drawing::Rectangle(ex, ey, anchura * 1.0, altura * 1.0);
+		g->DrawImage(bmp, zoom, sectionshow, GraphicsUnit::Pixel);
+	}
+	System::Drawing::Rectangle getRectangle() {
+		return System::Drawing::Rectangle(ex, ey, anchura * 0.03, altura * 0.03);
+	}
 	virtual void Borrar();
+	virtual void Mover(Graphics^ g);
 	//coloca y cambia los datos de los enemigos los set
 	void SetEX(int x1) { ex = x1; }
 	void SetEY(int y1) { ey = y1; }
@@ -32,6 +46,7 @@ public:
 	void SetTempo(float temp) { tempo = temp; }
 	void SetAlto(int alt) { altura = alt; }
 	void SetAncho(int anch) { anchura = anch; }
+	void SetVisibilidad(bool visibilidad) { esvisible = visibilidad; }
 	//obtiene y devuelve los datos de los enemigos los get
 	virtual int GetEX() { return ex; }
 	virtual int GetEY() { return ey; }
@@ -76,7 +91,6 @@ PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, fl
 	tempo = temp;
 }
 PersonajeSecundario::~PersonajeSecundario() {if (listaP != nullptr) delete[]listaP;}
-void PersonajeSecundario::Dibujar() {DibujarEnemigo(ex, ey);}
 void PersonajeSecundario::Borrar() {BorrarEnemigo(ex, ey);}
 void PersonajeSecundario::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
