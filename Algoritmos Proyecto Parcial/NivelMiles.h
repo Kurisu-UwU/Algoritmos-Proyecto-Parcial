@@ -1,4 +1,5 @@
 #pragma once
+#include "MilesMorales.h"
 namespace AlgoritmosProyectoFinal {
 
 	using namespace System;
@@ -20,9 +21,13 @@ namespace AlgoritmosProyectoFinal {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			g = this->CreateGraphics();
+			space = BufferedGraphicsManager::Current;
+			buffer = space->Allocate(g, this->ClientRectangle);
 			fondo = gcnew Bitmap(gcnew System::String("Imagenes/MilesMapa1.png"));
+			bmphero = gcnew Bitmap("Imagenes/MilesMorales.png");
+			miles = new MilesMorales(bmphero->Width / 16, bmphero->Height / 8);
 		}
-
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -42,9 +47,14 @@ namespace AlgoritmosProyectoFinal {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
+		/// 
+		Graphics^ g;
 		Bitmap^ fondo;
-
-
+		MilesMorales* miles;
+		BufferedGraphicsContext^ space;
+		BufferedGraphics^ buffer;
+	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+		   Bitmap^ bmphero;
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -54,6 +64,7 @@ namespace AlgoritmosProyectoFinal {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->SuspendLayout();
 			// 
 			// timer1
@@ -70,6 +81,7 @@ namespace AlgoritmosProyectoFinal {
 			this->Name = L"NivelMiles";
 			this->Text = L"NivelMiles";
 			this->Load += gcnew System::EventHandler(this, &NivelMiles::NivelMiles_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &NivelMiles::NivelMiles_KeyDown);
 			this->ResumeLayout(false);
 
 		}
@@ -77,16 +89,22 @@ namespace AlgoritmosProyectoFinal {
 	private: System::Void NivelMiles_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		//Rectangle sectionshow = Rectangle(idX * width, idY * height, width, height);
-		//Rectangle zoom = Rectangle(x, y, width * 1.0, height * 1.0);
-		Graphics^ canvas = this->CreateGraphics();
-		BufferedGraphicsContext^ espaciobuffer = BufferedGraphicsManager::Current;
-		BufferedGraphics^ buffer = espaciobuffer->Allocate(canvas, this->ClientRectangle);
+		Rectangle sectionshow = Rectangle(miles->getX(), miles->getY(), 100, 100);
+		Rectangle zoom = Rectangle(0, 0, 1000, 500);
 		buffer->Graphics->DrawImage(fondo, 0, 0, System::Drawing::Rectangle(0, 0, 1000, 500), GraphicsUnit::Pixel);
-		buffer->Render(canvas);
-		delete buffer;
-		delete espaciobuffer;
-		delete canvas;
+		miles->draw(buffer->Graphics, bmphero);
+		buffer->Render(g);
+	}
+
+	private: System::Void NivelMiles_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Up) miles->move(buffer->Graphics, 0);
+
+		if (e->KeyCode == Keys::Down) miles->move(buffer->Graphics, 1);
+
+		if (e->KeyCode == Keys::Right) miles->move(buffer->Graphics, 3);
+
+		if (e->KeyCode == Keys::Left) miles->move(buffer->Graphics, 2);
+
 	}
 	};
 }
