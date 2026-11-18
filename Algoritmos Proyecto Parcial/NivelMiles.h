@@ -26,7 +26,7 @@ namespace AlgoritmosProyectoFinal {
 			buffer = space->Allocate(g, this->ClientRectangle);
 			fondo = gcnew Bitmap(gcnew System::String("Imagenes/MilesMapa1.png"));
 			bmphero = gcnew Bitmap("Imagenes/MilesMorales.png");
-			miles = new MilesMorales(bmphero->Width / 16, bmphero->Height / 8);
+			miles = new MilesMorales(100, 100, bmphero->Width / 16, bmphero->Height / 8, 100, 2, 2, 100, 100, 0, "Punk", 'S', 0, 0);
 		}
 	protected:
 		/// <summary>
@@ -89,22 +89,18 @@ namespace AlgoritmosProyectoFinal {
 	private: System::Void NivelMiles_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		Rectangle sectionshow = Rectangle(miles->getX(), miles->getY(), 100, 100);
+		Rectangle sectionshow = Rectangle(miles->GetPX(), miles->GetPY(), 100, 100);
 		Rectangle zoom = Rectangle(0, 0, 1000, 500);
 		buffer->Graphics->DrawImage(fondo, 0, 0, System::Drawing::Rectangle(0, 0, 1000, 500), GraphicsUnit::Pixel);
-		miles->draw(buffer->Graphics, bmphero);
+		miles->Dibujar(buffer->Graphics, bmphero);
 		buffer->Render(g);
 	}
 
 	private: System::Void NivelMiles_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Up) miles->move(buffer->Graphics, 0);
-
-		if (e->KeyCode == Keys::Down) miles->move(buffer->Graphics, 1);
-
-		if (e->KeyCode == Keys::Right) miles->move(buffer->Graphics, 3);
-
-		if (e->KeyCode == Keys::Left) miles->move(buffer->Graphics, 2);
-
+		if (e->KeyCode == Keys::Up) miles->move(buffer->Graphics, 'W');
+		if (e->KeyCode == Keys::Down) miles->move(buffer->Graphics, 'S');
+		if (e->KeyCode == Keys::Right) miles->move(buffer->Graphics, 'D');
+		if (e->KeyCode == Keys::Left) miles->move(buffer->Graphics, 'A');
 	}
 	};
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include "Protagonistas.h"
+#include "SpiderPunk.h"
 
 namespace AlgoritmosProyectoFinal {
 
@@ -58,7 +58,7 @@ namespace AlgoritmosProyectoFinal {
 		BufferedGraphics^ buffer;
 		Bitmap^ bmpMapa1;
 		Bitmap^ bmpPunk;
-		Protagonista* punk;
+		SpiderPunk* punk;
 
 
 
@@ -122,7 +122,7 @@ namespace AlgoritmosProyectoFinal {
 			bmpPunk = gcnew Bitmap("Imagenes/SpiderPunk.png");
 
 			// 3. Creamos el objeto protagonista aquí para asegurarnos de que todo está listo
-			punk = new Protagonista(100, 100, 64, 64, 100, 2, 2, 100, 100, 0, "Punk", 'S', 0, 0);
+			punk = new SpiderPunk(100, 100, 64, 64, 100, 2, 2, 100, 100, 0, "Punk", 'S', 0, 0);
 		}
 
 	private: System::Void timerJuego_Tick(System::Object^ sender, System::EventArgs^ e) {

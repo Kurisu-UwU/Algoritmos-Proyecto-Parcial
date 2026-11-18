@@ -4,6 +4,8 @@
 using namespace std;
 using namespace System::Drawing;
 
+enum Direccion { Arriba, Abajo, Derecha, Izquierda, Ninguno };
+
 class Protagonista {
 protected:
 	int x, y;
@@ -101,16 +103,4 @@ public:
 		idX++;
 		if (idX > 15)idX = 0;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 };
