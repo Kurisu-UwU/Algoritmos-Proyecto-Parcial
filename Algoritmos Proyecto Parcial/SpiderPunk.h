@@ -1,3 +1,4 @@
+#pragma once
 #include "Protagonistas.h"
 
 class SpiderPunk : public Protagonista {

@@ -8,7 +8,7 @@ public:
 	int GetEX() override { return ex; }
 	int GetEY() override { return ey; }
 	void Borrar() override;
-	void Dibujar() override;
+	void Dibujar();
 	void PerseguirProta(int, int, bool, bool, bool, bool) override;
 };
 Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1, float vel1temp, float velatk, string t1, bool vi, float temp) : PersonajeSecundario() {
@@ -27,9 +27,9 @@ Enemigos::Enemigos(int x1, int y1, int ancho, int alto, float a1, float v1, floa
 	tempo = temp;
 }
 Enemigos::~Enemigos() {}
-void Enemigos::Borrar() { BorrarEnemigo(ex, ey); }
+void Enemigos::Borrar() {  }
 void Enemigos::Dibujar() {
-	DibujarEnemigo(ex, ey);
+
 }
 void Enemigos::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
 	if (tempo > 20 / velocidadtempo) {

@@ -20,10 +20,10 @@ public:
 	virtual void GenerarProyectil(char n);
 	void MostrarProyectil();
 	void AtacarEnemigos(PersonajeSecundario*, Protagonista*);
-	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*, bool);
+	void EnemigoAcercaProta(PersonajeSecundario*, Protagonista*, bool, Graphics^, Bitmap^);
 	void EnemigoMuere(PersonajeSecundario*);
 	void EnemigoAtacaProta(PersonajeSecundario*, Protagonista*);
-	void GenerarObstaculo(int, int, int, int, int, int);
+	void GenerarObstaculo(int, int, int, int, int);
 	void AtributosNPC(int, int, int, int, int, int, int);
 	void BorrarObjetos();
 	void GenerarMovimientoJugador(Protagonista*);
@@ -53,7 +53,6 @@ public:
 };
 void Controladora::GenerarProyectil(char n) {  // sin usar de momento, ignorar
 	Proyectiles* obproye;
-	entidad.size() = n;
 	if (n == 'L' || n == 'l')
 	{
 		Proyectiles** proy = new Proyectiles * [proyectiles.size() + 1];
@@ -61,12 +60,11 @@ void Controladora::GenerarProyectil(char n) {  // sin usar de momento, ignorar
 			proy[i] = proyectiles[i];
 
 		proy[n] = obproye;
-		proyectiles.size()++;
 
-		if (proyectiles != nullptr)
-			delete[]proyectiles;
+		//if (proyectiles != nullptr)
+			//delete[]proyectiles;
 
-		proyectiles = proy;
+		//proyectiles = proy;
 	}
 	if (proyectiles.size() > 0) {
 		for (int i = 0; i < proyectiles.size(); i++) {
@@ -79,12 +77,9 @@ void Controladora::GenerarProyectil(char n) {  // sin usar de momento, ignorar
 
 void Controladora::BorrarObjetos() {
 }
-void Controladora::GenerarObstaculo(int numero, int x, int y, int velocidad, int ancho, int alto) {  // asignación de atributos a los obstáculos
-	Entidad* ent = new Entidad(1, 1, 0, 1, 1, true);
-	entidad[numero]->SetX(x);
-	entidad[numero]->SetY(y);
-	entidad[numero]->SetAncho(ancho);
-	entidad[numero]->SetAlto(alto);
+void Controladora::GenerarObstaculo(int x, int y, int velocidad, int ancho, int alto) {  // asignación de atributos a los obstáculos
+	Obstaculos* ent = new Obstaculos(x, y, velocidad, ancho, alto, true);
+	obstaculos.push_back(ent);
 }
 void Controladora::MostrarProyectil() { // muestra proyectil :V
 	for (int i = 0; i < proyectiles.size(); i++) {
@@ -95,16 +90,16 @@ void Controladora::MostrarProyectil() { // muestra proyectil :V
 }
 void Controladora::AtacarEnemigos(PersonajeSecundario* enemigo, Protagonista* protagonista) { // ataque del protagonista a los enemigos, Q E R
 	if (enemigo->GetVivo()) {
-		float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
-		float f = enemigo->GetVida() + n;
-		enemigo->SetVida(f);
+		//float n = protagonista->AtacarEnemigos(enemigo->GetEX(), enemigo->GetEY());
+		//float f = enemigo->GetVida() + n;
+		//enemigo->SetVida(f);
 	}
 }
 void Controladora::GenerarNotadeMusica(int cantidad) {
-	notas.size() = cantidad;
-	notas = new Notas * [cantidad];
-	for (int i = 0; i < cantidad; i++)
-		notas[i] = new Notas();
+	for (int i = 0; i < cantidad; i++) {
+		Notas * not = new Notas();
+		notas.push_back(not);
+	}
 }
 void Controladora::AtributosNotas() {
 	for (int i = 0; i < notas.size(); i++) 	notas[i]->SetVivo(false);
@@ -128,7 +123,7 @@ void Controladora::AtacarProtaNotas(Protagonista* protagonista) { // ataque del 
 	}
 }
 void Controladora::RevivirNotaDeMusica(short tipo, SpiderPunk* prota) {
-	bool n = true;
+	/*bool n = true;
 	int i = 0;
 	do {
 		if (notas[i]->GetVivo() == false) {
@@ -143,6 +138,7 @@ void Controladora::RevivirNotaDeMusica(short tipo, SpiderPunk* prota) {
 		}
 		if (i < notas.size()) { i++; }
 	} while (n);
+	*/
 }
 void Controladora::NotasMovimiento() {
 	int random = rand() % 102;
@@ -190,7 +186,7 @@ void Controladora::NotasMovimiento() {
 		}
 	}
 }
-void Controladora::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista, bool invisible) { // movimiento para que los enemigos se acerquen al prota
+void Controladora::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista* protagonista, bool invisible, Graphics^ g, Bitmap^ bmp) { // movimiento para que los enemigos se acerquen al prota
 	bool w, a, s, d = true;
 	if (enemigo->GetVivo()) {
 		enemigo->Borrar();
@@ -203,7 +199,7 @@ void Controladora::EnemigoAcercaProta(PersonajeSecundario* enemigo, Protagonista
 			}
 			enemigo->PerseguirProta(protagonista->GetPX(), protagonista->GetPY(), w, a, s, d);
 		}
-		enemigo->Dibujar();
+		enemigo->Dibujar(g, bmp);
 	}
 }
 void Controladora::EnemigoHaceGuardia(PersonajeSecundario* enemigo) { // movimiento para que los enemigos se acerquen al prota
@@ -220,7 +216,7 @@ void Controladora::EnemigoHaceGuardia(PersonajeSecundario* enemigo) { // movimie
 			enemigo->SetTempo(0);
 		}
 		enemigo->SetTempo(enemigo->GetTempo() + 1);
-		enemigo->Dibujar();
+		//enemigo->Dibujar();
 	}
 }
 void Controladora::EnemigoMuere(PersonajeSecundario* enemigo) {  // cuando el enemigo muere
@@ -241,15 +237,15 @@ void Controladora::GenerarMovimientoJugador(Protagonista* prota) {  // Condición
 	if (tecla == 'a' || tecla == 'A') prota->SetMirada(2);
 	if (tecla == 's' || tecla == 'S') prota->SetMirada(3);
 	if (tecla == 'd' || tecla == 'D') prota->SetMirada(4);
-	prota->Borrar();
+	//prota->Borrar();
 	for (int i = 0; i < obstaculos.size(); i++) {// colisiones con obstáculos
 		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 0) == true) { w = false; }// arriba
 		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 2) == true) { s = false; }//abajo
 		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 1) == true) { a = false; }// izquierda
 		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 3) == true) { d = false; }//derecha
 	}
-	prota->move(w, s, a, d);
-	prota->Dibujar();
+	//prota->move(w, s, a, d);
+	//prota->Dibujar();
 }
 void Controladora::GenerarTambores(int cantidad) {
 	for (int i = 0; i < tambores.size(); i++)
@@ -300,14 +296,10 @@ void Controladora::RevivirTambor(short tipo, short nivel) {
 	case 2: y = 32; break;
 	default: break;
 	}
-	BorrarSpot(190, 16);
-	BorrarSpot(190, 23);
-	BorrarSpot(190, 30);
 	do {
 		if (tambores[i]->GetVivo() == false) {
 			tambores[i]->SetX(180);
 			tambores[i]->SetY(y);
-			DibujarSpot(190, y - 2);
 			tambores[i]->SetTipo(tipo);
 			tambores[i]->SetVivo(true);
 			n = false;  // github copilot
@@ -339,7 +331,6 @@ int Controladora::PisandoItem(Protagonista* prota) {
 	for (int i = 0; i < cofre.size(); i++) {
 		if (cofre[i]->GetExistencia()) {
 			if (cofre[i]->PisandoItem(prota)) {
-				Posicion(20, 5); ColorBlanco(); cout << "Desea Abrir el cofre?: pulse Z";
 				MostrarPreguntaCofre = true;
 				if (tecla == 'Z' || tecla == 'z') {
 					cofre[i]->SetExsistencia(false);
@@ -348,7 +339,6 @@ int Controladora::PisandoItem(Protagonista* prota) {
 				else { return 0; }
 			}
 			else if (MostrarPreguntaCofre) {
-				Posicion(20, 5); ColorBlanco(); cout << "                                ";
 				return 0;
 			}
 		}

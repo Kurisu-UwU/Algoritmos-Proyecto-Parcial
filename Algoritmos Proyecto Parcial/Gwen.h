@@ -8,7 +8,7 @@ public:
 	int GetEX() override { return ex; }
 	int GetEY() override { return ey; }
 	void Borrar()override;
-	void Dibujar() override;
+	void Dibujar();
 	void PerseguirProta(int, int, bool, bool, bool, bool) override;
 };
 Gwen::Gwen(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1, float vel1temp, float velatk, string t1, bool vi, float temp) : PersonajeSecundario() {
@@ -27,9 +27,9 @@ Gwen::Gwen(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1, 
 	tempo = temp;
 }
 Gwen::~Gwen() {}
-void Gwen::Borrar() { BorrarGwen(ex, ey); }
+void Gwen::Borrar() {  }
 void Gwen::Dibujar() {
-	DibujarGwen(ex, ey);
+
 }
 void Gwen::PerseguirProta(int px, int py, bool W, bool A, bool S, bool D) {  // Implementación de la lógica para perseguir al protagonista
 	if (tempo > 20 / velocidadtempo) {

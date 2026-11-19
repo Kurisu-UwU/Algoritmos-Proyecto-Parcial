@@ -3,6 +3,7 @@
 #include "MilesMorales.h"
 #include "MiguelOhara.h"
 #include "SpiderPunk.h"
+
 class Entidad {
 protected:
 	int x, y, dx, anchura, altura;
@@ -30,4 +31,4 @@ public:
 Entidad::Entidad() { x = 10; y = 10; dx = 1; anchura = 5; altura = 1; }
 Entidad::Entidad(int x1, int y1, int dx1, int alto, int ancho, bool owo) { x = x1; y = y1; dx = dx1; existencia = owo; anchura = ancho; altura = alto; }
 Entidad::~Entidad() {}
-void Entidad::Borrar() { Posicion(x, y); cout << "     "; }
+void Entidad::Borrar() { }

@@ -52,12 +52,10 @@ bool Tambores::PresionarTambores(int x2) {
 	}
 }
 void Tambores::Dibujar() {
-	if (tipo == 0) { BColorAzul(); } else { BColorRojo(); }
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
-	BColorNegro();
+
+
+	
 }
 void Tambores::Borrar() {
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
+
 }

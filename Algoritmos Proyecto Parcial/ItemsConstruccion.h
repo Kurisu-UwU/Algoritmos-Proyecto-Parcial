@@ -23,7 +23,7 @@ Tornillos::~Tornillos()
 {
 }
 void Tornillos::ImprimirItem(int x, int y) {
-	DibujarTornillos(x, y);
+
 }
 //
 //
@@ -51,7 +51,6 @@ Tuercas::~Tuercas()
 {
 }
 void Tuercas::ImprimirItem(int x, int y) {
-	DibujarTuercas(x, y);
 }
 //
 //
@@ -79,7 +78,7 @@ Arandelas::~Arandelas()
 {
 }
 void Arandelas::ImprimirItem(int x, int y) {
-	DibujarArandelas(x, y);
+
 }
 //
 //
@@ -107,7 +106,7 @@ Abrazadera::~Abrazadera()
 {
 }
 void Abrazadera::ImprimirItem(int x, int y) {
-	DibujarAbrazadera(x, y);
+
 }
 //
 //
@@ -135,7 +134,7 @@ Cables::~Cables()
 {
 }
 void Cables::ImprimirItem(int x, int y) {
-	DibujarCables(x, y);
+
 }
 //
 //
@@ -162,9 +161,9 @@ Carcasa::Carcasa(int x, int y, int dx, int anchura, int altura, bool existencia)
 Carcasa::~Carcasa()
 {
 }
-void Carcasa::ImprimirItem(int x, int y) {
-	DibujarCarcasa(x, y);
-}
+
+
+void Carcasa::ImprimirItem(int x, int y) {}
 //
 //
 //
@@ -199,5 +198,5 @@ Cofre::~Cofre()
 {
 }
 void Cofre::ImprimirItem(int x, int y) {
-	DibujarCofre(x, y);
+
 }

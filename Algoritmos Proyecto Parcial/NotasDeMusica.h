@@ -31,13 +31,9 @@ public:
 Notas::Notas() : Proyectiles() { x = 10; y = 10; vivo = false; tipo = 0; }
 Notas::~Notas() {}
 void Notas::Dibujar() {
-	if (tipo == 0) { BColorAzul(); }
-	else { BColorRojo(); }
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
-	BColorNegro();
+
+
 }
 void Notas::Borrar() {
-	Posicion(x, y); cout << "    ";
-	Posicion(x, y + 1); cout << "    ";
+
 }

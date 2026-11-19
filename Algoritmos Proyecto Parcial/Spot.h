@@ -35,10 +35,9 @@ bool Spot::ColisionSpot(Protagonista* personaje) {
 	else { return false; }
 }
 void Spot::ImprimirSpot(int x1, int y1) {
-	DibujarSpot(x1, y1);
+
 }
 void Spot::MoverSpot(int xi, int ys, int xd, int yi) {
-	BorrarSpot(ex, ey);
 	if (ex == xi) {ex = xd;}
 	else {
 		if (ex == xd) {ex = xi;}
@@ -51,16 +50,10 @@ void Spot::MoverSpot(int xi, int ys, int xd, int yi) {
 	_sleep(1);
 }
 void Spot::Dibujar() {
-	DibujarSpot(ex, ey);
 }
 void Spot::Borrar() {
 	_sleep(300);
-	DibujarGrieta(ex + 1, ey - 1);
 	_sleep(300);
-	DibujarGrieta2(ex + 1, ey - 1);
 	_sleep(300);
-	DibujarGrieta3(ex + 1, ey - 1);
 	_sleep(300);
-	BorrarSpot(ex, ey);
-	BorrarGrieta(ex + 1, ey - 1);
 }

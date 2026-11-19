@@ -25,4 +25,4 @@ bool Item::PisandoItem(Protagonista* personaje) {
 	else { return false; }
 }
 Item::~Item() {}
-void Item::ImprimirItem(int x, int y) { Posicion(x, y); cout << ""; }
+void Item::ImprimirItem(int x, int y) { }

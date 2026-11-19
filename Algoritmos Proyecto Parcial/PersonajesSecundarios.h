@@ -10,7 +10,6 @@ class PersonajeSecundario
 {
 protected:
 	int ex, ey, anchura, altura;
-	int idX, idY;
 	float cantidaddeataque, cantidaddevida, velocidad, velocidadtempo, velocidadataque;
 	string tipo;
 	bool vivo;
@@ -21,19 +20,19 @@ protected:
 	bool esvisible;
 public:
 	PersonajeSecundario();
-	PersonajeSecundario(int, int, int, int, float, float, float,float,float, string, bool, float, bool);
+	PersonajeSecundario(int, int, int, int, float, float, float, float, float, string, bool, float, bool);
 	virtual ~PersonajeSecundario();
 
 	virtual void Dibujar(Graphics^ g, Bitmap^ bmp) {
-		System::Drawing::Rectangle sectionshow = System::Drawing::Rectangle(idX * anchura, idY * altura, anchura, altura);
+		System::Drawing::Rectangle sectionshow = System::Drawing::Rectangle(ex * anchura, ey * altura, anchura, altura);
 		System::Drawing::Rectangle zoom = System::Drawing::Rectangle(ex, ey, anchura * 1.0, altura * 1.0);
 		g->DrawImage(bmp, zoom, sectionshow, GraphicsUnit::Pixel);
 	}
 	System::Drawing::Rectangle getRectangle() {
 		return System::Drawing::Rectangle(ex, ey, anchura * 0.03, altura * 0.03);
 	}
-	virtual void Borrar();
-	virtual void Mover(Graphics^ g);
+	virtual void Borrar() {}
+	virtual void Mover(Graphics^ g) {}
 	//coloca y cambia los datos de los enemigos los set
 	void SetEX(int x1) { ex = x1; }
 	void SetEY(int y1) { ey = y1; }
@@ -75,7 +74,7 @@ PersonajeSecundario::PersonajeSecundario() {
 	velocidad = 1;
 	velocidadtempo = 1;
 }
-PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp) {
+PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, float a1, float v1, float vel1,float vel1temp, float velatk, string t1, bool vi, float temp, bool nose) {
 	ex = x1; ey = y1;
 	anchura = ancho;
 	altura = alto;
@@ -91,7 +90,7 @@ PersonajeSecundario::PersonajeSecundario(int x1, int y1, int ancho, int alto, fl
 	tempo = temp;
 }
 PersonajeSecundario::~PersonajeSecundario() {if (listaP != nullptr) delete[]listaP;}
-void PersonajeSecundario::Borrar() {BorrarEnemigo(ex, ey);}
+
 void PersonajeSecundario::GenerarProyectil(char tecla) {
 	if (cantidaddevida <= 0) {
 		if (tecla == 'L' || tecla == 'l') {

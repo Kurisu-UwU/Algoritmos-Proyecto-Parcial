@@ -1,6 +1,6 @@
 #pragma once
 #include "SpiderPunk.h"
-
+#include "Controladora.h"
 namespace AlgoritmosProyectoFinal {
 
 	using namespace System;
@@ -59,6 +59,7 @@ namespace AlgoritmosProyectoFinal {
 		BufferedGraphics^ buffer;
 		Bitmap^ bmpMapa1;
 		Bitmap^ bmpPunk;
+		Controladora* controladora;
 	private: System::Windows::Forms::Panel^ pnlJuego2;
 	private: System::Windows::Forms::Panel^ pnlJuego3;
 	private: System::Windows::Forms::Panel^ pnlJuegoMusical;
@@ -334,7 +335,8 @@ namespace AlgoritmosProyectoFinal {
 			bmpPunk = gcnew Bitmap("Imagenes/SpiderPunk.png");
 
 			// 3. Creamos el objeto protagonista aquí para asegurarnos de que todo está listo
-			punk = new SpiderPunk(100, 100, 64, 64, 100, 2, 2, 100, 100, 0, "Punk", 'S', 0, 0);
+			punk = new SpiderPunk(100, 300, 64, 64, 100, 2, 2, 100, 100, 0, "Punk", 'S', 1, 1);
+			controladora->GenerarObstaculo(0, 0,0, 200, 200);
 		}
 
 	private: System::Void timerJuego_Tick(System::Object^ sender, System::EventArgs^ e) {
@@ -342,7 +344,7 @@ namespace AlgoritmosProyectoFinal {
 		buffer->Graphics->DrawImage(bmpMapa1, 0, 0, pnlJuego1->Width * 1.0, pnlJuego1->Height * 1.0);
 
 		punk->Dibujar(buffer->Graphics, bmpPunk);
-
+		controladora->DibujarObstaculos(buffer->Graphics);
 		buffer->Render(gr);
 	}
 

@@ -89,8 +89,8 @@ namespace AlgoritmosProyectoFinal {
 	private: System::Void NivelMiles_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		Rectangle sectionshow = Rectangle(miles->GetPX(), miles->GetPY(), 100, 100);
-		Rectangle zoom = Rectangle(0, 0, 1000, 500);
+		System::Drawing::Rectangle sectionshow = System::Drawing::Rectangle(miles->GetPX(), miles->GetPY(), 100, 100);
+		System::Drawing::Rectangle zoom = System::Drawing::Rectangle(0, 0, 1000, 500);
 		buffer->Graphics->DrawImage(fondo, 0, 0, System::Drawing::Rectangle(0, 0, 1000, 500), GraphicsUnit::Pixel);
 		miles->Dibujar(buffer->Graphics, bmphero);
 		buffer->Render(g);

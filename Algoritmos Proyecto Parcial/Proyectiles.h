@@ -19,8 +19,8 @@ public:
 };
 Proyectiles::Proyectiles() { x = 10; y = 10; dx = dy=  1; }
 Proyectiles::~Proyectiles() {}
-void Proyectiles::Borrar() { Posicion(x, y); cout << "     "; }
-void Proyectiles::Dibujar() { ColorRojo(); Posicion(x, y); cout << "====="; }
+void Proyectiles::Borrar() { cout << "     "; }
+void Proyectiles::Dibujar() { cout << "====="; }
 void Proyectiles::Mover() {
 	if (uwu == true) {
 		int random = rand() % 3;

@@ -26,9 +26,9 @@ LasersMenu::LasersMenu(int x1, int y1, int dx1, bool owo, short tipo1) { x = x1;
 LasersMenu::~LasersMenu() {}
 void LasersMenu::Mover() {
 	switch (tipo){
-	case 1: Posicion(x, y); cout << "        ";	break;
-	case 2: Posicion(x, y); cout << "           "; break;
-	case 3: Posicion(x, y); cout << "              "; break;
+	case 1: cout << "        ";	break;
+	case 2: cout << "           "; break;
+	case 3:  cout << "              "; break;
 	default: break;
 	}
 	if (uwu == true) {
@@ -41,25 +41,25 @@ void LasersMenu::Mover() {
 		uwu = false;
 	}
 	x += dx;
-	ColorRojo();
+	
 	switch (tipo) {
 	case 1: // Dibujar el primer tipo de láser	
 		if ((dx > 0 && (x + dx > 206 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
-		Posicion(x, y); cout << "========"; break;
+		 cout << "========"; break;
 	case 2:	
 		if ((dx > 0 && (x + dx > 203 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
-		Posicion(x, y); cout << "==========="; break;
+		 cout << "==========="; break;
 	case 3: 	
 		if ((dx > 0 && (x + dx > 200 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2))) { uwu = true; }
-		Posicion(x, y); cout << "============="; break;
+		 cout << "============="; break;
 	default: break;
 	}
 }
 void LasersMenu::MoverSpot() {
 	switch (tipo) {
-	case 1: Posicion(x, y); cout << "        ";	break;
-	case 2: Posicion(x, y); cout << "           "; break;
-	case 3: Posicion(x, y); cout << "              "; break;
+	case 1:  cout << "        ";	break;
+	case 2: cout << "           "; break;
+	case 3: cout << "              "; break;
 	default: break;
 	}
 	if (uwu == true) {
@@ -72,17 +72,17 @@ void LasersMenu::MoverSpot() {
 		uwu = false;
 	}
 	x += dx;
-	ColorRojo();
+	
 	switch (tipo) {
 	case 1: // Dibujar el primer tipo de láser	
 		if ((dx > 0 && (x + dx > 186 + (dx * -2))) || (dx < 0 && (x + dx < dx *-2 + 20))) { uwu = true; }
-		Posicion(x, y); cout << "========"; break;
+		cout << "========"; break;
 	case 2:
 		if ((dx > 0 && (x + dx > 183 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2 + 20))) { uwu = true; }
-		Posicion(x, y); cout << "==========="; break;
+		 cout << "==========="; break;
 	case 3:
 		if ((dx > 0 && (x + dx > 180 + (dx * -2))) || (dx < 0 && (x + dx < dx * -2 + 20))) { uwu = true; }
-		Posicion(x, y); cout << "============="; break;
+		 cout << "============="; break;
 	default: break;
 	}
 }
