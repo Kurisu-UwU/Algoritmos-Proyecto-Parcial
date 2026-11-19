@@ -140,6 +140,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="NotasDeMusica.h" />
+    <ClInclude Include="Obstaculos.h" />
     <ClInclude Include="PantallaPrincipal.h">
       <FileType>CppForm</FileType>
     </ClInclude>

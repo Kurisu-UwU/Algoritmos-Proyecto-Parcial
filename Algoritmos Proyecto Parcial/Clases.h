@@ -10,3 +10,4 @@
 #include "Gwen.h"
 #include "Enemigos.h"
 #include "NotasDeMusica.h"
+#include "Obstaculos.h"

@@ -31,9 +31,6 @@
     <Filter Include="Source Files\Clases\Herencia\Proyectiles">
       <UniqueIdentifier>{d96b96ba-a40f-4270-84c9-95e81971c452}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Clases\Herencia\Obstaculos">
-      <UniqueIdentifier>{4da04039-f154-4a4a-a625-c5bc44ea1aea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Clases\Herencia\Niveles">
       <UniqueIdentifier>{20fda0d8-fec7-4e21-852e-9e6fba588f80}</UniqueIdentifier>
     </Filter>
@@ -51,6 +48,9 @@
     </Filter>
     <Filter Include="Source Files\Clases\Herencia\Personaje Secundario">
       <UniqueIdentifier>{e83ad3f6-707b-4d6c-b539-838964bb8340}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Clases\Herencia\Entidades">
+      <UniqueIdentifier>{4da04039-f154-4a4a-a625-c5bc44ea1aea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,7 +102,7 @@
       <Filter>Source Files\Clases\Herencia\Proyectiles</Filter>
     </ClInclude>
     <ClInclude Include="Items.h">
-      <Filter>Source Files\Clases\Herencia\Obstaculos</Filter>
+      <Filter>Source Files\Clases\Herencia\Entidades</Filter>
     </ClInclude>
     <ClInclude Include="NivelPersecucionClase.h">
       <Filter>Source Files\Clases\Herencia\Niveles</Filter>
@@ -163,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Controladora.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Obstaculos.h">
+      <Filter>Source Files\Clases\Herencia\Entidades</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

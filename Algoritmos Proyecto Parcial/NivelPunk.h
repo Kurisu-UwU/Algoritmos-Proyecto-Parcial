@@ -78,17 +78,20 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			// pnlDeControl
 			// 
-			this->pnlDeControl->Location = System::Drawing::Point(12, 12);
+			this->pnlDeControl->Location = System::Drawing::Point(9, 10);
+			this->pnlDeControl->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pnlDeControl->Name = L"pnlDeControl";
-			this->pnlDeControl->Size = System::Drawing::Size(1300, 80);
+			this->pnlDeControl->Size = System::Drawing::Size(975, 65);
 			this->pnlDeControl->TabIndex = 0;
 			// 
 			// pnlJuego
 			// 
-			this->pnlJuego->Location = System::Drawing::Point(12, 98);
+			this->pnlJuego->Location = System::Drawing::Point(9, 80);
+			this->pnlJuego->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pnlJuego->Name = L"pnlJuego";
-			this->pnlJuego->Size = System::Drawing::Size(1300, 720);
+			this->pnlJuego->Size = System::Drawing::Size(975, 585);
 			this->pnlJuego->TabIndex = 1;
+			this->pnlJuego->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &NivelPunk::pnlJuego_Paint);
 			// 
 			// timerJuego
 			// 
@@ -97,11 +100,12 @@ namespace AlgoritmosProyectoFinal {
 			// 
 			// NivelPunk
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1326, 837);
+			this->ClientSize = System::Drawing::Size(994, 680);
 			this->Controls->Add(this->pnlJuego);
 			this->Controls->Add(this->pnlDeControl);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"NivelPunk";
 			this->Text = L"NivelPunk";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &NivelPunk::NivelPunk_FormClosing);
@@ -149,6 +153,8 @@ private: System::Void NivelPunk_KeyDown(System::Object^ sender, System::Windows:
 		punk->move(buffer->Graphics, 'W'); break;
 	}
 
+}
+private: System::Void pnlJuego_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 };
 }

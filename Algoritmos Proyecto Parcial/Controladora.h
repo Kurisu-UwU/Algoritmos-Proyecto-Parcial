@@ -2,7 +2,6 @@
 #include <vector>
 #include "clases.h"
 
-using namespace std;
 class Controladora {
 private:
 	vector<PersonajeSecundario*>entity;
@@ -13,6 +12,7 @@ private:
 	vector<LasersMenu*> lasersmenu;
 	vector<Entidad*> entidad;
 	bool MostrarPreguntaCofre;
+	vector<Obstaculos*> obstaculos;
 public:
 	Controladora() {}
 	~Controladora() {}
@@ -45,15 +45,12 @@ public:
 	void AtributosNotas();
 	void AtacarEnemigoNotas(PersonajeSecundario*);
 	void AtacarProtaNotas(Protagonista*);
+	void DibujarObstaculos(Graphics^ g) {
+		for (int i = 0; i < obstaculos.size(); i++) {
+			obstaculos[i]->Dibujar(g);
+		}
+	}
 };
-Controladora::Controladora() {
-	//canEne = 0;
-	//listaEne = nullptr;
-	MostrarPreguntaCofre = true;
-}
-Controladora::~Controladora() {  // eliminador
-	if (entidad != nullptr) delete[]entidad;
-}
 void Controladora::GenerarProyectil(char n) {  // sin usar de momento, ignorar
 	Proyectiles* obproye;
 	entidad.size() = n;
@@ -245,11 +242,11 @@ void Controladora::GenerarMovimientoJugador(Protagonista* prota) {  // Condición
 	if (tecla == 's' || tecla == 'S') prota->SetMirada(3);
 	if (tecla == 'd' || tecla == 'D') prota->SetMirada(4);
 	prota->Borrar();
-	for (int i = 0; i < entidad.size(); i++) {// colisiones con obstáculos
-		if (CalcularColisionesDireccionales(px, py, entidad[i]->GetX(), entidad[i]->GetY(), ancho, alto, entidad[i]->GetAncho(), entidad[i]->GetAlto(), pvlx, pvly, 0) == true) { w = false; }// arriba
-		if (CalcularColisionesDireccionales(px, py, entidad[i]->GetX(), entidad[i]->GetY(), ancho, alto, entidad[i]->GetAncho(), entidad[i]->GetAlto(), pvlx, pvly, 2) == true) { s = false; }//abajo
-		if (CalcularColisionesDireccionales(px, py, entidad[i]->GetX(), entidad[i]->GetY(), ancho, alto, entidad[i]->GetAncho(), entidad[i]->GetAlto(), pvlx, pvly, 1) == true) { a = false; }// izquierda
-		if (CalcularColisionesDireccionales(px, py, entidad[i]->GetX(), entidad[i]->GetY(), ancho, alto, entidad[i]->GetAncho(), entidad[i]->GetAlto(), pvlx, pvly, 3) == true) { d = false; }//derecha
+	for (int i = 0; i < obstaculos.size(); i++) {// colisiones con obstáculos
+		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 0) == true) { w = false; }// arriba
+		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 2) == true) { s = false; }//abajo
+		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 1) == true) { a = false; }// izquierda
+		if (CalcularColisionesDireccionales(px, py, obstaculos[i]->GetX(), obstaculos[i]->GetY(), ancho, alto, obstaculos[i]->GetAncho(), obstaculos[i]->GetAlto(), pvlx, pvly, 3) == true) { d = false; }//derecha
 	}
 	prota->move(w, s, a, d);
 	prota->Dibujar();
